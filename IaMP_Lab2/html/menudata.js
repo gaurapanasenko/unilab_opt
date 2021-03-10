@@ -24,7 +24,6 @@
 */
 var menudata={children:[
 {text:"Титульна сторінка",url:"index.html"},
-{text:"Додаткова інформація",url:"pages.html"},
 {text:"Класи",url:"annotated.html",children:[
 {text:"Класи",url:"annotated.html"},
 {text:"Алфавітний покажчик класів",url:"classes.html"},

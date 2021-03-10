@@ -1,4 +1,4 @@
-\doxysection{Клас Image}
+\hypertarget{classImage}{}\doxysection{Клас Image}
 \label{classImage}\index{Image@{Image}}
 
 
@@ -12,31 +12,31 @@ Stores pixels, width and height.
 \doxysubsection*{Загальнодоступні елементи}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ Image} (shared\+\_\+ptr$<$ const \textbf{ pixel\+\_\+t}[$\,$]$>$ \textbf{ data}, const int \textbf{ width}, const int \textbf{ height})
-\begin{DoxyCompactList}\small\item\em \doxyref{Image}{стор.}{classImage} construcor. Stores reference to pixels, height and width of an image. \end{DoxyCompactList}\item 
-shared\+\_\+ptr$<$ const int[256]$>$ \textbf{ calc\+Histogram} () const
-\begin{DoxyCompactList}\small\item\em Calculates histogram of an image. Calculates histogram by red channel so \doxyref{Image}{стор.}{classImage} must be grayscaled before. \end{DoxyCompactList}\item 
-shared\+\_\+ptr$<$ const \textbf{ Image} $>$ \textbf{ to\+Gray} () const
+\mbox{\hyperlink{classImage_ac14349d3c13c9d8181f327cf97586a02}{Image}} (shared\+\_\+ptr$<$ const \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\+\_\+t}}\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}, const int \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, const int \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classImage}{Image}} construcor. Stores reference to pixels, height and width of an image. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ const int\mbox{[}256\mbox{]}$>$ \mbox{\hyperlink{classImage_a6c224cde9fd9e650210fd68c92c8d842}{calc\+Histogram}} () const
+\begin{DoxyCompactList}\small\item\em Calculates histogram of an image. Calculates histogram by red channel so \mbox{\hyperlink{classImage}{Image}} must be grayscaled before. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImage}{Image}} $>$ \mbox{\hyperlink{classImage_ad0f4f038371f5345624ebe5f278646bf}{to\+Gray}} () const
 \begin{DoxyCompactList}\small\item\em Convert image to grayscale. Still uses 24 bytes per pixel. \end{DoxyCompactList}\item 
-shared\+\_\+ptr$<$ const \textbf{ Image} $>$ \textbf{ dissect} (\textbf{ channel\+\_\+t} dissection[256]) const
-\begin{DoxyCompactList}\small\item\em Dissect image. Dissecting image of every color channel except of alpha. For best result \doxyref{Image}{стор.}{classImage} must be grayscaled before. \end{DoxyCompactList}\item 
-shared\+\_\+ptr$<$ const \textbf{ Image} $>$ \textbf{ dilate} (int params[2]) const
-\begin{DoxyCompactList}\small\item\em Dilate image. Applies max filter. For this filter used mask with size ({\ttfamily 2$\ast$params[0]+1})x({\ttfamily 2$\ast$params[1]+1}) \end{DoxyCompactList}\item 
-shared\+\_\+ptr$<$ const \textbf{ Image} $>$ \textbf{ erode} (int params[2]) const
-\begin{DoxyCompactList}\small\item\em Erode image. Applies max filter. For this filter used mask with size ({\ttfamily 2$\ast$params[0]+1})x({\ttfamily 2$\ast$params[1]+1}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImage}{Image}} $>$ \mbox{\hyperlink{classImage_aab141dc2274be046d22fbcbe0f7b63c4}{dissect}} (\mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\+\_\+t}} dissection\mbox{[}256\mbox{]}) const
+\begin{DoxyCompactList}\small\item\em Dissect image. Dissecting image of every color channel except of alpha. For best result \mbox{\hyperlink{classImage}{Image}} must be grayscaled before. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImage}{Image}} $>$ \mbox{\hyperlink{classImage_a38073202d9a5725f2fc0966bac9e9166}{dilate}} (int params\mbox{[}2\mbox{]}) const
+\begin{DoxyCompactList}\small\item\em Dilate image. Applies max filter. For this filter used mask with size ({\ttfamily 2$\ast$params\mbox{[}0\mbox{]}+1})x({\ttfamily 2$\ast$params\mbox{[}1\mbox{]}+1}) \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImage}{Image}} $>$ \mbox{\hyperlink{classImage_a6bbca250cf4930260a8bf03773404e6e}{erode}} (int params\mbox{[}2\mbox{]}) const
+\begin{DoxyCompactList}\small\item\em Erode image. Applies max filter. For this filter used mask with size ({\ttfamily 2$\ast$params\mbox{[}0\mbox{]}+1})x({\ttfamily 2$\ast$params\mbox{[}1\mbox{]}+1}) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Загальнодоступні статичні елементи}
 \begin{DoxyCompactItemize}
 \item 
-static \textbf{ Image} \textbf{ from\+File} (const char $\ast$path)
+static \mbox{\hyperlink{classImage}{Image}} \mbox{\hyperlink{classImage_ac282669cfe2627b0feeadebeba74c35e}{from\+File}} (const char $\ast$path)
 \begin{DoxyCompactList}\small\item\em Read image from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Загальнодоступні атрибути}
 \begin{DoxyCompactItemize}
 \item 
-shared\+\_\+ptr$<$ const \textbf{ pixel\+\_\+t}[$\,$]$>$ \textbf{ data}
+shared\+\_\+ptr$<$ const \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\+\_\+t}}\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}
 \begin{DoxyCompactList}\small\item\em Constant pixels array. Stores smart pointer to {\ttfamily height $\ast$ width} pixels of an image. \end{DoxyCompactList}\item 
-const int \textbf{ width}
+const int \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}
 \begin{DoxyCompactList}\small\item\em Width of an image. \end{DoxyCompactList}\item 
-const int \textbf{ height}
+const int \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}
 \begin{DoxyCompactList}\small\item\em Height of an image. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -48,15 +48,15 @@ Stores pixels, width and height.
 
 
 \doxysubsection{Конструктор(и)}
-\mbox{\label{classImage_ac14349d3c13c9d8181f327cf97586a02}} 
+\mbox{\Hypertarget{classImage_ac14349d3c13c9d8181f327cf97586a02}\label{classImage_ac14349d3c13c9d8181f327cf97586a02}} 
 \index{Image@{Image}!Image@{Image}}
 \index{Image@{Image}!Image@{Image}}
-\doxysubsubsection{Image()}
-{\footnotesize\ttfamily Image\+::\+Image (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ const \textbf{ pixel\+\_\+t}[$\,$]$>$}]{data,  }\item[{const int}]{width,  }\item[{const int}]{height }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{Image()}{Image()}}
+{\footnotesize\ttfamily Image\+::\+Image (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ const \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\+\_\+t}}\mbox{[}$\,$\mbox{]}$>$}]{data,  }\item[{const int}]{width,  }\item[{const int}]{height }\end{DoxyParamCaption})}
 
 
 
-\doxyref{Image}{стор.}{classImage} construcor. Stores reference to pixels, height and width of an image. 
+\mbox{\hyperlink{classImage}{Image}} construcor. Stores reference to pixels, height and width of an image. 
 
 
 \begin{DoxyParams}{Аргументи}
@@ -73,7 +73,7 @@ Stores pixels, width and height.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{11     : data(data), width(width), height(height)}
+\DoxyCodeLine{11     : \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}(\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}), \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}(\mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}), \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}(\mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}})}
 \DoxyCodeLine{12 \{}
 \DoxyCodeLine{13 \}}
 
@@ -81,15 +81,15 @@ Stores pixels, width and height.
 
 
 \doxysubsection{Опис методів компонент}
-\mbox{\label{classImage_a6c224cde9fd9e650210fd68c92c8d842}} 
+\mbox{\Hypertarget{classImage_a6c224cde9fd9e650210fd68c92c8d842}\label{classImage_a6c224cde9fd9e650210fd68c92c8d842}} 
 \index{Image@{Image}!calcHistogram@{calcHistogram}}
 \index{calcHistogram@{calcHistogram}!Image@{Image}}
-\doxysubsubsection{calcHistogram()}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ const int[256]$>$ Image\+::calc\+Histogram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\doxysubsubsection{\texorpdfstring{calcHistogram()}{calcHistogram()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ const int\mbox{[}256\mbox{]}$>$ Image\+::calc\+Histogram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
-Calculates histogram of an image. Calculates histogram by red channel so \doxyref{Image}{стор.}{classImage} must be grayscaled before. 
+Calculates histogram of an image. Calculates histogram by red channel so \mbox{\hyperlink{classImage}{Image}} must be grayscaled before. 
 
 \begin{DoxyReturn}{Повертає}
 Smart pointer to histogram. 
@@ -102,9 +102,9 @@ Smart pointer to histogram.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{25 \{}
 \DoxyCodeLine{26     std::shared\_ptr<int[256]> histogram(\textcolor{keyword}{new} \textcolor{keywordtype}{int}[256]\{0\});}
-\DoxyCodeLine{27     \textcolor{keyword}{const} pixel\_t *in\_data = data.get();}
+\DoxyCodeLine{27     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get();}
 \DoxyCodeLine{28 }
-\DoxyCodeLine{29     \textcolor{keywordtype}{int} size = height * width;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} size = \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}} * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}};}
 \DoxyCodeLine{30     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++)}
 \DoxyCodeLine{31         histogram[in\_data[i][0]]++;}
 \DoxyCodeLine{32 }
@@ -112,15 +112,15 @@ Smart pointer to histogram.
 \DoxyCodeLine{34 \}}
 
 \end{DoxyCode}
-\mbox{\label{classImage_a38073202d9a5725f2fc0966bac9e9166}} 
+\mbox{\Hypertarget{classImage_a38073202d9a5725f2fc0966bac9e9166}\label{classImage_a38073202d9a5725f2fc0966bac9e9166}} 
 \index{Image@{Image}!dilate@{dilate}}
 \index{dilate@{dilate}!Image@{Image}}
-\doxysubsubsection{dilate()}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ const \textbf{ Image} $>$ Image\+::dilate (\begin{DoxyParamCaption}\item[{int}]{params[2] }\end{DoxyParamCaption}) const}
+\doxysubsubsection{\texorpdfstring{dilate()}{dilate()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImage}{Image}} $>$ Image\+::dilate (\begin{DoxyParamCaption}\item[{int}]{params\mbox{[}2\mbox{]} }\end{DoxyParamCaption}) const}
 
 
 
-Dilate image. Applies max filter. For this filter used mask with size ({\ttfamily 2$\ast$params[0]+1})x({\ttfamily 2$\ast$params[1]+1}) 
+Dilate image. Applies max filter. For this filter used mask with size ({\ttfamily 2$\ast$params\mbox{[}0\mbox{]}+1})x({\ttfamily 2$\ast$params\mbox{[}1\mbox{]}+1}) 
 
 
 \begin{DoxyParams}{Аргументи}
@@ -137,41 +137,41 @@ Smart pointer to dilated image.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{74 \{}
-\DoxyCodeLine{75     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} pixel\_t[width * height]);}
-\DoxyCodeLine{76     \textcolor{keyword}{const} pixel\_t *in\_data = data.get();}
+\DoxyCodeLine{75     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[\mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} * \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}]);}
+\DoxyCodeLine{76     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get();}
 \DoxyCodeLine{77     \textcolor{keywordtype}{int} i, j, k, l, kbegin, kend, lbegin, lend;}
 \DoxyCodeLine{78 }
-\DoxyCodeLine{79     \textcolor{keywordflow}{for} (i = 0; i < height; i++) \{}
-\DoxyCodeLine{80         \textcolor{keywordflow}{for} (j = 0; j < width; j++) \{}
-\DoxyCodeLine{81             channel\_t mx = in\_data[i * width + j][0];}
+\DoxyCodeLine{79     \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}; i++) \{}
+\DoxyCodeLine{80         \textcolor{keywordflow}{for} (j = 0; j < \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}; j++) \{}
+\DoxyCodeLine{81             \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}} mx = in\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][0];}
 \DoxyCodeLine{82             kbegin = max(i -\/ params[1], 0);}
-\DoxyCodeLine{83             kend = min(i + params[1] + 1, height);}
+\DoxyCodeLine{83             kend = min(i + params[1] + 1, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
 \DoxyCodeLine{84             lbegin = max(j -\/ params[0], 0);}
-\DoxyCodeLine{85             lend = min(j + params[0], width -\/ 1);}
+\DoxyCodeLine{85             lend = min(j + params[0], \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} -\/ 1);}
 \DoxyCodeLine{86             \textcolor{keywordflow}{for} (k = kbegin; k != kend; k++) \{}
 \DoxyCodeLine{87                 \textcolor{keywordflow}{for} (l = lbegin; l != lend; l++) \{}
-\DoxyCodeLine{88                     mx = max(mx, in\_data[k * width + l][0]);}
+\DoxyCodeLine{88                     mx = max(mx, in\_data[k * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + l][0]);}
 \DoxyCodeLine{89                 \}}
 \DoxyCodeLine{90             \}}
 \DoxyCodeLine{91             \textcolor{keywordflow}{for} (k = 0; k < 3; k++) \{}
-\DoxyCodeLine{92                 out\_data[i * width + j][k] = mx;}
+\DoxyCodeLine{92                 out\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][k] = mx;}
 \DoxyCodeLine{93             \}}
-\DoxyCodeLine{94             out\_data[i * width + j][3] = 255;}
+\DoxyCodeLine{94             out\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][3] = 255;}
 \DoxyCodeLine{95         \}}
 \DoxyCodeLine{96     \}}
-\DoxyCodeLine{97     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, width, height);}
+\DoxyCodeLine{97     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
 \DoxyCodeLine{98 \}}
 
 \end{DoxyCode}
-\mbox{\label{classImage_aab141dc2274be046d22fbcbe0f7b63c4}} 
+\mbox{\Hypertarget{classImage_aab141dc2274be046d22fbcbe0f7b63c4}\label{classImage_aab141dc2274be046d22fbcbe0f7b63c4}} 
 \index{Image@{Image}!dissect@{dissect}}
 \index{dissect@{dissect}!Image@{Image}}
-\doxysubsubsection{dissect()}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ const \textbf{ Image} $>$ Image\+::dissect (\begin{DoxyParamCaption}\item[{\textbf{ channel\+\_\+t}}]{dissection[256] }\end{DoxyParamCaption}) const}
+\doxysubsubsection{\texorpdfstring{dissect()}{dissect()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImage}{Image}} $>$ Image\+::dissect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\+\_\+t}}}]{dissection\mbox{[}256\mbox{]} }\end{DoxyParamCaption}) const}
 
 
 
-Dissect image. Dissecting image of every color channel except of alpha. For best result \doxyref{Image}{стор.}{classImage} must be grayscaled before. 
+Dissect image. Dissecting image of every color channel except of alpha. For best result \mbox{\hyperlink{classImage}{Image}} must be grayscaled before. 
 
 
 \begin{DoxyParams}{Аргументи}
@@ -188,9 +188,9 @@ Smart pointer to dissected image.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{58 \{}
-\DoxyCodeLine{59     \textcolor{keyword}{const} \textcolor{keywordtype}{int} size = width * height;}
-\DoxyCodeLine{60     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} pixel\_t[size]);}
-\DoxyCodeLine{61     \textcolor{keyword}{const} pixel\_t *in\_data = data.get();}
+\DoxyCodeLine{59     \textcolor{keyword}{const} \textcolor{keywordtype}{int} size = \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} * \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}};}
+\DoxyCodeLine{60     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[size]);}
+\DoxyCodeLine{61     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get();}
 \DoxyCodeLine{62 }
 \DoxyCodeLine{63     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
 \DoxyCodeLine{64         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 3; j++) \{}
@@ -199,19 +199,19 @@ Smart pointer to dissected image.
 \DoxyCodeLine{67         out\_data[i][3] = 255;}
 \DoxyCodeLine{68     \}}
 \DoxyCodeLine{69 }
-\DoxyCodeLine{70     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, width, height);}
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
 \DoxyCodeLine{71 \}}
 
 \end{DoxyCode}
-\mbox{\label{classImage_a6bbca250cf4930260a8bf03773404e6e}} 
+\mbox{\Hypertarget{classImage_a6bbca250cf4930260a8bf03773404e6e}\label{classImage_a6bbca250cf4930260a8bf03773404e6e}} 
 \index{Image@{Image}!erode@{erode}}
 \index{erode@{erode}!Image@{Image}}
-\doxysubsubsection{erode()}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$ const \textbf{ Image} $>$ Image\+::erode (\begin{DoxyParamCaption}\item[{int}]{params[2] }\end{DoxyParamCaption}) const}
+\doxysubsubsection{\texorpdfstring{erode()}{erode()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImage}{Image}} $>$ Image\+::erode (\begin{DoxyParamCaption}\item[{int}]{params\mbox{[}2\mbox{]} }\end{DoxyParamCaption}) const}
 
 
 
-Erode image. Applies max filter. For this filter used mask with size ({\ttfamily 2$\ast$params[0]+1})x({\ttfamily 2$\ast$params[1]+1}) 
+Erode image. Applies max filter. For this filter used mask with size ({\ttfamily 2$\ast$params\mbox{[}0\mbox{]}+1})x({\ttfamily 2$\ast$params\mbox{[}1\mbox{]}+1}) 
 
 
 \begin{DoxyParams}{Аргументи}
@@ -228,37 +228,37 @@ Smart pointer to eroded image.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{101 \{}
-\DoxyCodeLine{102     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} pixel\_t[width * height]);}
-\DoxyCodeLine{103     \textcolor{keyword}{const} pixel\_t *in\_data = data.get();}
+\DoxyCodeLine{102     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[\mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} * \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}]);}
+\DoxyCodeLine{103     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get();}
 \DoxyCodeLine{104     \textcolor{keywordtype}{int} i, j, k, l, kbegin, kend, lbegin, lend;}
 \DoxyCodeLine{105 }
-\DoxyCodeLine{106     \textcolor{keywordflow}{for} (i = 0; i < height; i++) \{}
-\DoxyCodeLine{107         \textcolor{keywordflow}{for} (j = 0; j < width; j++) \{}
-\DoxyCodeLine{108             channel\_t mx = in\_data[i * width + j][0];}
+\DoxyCodeLine{106     \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}; i++) \{}
+\DoxyCodeLine{107         \textcolor{keywordflow}{for} (j = 0; j < \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}; j++) \{}
+\DoxyCodeLine{108             \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}} mx = in\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][0];}
 \DoxyCodeLine{109             kbegin = max(i -\/ params[1], 0);}
-\DoxyCodeLine{110             kend = min(i + params[1] + 1, height);}
+\DoxyCodeLine{110             kend = min(i + params[1] + 1, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
 \DoxyCodeLine{111             lbegin = max(j -\/ params[0], 0);}
-\DoxyCodeLine{112             lend = min(j + params[0], width -\/ 1);}
+\DoxyCodeLine{112             lend = min(j + params[0], \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} -\/ 1);}
 \DoxyCodeLine{113             \textcolor{keywordflow}{for} (k = kbegin; k != kend; k++) \{}
 \DoxyCodeLine{114                 \textcolor{keywordflow}{for} (l = lbegin; l != lend; l++) \{}
-\DoxyCodeLine{115                     mx = min(mx, in\_data[k * width + l][0]);}
+\DoxyCodeLine{115                     mx = min(mx, in\_data[k * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + l][0]);}
 \DoxyCodeLine{116                 \}}
 \DoxyCodeLine{117             \}}
 \DoxyCodeLine{118             \textcolor{keywordflow}{for} (k = 0; k < 3; k++) \{}
-\DoxyCodeLine{119                 out\_data[i * width + j][k] = mx;}
+\DoxyCodeLine{119                 out\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][k] = mx;}
 \DoxyCodeLine{120             \}}
-\DoxyCodeLine{121             out\_data[i * width + j][3] = 255;}
+\DoxyCodeLine{121             out\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][3] = 255;}
 \DoxyCodeLine{122         \}}
 \DoxyCodeLine{123     \}}
-\DoxyCodeLine{124     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, width, height);}
+\DoxyCodeLine{124     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
 \DoxyCodeLine{125 \}}
 
 \end{DoxyCode}
-\mbox{\label{classImage_ac282669cfe2627b0feeadebeba74c35e}} 
+\mbox{\Hypertarget{classImage_ac282669cfe2627b0feeadebeba74c35e}\label{classImage_ac282669cfe2627b0feeadebeba74c35e}} 
 \index{Image@{Image}!fromFile@{fromFile}}
 \index{fromFile@{fromFile}!Image@{Image}}
-\doxysubsubsection{fromFile()}
-{\footnotesize\ttfamily \textbf{ Image} Image\+::from\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\doxysubsubsection{\texorpdfstring{fromFile()}{fromFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImage}{Image}} Image\+::from\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -270,7 +270,7 @@ Read image from file.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Повертає}
-{\ttfamily \doxyref{Image}{стор.}{classImage}} class, that also references to pixels. 
+{\ttfamily \mbox{\hyperlink{classImage}{Image}}} class, that also references to pixels. 
 \end{DoxyReturn}
 
 
@@ -279,19 +279,19 @@ Read image from file.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{16 \{}
-\DoxyCodeLine{17     \textcolor{keywordtype}{int} width = 0, height = 0;}
-\DoxyCodeLine{18     pixel\_t *data = (pixel\_t *)stbi\_load(path, \&width, \&height, NULL, COMP);}
-\DoxyCodeLine{19     assert(data != NULL);}
-\DoxyCodeLine{20     std::shared\_ptr<pixel\_t[]> ptr(data, stbi\_image\_free);}
-\DoxyCodeLine{21     \textcolor{keywordflow}{return} \{ptr, width, height\};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} = 0, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}} = 0;}
+\DoxyCodeLine{18     \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}} = (\mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *)stbi\_load(path, \&\mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \&\mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}, NULL, \mbox{\hyperlink{image_8h_a076912543697dbe4c46b79e8e44ad2fb}{COMP}});}
+\DoxyCodeLine{19     assert(\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}} != NULL);}
+\DoxyCodeLine{20     std::shared\_ptr<pixel\_t[]> ptr(\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}, stbi\_image\_free);}
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} \{ptr, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}\};}
 \DoxyCodeLine{22 \}}
 
 \end{DoxyCode}
-\mbox{\label{classImage_ad0f4f038371f5345624ebe5f278646bf}} 
+\mbox{\Hypertarget{classImage_ad0f4f038371f5345624ebe5f278646bf}\label{classImage_ad0f4f038371f5345624ebe5f278646bf}} 
 \index{Image@{Image}!toGray@{toGray}}
 \index{toGray@{toGray}!Image@{Image}}
-\doxysubsubsection{toGray()}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ const \textbf{ Image} $>$ Image\+::to\+Gray (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\doxysubsubsection{\texorpdfstring{toGray()}{toGray()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImage}{Image}} $>$ Image\+::to\+Gray (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -307,9 +307,9 @@ Smart pointer to grayscaled image.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{37 \{}
-\DoxyCodeLine{38     \textcolor{keywordtype}{int} size = width * height;}
-\DoxyCodeLine{39     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} pixel\_t[size]);}
-\DoxyCodeLine{40     \textcolor{keyword}{const} pixel\_t *in\_data = data.get(), *pixel;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} size = \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} * \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}};}
+\DoxyCodeLine{39     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[size]);}
+\DoxyCodeLine{40     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get(), *pixel;}
 \DoxyCodeLine{41     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} avg;}
 \DoxyCodeLine{42 }
 \DoxyCodeLine{43     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
@@ -323,18 +323,18 @@ Smart pointer to grayscaled image.
 \DoxyCodeLine{51         out\_data[i][3] = 255;}
 \DoxyCodeLine{52     \}}
 \DoxyCodeLine{53 }
-\DoxyCodeLine{54     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, width, height);}
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
 \DoxyCodeLine{55 \}}
 
 \end{DoxyCode}
 
 
 \doxysubsection{Компонентні дані}
-\mbox{\label{classImage_a0bff7334a9e45a84e0503448af829bbb}} 
+\mbox{\Hypertarget{classImage_a0bff7334a9e45a84e0503448af829bbb}\label{classImage_a0bff7334a9e45a84e0503448af829bbb}} 
 \index{Image@{Image}!data@{data}}
 \index{data@{data}!Image@{Image}}
-\doxysubsubsection{data}
-{\footnotesize\ttfamily shared\+\_\+ptr$<$const \textbf{ pixel\+\_\+t}[$\,$]$>$ Image\+::data}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$const \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\+\_\+t}}\mbox{[}$\,$\mbox{]}$>$ Image\+::data}
 
 
 
@@ -344,10 +344,10 @@ Constant pixels array. Stores smart pointer to {\ttfamily height $\ast$ width} p
 
 Див. визначення в файлі image.\+h, рядок 39
 
-\mbox{\label{classImage_adf1e0c7ecb8f09929175b5d4229beaad}} 
+\mbox{\Hypertarget{classImage_adf1e0c7ecb8f09929175b5d4229beaad}\label{classImage_adf1e0c7ecb8f09929175b5d4229beaad}} 
 \index{Image@{Image}!height@{height}}
 \index{height@{height}!Image@{Image}}
-\doxysubsubsection{height}
+\doxysubsubsection{\texorpdfstring{height}{height}}
 {\footnotesize\ttfamily const int Image\+::height}
 
 
@@ -358,10 +358,10 @@ Height of an image.
 
 Див. визначення в файлі image.\+h, рядок 47
 
-\mbox{\label{classImage_a5be4b15e10ac6609ec9350e79e723246}} 
+\mbox{\Hypertarget{classImage_a5be4b15e10ac6609ec9350e79e723246}\label{classImage_a5be4b15e10ac6609ec9350e79e723246}} 
 \index{Image@{Image}!width@{width}}
 \index{width@{width}!Image@{Image}}
-\doxysubsubsection{width}
+\doxysubsubsection{\texorpdfstring{width}{width}}
 {\footnotesize\ttfamily const int Image\+::width}
 
 
@@ -376,5 +376,5 @@ Width of an image.
 
 Документація цих класів була створена з файлів\+:\begin{DoxyCompactItemize}
 \item 
-\textbf{ image.\+h}\item 
-\textbf{ image.\+cpp}\end{DoxyCompactItemize}
+\mbox{\hyperlink{image_8h}{image.\+h}}\item 
+\mbox{\hyperlink{image_8cpp}{image.\+cpp}}\end{DoxyCompactItemize}

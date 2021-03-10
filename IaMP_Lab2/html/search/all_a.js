@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['stb_5fimage_5fimplementation_41',['STB_IMAGE_IMPLEMENTATION',['../image_8cpp.html#a18372412ad2fc3ce1e3240b3cf0efe78',1,'image.cpp']]]
+  ['texture_40',['texture',['../classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45',1,'Processor']]],
+  ['togray_41',['toGray',['../classImage.html#ad0f4f038371f5345624ebe5f278646bf',1,'Image']]]
 ];

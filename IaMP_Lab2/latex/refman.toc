@@ -1,83 +1,82 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
 \babel@toc {ukrainian}{}
-\contentsline {chapter}{\numberline {1}Звіт з лабораторних робіт №2 та №3 $<$br$>$}{1}%
-\contentsline {subsection}{\numberline {1.0.1}Постановка задачі лабораторної роботи 2}{1}%
-\contentsline {subsubsection}{\numberline {1.0.1.1}Завдання І.}{1}%
-\contentsline {subsubsection}{\numberline {1.0.1.2}Завдання ІІ.}{1}%
-\contentsline {subsection}{\numberline {1.0.2}Лабораторна робота 1}{2}%
-\contentsline {subsubsection}{\numberline {1.0.2.1}Завдання І.}{2}%
-\contentsline {chapter}{\numberline {2}Readme}{3}%
-\contentsline {chapter}{\numberline {3}Алфавітний покажчик класів}{5}%
-\contentsline {section}{\numberline {3.1}Класи}{5}%
-\contentsline {chapter}{\numberline {4}Покажчик файлв}{7}%
-\contentsline {section}{\numberline {4.1}Файли}{7}%
-\contentsline {chapter}{\numberline {5}Класи}{9}%
-\contentsline {section}{\numberline {5.1}Клас Image}{9}%
-\contentsline {subsection}{\numberline {5.1.1}Детальний опис}{10}%
-\contentsline {subsection}{\numberline {5.1.2}Конструктор(и)}{10}%
-\contentsline {subsubsection}{\numberline {5.1.2.1}Image()}{10}%
-\contentsline {subsection}{\numberline {5.1.3}Опис методів компонент}{10}%
-\contentsline {subsubsection}{\numberline {5.1.3.1}calcHistogram()}{10}%
-\contentsline {subsubsection}{\numberline {5.1.3.2}dilate()}{11}%
-\contentsline {subsubsection}{\numberline {5.1.3.3}dissect()}{11}%
-\contentsline {subsubsection}{\numberline {5.1.3.4}erode()}{12}%
-\contentsline {subsubsection}{\numberline {5.1.3.5}fromFile()}{12}%
-\contentsline {subsubsection}{\numberline {5.1.3.6}toGray()}{13}%
-\contentsline {subsection}{\numberline {5.1.4}Компонентні дані}{13}%
-\contentsline {subsubsection}{\numberline {5.1.4.1}data}{13}%
-\contentsline {subsubsection}{\numberline {5.1.4.2}height}{14}%
-\contentsline {subsubsection}{\numberline {5.1.4.3}width}{14}%
-\contentsline {section}{\numberline {5.2}Клас Image\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{14}%
-\contentsline {subsection}{\numberline {5.2.1}Детальний опис}{15}%
-\contentsline {subsection}{\numberline {5.2.2}Конструктор(и)}{15}%
-\contentsline {subsubsection}{\numberline {5.2.2.1}ImageData()}{15}%
-\contentsline {subsection}{\numberline {5.2.3}Опис методів компонент}{15}%
-\contentsline {subsubsection}{\numberline {5.2.3.1}copyHistogram()}{16}%
-\contentsline {subsubsection}{\numberline {5.2.3.2}equalize()}{16}%
-\contentsline {subsection}{\numberline {5.2.4}Компонентні дані}{16}%
-\contentsline {subsubsection}{\numberline {5.2.4.1}histogramF}{17}%
-\contentsline {subsubsection}{\numberline {5.2.4.2}histogramI}{17}%
-\contentsline {subsubsection}{\numberline {5.2.4.3}image}{17}%
-\contentsline {subsubsection}{\numberline {5.2.4.4}maxHistogramF}{17}%
-\contentsline {subsubsection}{\numberline {5.2.4.5}maxHistogramI}{17}%
-\contentsline {section}{\numberline {5.3}Клас Processor}{18}%
-\contentsline {subsection}{\numberline {5.3.1}Детальний опис}{18}%
-\contentsline {subsection}{\numberline {5.3.2}Конструктор(и)}{19}%
-\contentsline {subsubsection}{\numberline {5.3.2.1}Processor()}{19}%
-\contentsline {subsection}{\numberline {5.3.3}Опис методів компонент}{19}%
-\contentsline {subsubsection}{\numberline {5.3.3.1}process\_image()}{19}%
-\contentsline {subsubsection}{\numberline {5.3.3.2}updateDissection()}{20}%
-\contentsline {subsection}{\numberline {5.3.4}Компонентні дані}{21}%
-\contentsline {subsubsection}{\numberline {5.3.4.1}data}{21}%
-\contentsline {subsubsection}{\numberline {5.3.4.2}dilate}{21}%
-\contentsline {subsubsection}{\numberline {5.3.4.3}dilate\_params}{21}%
-\contentsline {subsubsection}{\numberline {5.3.4.4}dissected}{21}%
-\contentsline {subsubsection}{\numberline {5.3.4.5}dissection}{21}%
-\contentsline {subsubsection}{\numberline {5.3.4.6}dissection\_x}{22}%
-\contentsline {subsubsection}{\numberline {5.3.4.7}dissection\_y}{22}%
-\contentsline {subsubsection}{\numberline {5.3.4.8}dissectionF}{22}%
-\contentsline {subsubsection}{\numberline {5.3.4.9}erode}{22}%
-\contentsline {subsubsection}{\numberline {5.3.4.10}erode\_params}{22}%
-\contentsline {subsubsection}{\numberline {5.3.4.11}orig}{23}%
-\contentsline {subsubsection}{\numberline {5.3.4.12}texture}{23}%
-\contentsline {chapter}{\numberline {6}Файли}{25}%
-\contentsline {section}{\numberline {6.1}Файл image.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{25}%
-\contentsline {subsection}{\numberline {6.1.1}Опис макровизначень}{25}%
-\contentsline {subsubsection}{\numberline {6.1.1.1}STB\_IMAGE\_IMPLEMENTATION}{25}%
-\contentsline {section}{\numberline {6.2}Файл image.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{25}%
-\contentsline {subsection}{\numberline {6.2.1}Опис макровизначень}{26}%
-\contentsline {subsubsection}{\numberline {6.2.1.1}COMP}{26}%
-\contentsline {subsection}{\numberline {6.2.2}Опис визначень типів}{26}%
-\contentsline {subsubsection}{\numberline {6.2.2.1}channel\_t}{26}%
-\contentsline {subsubsection}{\numberline {6.2.2.2}pixel\_t}{26}%
-\contentsline {section}{\numberline {6.3}Файл imagedata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{27}%
-\contentsline {section}{\numberline {6.4}Файл imagedata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{27}%
-\contentsline {section}{\numberline {6.5}Файл main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{27}%
-\contentsline {subsection}{\numberline {6.5.1}Опис макровизначень}{27}%
-\contentsline {subsubsection}{\numberline {6.5.1.1}PROJECT\_NAME}{27}%
-\contentsline {subsection}{\numberline {6.5.2}Опис функцій}{28}%
-\contentsline {subsubsection}{\numberline {6.5.2.1}main()}{28}%
-\contentsline {section}{\numberline {6.6}Файл mainpage.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dox}{28}%
-\contentsline {section}{\numberline {6.7}Файл processor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{28}%
-\contentsline {section}{\numberline {6.8}Файл processor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{29}%
-\contentsline {section}{\numberline {6.9}Файл Readme.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md}{29}%
+\contentsline {chapter}{\numberline {1}Звіт з лабораторних робіт №2 та №3}{1}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}Постановка задачі лабораторної роботи 2}{1}{subsection.1.0.1}%
+\contentsline {subsubsection}{\numberline {1.0.1.1}Завдання І.}{1}{subsubsection.1.0.1.1}%
+\contentsline {subsubsection}{\numberline {1.0.1.2}Завдання ІІ.}{1}{subsubsection.1.0.1.2}%
+\contentsline {subsection}{\numberline {1.0.2}Лабораторна робота 3}{2}{subsection.1.0.2}%
+\contentsline {subsection}{\numberline {1.0.3}Лабораторна робота 1}{2}{subsection.1.0.3}%
+\contentsline {subsubsection}{\numberline {1.0.3.1}Завдання І.}{2}{subsubsection.1.0.3.1}%
+\contentsline {chapter}{\numberline {2}Алфавітний покажчик класів}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Класи}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Покажчик файлв}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Файли}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Класи}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Клас Image}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Детальний опис}{8}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Конструктор(и)}{8}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Image()}{8}{subsubsection.4.1.2.1}%
+\contentsline {subsection}{\numberline {4.1.3}Опис методів компонент}{8}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}calcHistogram()}{8}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}dilate()}{9}{subsubsection.4.1.3.2}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}dissect()}{9}{subsubsection.4.1.3.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.4}erode()}{10}{subsubsection.4.1.3.4}%
+\contentsline {subsubsection}{\numberline {4.1.3.5}fromFile()}{10}{subsubsection.4.1.3.5}%
+\contentsline {subsubsection}{\numberline {4.1.3.6}toGray()}{11}{subsubsection.4.1.3.6}%
+\contentsline {subsection}{\numberline {4.1.4}Компонентні дані}{11}{subsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.4.1}data}{11}{subsubsection.4.1.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.4.2}height}{12}{subsubsection.4.1.4.2}%
+\contentsline {subsubsection}{\numberline {4.1.4.3}width}{12}{subsubsection.4.1.4.3}%
+\contentsline {section}{\numberline {4.2}Клас Image\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{12}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Детальний опис}{13}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Конструктор(и)}{13}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}ImageData()}{13}{subsubsection.4.2.2.1}%
+\contentsline {subsection}{\numberline {4.2.3}Опис методів компонент}{13}{subsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}copyHistogram()}{13}{subsubsection.4.2.3.1}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}equalize()}{14}{subsubsection.4.2.3.2}%
+\contentsline {subsection}{\numberline {4.2.4}Компонентні дані}{14}{subsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.4.1}histogramF}{14}{subsubsection.4.2.4.1}%
+\contentsline {subsubsection}{\numberline {4.2.4.2}histogramI}{15}{subsubsection.4.2.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.4.3}image}{15}{subsubsection.4.2.4.3}%
+\contentsline {subsubsection}{\numberline {4.2.4.4}maxHistogramF}{15}{subsubsection.4.2.4.4}%
+\contentsline {subsubsection}{\numberline {4.2.4.5}maxHistogramI}{15}{subsubsection.4.2.4.5}%
+\contentsline {section}{\numberline {4.3}Клас Processor}{15}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Детальний опис}{16}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Конструктор(и)}{16}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Processor()}{16}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Опис методів компонент}{17}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}process\_image()}{17}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.3.2}updateDissection()}{18}{subsubsection.4.3.3.2}%
+\contentsline {subsection}{\numberline {4.3.4}Компонентні дані}{18}{subsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.4.1}data}{19}{subsubsection.4.3.4.1}%
+\contentsline {subsubsection}{\numberline {4.3.4.2}dilate}{19}{subsubsection.4.3.4.2}%
+\contentsline {subsubsection}{\numberline {4.3.4.3}dilate\_params}{19}{subsubsection.4.3.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.4.4}dissected}{19}{subsubsection.4.3.4.4}%
+\contentsline {subsubsection}{\numberline {4.3.4.5}dissection}{19}{subsubsection.4.3.4.5}%
+\contentsline {subsubsection}{\numberline {4.3.4.6}dissection\_x}{20}{subsubsection.4.3.4.6}%
+\contentsline {subsubsection}{\numberline {4.3.4.7}dissection\_y}{20}{subsubsection.4.3.4.7}%
+\contentsline {subsubsection}{\numberline {4.3.4.8}dissectionF}{20}{subsubsection.4.3.4.8}%
+\contentsline {subsubsection}{\numberline {4.3.4.9}erode}{20}{subsubsection.4.3.4.9}%
+\contentsline {subsubsection}{\numberline {4.3.4.10}erode\_params}{20}{subsubsection.4.3.4.10}%
+\contentsline {subsubsection}{\numberline {4.3.4.11}orig}{21}{subsubsection.4.3.4.11}%
+\contentsline {subsubsection}{\numberline {4.3.4.12}texture}{21}{subsubsection.4.3.4.12}%
+\contentsline {chapter}{\numberline {5}Файли}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Файл image.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{23}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Опис макровизначень}{23}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}STB\_IMAGE\_IMPLEMENTATION}{23}{subsubsection.5.1.1.1}%
+\contentsline {section}{\numberline {5.2}Файл image.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Опис макровизначень}{24}{subsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.1.1}COMP}{24}{subsubsection.5.2.1.1}%
+\contentsline {subsection}{\numberline {5.2.2}Опис визначень типів}{24}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}channel\_t}{24}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}pixel\_t}{24}{subsubsection.5.2.2.2}%
+\contentsline {section}{\numberline {5.3}Файл imagedata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{25}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Файл imagedata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{25}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Файл main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{25}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Опис макровизначень}{25}{subsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.1.1}PROJECT\_NAME}{25}{subsubsection.5.5.1.1}%
+\contentsline {subsection}{\numberline {5.5.2}Опис функцій}{26}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}main()}{26}{subsubsection.5.5.2.1}%
+\contentsline {section}{\numberline {5.6}Файл mainpage.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dox}{26}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Файл processor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{26}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Файл processor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{27}{section.5.8}%

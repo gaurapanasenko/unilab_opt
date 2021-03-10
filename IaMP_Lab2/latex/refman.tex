@@ -119,6 +119,24 @@
   \newunicodechar{²}{${}^{2}$}% Superscript two
   \newunicodechar{³}{${}^{3}$}% Superscript three
 
+% Hyperlinks (required, but should be loaded last)
+\ifpdf
+  \usepackage[pdftex,pagebackref=true]{hyperref}
+\else
+  \ifxetex
+    \usepackage[pagebackref=true]{hyperref}
+  \else
+    \usepackage[ps2pdf,pagebackref=true]{hyperref}
+  \fi
+\fi
+
+\hypersetup{%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  unicode%
+}
+
 % Custom commands
 \newcommand{\clearemptydoublepage}{%
   \newpage{\pagestyle{empty}\cleardoublepage}%
@@ -136,6 +154,10 @@
 \raggedbottom
 
 % Titlepage & ToC
+\hypersetup{pageanchor=false,
+             bookmarksnumbered=true,
+             pdfencoding=unicode
+            }
 \pagenumbering{alph}
 \begin{titlepage}
 \vspace*{7cm}
@@ -150,13 +172,11 @@
 \tableofcontents
 \clearemptydoublepage
 \pagenumbering{arabic}
+\hypersetup{pageanchor=true}
 
 %--- Begin generated contents ---
-\chapter{Звіт з лабораторних робіт №2 та №3 $<$br$>$}
-\label{index}\input{index}
-\chapter{Readme}
-\label{md_Readme}
-\input{md_Readme}
+\chapter{Звіт з лабораторних робіт №2 та №3}
+\label{index}\hypertarget{index}{}\input{index}
 \chapter{Алфавітний покажчик класів}
 \input{annotated}
 \chapter{Покажчик файлв}
@@ -174,7 +194,6 @@
 \input{mainpage_8dox}
 \input{processor_8cpp}
 \input{processor_8h}
-\input{Readme_8md}
 %--- End generated contents ---
 
 % Index

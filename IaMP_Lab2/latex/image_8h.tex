@@ -1,30 +1,30 @@
-\doxysection{Файл image.\+h}
+\hypertarget{image_8h}{}\doxysection{Файл image.\+h}
 \label{image_8h}\index{image.h@{image.h}}
 {\ttfamily \#include $<$memory$>$}\newline
 \doxysubsection*{Класи}
 \begin{DoxyCompactItemize}
 \item 
-class \textbf{ Image}
+class \mbox{\hyperlink{classImage}{Image}}
 \begin{DoxyCompactList}\small\item\em Stores pixels, width and height. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Макровизначення}
 \begin{DoxyCompactItemize}
 \item 
-\#define \textbf{ COMP}~4
+\#define \mbox{\hyperlink{image_8h_a076912543697dbe4c46b79e8e44ad2fb}{COMP}}~4
 \end{DoxyCompactItemize}
 \doxysubsection*{Визначення типів}
 \begin{DoxyCompactItemize}
 \item 
-typedef unsigned char \textbf{ channel\+\_\+t}
-\begin{DoxyCompactList}\small\item\em Channel type for image. Used {\ttfamily unsigned char} because our channel values are in range [0, 255] so has 8-\/bit per channel. \end{DoxyCompactList}\item 
-typedef \textbf{ channel\+\_\+t} \textbf{ pixel\+\_\+t}[\textbf{ COMP}]
-\begin{DoxyCompactList}\small\item\em Pixel type. One pixel has {\ttfamily COMP} channels and channel defined by {\ttfamily channel\+\_\+t} type. Used 8-\/bit chanel with values that in range [0, 255]. Pixel has 4 channels (red, green, blue and alpha) so takes 4 bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+typedef unsigned char \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Channel type for image. Used {\ttfamily unsigned char} because our channel values are in range \mbox{[}0, 255\mbox{]} so has 8-\/bit per channel. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\+\_\+t}} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\+\_\+t}}\mbox{[}\mbox{\hyperlink{image_8h_a076912543697dbe4c46b79e8e44ad2fb}{COMP}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Pixel type. One pixel has {\ttfamily COMP} channels and channel defined by {\ttfamily channel\+\_\+t} type. Used 8-\/bit chanel with values that in range \mbox{[}0, 255\mbox{]}. Pixel has 4 channels (red, green, blue and alpha) so takes 4 bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Опис макровизначень}
-\mbox{\label{image_8h_a076912543697dbe4c46b79e8e44ad2fb}} 
+\mbox{\Hypertarget{image_8h_a076912543697dbe4c46b79e8e44ad2fb}\label{image_8h_a076912543697dbe4c46b79e8e44ad2fb}} 
 \index{image.h@{image.h}!COMP@{COMP}}
 \index{COMP@{COMP}!image.h@{image.h}}
-\doxysubsubsection{COMP}
+\doxysubsubsection{\texorpdfstring{COMP}{COMP}}
 {\footnotesize\ttfamily \#define COMP~4}
 
 Size of pixel in bypes.
@@ -36,29 +36,29 @@ Name means \char`\"{}components\char`\"{} and was taken from {\ttfamily stb\+\_\
 
 
 \doxysubsection{Опис визначень типів}
-\mbox{\label{image_8h_ab508346f18b7af159376771cf584c4ba}} 
+\mbox{\Hypertarget{image_8h_ab508346f18b7af159376771cf584c4ba}\label{image_8h_ab508346f18b7af159376771cf584c4ba}} 
 \index{image.h@{image.h}!channel\_t@{channel\_t}}
 \index{channel\_t@{channel\_t}!image.h@{image.h}}
-\doxysubsubsection{channel\_t}
-{\footnotesize\ttfamily typedef unsigned char \textbf{ channel\+\_\+t}}
+\doxysubsubsection{\texorpdfstring{channel\_t}{channel\_t}}
+{\footnotesize\ttfamily typedef unsigned char \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\+\_\+t}}}
 
 
 
-Channel type for image. Used {\ttfamily unsigned char} because our channel values are in range [0, 255] so has 8-\/bit per channel. 
+Channel type for image. Used {\ttfamily unsigned char} because our channel values are in range \mbox{[}0, 255\mbox{]} so has 8-\/bit per channel. 
 
 
 
 Див. визначення в файлі image.\+h, рядок 19
 
-\mbox{\label{image_8h_a8e678b6802a89940a89c7343bec499f5}} 
+\mbox{\Hypertarget{image_8h_a8e678b6802a89940a89c7343bec499f5}\label{image_8h_a8e678b6802a89940a89c7343bec499f5}} 
 \index{image.h@{image.h}!pixel\_t@{pixel\_t}}
 \index{pixel\_t@{pixel\_t}!image.h@{image.h}}
-\doxysubsubsection{pixel\_t}
-{\footnotesize\ttfamily typedef \textbf{ channel\+\_\+t} pixel\+\_\+t[\textbf{ COMP}]}
+\doxysubsubsection{\texorpdfstring{pixel\_t}{pixel\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\+\_\+t}} pixel\+\_\+t\mbox{[}\mbox{\hyperlink{image_8h_a076912543697dbe4c46b79e8e44ad2fb}{COMP}}\mbox{]}}
 
 
 
-Pixel type. One pixel has {\ttfamily COMP} channels and channel defined by {\ttfamily channel\+\_\+t} type. Used 8-\/bit chanel with values that in range [0, 255]. Pixel has 4 channels (red, green, blue and alpha) so takes 4 bytes. 
+Pixel type. One pixel has {\ttfamily COMP} channels and channel defined by {\ttfamily channel\+\_\+t} type. Used 8-\/bit chanel with values that in range \mbox{[}0, 255\mbox{]}. Pixel has 4 channels (red, green, blue and alpha) so takes 4 bytes. 
 
 
 

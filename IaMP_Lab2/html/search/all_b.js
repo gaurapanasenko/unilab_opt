@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['texture_42',['texture',['../classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45',1,'Processor']]],
-  ['togray_43',['toGray',['../classImage.html#ad0f4f038371f5345624ebe5f278646bf',1,'Image']]]
+  ['updatedissection_42',['updateDissection',['../classProcessor.html#a852ad59e8f329a6300ea2dddf4209d44',1,'Processor']]]
 ];

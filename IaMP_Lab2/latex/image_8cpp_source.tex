@@ -1,0 +1,130 @@
+\hypertarget{image_8cpp_source}{}\doxysubsection{image.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00001}\mbox{\hyperlink{image_8cpp_a18372412ad2fc3ce1e3240b3cf0efe78}{00001}} \textcolor{preprocessor}{\#define STB\_IMAGE\_IMPLEMENTATION}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <stb\_image.h>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{image_8h}{image.h}}"{}}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{keyword}{using} std::min;}
+\DoxyCodeLine{00007 \textcolor{keyword}{using} std::max;}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00009}\mbox{\hyperlink{classImage_ac14349d3c13c9d8181f327cf97586a02}{00009}} \mbox{\hyperlink{classImage_ac14349d3c13c9d8181f327cf97586a02}{Image::Image}}(std::shared\_ptr<\textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[]> data,}
+\DoxyCodeLine{00010              \textcolor{keyword}{const} \textcolor{keywordtype}{int} width, \textcolor{keyword}{const} \textcolor{keywordtype}{int} height)}
+\DoxyCodeLine{00011     : data(data), width(width), height(height)}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013 \}}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00015}\mbox{\hyperlink{classImage_ac282669cfe2627b0feeadebeba74c35e}{00015}} \mbox{\hyperlink{classImage}{Image}} \mbox{\hyperlink{classImage_ac282669cfe2627b0feeadebeba74c35e}{Image::fromFile}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *path)}
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00017     \textcolor{keywordtype}{int} \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} = 0, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}} = 0;}
+\DoxyCodeLine{00018     \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}} = (\mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *)stbi\_load(path, \&\mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \&\mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}, NULL, \mbox{\hyperlink{image_8h_a076912543697dbe4c46b79e8e44ad2fb}{COMP}});}
+\DoxyCodeLine{00019     assert(\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}} != NULL);}
+\DoxyCodeLine{00020     std::shared\_ptr<pixel\_t[]> ptr(\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}, stbi\_image\_free);}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{return} \{ptr, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}\};}
+\DoxyCodeLine{00022 \}}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00024}\mbox{\hyperlink{classImage_a6c224cde9fd9e650210fd68c92c8d842}{00024}} std::shared\_ptr<const int[256]> \mbox{\hyperlink{classImage_a6c224cde9fd9e650210fd68c92c8d842}{Image::calcHistogram}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00025 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00026     std::shared\_ptr<int[256]> histogram(\textcolor{keyword}{new} \textcolor{keywordtype}{int}[256]\{0\});}
+\DoxyCodeLine{00027     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get();}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029     \textcolor{keywordtype}{int} size = \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}} * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}};}
+\DoxyCodeLine{00030     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++)}
+\DoxyCodeLine{00031         histogram[in\_data[i][0]]++;}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033     \textcolor{keywordflow}{return} histogram;}
+\DoxyCodeLine{00034 \}}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00036}\mbox{\hyperlink{classImage_ad0f4f038371f5345624ebe5f278646bf}{00036}} std::shared\_ptr<const Image> \mbox{\hyperlink{classImage_ad0f4f038371f5345624ebe5f278646bf}{Image::toGray}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00037 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00038     \textcolor{keywordtype}{int} size = \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} * \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}};}
+\DoxyCodeLine{00039     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[size]);}
+\DoxyCodeLine{00040     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get(), *pixel;}
+\DoxyCodeLine{00041     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} avg;}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
+\DoxyCodeLine{00044         pixel = \&in\_data[i];}
+\DoxyCodeLine{00045         avg = (*pixel[0] + *pixel[1] + *pixel[2]) / 3;}
+\DoxyCodeLine{00046         \textcolor{comment}{//avg = fmax((int)pixel[0], (int)pixel[1]);}}
+\DoxyCodeLine{00047         \textcolor{comment}{//avg = fmax((int)avg, (int)pixel[2]);}}
+\DoxyCodeLine{00048         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < 3; k++) \{}
+\DoxyCodeLine{00049             out\_data[i][k] = avg;}
+\DoxyCodeLine{00050         \}}
+\DoxyCodeLine{00051         out\_data[i][3] = 255;}
+\DoxyCodeLine{00052     \}}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
+\DoxyCodeLine{00055 \}}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00057}\mbox{\hyperlink{classImage_aab141dc2274be046d22fbcbe0f7b63c4}{00057}} shared\_ptr<const Image> \mbox{\hyperlink{classImage_aab141dc2274be046d22fbcbe0f7b63c4}{Image::dissect}}(\mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}} dissection[])\textcolor{keyword}{ const}}
+\DoxyCodeLine{00058 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00059     \textcolor{keyword}{const} \textcolor{keywordtype}{int} size = \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} * \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}};}
+\DoxyCodeLine{00060     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[size]);}
+\DoxyCodeLine{00061     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get();}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
+\DoxyCodeLine{00064         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 3; j++) \{}
+\DoxyCodeLine{00065             out\_data[i][j] = dissection[in\_data[i][j]];}
+\DoxyCodeLine{00066         \}}
+\DoxyCodeLine{00067         out\_data[i][3] = 255;}
+\DoxyCodeLine{00068     \}}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
+\DoxyCodeLine{00071 \}}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00073}\mbox{\hyperlink{classImage_a38073202d9a5725f2fc0966bac9e9166}{00073}} shared\_ptr<const Image> \mbox{\hyperlink{classImage_a38073202d9a5725f2fc0966bac9e9166}{Image::dilate}}(\textcolor{keywordtype}{int} params[2])\textcolor{keyword}{ const}}
+\DoxyCodeLine{00074 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00075     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[\mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} * \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}]);}
+\DoxyCodeLine{00076     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get();}
+\DoxyCodeLine{00077     \textcolor{keywordtype}{int} i, j, k, l, kbegin, kend, lbegin, lend;}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079     \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}; i++) \{}
+\DoxyCodeLine{00080         \textcolor{keywordflow}{for} (j = 0; j < \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}; j++) \{}
+\DoxyCodeLine{00081             \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}} mx = in\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][0];}
+\DoxyCodeLine{00082             kbegin = max(i -\/ params[1], 0);}
+\DoxyCodeLine{00083             kend = min(i + params[1] + 1, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
+\DoxyCodeLine{00084             lbegin = max(j -\/ params[0], 0);}
+\DoxyCodeLine{00085             lend = min(j + params[0], \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} -\/ 1);}
+\DoxyCodeLine{00086             \textcolor{keywordflow}{for} (k = kbegin; k != kend; k++) \{}
+\DoxyCodeLine{00087                 \textcolor{keywordflow}{for} (l = lbegin; l != lend; l++) \{}
+\DoxyCodeLine{00088                     mx = max(mx, in\_data[k * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + l][0]);}
+\DoxyCodeLine{00089                 \}}
+\DoxyCodeLine{00090             \}}
+\DoxyCodeLine{00091             \textcolor{keywordflow}{for} (k = 0; k < 3; k++) \{}
+\DoxyCodeLine{00092                 out\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][k] = mx;}
+\DoxyCodeLine{00093             \}}
+\DoxyCodeLine{00094             out\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][3] = 255;}
+\DoxyCodeLine{00095         \}}
+\DoxyCodeLine{00096     \}}
+\DoxyCodeLine{00097     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
+\DoxyCodeLine{00098 \}}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00100}\mbox{\hyperlink{classImage_a6bbca250cf4930260a8bf03773404e6e}{00100}} shared\_ptr<const Image> \mbox{\hyperlink{classImage_a6bbca250cf4930260a8bf03773404e6e}{Image::erode}}(\textcolor{keywordtype}{int} params[])\textcolor{keyword}{ const}}
+\DoxyCodeLine{00101 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00102     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[\mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} * \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}]);}
+\DoxyCodeLine{00103     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}.get();}
+\DoxyCodeLine{00104     \textcolor{keywordtype}{int} i, j, k, l, kbegin, kend, lbegin, lend;}
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{00106     \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}}; i++) \{}
+\DoxyCodeLine{00107         \textcolor{keywordflow}{for} (j = 0; j < \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}; j++) \{}
+\DoxyCodeLine{00108             \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}} mx = in\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][0];}
+\DoxyCodeLine{00109             kbegin = max(i -\/ params[1], 0);}
+\DoxyCodeLine{00110             kend = min(i + params[1] + 1, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
+\DoxyCodeLine{00111             lbegin = max(j -\/ params[0], 0);}
+\DoxyCodeLine{00112             lend = min(j + params[0], \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} -\/ 1);}
+\DoxyCodeLine{00113             \textcolor{keywordflow}{for} (k = kbegin; k != kend; k++) \{}
+\DoxyCodeLine{00114                 \textcolor{keywordflow}{for} (l = lbegin; l != lend; l++) \{}
+\DoxyCodeLine{00115                     mx = min(mx, in\_data[k * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + l][0]);}
+\DoxyCodeLine{00116                 \}}
+\DoxyCodeLine{00117             \}}
+\DoxyCodeLine{00118             \textcolor{keywordflow}{for} (k = 0; k < 3; k++) \{}
+\DoxyCodeLine{00119                 out\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][k] = mx;}
+\DoxyCodeLine{00120             \}}
+\DoxyCodeLine{00121             out\_data[i * \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}} + j][3] = 255;}
+\DoxyCodeLine{00122         \}}
+\DoxyCodeLine{00123     \}}
+\DoxyCodeLine{00124     \textcolor{keywordflow}{return} std::make\_shared<Image>(out\_data, \mbox{\hyperlink{classImage_a5be4b15e10ac6609ec9350e79e723246}{width}}, \mbox{\hyperlink{classImage_adf1e0c7ecb8f09929175b5d4229beaad}{height}});}
+\DoxyCodeLine{00125 \}}
+
+\end{DoxyCode}

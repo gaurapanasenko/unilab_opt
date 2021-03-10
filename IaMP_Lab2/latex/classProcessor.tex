@@ -1,4 +1,4 @@
-\hypertarget{classProcessor}{}\doxysection{Клас Processor}
+\hypertarget{classProcessor}{}\doxysubsection{Клас Processor}
 \label{classProcessor}\index{Processor@{Processor}}
 
 
@@ -9,7 +9,7 @@ Processing image. Calculates histogram, applies dissection or max filter and sto
 
 {\ttfamily \#include $<$processor.\+h$>$}
 
-\doxysubsection*{Загальнодоступні елементи}
+\doxysubsubsection*{Загальнодоступні елементи}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classProcessor_a87acdaf96820eefa38486dda8f90daa3}{Processor}} (shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImageData}{Image\+Data}} $>$ input)
@@ -18,7 +18,7 @@ void \mbox{\hyperlink{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}{update\+
 \begin{DoxyCompactList}\small\item\em Calculates new image and stores it to texture. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classProcessor_a7a2f295cc922bc841c2fd8d2bc88ca38}{process\+\_\+image}} (const char $\ast$name)
 \begin{DoxyCompactList}\small\item\em Implements interface to manipulate fields. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Приватні дані}
+\doxysubsubsection*{Приватні дані}
 \begin{DoxyCompactItemize}
 \item 
 shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImageData}{Image\+Data}} $>$ \mbox{\hyperlink{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}{orig}}
@@ -47,20 +47,20 @@ bool \mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}
 \begin{DoxyCompactList}\small\item\em Flag to apply erosion to the image. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Детальний опис}
+\doxysubsubsection{Детальний опис}
 Processing image. Calculates histogram, applies dissection or max filter and stores result image to texture. 
 
 Also have implements interface to manipulate parameters in this class with imgui. 
 
-Див. визначення в файлі processor.\+h, рядок 15
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00015}{15}}
 
 
 
-\doxysubsection{Конструктор(и)}
+\doxysubsubsection{Конструктор(и)}
 \mbox{\Hypertarget{classProcessor_a87acdaf96820eefa38486dda8f90daa3}\label{classProcessor_a87acdaf96820eefa38486dda8f90daa3}} 
 \index{Processor@{Processor}!Processor@{Processor}}
 \index{Processor@{Processor}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{Processor()}{Processor()}}
+\doxyparagraph{\texorpdfstring{Processor()}{Processor()}}
 {\footnotesize\ttfamily Processor\+::\+Processor (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ const \mbox{\hyperlink{classImageData}{Image\+Data}} $>$}]{input }\end{DoxyParamCaption})}
 
 
@@ -74,32 +74,32 @@ Also have implements interface to manipulate parameters in this class with imgui
 \end{DoxyParams}
 
 
-Див. визначення в файлі processor.\+cpp, рядок 7
+Див. визначення в файлі \mbox{\hyperlink{processor_8cpp_source}{processor.\+cpp}}, рядок \mbox{\hyperlink{processor_8cpp_source_l00007}{7}}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{8     : \mbox{\hyperlink{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}{orig}}(input),}
-\DoxyCodeLine{9       \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}(input),}
-\DoxyCodeLine{10       \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}\{100, 200\},}
-\DoxyCodeLine{11       \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}\{0, 1\},}
-\DoxyCodeLine{12       \mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}\{0\},}
-\DoxyCodeLine{13       \mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}\{1, 1\},}
-\DoxyCodeLine{14       \mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}\{1, 1\},}
-\DoxyCodeLine{15       \mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}}(\textcolor{keyword}{false}),}
-\DoxyCodeLine{16       \mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}}(\textcolor{keyword}{false}),}
-\DoxyCodeLine{17       \mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}(\textcolor{keyword}{false})}
-\DoxyCodeLine{18 \{}
-\DoxyCodeLine{19     \mbox{\hyperlink{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}{updateDissection}}();}
-\DoxyCodeLine{20 \}}
+\DoxyCodeLine{00008     : \mbox{\hyperlink{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}{orig}}(input),}
+\DoxyCodeLine{00009       \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}(input),}
+\DoxyCodeLine{00010       \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}\{100, 200\},}
+\DoxyCodeLine{00011       \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}\{0, 1\},}
+\DoxyCodeLine{00012       \mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}\{0\},}
+\DoxyCodeLine{00013       \mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}\{1, 1\},}
+\DoxyCodeLine{00014       \mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}\{1, 1\},}
+\DoxyCodeLine{00015       \mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}}(\textcolor{keyword}{false}),}
+\DoxyCodeLine{00016       \mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}}(\textcolor{keyword}{false}),}
+\DoxyCodeLine{00017       \mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}(\textcolor{keyword}{false})}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019     \mbox{\hyperlink{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}{updateDissection}}();}
+\DoxyCodeLine{00020 \}}
 
 \end{DoxyCode}
 
 
-\doxysubsection{Опис методів компонент}
+\doxysubsubsection{Опис методів компонент}
 \mbox{\Hypertarget{classProcessor_a7a2f295cc922bc841c2fd8d2bc88ca38}\label{classProcessor_a7a2f295cc922bc841c2fd8d2bc88ca38}} 
 \index{Processor@{Processor}!process\_image@{process\_image}}
 \index{process\_image@{process\_image}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{process\_image()}{process\_image()}}
+\doxyparagraph{\texorpdfstring{process\_image()}{process\_image()}}
 {\footnotesize\ttfamily bool Processor\+::process\+\_\+image (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
 
 
@@ -116,70 +116,70 @@ boolean value that shows that it is needed to update image.
 \end{DoxyReturn}
 
 
-Див. визначення в файлі processor.\+cpp, рядок 47
+Див. визначення в файлі \mbox{\hyperlink{processor_8cpp_source}{processor.\+cpp}}, рядок \mbox{\hyperlink{processor_8cpp_source_l00047}{47}}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{47                                               \{}
-\DoxyCodeLine{48     \textcolor{keywordtype}{bool} opened = \textcolor{keyword}{true};}
-\DoxyCodeLine{49     \textcolor{keyword}{auto} img = \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image;}
-\DoxyCodeLine{50     \textcolor{keyword}{auto} tex\_id = (\textcolor{keywordtype}{void}*)(intptr\_t)(\mbox{\hyperlink{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}{texture}}.id);}
-\DoxyCodeLine{51     ImGui::PushID(name);}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53     ImVec2 size(img-\/>width, img-\/>height);}
-\DoxyCodeLine{54     ImGui::SetNextWindowSize(size, ImGuiCond\_FirstUseEver);}
-\DoxyCodeLine{55     ImGui::PushStyleVar(ImGuiStyleVar\_WindowPadding, ImVec2(0,0));}
-\DoxyCodeLine{56     ImGui::Begin(name, \&opened, ImGuiWindowFlags\_NoSavedSettings);}
-\DoxyCodeLine{57     ImGui::Image(tex\_id, ImGui::GetContentRegionAvail());}
-\DoxyCodeLine{58     ImGui::End();}
-\DoxyCodeLine{59     ImGui::PopStyleVar();}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61     \textcolor{keywordtype}{char} info\_name[128];}
-\DoxyCodeLine{62     snprintf(info\_name, 128, \textcolor{stringliteral}{"{}Info \%s"{}}, name);}
-\DoxyCodeLine{63     ImGui::Begin(info\_name, NULL, ImGuiWindowFlags\_NoSavedSettings);}
-\DoxyCodeLine{64     ImGui::Text(\textcolor{stringliteral}{"{}pointer = \%ld"{}}, (intptr\_t)tex\_id);}
-\DoxyCodeLine{65     ImGui::Text(\textcolor{stringliteral}{"{}size = \%d x \%d"{}}, img-\/>width, img-\/>height);}
-\DoxyCodeLine{66     ImGui::PlotHistogram(}
-\DoxyCodeLine{67                 \textcolor{stringliteral}{"{}\#\#"{}}, \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>histogramF.get(), 256, 0, \textcolor{stringliteral}{"{}Histogram"{}}, 0.0f,}
-\DoxyCodeLine{68                 \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>maxHistogramF, ImVec2(0, 100.0f));}
-\DoxyCodeLine{69     \textcolor{keywordtype}{bool} changed = \textcolor{keyword}{false};}
-\DoxyCodeLine{70     ImGui::Spacing();}
-\DoxyCodeLine{71     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dissected"{}}, \&\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}});}
-\DoxyCodeLine{72     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}}) \{}
-\DoxyCodeLine{73         \{}
-\DoxyCodeLine{74             \textcolor{keyword}{auto} val = \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}};}
-\DoxyCodeLine{75             changed |= ImGui::DragIntRange2(\textcolor{stringliteral}{"{}dissection x"{}}, val, val + 1, 1, 0,}
-\DoxyCodeLine{76                                             256, \textcolor{stringliteral}{"{}Min: \%d"{}}, \textcolor{stringliteral}{"{}Max: \%d"{}});}
-\DoxyCodeLine{77         \}}
-\DoxyCodeLine{78         \{}
-\DoxyCodeLine{79             \textcolor{keyword}{auto} val = \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}};}
-\DoxyCodeLine{80             changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}dissection y"{}}, val, val + 1, 0.01,}
-\DoxyCodeLine{81                                               0, 1, \textcolor{stringliteral}{"{}Min: \%.2f"{}}, \textcolor{stringliteral}{"{}Max: \%.2f"{}});}
-\DoxyCodeLine{82         \}}
-\DoxyCodeLine{83         ImGui::PlotLines(\textcolor{stringliteral}{"{}Lines"{}}, \mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}, 256, 0, NULL, 0, 1.0f,}
-\DoxyCodeLine{84                          ImVec2(0, 80.0f));}
-\DoxyCodeLine{85     \}}
-\DoxyCodeLine{86     ImGui::Spacing();}
-\DoxyCodeLine{87     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dilate"{}}, \&\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}});}
-\DoxyCodeLine{88     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}}) \{}
-\DoxyCodeLine{89         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}dilate params"{}}, \mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}, 0, 16);}
-\DoxyCodeLine{90     \}}
-\DoxyCodeLine{91     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Erode"{}}, \&\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}});}
-\DoxyCodeLine{92     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}) \{}
-\DoxyCodeLine{93         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}erode params"{}}, \mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}, 0, 16);}
-\DoxyCodeLine{94     \}}
-\DoxyCodeLine{95     \textcolor{keywordflow}{if} (changed) \mbox{\hyperlink{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}{updateDissection}}();}
-\DoxyCodeLine{96     ImGui::End();}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{98     ImGui::PopID();}
-\DoxyCodeLine{99     \textcolor{keywordflow}{return} opened;}
-\DoxyCodeLine{100 \}}
+\DoxyCodeLine{00047                                               \{}
+\DoxyCodeLine{00048     \textcolor{keywordtype}{bool} opened = \textcolor{keyword}{true};}
+\DoxyCodeLine{00049     \textcolor{keyword}{auto} img = \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image;}
+\DoxyCodeLine{00050     \textcolor{keyword}{auto} tex\_id = (\textcolor{keywordtype}{void}*)(intptr\_t)(\mbox{\hyperlink{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}{texture}}.id);}
+\DoxyCodeLine{00051     ImGui::PushID(name);}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053     ImVec2 size(img-\/>width, img-\/>height);}
+\DoxyCodeLine{00054     ImGui::SetNextWindowSize(size, ImGuiCond\_FirstUseEver);}
+\DoxyCodeLine{00055     ImGui::PushStyleVar(ImGuiStyleVar\_WindowPadding, ImVec2(0,0));}
+\DoxyCodeLine{00056     ImGui::Begin(name, \&opened, ImGuiWindowFlags\_NoSavedSettings);}
+\DoxyCodeLine{00057     ImGui::Image(tex\_id, ImGui::GetContentRegionAvail());}
+\DoxyCodeLine{00058     ImGui::End();}
+\DoxyCodeLine{00059     ImGui::PopStyleVar();}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061     \textcolor{keywordtype}{char} info\_name[128];}
+\DoxyCodeLine{00062     snprintf(info\_name, 128, \textcolor{stringliteral}{"{}Info \%s"{}}, name);}
+\DoxyCodeLine{00063     ImGui::Begin(info\_name, NULL, ImGuiWindowFlags\_NoSavedSettings);}
+\DoxyCodeLine{00064     ImGui::Text(\textcolor{stringliteral}{"{}pointer = \%ld"{}}, (intptr\_t)tex\_id);}
+\DoxyCodeLine{00065     ImGui::Text(\textcolor{stringliteral}{"{}size = \%d x \%d"{}}, img-\/>width, img-\/>height);}
+\DoxyCodeLine{00066     ImGui::PlotHistogram(}
+\DoxyCodeLine{00067                 \textcolor{stringliteral}{"{}\#\#"{}}, \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>histogramF.get(), 256, 0, \textcolor{stringliteral}{"{}Histogram"{}}, 0.0f,}
+\DoxyCodeLine{00068                 \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>maxHistogramF, ImVec2(0, 100.0f));}
+\DoxyCodeLine{00069     \textcolor{keywordtype}{bool} changed = \textcolor{keyword}{false};}
+\DoxyCodeLine{00070     ImGui::Spacing();}
+\DoxyCodeLine{00071     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dissected"{}}, \&\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}});}
+\DoxyCodeLine{00072     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}}) \{}
+\DoxyCodeLine{00073         \{}
+\DoxyCodeLine{00074             \textcolor{keyword}{auto} val = \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}};}
+\DoxyCodeLine{00075             changed |= ImGui::DragIntRange2(\textcolor{stringliteral}{"{}dissection x"{}}, val, val + 1, 1, 0,}
+\DoxyCodeLine{00076                                             256, \textcolor{stringliteral}{"{}Min: \%d"{}}, \textcolor{stringliteral}{"{}Max: \%d"{}});}
+\DoxyCodeLine{00077         \}}
+\DoxyCodeLine{00078         \{}
+\DoxyCodeLine{00079             \textcolor{keyword}{auto} val = \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}};}
+\DoxyCodeLine{00080             changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}dissection y"{}}, val, val + 1, 0.01,}
+\DoxyCodeLine{00081                                               0, 1, \textcolor{stringliteral}{"{}Min: \%.2f"{}}, \textcolor{stringliteral}{"{}Max: \%.2f"{}});}
+\DoxyCodeLine{00082         \}}
+\DoxyCodeLine{00083         ImGui::PlotLines(\textcolor{stringliteral}{"{}Lines"{}}, \mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}, 256, 0, NULL, 0, 1.0f,}
+\DoxyCodeLine{00084                          ImVec2(0, 80.0f));}
+\DoxyCodeLine{00085     \}}
+\DoxyCodeLine{00086     ImGui::Spacing();}
+\DoxyCodeLine{00087     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dilate"{}}, \&\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}});}
+\DoxyCodeLine{00088     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}}) \{}
+\DoxyCodeLine{00089         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}dilate params"{}}, \mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}, 0, 16);}
+\DoxyCodeLine{00090     \}}
+\DoxyCodeLine{00091     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Erode"{}}, \&\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}});}
+\DoxyCodeLine{00092     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}) \{}
+\DoxyCodeLine{00093         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}erode params"{}}, \mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}, 0, 16);}
+\DoxyCodeLine{00094     \}}
+\DoxyCodeLine{00095     \textcolor{keywordflow}{if} (changed) \mbox{\hyperlink{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}{updateDissection}}();}
+\DoxyCodeLine{00096     ImGui::End();}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098     ImGui::PopID();}
+\DoxyCodeLine{00099     \textcolor{keywordflow}{return} opened;}
+\DoxyCodeLine{00100 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}\label{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}} 
 \index{Processor@{Processor}!updateDissection@{updateDissection}}
 \index{updateDissection@{updateDissection}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{updateDissection()}{updateDissection()}}
+\doxyparagraph{\texorpdfstring{updateDissection()}{updateDissection()}}
 {\footnotesize\ttfamily void Processor\+::update\+Dissection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -188,43 +188,43 @@ Calculates new image and stores it to texture.
 
 
 
-Див. визначення в файлі processor.\+cpp, рядок 22
+Див. визначення в файлі \mbox{\hyperlink{processor_8cpp_source}{processor.\+cpp}}, рядок \mbox{\hyperlink{processor_8cpp_source_l00022}{22}}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{22                                  \{}
-\DoxyCodeLine{23     \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}} = \mbox{\hyperlink{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}{orig}};}
-\DoxyCodeLine{24     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}}) \{}
-\DoxyCodeLine{25         \textcolor{keywordtype}{float} diffY = \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}[1] -\/ \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}[0];}
-\DoxyCodeLine{26         \textcolor{keywordtype}{int} diffX = \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[1] -\/ \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[0];}
-\DoxyCodeLine{27         \textcolor{keywordtype}{float} diff = diffY / diffX;}
-\DoxyCodeLine{28         \textcolor{keywordtype}{float} acc = \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}[0];}
-\DoxyCodeLine{29         memset(\mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}, 0, 256 * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}}));}
-\DoxyCodeLine{30         memset(\mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}, 0, 256 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
-\DoxyCodeLine{31         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[0]; i < \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[1]; i++) \{}
-\DoxyCodeLine{32             acc += diff;}
-\DoxyCodeLine{33             \mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}[i] = acc * 255;}
-\DoxyCodeLine{34             \mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}[i] = acc;}
-\DoxyCodeLine{35         \}}
-\DoxyCodeLine{36         \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}} = make\_shared<ImageData>(\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image-\/>dissect(\mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}));}
-\DoxyCodeLine{37     \}}
-\DoxyCodeLine{38     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}}) \{}
-\DoxyCodeLine{39         \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}} = make\_shared<ImageData>(\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image-\/>dilate(\mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}));}
-\DoxyCodeLine{40     \}}
-\DoxyCodeLine{41     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}) \{}
-\DoxyCodeLine{42         \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}} = make\_shared<ImageData>(\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image-\/>erode(\mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}));}
-\DoxyCodeLine{43     \}}
-\DoxyCodeLine{44     \mbox{\hyperlink{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}{texture}}.update(*\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image);}
-\DoxyCodeLine{45 \}}
+\DoxyCodeLine{00022                                  \{}
+\DoxyCodeLine{00023     \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}} = \mbox{\hyperlink{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}{orig}};}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}}) \{}
+\DoxyCodeLine{00025         \textcolor{keywordtype}{float} diffY = \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}[1] -\/ \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}[0];}
+\DoxyCodeLine{00026         \textcolor{keywordtype}{int} diffX = \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[1] -\/ \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[0];}
+\DoxyCodeLine{00027         \textcolor{keywordtype}{float} diff = diffY / diffX;}
+\DoxyCodeLine{00028         \textcolor{keywordtype}{float} acc = \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}[0];}
+\DoxyCodeLine{00029         memset(\mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}, 0, 256 * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}}));}
+\DoxyCodeLine{00030         memset(\mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}, 0, 256 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{00031         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[0]; i < \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[1]; i++) \{}
+\DoxyCodeLine{00032             acc += diff;}
+\DoxyCodeLine{00033             \mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}[i] = acc * 255;}
+\DoxyCodeLine{00034             \mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}[i] = acc;}
+\DoxyCodeLine{00035         \}}
+\DoxyCodeLine{00036         \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}} = make\_shared<ImageData>(\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image-\/>dissect(\mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}));}
+\DoxyCodeLine{00037     \}}
+\DoxyCodeLine{00038     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}}) \{}
+\DoxyCodeLine{00039         \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}} = make\_shared<ImageData>(\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image-\/>dilate(\mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}));}
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}) \{}
+\DoxyCodeLine{00042         \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}} = make\_shared<ImageData>(\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image-\/>erode(\mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}));}
+\DoxyCodeLine{00043     \}}
+\DoxyCodeLine{00044     \mbox{\hyperlink{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}{texture}}.update(*\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>image);}
+\DoxyCodeLine{00045 \}}
 
 \end{DoxyCode}
 
 
-\doxysubsection{Компонентні дані}
+\doxysubsubsection{Компонентні дані}
 \mbox{\Hypertarget{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}\label{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}} 
 \index{Processor@{Processor}!data@{data}}
 \index{data@{data}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{data}{data}}
+\doxyparagraph{\texorpdfstring{data}{data}}
 {\footnotesize\ttfamily shared\+\_\+ptr$<$const \mbox{\hyperlink{classImageData}{Image\+Data}}$>$ Processor\+::data\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -233,12 +233,12 @@ Currently shown image on display.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 23
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00023}{23}}
 
 \mbox{\Hypertarget{classProcessor_a28f50e7dde58dd293a1e45128999749b}\label{classProcessor_a28f50e7dde58dd293a1e45128999749b}} 
 \index{Processor@{Processor}!dilate@{dilate}}
 \index{dilate@{dilate}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{dilate}{dilate}}
+\doxyparagraph{\texorpdfstring{dilate}{dilate}}
 {\footnotesize\ttfamily bool Processor\+::dilate\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -247,12 +247,12 @@ Flag to apply dilation to the image.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 61
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00061}{61}}
 
 \mbox{\Hypertarget{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}\label{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}} 
 \index{Processor@{Processor}!dilate\_params@{dilate\_params}}
 \index{dilate\_params@{dilate\_params}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{dilate\_params}{dilate\_params}}
+\doxyparagraph{\texorpdfstring{dilate\_params}{dilate\_params}}
 {\footnotesize\ttfamily int Processor\+::dilate\+\_\+params\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -261,12 +261,12 @@ Size of max filter mask.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 49
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00049}{49}}
 
 \mbox{\Hypertarget{classProcessor_a13288933a71944a6ee966262b54caca5}\label{classProcessor_a13288933a71944a6ee966262b54caca5}} 
 \index{Processor@{Processor}!dissected@{dissected}}
 \index{dissected@{dissected}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{dissected}{dissected}}
+\doxyparagraph{\texorpdfstring{dissected}{dissected}}
 {\footnotesize\ttfamily bool Processor\+::dissected\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -275,12 +275,12 @@ Flag to apply dissection to the image.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 57
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00057}{57}}
 
 \mbox{\Hypertarget{classProcessor_a98ab861abde60136af1e8cc2faf88545}\label{classProcessor_a98ab861abde60136af1e8cc2faf88545}} 
 \index{Processor@{Processor}!dissection@{dissection}}
 \index{dissection@{dissection}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{dissection}{dissection}}
+\doxyparagraph{\texorpdfstring{dissection}{dissection}}
 {\footnotesize\ttfamily \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\+\_\+t}} Processor\+::dissection\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -289,12 +289,12 @@ New channel values for dissection for image.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 41
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00041}{41}}
 
 \mbox{\Hypertarget{classProcessor_af65232afa58a5aae89fb9f1b4838988a}\label{classProcessor_af65232afa58a5aae89fb9f1b4838988a}} 
 \index{Processor@{Processor}!dissection\_x@{dissection\_x}}
 \index{dissection\_x@{dissection\_x}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{dissection\_x}{dissection\_x}}
+\doxyparagraph{\texorpdfstring{dissection\_x}{dissection\_x}}
 {\footnotesize\ttfamily int Processor\+::dissection\+\_\+x\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -303,12 +303,12 @@ Range of channel value where apply dissection.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 31
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00031}{31}}
 
 \mbox{\Hypertarget{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}\label{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}} 
 \index{Processor@{Processor}!dissection\_y@{dissection\_y}}
 \index{dissection\_y@{dissection\_y}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{dissection\_y}{dissection\_y}}
+\doxyparagraph{\texorpdfstring{dissection\_y}{dissection\_y}}
 {\footnotesize\ttfamily float Processor\+::dissection\+\_\+y\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -317,12 +317,12 @@ Range of proportional coefficients between dissection values. Coefficients must 
 
 
 
-Див. визначення в файлі processor.\+h, рядок 37
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00037}{37}}
 
 \mbox{\Hypertarget{classProcessor_a207a26aa9bab3b3975692b46684420f1}\label{classProcessor_a207a26aa9bab3b3975692b46684420f1}} 
 \index{Processor@{Processor}!dissectionF@{dissectionF}}
 \index{dissectionF@{dissectionF}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{dissectionF}{dissectionF}}
+\doxyparagraph{\texorpdfstring{dissectionF}{dissectionF}}
 {\footnotesize\ttfamily float Processor\+::dissectionF\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -331,12 +331,12 @@ New channel values for dissection for image in float type.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 45
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00045}{45}}
 
 \mbox{\Hypertarget{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}\label{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}} 
 \index{Processor@{Processor}!erode@{erode}}
 \index{erode@{erode}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{erode}{erode}}
+\doxyparagraph{\texorpdfstring{erode}{erode}}
 {\footnotesize\ttfamily bool Processor\+::erode\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -345,12 +345,12 @@ Flag to apply erosion to the image.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 65
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00065}{65}}
 
 \mbox{\Hypertarget{classProcessor_a47e09e09c2b70ecff17903950bc479b1}\label{classProcessor_a47e09e09c2b70ecff17903950bc479b1}} 
 \index{Processor@{Processor}!erode\_params@{erode\_params}}
 \index{erode\_params@{erode\_params}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{erode\_params}{erode\_params}}
+\doxyparagraph{\texorpdfstring{erode\_params}{erode\_params}}
 {\footnotesize\ttfamily int Processor\+::erode\+\_\+params\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -359,12 +359,12 @@ Size of min filter mask.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 53
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00053}{53}}
 
 \mbox{\Hypertarget{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}\label{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}} 
 \index{Processor@{Processor}!orig@{orig}}
 \index{orig@{orig}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{orig}{orig}}
+\doxyparagraph{\texorpdfstring{orig}{orig}}
 {\footnotesize\ttfamily shared\+\_\+ptr$<$const \mbox{\hyperlink{classImageData}{Image\+Data}}$>$ Processor\+::orig\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -373,12 +373,12 @@ Original image with calculated histogram.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 19
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00019}{19}}
 
 \mbox{\Hypertarget{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}\label{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}} 
 \index{Processor@{Processor}!texture@{texture}}
 \index{texture@{texture}!Processor@{Processor}}
-\doxysubsubsection{\texorpdfstring{texture}{texture}}
+\doxyparagraph{\texorpdfstring{texture}{texture}}
 {\footnotesize\ttfamily const Texture Processor\+::texture\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -387,7 +387,7 @@ Texture used to draw with Open\+GL.
 
 
 
-Див. визначення в файлі processor.\+h, рядок 27
+Див. визначення в файлі \mbox{\hyperlink{processor_8h_source}{processor.\+h}}, рядок \mbox{\hyperlink{processor_8h_source_l00027}{27}}
 
 
 

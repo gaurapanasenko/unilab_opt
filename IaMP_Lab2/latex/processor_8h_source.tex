@@ -1,0 +1,32 @@
+\hypertarget{processor_8h_source}{}\doxysubsection{processor.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef PROCESSOR\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define PROCESSOR\_H}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{imagedata_8h}{imagedata.h}}"{}}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include "{}gui/texture.h"{}}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00015}\mbox{\hyperlink{classProcessor}{00015}} \textcolor{keyword}{class }\mbox{\hyperlink{classProcessor}{Processor}} \{}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00019}\mbox{\hyperlink{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}{00019}}     shared\_ptr<const ImageData> \mbox{\hyperlink{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}{orig}};}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00023}\mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{00023}}     shared\_ptr<const ImageData> \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}};}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00027}\mbox{\hyperlink{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}{00027}}     \textcolor{keyword}{const} Texture \mbox{\hyperlink{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}{texture}};}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00031}\mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{00031}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}}[2];}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00037}\mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{00037}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}}[2];}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00041}\mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{00041}}     \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}} \mbox{\hyperlink{classProcessor_a98ab861abde60136af1e8cc2faf88545}{dissection}}[256];}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00045}\mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{00045}}     \textcolor{keywordtype}{float} \mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}[256];}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00049}\mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{00049}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}[2];}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00053}\mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{00053}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}[2];}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00057}\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{00057}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}};}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00061}\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{00061}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}};}
+\DoxyCodeLine{\Hypertarget{processor_8h_source_l00065}\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{00065}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}};}
+\DoxyCodeLine{00066 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00071     \mbox{\hyperlink{classProcessor_a87acdaf96820eefa38486dda8f90daa3}{Processor}}(shared\_ptr<const ImageData> input);}
+\DoxyCodeLine{00075     \textcolor{keywordtype}{void} \mbox{\hyperlink{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}{updateDissection}}();}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00082     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classProcessor_a7a2f295cc922bc841c2fd8d2bc88ca38}{process\_image}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name);}
+\DoxyCodeLine{00083 \};}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROCESSOR\_H}}
+
+\end{DoxyCode}

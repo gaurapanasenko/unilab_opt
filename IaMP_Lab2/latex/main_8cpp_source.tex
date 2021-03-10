@@ -1,49 +1,19 @@
-\hypertarget{main_8cpp}{}\doxysubsection{Файл main.\+cpp}
-\label{main_8cpp}\index{main.cpp@{main.cpp}}
-{\ttfamily \#include $<$string$>$}\newline
-{\ttfamily \#include $<$memory$>$}\newline
-{\ttfamily \#include $<$sstream$>$}\newline
-{\ttfamily \#include $<$map$>$}\newline
-{\ttfamily \#include \char`\"{}gui/app.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}processor.\+h\char`\"{}}\newline
-\doxysubsubsection*{Макровизначення}
-\begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}{PROJECT\+\_\+\+NAME}}~\char`\"{}Ia\+MP\+\_\+\+Lab2\char`\"{}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Функції}
-\begin{DoxyCompactItemize}
-\item 
-int \mbox{\hyperlink{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}{main}} (int, char $\ast$$\ast$)
-\end{DoxyCompactItemize}
-
-
-\doxysubsubsection{Опис макровизначень}
-\mbox{\Hypertarget{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}\label{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}} 
-\index{main.cpp@{main.cpp}!PROJECT\_NAME@{PROJECT\_NAME}}
-\index{PROJECT\_NAME@{PROJECT\_NAME}!main.cpp@{main.cpp}}
-\doxyparagraph{\texorpdfstring{PROJECT\_NAME}{PROJECT\_NAME}}
-{\footnotesize\ttfamily \#define PROJECT\+\_\+\+NAME~\char`\"{}Ia\+MP\+\_\+\+Lab2\char`\"{}}
-
-
-
-Див. визначення в файлі \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}, рядок \mbox{\hyperlink{main_8cpp_source_l00009}{9}}
-
-
-
-\doxysubsubsection{Опис функцій}
-\mbox{\Hypertarget{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}\label{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}} 
-\index{main.cpp@{main.cpp}!main@{main}}
-\index{main@{main}!main.cpp@{main.cpp}}
-\doxyparagraph{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{char $\ast$$\ast$}]{ }\end{DoxyParamCaption})}
-
-
-
-Див. визначення в файлі \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}, рядок \mbox{\hyperlink{main_8cpp_source_l00013}{13}}
-
+\hypertarget{main_8cpp_source}{}\doxysubsection{main.\+cpp}
 
 \begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include "{}gui/app.h"{}}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{processor_8h}{processor.h}}"{}}}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}\mbox{\hyperlink{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}{00009}} \textcolor{preprocessor}{\#define PROJECT\_NAME "{}IaMP\_Lab2"{}}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}\mbox{\hyperlink{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}{00013}} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}{main}}(\textcolor{keywordtype}{int}, \textcolor{keywordtype}{char}**)}
 \DoxyCodeLine{00014 \{}
 \DoxyCodeLine{00015     App app(\mbox{\hyperlink{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}{PROJECT\_NAME}});}
 \DoxyCodeLine{00016     map<string, shared\_ptr<Processor>> images;}

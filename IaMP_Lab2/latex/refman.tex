@@ -1,4 +1,4 @@
-\let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}\documentclass[twoside]{book}
+\let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}\documentclass[twoside]{article}
 
 %% moved from doxygen.sty due to workaround for LaTex 2019 version and unmaintained tabu package
 \usepackage{ifthen}
@@ -100,9 +100,6 @@
 %
 \pagestyle{fancyplain}
 %
-\renewcommand{\chaptermark}[1]{%
-  \markboth{#1}{}%
-}
 \renewcommand{\sectionmark}[1]{%
   \markright{\thesection\ #1}%
 }
@@ -167,41 +164,45 @@
 {\large Створено системою Doxygen 1.9.1}\\
 \end{center}
 \end{titlepage}
-\clearemptydoublepage
 \pagenumbering{roman}
 \tableofcontents
-\clearemptydoublepage
 \pagenumbering{arabic}
 \hypersetup{pageanchor=true}
 
 %--- Begin generated contents ---
-\chapter{Звіт з лабораторних робіт №2 та №3}
+\doxysection{Звіт з лабораторних робіт №2 та №3}
 \label{index}\hypertarget{index}{}\input{index}
-\chapter{Алфавітний покажчик класів}
+\doxysection{Алфавітний покажчик класів}
 \input{annotated}
-\chapter{Покажчик файлв}
+\doxysection{Покажчик файлв}
 \input{files}
-\chapter{Класи}
+\doxysection{Класи}
 \input{classImage}
 \input{classImageData}
 \input{classProcessor}
-\chapter{Файли}
+\doxysection{Файли}
 \input{image_8cpp}
+\input{image_8cpp_source}
 \input{image_8h}
+\input{image_8h_source}
 \input{imagedata_8cpp}
+\input{imagedata_8cpp_source}
 \input{imagedata_8h}
+\input{imagedata_8h_source}
 \input{main_8cpp}
+\input{main_8cpp_source}
 \input{mainpage_8dox}
 \input{processor_8cpp}
+\input{processor_8cpp_source}
 \input{processor_8h}
+\input{processor_8h_source}
 %--- End generated contents ---
 
 % Index
-\backmatter
 \newpage
 \phantomsection
 \clearemptydoublepage
-\addcontentsline{toc}{chapter}{\indexname}
+\addcontentsline{toc}{section}{\indexname}
 \printindex
 
 \end{document}

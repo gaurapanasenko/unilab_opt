@@ -1,0 +1,49 @@
+\hypertarget{imagedata_8cpp_source}{}\doxysubsection{imagedata.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{imagedata_8h}{imagedata.h}}"{}}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{imagedata_8cpp_source_l00004}\mbox{\hyperlink{classImageData_aaba63d023d8dfc28120181b2fa549ffb}{00004}} \mbox{\hyperlink{classImageData_aaba63d023d8dfc28120181b2fa549ffb}{ImageData::ImageData}}(std::shared\_ptr<const Image> image)}
+\DoxyCodeLine{00005     : image(image), histogramI(image-\/>calcHistogram()),}
+\DoxyCodeLine{00006       maxHistogramI(*std::max\_element(histogramI.get(), histogramI.get() + 256)),}
+\DoxyCodeLine{00007       histogramF(copyHistogram(histogramI)),}
+\DoxyCodeLine{00008       maxHistogramF(maxHistogramI)}
+\DoxyCodeLine{00009 \{}
+\DoxyCodeLine{00010 \}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 std::shared\_ptr<const float[256]>}
+\DoxyCodeLine{\Hypertarget{imagedata_8cpp_source_l00013}\mbox{\hyperlink{classImageData_afd5fc713924455e7b6be216f88533aee}{00013}} \mbox{\hyperlink{classImageData_afd5fc713924455e7b6be216f88533aee}{ImageData::copyHistogram}}(std::shared\_ptr<\textcolor{keyword}{const} \textcolor{keywordtype}{int}[256]> histogramI)}
+\DoxyCodeLine{00014 \{}
+\DoxyCodeLine{00015     std::shared\_ptr<float[256]> histogram(\textcolor{keyword}{new} \textcolor{keywordtype}{float}[256]\{0\});}
+\DoxyCodeLine{00016     std::copy(\mbox{\hyperlink{classImageData_a37570d5e806813c1bac58416654813f8}{histogramI}}.get(), \mbox{\hyperlink{classImageData_a37570d5e806813c1bac58416654813f8}{histogramI}}.get() + 256, histogram.get());}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{return} histogram;}
+\DoxyCodeLine{00018 \}}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{\Hypertarget{imagedata_8cpp_source_l00020}\mbox{\hyperlink{classImageData_a0c248e948352830c0167bf43b8d46b34}{00020}} std::shared\_ptr<const Image> \mbox{\hyperlink{classImageData_a0c248e948352830c0167bf43b8d46b34}{ImageData::equalize}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00021 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00022     \textcolor{keywordtype}{int} width = \mbox{\hyperlink{classImageData_a43bfc5dc585e693ae8c5202f57690c58}{image}}-\/>width, height = \mbox{\hyperlink{classImageData_a43bfc5dc585e693ae8c5202f57690c58}{image}}-\/>height;}
+\DoxyCodeLine{00023     \textcolor{keywordtype}{int} size = width * height;}
+\DoxyCodeLine{00024     std::shared\_ptr<pixel\_t[]> data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}}[width * height]);}
+\DoxyCodeLine{00025     \textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a8e678b6802a89940a89c7343bec499f5}{pixel\_t}} *in\_data = \mbox{\hyperlink{classImageData_a43bfc5dc585e693ae8c5202f57690c58}{image}}-\/>data.get();}
+\DoxyCodeLine{00026     \textcolor{keyword}{const} \textcolor{keywordtype}{int} *histogram = \mbox{\hyperlink{classImageData_a37570d5e806813c1bac58416654813f8}{histogramI}}.get();}
+\DoxyCodeLine{00027     \textcolor{keywordtype}{int} accum = 0;}
+\DoxyCodeLine{00028     \textcolor{keywordtype}{int} s[256];}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 256; i++) \{}
+\DoxyCodeLine{00031         accum += histogram[i];}
+\DoxyCodeLine{00032         s[i] = 255 * accum / size;}
+\DoxyCodeLine{00033     \}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
+\DoxyCodeLine{00036         \mbox{\hyperlink{image_8h_ab508346f18b7af159376771cf584c4ba}{channel\_t}} cur = s[in\_data[i][0]];}
+\DoxyCodeLine{00037         data[i][0] = cur;}
+\DoxyCodeLine{00038         data[i][1] = cur;}
+\DoxyCodeLine{00039         data[i][2] = cur;}
+\DoxyCodeLine{00040         data[i][3] = 255;}
+\DoxyCodeLine{00041     \}}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043     \textcolor{keywordflow}{return} std::make\_shared<Image>(data, width, height);}
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}

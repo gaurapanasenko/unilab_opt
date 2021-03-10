@@ -1,0 +1,397 @@
+\doxysection{Клас Processor}
+\label{classProcessor}\index{Processor@{Processor}}
+
+
+Processing image. Calculates histogram, applies dissection or max filter and stores result image to texture.  
+
+
+
+
+{\ttfamily \#include $<$processor.\+h$>$}
+
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Processor} (shared\+\_\+ptr$<$ const \textbf{ Image\+Data} $>$ input)
+\begin{DoxyCompactList}\small\item\em \doxyref{Processor}{стор.}{classProcessor} constuctor. \end{DoxyCompactList}\item 
+void \textbf{ update\+Dissection} ()
+\begin{DoxyCompactList}\small\item\em Calculates new image and stores it to texture. \end{DoxyCompactList}\item 
+bool \textbf{ process\+\_\+image} (const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Implements interface to manipulate fields. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Приватні дані}
+\begin{DoxyCompactItemize}
+\item 
+shared\+\_\+ptr$<$ const \textbf{ Image\+Data} $>$ \textbf{ orig}
+\begin{DoxyCompactList}\small\item\em Original image with calculated histogram. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ const \textbf{ Image\+Data} $>$ \textbf{ data}
+\begin{DoxyCompactList}\small\item\em Currently shown image on display. \end{DoxyCompactList}\item 
+const Texture \textbf{ texture}
+\begin{DoxyCompactList}\small\item\em Texture used to draw with Open\+GL. \end{DoxyCompactList}\item 
+int \textbf{ dissection\+\_\+x} [2]
+\begin{DoxyCompactList}\small\item\em Range of channel value where apply dissection. \end{DoxyCompactList}\item 
+float \textbf{ dissection\+\_\+y} [2]
+\begin{DoxyCompactList}\small\item\em Range of proportional coefficients between dissection values. Coefficients must be in range [0, 1] to make sure that new channel values will not out of [0, 255] range. \end{DoxyCompactList}\item 
+\textbf{ channel\+\_\+t} \textbf{ dissection} [256]
+\begin{DoxyCompactList}\small\item\em New channel values for dissection for image. \end{DoxyCompactList}\item 
+float \textbf{ dissectionF} [256]
+\begin{DoxyCompactList}\small\item\em New channel values for dissection for image in float type. \end{DoxyCompactList}\item 
+int \textbf{ dilate\+\_\+params} [2]
+\begin{DoxyCompactList}\small\item\em Size of max filter mask. \end{DoxyCompactList}\item 
+int \textbf{ erode\+\_\+params} [2]
+\begin{DoxyCompactList}\small\item\em Size of min filter mask. \end{DoxyCompactList}\item 
+bool \textbf{ dissected}
+\begin{DoxyCompactList}\small\item\em Flag to apply dissection to the image. \end{DoxyCompactList}\item 
+bool \textbf{ dilate}
+\begin{DoxyCompactList}\small\item\em Flag to apply dilation to the image. \end{DoxyCompactList}\item 
+bool \textbf{ erode}
+\begin{DoxyCompactList}\small\item\em Flag to apply erosion to the image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+Processing image. Calculates histogram, applies dissection or max filter and stores result image to texture. 
+
+Also have implements interface to manipulate parameters in this class with imgui. 
+
+Див. визначення в файлі processor.\+h, рядок 15
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\label{classProcessor_a87acdaf96820eefa38486dda8f90daa3}} 
+\index{Processor@{Processor}!Processor@{Processor}}
+\index{Processor@{Processor}!Processor@{Processor}}
+\doxysubsubsection{Processor()}
+{\footnotesize\ttfamily Processor\+::\+Processor (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ const \textbf{ Image\+Data} $>$}]{input }\end{DoxyParamCaption})}
+
+
+
+\doxyref{Processor}{стор.}{classProcessor} constuctor. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em input} & Input image that will be processed by this class. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі processor.\+cpp, рядок 7
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8     : orig(input),}
+\DoxyCodeLine{9       data(input),}
+\DoxyCodeLine{10       dissection\_x\{100, 200\},}
+\DoxyCodeLine{11       dissection\_y\{0, 1\},}
+\DoxyCodeLine{12       dissection\{0\},}
+\DoxyCodeLine{13       dilate\_params\{1, 1\},}
+\DoxyCodeLine{14       erode\_params\{1, 1\},}
+\DoxyCodeLine{15       dissected(\textcolor{keyword}{false}),}
+\DoxyCodeLine{16       dilate(\textcolor{keyword}{false}),}
+\DoxyCodeLine{17       erode(\textcolor{keyword}{false})}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19     updateDissection();}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\label{classProcessor_a7a2f295cc922bc841c2fd8d2bc88ca38}} 
+\index{Processor@{Processor}!process\_image@{process\_image}}
+\index{process\_image@{process\_image}!Processor@{Processor}}
+\doxysubsubsection{process\_image()}
+{\footnotesize\ttfamily bool Processor\+::process\+\_\+image (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Implements interface to manipulate fields. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em name} & name of window that will be shown. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+boolean value that shows that it is needed to update image. 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі processor.\+cpp, рядок 47
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                               \{}
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool} opened = \textcolor{keyword}{true};}
+\DoxyCodeLine{49     \textcolor{keyword}{auto} img = data-\/>image;}
+\DoxyCodeLine{50     \textcolor{keyword}{auto} tex\_id = (\textcolor{keywordtype}{void}*)(intptr\_t)(texture.id);}
+\DoxyCodeLine{51     ImGui::PushID(name);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     ImVec2 size(img-\/>width, img-\/>height);}
+\DoxyCodeLine{54     ImGui::SetNextWindowSize(size, ImGuiCond\_FirstUseEver);}
+\DoxyCodeLine{55     ImGui::PushStyleVar(ImGuiStyleVar\_WindowPadding, ImVec2(0,0));}
+\DoxyCodeLine{56     ImGui::Begin(name, \&opened, ImGuiWindowFlags\_NoSavedSettings);}
+\DoxyCodeLine{57     ImGui::Image(tex\_id, ImGui::GetContentRegionAvail());}
+\DoxyCodeLine{58     ImGui::End();}
+\DoxyCodeLine{59     ImGui::PopStyleVar();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{char} info\_name[128];}
+\DoxyCodeLine{62     snprintf(info\_name, 128, \textcolor{stringliteral}{"{}Info \%s"{}}, name);}
+\DoxyCodeLine{63     ImGui::Begin(info\_name, NULL, ImGuiWindowFlags\_NoSavedSettings);}
+\DoxyCodeLine{64     ImGui::Text(\textcolor{stringliteral}{"{}pointer = \%ld"{}}, (intptr\_t)tex\_id);}
+\DoxyCodeLine{65     ImGui::Text(\textcolor{stringliteral}{"{}size = \%d x \%d"{}}, img-\/>width, img-\/>height);}
+\DoxyCodeLine{66     ImGui::PlotHistogram(}
+\DoxyCodeLine{67                 \textcolor{stringliteral}{"{}\#\#"{}}, data-\/>histogramF.get(), 256, 0, \textcolor{stringliteral}{"{}Histogram"{}}, 0.0f,}
+\DoxyCodeLine{68                 data-\/>maxHistogramF, ImVec2(0, 100.0f));}
+\DoxyCodeLine{69     \textcolor{keywordtype}{bool} changed = \textcolor{keyword}{false};}
+\DoxyCodeLine{70     ImGui::Spacing();}
+\DoxyCodeLine{71     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dissected"{}}, \&dissected);}
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} (dissected) \{}
+\DoxyCodeLine{73         \{}
+\DoxyCodeLine{74             \textcolor{keyword}{auto} val = dissection\_x;}
+\DoxyCodeLine{75             changed |= ImGui::DragIntRange2(\textcolor{stringliteral}{"{}dissection x"{}}, val, val + 1, 1, 0,}
+\DoxyCodeLine{76                                             256, \textcolor{stringliteral}{"{}Min: \%d"{}}, \textcolor{stringliteral}{"{}Max: \%d"{}});}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78         \{}
+\DoxyCodeLine{79             \textcolor{keyword}{auto} val = dissection\_y;}
+\DoxyCodeLine{80             changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}dissection y"{}}, val, val + 1, 0.01,}
+\DoxyCodeLine{81                                               0, 1, \textcolor{stringliteral}{"{}Min: \%.2f"{}}, \textcolor{stringliteral}{"{}Max: \%.2f"{}});}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83         ImGui::PlotLines(\textcolor{stringliteral}{"{}Lines"{}}, dissectionF, 256, 0, NULL, 0, 1.0f,}
+\DoxyCodeLine{84                          ImVec2(0, 80.0f));}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86     ImGui::Spacing();}
+\DoxyCodeLine{87     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dilate"{}}, \&dilate);}
+\DoxyCodeLine{88     \textcolor{keywordflow}{if} (dilate) \{}
+\DoxyCodeLine{89         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}dilate params"{}}, dilate\_params, 0, 16);}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Erode"{}}, \&erode);}
+\DoxyCodeLine{92     \textcolor{keywordflow}{if} (erode) \{}
+\DoxyCodeLine{93         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}erode params"{}}, erode\_params, 0, 16);}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95     \textcolor{keywordflow}{if} (changed) updateDissection();}
+\DoxyCodeLine{96     ImGui::End();}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     ImGui::PopID();}
+\DoxyCodeLine{99     \textcolor{keywordflow}{return} opened;}
+\DoxyCodeLine{100 \}}
+
+\end{DoxyCode}
+\mbox{\label{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}} 
+\index{Processor@{Processor}!updateDissection@{updateDissection}}
+\index{updateDissection@{updateDissection}!Processor@{Processor}}
+\doxysubsubsection{updateDissection()}
+{\footnotesize\ttfamily void Processor\+::update\+Dissection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates new image and stores it to texture. 
+
+
+
+Див. визначення в файлі processor.\+cpp, рядок 22
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                  \{}
+\DoxyCodeLine{23     data = orig;}
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} (dissected) \{}
+\DoxyCodeLine{25         \textcolor{keywordtype}{float} diffY = dissection\_y[1] -\/ dissection\_y[0];}
+\DoxyCodeLine{26         \textcolor{keywordtype}{int} diffX = dissection\_x[1] -\/ dissection\_x[0];}
+\DoxyCodeLine{27         \textcolor{keywordtype}{float} diff = diffY / diffX;}
+\DoxyCodeLine{28         \textcolor{keywordtype}{float} acc = dissection\_y[0];}
+\DoxyCodeLine{29         memset(dissection, 0, 256 * \textcolor{keyword}{sizeof}(channel\_t));}
+\DoxyCodeLine{30         memset(dissectionF, 0, 256 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}));}
+\DoxyCodeLine{31         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = dissection\_x[0]; i < dissection\_x[1]; i++) \{}
+\DoxyCodeLine{32             acc += diff;}
+\DoxyCodeLine{33             dissection[i] = acc * 255;}
+\DoxyCodeLine{34             dissectionF[i] = acc;}
+\DoxyCodeLine{35         \}}
+\DoxyCodeLine{36         data = make\_shared<ImageData>(data-\/>image-\/>dissect(dissection));}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} (dilate) \{}
+\DoxyCodeLine{39         data = make\_shared<ImageData>(data-\/>image-\/>dilate(dilate\_params));}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} (erode) \{}
+\DoxyCodeLine{42         data = make\_shared<ImageData>(data-\/>image-\/>erode(erode\_params));}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44     texture.update(*data-\/>image);}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Компонентні дані}
+\mbox{\label{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}} 
+\index{Processor@{Processor}!data@{data}}
+\index{data@{data}!Processor@{Processor}}
+\doxysubsubsection{data}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$const \textbf{ Image\+Data}$>$ Processor\+::data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Currently shown image on display. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 23
+
+\mbox{\label{classProcessor_a28f50e7dde58dd293a1e45128999749b}} 
+\index{Processor@{Processor}!dilate@{dilate}}
+\index{dilate@{dilate}!Processor@{Processor}}
+\doxysubsubsection{dilate}
+{\footnotesize\ttfamily bool Processor\+::dilate\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag to apply dilation to the image. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 61
+
+\mbox{\label{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}} 
+\index{Processor@{Processor}!dilate\_params@{dilate\_params}}
+\index{dilate\_params@{dilate\_params}!Processor@{Processor}}
+\doxysubsubsection{dilate\_params}
+{\footnotesize\ttfamily int Processor\+::dilate\+\_\+params[2]\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Size of max filter mask. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 49
+
+\mbox{\label{classProcessor_a13288933a71944a6ee966262b54caca5}} 
+\index{Processor@{Processor}!dissected@{dissected}}
+\index{dissected@{dissected}!Processor@{Processor}}
+\doxysubsubsection{dissected}
+{\footnotesize\ttfamily bool Processor\+::dissected\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag to apply dissection to the image. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 57
+
+\mbox{\label{classProcessor_a98ab861abde60136af1e8cc2faf88545}} 
+\index{Processor@{Processor}!dissection@{dissection}}
+\index{dissection@{dissection}!Processor@{Processor}}
+\doxysubsubsection{dissection}
+{\footnotesize\ttfamily \textbf{ channel\+\_\+t} Processor\+::dissection[256]\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+New channel values for dissection for image. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 41
+
+\mbox{\label{classProcessor_af65232afa58a5aae89fb9f1b4838988a}} 
+\index{Processor@{Processor}!dissection\_x@{dissection\_x}}
+\index{dissection\_x@{dissection\_x}!Processor@{Processor}}
+\doxysubsubsection{dissection\_x}
+{\footnotesize\ttfamily int Processor\+::dissection\+\_\+x[2]\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Range of channel value where apply dissection. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 31
+
+\mbox{\label{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}} 
+\index{Processor@{Processor}!dissection\_y@{dissection\_y}}
+\index{dissection\_y@{dissection\_y}!Processor@{Processor}}
+\doxysubsubsection{dissection\_y}
+{\footnotesize\ttfamily float Processor\+::dissection\+\_\+y[2]\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Range of proportional coefficients between dissection values. Coefficients must be in range [0, 1] to make sure that new channel values will not out of [0, 255] range. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 37
+
+\mbox{\label{classProcessor_a207a26aa9bab3b3975692b46684420f1}} 
+\index{Processor@{Processor}!dissectionF@{dissectionF}}
+\index{dissectionF@{dissectionF}!Processor@{Processor}}
+\doxysubsubsection{dissectionF}
+{\footnotesize\ttfamily float Processor\+::dissectionF[256]\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+New channel values for dissection for image in float type. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 45
+
+\mbox{\label{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}} 
+\index{Processor@{Processor}!erode@{erode}}
+\index{erode@{erode}!Processor@{Processor}}
+\doxysubsubsection{erode}
+{\footnotesize\ttfamily bool Processor\+::erode\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag to apply erosion to the image. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 65
+
+\mbox{\label{classProcessor_a47e09e09c2b70ecff17903950bc479b1}} 
+\index{Processor@{Processor}!erode\_params@{erode\_params}}
+\index{erode\_params@{erode\_params}!Processor@{Processor}}
+\doxysubsubsection{erode\_params}
+{\footnotesize\ttfamily int Processor\+::erode\+\_\+params[2]\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Size of min filter mask. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 53
+
+\mbox{\label{classProcessor_af7f9931c92a75075ebfef4b9ee59bc89}} 
+\index{Processor@{Processor}!orig@{orig}}
+\index{orig@{orig}!Processor@{Processor}}
+\doxysubsubsection{orig}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$const \textbf{ Image\+Data}$>$ Processor\+::orig\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Original image with calculated histogram. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 19
+
+\mbox{\label{classProcessor_ae87df47dfb2b7679f4e6925335b52f45}} 
+\index{Processor@{Processor}!texture@{texture}}
+\index{texture@{texture}!Processor@{Processor}}
+\doxysubsubsection{texture}
+{\footnotesize\ttfamily const Texture Processor\+::texture\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Texture used to draw with Open\+GL. 
+
+
+
+Див. визначення в файлі processor.\+h, рядок 27
+
+
+
+Документація цих класів була створена з файлів\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ processor.\+h}\item 
+\textbf{ processor.\+cpp}\end{DoxyCompactItemize}

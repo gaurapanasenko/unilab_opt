@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IaMP_Lab2: Клас ImageData</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IaMP_Lab2
+   &#160;<span id="projectnumber">2</span>
+   </div>
+   <div id="projectbrief">Image and Multimedia Processing lab works</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Загальнодоступні елементи</a> &#124;
+<a href="#pub-static-methods">Загальнодоступні статичні елементи</a> &#124;
+<a href="#pub-attribs">Загальнодоступні атрибути</a> &#124;
+<a href="classImageData-members.html">Список всіх елементів</a>  </div>
+  <div class="headertitle">
+<div class="title">Клас ImageData</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><a class="el" href="classImage.html" title="Stores pixels, width and height.">Image</a> metadata class. Stores pointer to image, and histograms. Also stores maximum value of histogram.  
+ <a href="classImageData.html#details">Детальніше...</a></p>
+
+<p><code>#include &lt;<a class="el" href="imagedata_8h_source.html">imagedata.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Загальнодоступні елементи</h2></td></tr>
+<tr class="memitem:aaba63d023d8dfc28120181b2fa549ffb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageData.html#aaba63d023d8dfc28120181b2fa549ffb">ImageData</a> (shared_ptr&lt; const <a class="el" href="classImage.html">Image</a> &gt; <a class="el" href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">image</a>)</td></tr>
+<tr class="memdesc:aaba63d023d8dfc28120181b2fa549ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classImageData.html" title="Image metadata class. Stores pointer to image, and histograms. Also stores maximum value of histogram...">ImageData</a> constructor. Calulates and stores histogram based on <code>image</code>.  <a href="classImageData.html#aaba63d023d8dfc28120181b2fa549ffb">Детальніше...</a><br /></td></tr>
+<tr class="separator:aaba63d023d8dfc28120181b2fa549ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c248e948352830c0167bf43b8d46b34"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; const <a class="el" href="classImage.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageData.html#a0c248e948352830c0167bf43b8d46b34">equalize</a> () const</td></tr>
+<tr class="memdesc:a0c248e948352830c0167bf43b8d46b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equalize image using histogram.  <a href="classImageData.html#a0c248e948352830c0167bf43b8d46b34">Детальніше...</a><br /></td></tr>
+<tr class="separator:a0c248e948352830c0167bf43b8d46b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Загальнодоступні статичні елементи</h2></td></tr>
+<tr class="memitem:afd5fc713924455e7b6be216f88533aee"><td class="memItemLeft" align="right" valign="top">static shared_ptr&lt; const float[256]&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageData.html#afd5fc713924455e7b6be216f88533aee">copyHistogram</a> (shared_ptr&lt; const int[256]&gt; <a class="el" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a>)</td></tr>
+<tr class="memdesc:afd5fc713924455e7b6be216f88533aee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts histogram from integer type to float.  <a href="classImageData.html#afd5fc713924455e7b6be216f88533aee">Детальніше...</a><br /></td></tr>
+<tr class="separator:afd5fc713924455e7b6be216f88533aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Загальнодоступні атрибути</h2></td></tr>
+<tr class="memitem:a43bfc5dc585e693ae8c5202f57690c58"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; const <a class="el" href="classImage.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">image</a></td></tr>
+<tr class="memdesc:a43bfc5dc585e693ae8c5202f57690c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smart pointer to image.  <a href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">Детальніше...</a><br /></td></tr>
+<tr class="separator:a43bfc5dc585e693ae8c5202f57690c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37570d5e806813c1bac58416654813f8"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; const int[256]&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a></td></tr>
+<tr class="memdesc:a37570d5e806813c1bac58416654813f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smart pointer to histogram with integer type.  <a href="classImageData.html#a37570d5e806813c1bac58416654813f8">Детальніше...</a><br /></td></tr>
+<tr class="separator:a37570d5e806813c1bac58416654813f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ff997bebd5f9c713196ccca90cc5ff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageData.html#ad0ff997bebd5f9c713196ccca90cc5ff">maxHistogramI</a></td></tr>
+<tr class="memdesc:ad0ff997bebd5f9c713196ccca90cc5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value of <code>histogramI</code>.  <a href="classImageData.html#ad0ff997bebd5f9c713196ccca90cc5ff">Детальніше...</a><br /></td></tr>
+<tr class="separator:ad0ff997bebd5f9c713196ccca90cc5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7037644594a67cfb4ba547add0189153"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; const float[256]&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageData.html#a7037644594a67cfb4ba547add0189153">histogramF</a></td></tr>
+<tr class="memdesc:a7037644594a67cfb4ba547add0189153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smart pointer to histogram with float type.  <a href="classImageData.html#a7037644594a67cfb4ba547add0189153">Детальніше...</a><br /></td></tr>
+<tr class="separator:a7037644594a67cfb4ba547add0189153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af09c580b9fd18c0824b3aac4f945b410"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classImageData.html#af09c580b9fd18c0824b3aac4f945b410">maxHistogramF</a></td></tr>
+<tr class="memdesc:af09c580b9fd18c0824b3aac4f945b410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value of <code>histogramF</code>.  <a href="classImageData.html#af09c580b9fd18c0824b3aac4f945b410">Детальніше...</a><br /></td></tr>
+<tr class="separator:af09c580b9fd18c0824b3aac4f945b410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Детальний опис</h2>
+<div class="textblock"><p><a class="el" href="classImage.html" title="Stores pixels, width and height.">Image</a> metadata class. Stores pointer to image, and histograms. Also stores maximum value of histogram. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8h_source.html">imagedata.h</a>, рядок <a class="el" href="imagedata_8h_source.html#l00010">10</a></p>
+</div><h2 class="groupheader">Конструктор(и)</h2>
+<a id="aaba63d023d8dfc28120181b2fa549ffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba63d023d8dfc28120181b2fa549ffb">&#9670;&nbsp;</a></span>ImageData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ImageData::ImageData </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; const <a class="el" href="classImage.html">Image</a> &gt;&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classImageData.html" title="Image metadata class. Stores pointer to image, and histograms. Also stores maximum value of histogram...">ImageData</a> constructor. Calulates and stores histogram based on <code>image</code>. </p>
+<dl class="params"><dt>Аргументи</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Smart pointer to image. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8cpp_source.html">imagedata.cpp</a>, рядок <a class="el" href="imagedata_8cpp_source.html#l00004">4</a></p>
+<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    : <a class="code" href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">image</a>(<a class="code" href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">image</a>), <a class="code" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a>(<a class="code" href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">image</a>-&gt;calcHistogram()),</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;      <a class="code" href="classImageData.html#ad0ff997bebd5f9c713196ccca90cc5ff">maxHistogramI</a>(*std::max_element(<a class="code" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a>.get(), <a class="code" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a>.get() + 256)),</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;      <a class="code" href="classImageData.html#a7037644594a67cfb4ba547add0189153">histogramF</a>(<a class="code" href="classImageData.html#afd5fc713924455e7b6be216f88533aee">copyHistogram</a>(<a class="code" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a>)),</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;      <a class="code" href="classImageData.html#af09c580b9fd18c0824b3aac4f945b410">maxHistogramF</a>(<a class="code" href="classImageData.html#ad0ff997bebd5f9c713196ccca90cc5ff">maxHistogramI</a>)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="ttc" id="aclassImageData_html_a37570d5e806813c1bac58416654813f8"><div class="ttname"><a href="classImageData.html#a37570d5e806813c1bac58416654813f8">ImageData::histogramI</a></div><div class="ttdeci">shared_ptr&lt; const int[256]&gt; histogramI</div><div class="ttdoc">Smart pointer to histogram with integer type.</div><div class="ttdef"><b>Definition:</b> <a href="imagedata_8h_source.html#l00019">imagedata.h:19</a></div></div>
+<div class="ttc" id="aclassImageData_html_a43bfc5dc585e693ae8c5202f57690c58"><div class="ttname"><a href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">ImageData::image</a></div><div class="ttdeci">shared_ptr&lt; const Image &gt; image</div><div class="ttdoc">Smart pointer to image.</div><div class="ttdef"><b>Definition:</b> <a href="imagedata_8h_source.html#l00015">imagedata.h:15</a></div></div>
+<div class="ttc" id="aclassImageData_html_a7037644594a67cfb4ba547add0189153"><div class="ttname"><a href="classImageData.html#a7037644594a67cfb4ba547add0189153">ImageData::histogramF</a></div><div class="ttdeci">shared_ptr&lt; const float[256]&gt; histogramF</div><div class="ttdoc">Smart pointer to histogram with float type.</div><div class="ttdef"><b>Definition:</b> <a href="imagedata_8h_source.html#l00027">imagedata.h:27</a></div></div>
+<div class="ttc" id="aclassImageData_html_ad0ff997bebd5f9c713196ccca90cc5ff"><div class="ttname"><a href="classImageData.html#ad0ff997bebd5f9c713196ccca90cc5ff">ImageData::maxHistogramI</a></div><div class="ttdeci">int maxHistogramI</div><div class="ttdoc">Maximum value of histogramI.</div><div class="ttdef"><b>Definition:</b> <a href="imagedata_8h_source.html#l00023">imagedata.h:23</a></div></div>
+<div class="ttc" id="aclassImageData_html_af09c580b9fd18c0824b3aac4f945b410"><div class="ttname"><a href="classImageData.html#af09c580b9fd18c0824b3aac4f945b410">ImageData::maxHistogramF</a></div><div class="ttdeci">float maxHistogramF</div><div class="ttdoc">Maximum value of histogramF.</div><div class="ttdef"><b>Definition:</b> <a href="imagedata_8h_source.html#l00031">imagedata.h:31</a></div></div>
+<div class="ttc" id="aclassImageData_html_afd5fc713924455e7b6be216f88533aee"><div class="ttname"><a href="classImageData.html#afd5fc713924455e7b6be216f88533aee">ImageData::copyHistogram</a></div><div class="ttdeci">static shared_ptr&lt; const float[256]&gt; copyHistogram(shared_ptr&lt; const int[256]&gt; histogramI)</div><div class="ttdoc">Converts histogram from integer type to float.</div><div class="ttdef"><b>Definition:</b> <a href="imagedata_8cpp_source.html#l00013">imagedata.cpp:13</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Опис методів компонент</h2>
+<a id="afd5fc713924455e7b6be216f88533aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd5fc713924455e7b6be216f88533aee">&#9670;&nbsp;</a></span>copyHistogram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; const float[256]&gt; ImageData::copyHistogram </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; const int[256]&gt;&#160;</td>
+          <td class="paramname"><em>histogramI</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts histogram from integer type to float. </p>
+<dl class="params"><dt>Аргументи</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">histogramI</td><td>Integer type histogram. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Повертає</dt><dd>Float type histogram. </dd></dl>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8cpp_source.html">imagedata.cpp</a>, рядок <a class="el" href="imagedata_8cpp_source.html#l00013">13</a></p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::shared_ptr&lt;float[256]&gt; histogram(<span class="keyword">new</span> <span class="keywordtype">float</span>[256]{0});</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::copy(<a class="code" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a>.get(), <a class="code" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a>.get() + 256, histogram.get());</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> histogram;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0c248e948352830c0167bf43b8d46b34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c248e948352830c0167bf43b8d46b34">&#9670;&nbsp;</a></span>equalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; const <a class="el" href="classImage.html">Image</a> &gt; ImageData::equalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equalize image using histogram. </p>
+<dl class="section return"><dt>Повертає</dt><dd>New equalized image. </dd></dl>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8cpp_source.html">imagedata.cpp</a>, рядок <a class="el" href="imagedata_8cpp_source.html#l00020">20</a></p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> width = <a class="code" href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">image</a>-&gt;width, height = <a class="code" href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">image</a>-&gt;height;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> size = width * height;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::shared_ptr&lt;pixel_t[]&gt; data(<span class="keyword">new</span> <a class="code" href="image_8h.html#a8e678b6802a89940a89c7343bec499f5">pixel_t</a>[width * height]);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> <a class="code" href="image_8h.html#a8e678b6802a89940a89c7343bec499f5">pixel_t</a> *in_data = <a class="code" href="classImageData.html#a43bfc5dc585e693ae8c5202f57690c58">image</a>-&gt;data.get();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> *histogram = <a class="code" href="classImageData.html#a37570d5e806813c1bac58416654813f8">histogramI</a>.get();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> accum = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> s[256];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 256; i++) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        accum += histogram[i];</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        s[i] = 255 * accum / size;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="image_8h.html#ab508346f18b7af159376771cf584c4ba">channel_t</a> cur = s[in_data[i][0]];</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        data[i][0] = cur;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        data[i][1] = cur;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        data[i][2] = cur;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        data[i][3] = 255;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;Image&gt;(data, width, height);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="ttc" id="aimage_8h_html_a8e678b6802a89940a89c7343bec499f5"><div class="ttname"><a href="image_8h.html#a8e678b6802a89940a89c7343bec499f5">pixel_t</a></div><div class="ttdeci">channel_t pixel_t[COMP]</div><div class="ttdoc">Pixel type. One pixel has COMP channels and channel defined by channel_t type. Used 8-bit chanel with...</div><div class="ttdef"><b>Definition:</b> <a href="image_8h_source.html#l00027">image.h:27</a></div></div>
+<div class="ttc" id="aimage_8h_html_ab508346f18b7af159376771cf584c4ba"><div class="ttname"><a href="image_8h.html#ab508346f18b7af159376771cf584c4ba">channel_t</a></div><div class="ttdeci">unsigned char channel_t</div><div class="ttdoc">Channel type for image. Used unsigned char because our channel values are in range [0,...</div><div class="ttdef"><b>Definition:</b> <a href="image_8h_source.html#l00019">image.h:19</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Компонентні дані</h2>
+<a id="a7037644594a67cfb4ba547add0189153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7037644594a67cfb4ba547add0189153">&#9670;&nbsp;</a></span>histogramF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;const float[256]&gt; ImageData::histogramF</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Smart pointer to histogram with float type. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8h_source.html">imagedata.h</a>, рядок <a class="el" href="imagedata_8h_source.html#l00027">27</a></p>
+
+</div>
+</div>
+<a id="a37570d5e806813c1bac58416654813f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37570d5e806813c1bac58416654813f8">&#9670;&nbsp;</a></span>histogramI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;const int[256]&gt; ImageData::histogramI</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Smart pointer to histogram with integer type. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8h_source.html">imagedata.h</a>, рядок <a class="el" href="imagedata_8h_source.html#l00019">19</a></p>
+
+</div>
+</div>
+<a id="a43bfc5dc585e693ae8c5202f57690c58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bfc5dc585e693ae8c5202f57690c58">&#9670;&nbsp;</a></span>image</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;const <a class="el" href="classImage.html">Image</a>&gt; ImageData::image</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Smart pointer to image. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8h_source.html">imagedata.h</a>, рядок <a class="el" href="imagedata_8h_source.html#l00015">15</a></p>
+
+</div>
+</div>
+<a id="af09c580b9fd18c0824b3aac4f945b410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af09c580b9fd18c0824b3aac4f945b410">&#9670;&nbsp;</a></span>maxHistogramF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ImageData::maxHistogramF</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum value of <code>histogramF</code>. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8h_source.html">imagedata.h</a>, рядок <a class="el" href="imagedata_8h_source.html#l00031">31</a></p>
+
+</div>
+</div>
+<a id="ad0ff997bebd5f9c713196ccca90cc5ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ff997bebd5f9c713196ccca90cc5ff">&#9670;&nbsp;</a></span>maxHistogramI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ImageData::maxHistogramI</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum value of <code>histogramI</code>. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="imagedata_8h_source.html">imagedata.h</a>, рядок <a class="el" href="imagedata_8h_source.html#l00023">23</a></p>
+
+</div>
+</div>
+<hr/>Документація цих класів була створена з файлів:<ul>
+<li><a class="el" href="imagedata_8h_source.html">imagedata.h</a></li>
+<li><a class="el" href="imagedata_8cpp_source.html">imagedata.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

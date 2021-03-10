@@ -1,0 +1,103 @@
+\doxysection{Файл main.\+cpp}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include \char`\"{}gui/app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}processor.\+h\char`\"{}}\newline
+\doxysubsection*{Макровизначення}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ PROJECT\+\_\+\+NAME}~\char`\"{}Ia\+MP\+\_\+\+Lab2\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ main} (int, char $\ast$$\ast$)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Опис макровизначень}
+\mbox{\label{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}} 
+\index{main.cpp@{main.cpp}!PROJECT\_NAME@{PROJECT\_NAME}}
+\index{PROJECT\_NAME@{PROJECT\_NAME}!main.cpp@{main.cpp}}
+\doxysubsubsection{PROJECT\_NAME}
+{\footnotesize\ttfamily \#define PROJECT\+\_\+\+NAME~\char`\"{}Ia\+MP\+\_\+\+Lab2\char`\"{}}
+
+
+
+Див. визначення в файлі main.\+cpp, рядок 9
+
+
+
+\doxysubsection{Опис функцій}
+\mbox{\label{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{char $\ast$$\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі main.\+cpp, рядок 13
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     App app(PROJECT\_NAME);}
+\DoxyCodeLine{16     map<string, shared\_ptr<Processor>> images;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     imgui\_addons::ImGuiFileBrowser *file\_dialog = app.getFile\_dialog();}
+\DoxyCodeLine{19     \textcolor{comment}{// Main loop}}
+\DoxyCodeLine{20     \textcolor{keywordflow}{while} (!app.should\_closed())}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22         app.begin\_loop();}
+\DoxyCodeLine{23         \textcolor{keyword}{auto} mode = imgui\_addons::ImGuiFileBrowser::DialogMode::OPEN;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{keywordflow}{if} (file\_dialog-\/>showFileDialog(}
+\DoxyCodeLine{26                     \textcolor{stringliteral}{"{}Open File"{}}, mode, ImVec2(700, 310), \textcolor{stringliteral}{"{}.png,.jpg,.bmp"{}}))}
+\DoxyCodeLine{27         \{}
+\DoxyCodeLine{28             \textcolor{keywordtype}{string} path(file\_dialog-\/>selected\_path);}
+\DoxyCodeLine{29             \textcolor{keyword}{auto} img = Image::fromFile(path.c\_str());}
+\DoxyCodeLine{30             \textcolor{keyword}{auto} pathImage = make\_shared<Image>(img);}
+\DoxyCodeLine{31             \textcolor{keyword}{auto} gray = make\_shared<ImageData>(pathImage-\/>toGray());}
+\DoxyCodeLine{32             \{}
+\DoxyCodeLine{33                 stringstream ss;}
+\DoxyCodeLine{34                 ss << \textcolor{stringliteral}{"{}Original Image: "{}} << file\_dialog-\/>selected\_fn}
+\DoxyCodeLine{35                    << \textcolor{stringliteral}{"{} "{}} << file\_dialog-\/>selected\_path;}
+\DoxyCodeLine{36                 \textcolor{keyword}{auto} data = make\_shared<ImageData>(pathImage);}
+\DoxyCodeLine{37                 \textcolor{keyword}{auto} proc = make\_shared<Processor>(data);}
+\DoxyCodeLine{38                 images.insert(make\_pair(ss.str(), proc));}
+\DoxyCodeLine{39             \}}
+\DoxyCodeLine{40             \{}
+\DoxyCodeLine{41                 stringstream ss;}
+\DoxyCodeLine{42                 ss << \textcolor{stringliteral}{"{}Gray Image: "{}} << file\_dialog-\/>selected\_fn}
+\DoxyCodeLine{43                    << \textcolor{stringliteral}{"{} "{}} << file\_dialog-\/>selected\_path;}
+\DoxyCodeLine{44                 \textcolor{keyword}{auto} proc = make\_shared<Processor>(gray);}
+\DoxyCodeLine{45                 images.insert(make\_pair(ss.str(), proc));}
+\DoxyCodeLine{46             \}}
+\DoxyCodeLine{47             \{}
+\DoxyCodeLine{48                 stringstream ss;}
+\DoxyCodeLine{49                 ss << \textcolor{stringliteral}{"{}Equalization: "{}} << file\_dialog-\/>selected\_fn}
+\DoxyCodeLine{50                    << \textcolor{stringliteral}{"{} "{}} << file\_dialog-\/>selected\_path;}
+\DoxyCodeLine{51                 \textcolor{keyword}{auto} data = make\_shared<ImageData>(gray-\/>equalize());}
+\DoxyCodeLine{52                 \textcolor{keyword}{auto} proc = make\_shared<Processor>(data);}
+\DoxyCodeLine{53                 images.insert(make\_pair(ss.str(), proc));}
+\DoxyCodeLine{54             \}}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} image = images.begin(); image != images.end();) \{}
+\DoxyCodeLine{58             \textcolor{keywordflow}{if} (!image-\/>second-\/>process\_image(image-\/>first.c\_str())) \{}
+\DoxyCodeLine{59                 image = images.erase(image);}
+\DoxyCodeLine{60             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{61                 ++image;}
+\DoxyCodeLine{62             \}}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{64         app.end\_loop();}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}

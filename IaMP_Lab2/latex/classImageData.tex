@@ -1,0 +1,233 @@
+\doxysection{Клас Image\+Data}
+\label{classImageData}\index{ImageData@{ImageData}}
+
+
+\doxyref{Image}{стор.}{classImage} metadata class. Stores pointer to image, and histograms. Also stores maximum value of histogram.  
+
+
+
+
+{\ttfamily \#include $<$imagedata.\+h$>$}
+
+\doxysubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Image\+Data} (shared\+\_\+ptr$<$ const \textbf{ Image} $>$ \textbf{ image})
+\begin{DoxyCompactList}\small\item\em \doxyref{Image\+Data}{стор.}{classImageData} constructor. Calulates and stores histogram based on {\ttfamily image}. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ const \textbf{ Image} $>$ \textbf{ equalize} () const
+\begin{DoxyCompactList}\small\item\em Equalize image using histogram. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Загальнодоступні статичні елементи}
+\begin{DoxyCompactItemize}
+\item 
+static shared\+\_\+ptr$<$ const float[256]$>$ \textbf{ copy\+Histogram} (shared\+\_\+ptr$<$ const int[256]$>$ \textbf{ histogramI})
+\begin{DoxyCompactList}\small\item\em Converts histogram from integer type to float. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Загальнодоступні атрибути}
+\begin{DoxyCompactItemize}
+\item 
+shared\+\_\+ptr$<$ const \textbf{ Image} $>$ \textbf{ image}
+\begin{DoxyCompactList}\small\item\em Smart pointer to image. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ const int[256]$>$ \textbf{ histogramI}
+\begin{DoxyCompactList}\small\item\em Smart pointer to histogram with integer type. \end{DoxyCompactList}\item 
+int \textbf{ max\+HistogramI}
+\begin{DoxyCompactList}\small\item\em Maximum value of {\ttfamily histogramI}. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ const float[256]$>$ \textbf{ histogramF}
+\begin{DoxyCompactList}\small\item\em Smart pointer to histogram with float type. \end{DoxyCompactList}\item 
+float \textbf{ max\+HistogramF}
+\begin{DoxyCompactList}\small\item\em Maximum value of {\ttfamily histogramF}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Детальний опис}
+\doxyref{Image}{стор.}{classImage} metadata class. Stores pointer to image, and histograms. Also stores maximum value of histogram. 
+
+Див. визначення в файлі imagedata.\+h, рядок 10
+
+
+
+\doxysubsection{Конструктор(и)}
+\mbox{\label{classImageData_aaba63d023d8dfc28120181b2fa549ffb}} 
+\index{ImageData@{ImageData}!ImageData@{ImageData}}
+\index{ImageData@{ImageData}!ImageData@{ImageData}}
+\doxysubsubsection{ImageData()}
+{\footnotesize\ttfamily Image\+Data\+::\+Image\+Data (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ const \textbf{ Image} $>$}]{image }\end{DoxyParamCaption})}
+
+
+
+\doxyref{Image\+Data}{стор.}{classImageData} constructor. Calulates and stores histogram based on {\ttfamily image}. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em image} & Smart pointer to image. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі imagedata.\+cpp, рядок 4
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5     : image(image), histogramI(image-\/>calcHistogram()),}
+\DoxyCodeLine{6       maxHistogramI(*std::max\_element(histogramI.get(), histogramI.get() + 256)),}
+\DoxyCodeLine{7       histogramF(copyHistogram(histogramI)),}
+\DoxyCodeLine{8       maxHistogramF(maxHistogramI)}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Опис методів компонент}
+\mbox{\label{classImageData_afd5fc713924455e7b6be216f88533aee}} 
+\index{ImageData@{ImageData}!copyHistogram@{copyHistogram}}
+\index{copyHistogram@{copyHistogram}!ImageData@{ImageData}}
+\doxysubsubsection{copyHistogram()}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ const float[256]$>$ Image\+Data\+::copy\+Histogram (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ const int[256]$>$}]{histogramI }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts histogram from integer type to float. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em histogramI} & Integer type histogram. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Float type histogram. 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі imagedata.\+cpp, рядок 13
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     std::shared\_ptr<float[256]> histogram(\textcolor{keyword}{new} \textcolor{keywordtype}{float}[256]\{0\});}
+\DoxyCodeLine{16     std::copy(histogramI.get(), histogramI.get() + 256, histogram.get());}
+\DoxyCodeLine{17     \textcolor{keywordflow}{return} histogram;}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+\mbox{\label{classImageData_a0c248e948352830c0167bf43b8d46b34}} 
+\index{ImageData@{ImageData}!equalize@{equalize}}
+\index{equalize@{equalize}!ImageData@{ImageData}}
+\doxysubsubsection{equalize()}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ const \textbf{ Image} $>$ Image\+Data\+::equalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Equalize image using histogram. 
+
+\begin{DoxyReturn}{Повертає}
+New equalized image. 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі imagedata.\+cpp, рядок 20
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} width = image-\/>width, height = image-\/>height;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} size = width * height;}
+\DoxyCodeLine{24     std::shared\_ptr<pixel\_t[]> data(\textcolor{keyword}{new} pixel\_t[width * height]);}
+\DoxyCodeLine{25     \textcolor{keyword}{const} pixel\_t *in\_data = image-\/>data.get();}
+\DoxyCodeLine{26     \textcolor{keyword}{const} \textcolor{keywordtype}{int} *histogram = histogramI.get();}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} accum = 0;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} s[256];}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 256; i++) \{}
+\DoxyCodeLine{31         accum += histogram[i];}
+\DoxyCodeLine{32         s[i] = 255 * accum / size;}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
+\DoxyCodeLine{36         channel\_t cur = s[in\_data[i][0]];}
+\DoxyCodeLine{37         data[i][0] = cur;}
+\DoxyCodeLine{38         data[i][1] = cur;}
+\DoxyCodeLine{39         data[i][2] = cur;}
+\DoxyCodeLine{40         data[i][3] = 255;}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} std::make\_shared<Image>(data, width, height);}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Компонентні дані}
+\mbox{\label{classImageData_a7037644594a67cfb4ba547add0189153}} 
+\index{ImageData@{ImageData}!histogramF@{histogramF}}
+\index{histogramF@{histogramF}!ImageData@{ImageData}}
+\doxysubsubsection{histogramF}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$const float[256]$>$ Image\+Data\+::histogramF}
+
+
+
+Smart pointer to histogram with float type. 
+
+
+
+Див. визначення в файлі imagedata.\+h, рядок 27
+
+\mbox{\label{classImageData_a37570d5e806813c1bac58416654813f8}} 
+\index{ImageData@{ImageData}!histogramI@{histogramI}}
+\index{histogramI@{histogramI}!ImageData@{ImageData}}
+\doxysubsubsection{histogramI}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$const int[256]$>$ Image\+Data\+::histogramI}
+
+
+
+Smart pointer to histogram with integer type. 
+
+
+
+Див. визначення в файлі imagedata.\+h, рядок 19
+
+\mbox{\label{classImageData_a43bfc5dc585e693ae8c5202f57690c58}} 
+\index{ImageData@{ImageData}!image@{image}}
+\index{image@{image}!ImageData@{ImageData}}
+\doxysubsubsection{image}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$const \textbf{ Image}$>$ Image\+Data\+::image}
+
+
+
+Smart pointer to image. 
+
+
+
+Див. визначення в файлі imagedata.\+h, рядок 15
+
+\mbox{\label{classImageData_af09c580b9fd18c0824b3aac4f945b410}} 
+\index{ImageData@{ImageData}!maxHistogramF@{maxHistogramF}}
+\index{maxHistogramF@{maxHistogramF}!ImageData@{ImageData}}
+\doxysubsubsection{maxHistogramF}
+{\footnotesize\ttfamily float Image\+Data\+::max\+HistogramF}
+
+
+
+Maximum value of {\ttfamily histogramF}. 
+
+
+
+Див. визначення в файлі imagedata.\+h, рядок 31
+
+\mbox{\label{classImageData_ad0ff997bebd5f9c713196ccca90cc5ff}} 
+\index{ImageData@{ImageData}!maxHistogramI@{maxHistogramI}}
+\index{maxHistogramI@{maxHistogramI}!ImageData@{ImageData}}
+\doxysubsubsection{maxHistogramI}
+{\footnotesize\ttfamily int Image\+Data\+::max\+HistogramI}
+
+
+
+Maximum value of {\ttfamily histogramI}. 
+
+
+
+Див. визначення в файлі imagedata.\+h, рядок 23
+
+
+
+Документація цих класів була створена з файлів\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ imagedata.\+h}\item 
+\textbf{ imagedata.\+cpp}\end{DoxyCompactItemize}

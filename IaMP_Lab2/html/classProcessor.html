@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IaMP_Lab2: Клас Processor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">IaMP_Lab2
+   &#160;<span id="projectnumber">2</span>
+   </div>
+   <div id="projectbrief">Image and Multimedia Processing lab works</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Загальнодоступні елементи</a> &#124;
+<a href="#pri-attribs">Приватні дані</a> &#124;
+<a href="classProcessor-members.html">Список всіх елементів</a>  </div>
+  <div class="headertitle">
+<div class="title">Клас Processor</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Processing image. Calculates histogram, applies dissection or max filter and stores result image to texture.  
+ <a href="classProcessor.html#details">Детальніше...</a></p>
+
+<p><code>#include &lt;<a class="el" href="processor_8h_source.html">processor.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Загальнодоступні елементи</h2></td></tr>
+<tr class="memitem:a87acdaf96820eefa38486dda8f90daa3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a87acdaf96820eefa38486dda8f90daa3">Processor</a> (shared_ptr&lt; const <a class="el" href="classImageData.html">ImageData</a> &gt; input)</td></tr>
+<tr class="memdesc:a87acdaf96820eefa38486dda8f90daa3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classProcessor.html" title="Processing image. Calculates histogram, applies dissection or max filter and stores result image to t...">Processor</a> constuctor.  <a href="classProcessor.html#a87acdaf96820eefa38486dda8f90daa3">Детальніше...</a><br /></td></tr>
+<tr class="separator:a87acdaf96820eefa38486dda8f90daa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a852ad59e8f329a6300ea2dddf4209d44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a852ad59e8f329a6300ea2dddf4209d44">updateDissection</a> ()</td></tr>
+<tr class="memdesc:a852ad59e8f329a6300ea2dddf4209d44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates new image and stores it to texture.  <a href="classProcessor.html#a852ad59e8f329a6300ea2dddf4209d44">Детальніше...</a><br /></td></tr>
+<tr class="separator:a852ad59e8f329a6300ea2dddf4209d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a2f295cc922bc841c2fd8d2bc88ca38"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a7a2f295cc922bc841c2fd8d2bc88ca38">process_image</a> (const char *name)</td></tr>
+<tr class="memdesc:a7a2f295cc922bc841c2fd8d2bc88ca38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements interface to manipulate fields.  <a href="classProcessor.html#a7a2f295cc922bc841c2fd8d2bc88ca38">Детальніше...</a><br /></td></tr>
+<tr class="separator:a7a2f295cc922bc841c2fd8d2bc88ca38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Приватні дані</h2></td></tr>
+<tr class="memitem:af7f9931c92a75075ebfef4b9ee59bc89"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; const <a class="el" href="classImageData.html">ImageData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#af7f9931c92a75075ebfef4b9ee59bc89">orig</a></td></tr>
+<tr class="memdesc:af7f9931c92a75075ebfef4b9ee59bc89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Original image with calculated histogram.  <a href="classProcessor.html#af7f9931c92a75075ebfef4b9ee59bc89">Детальніше...</a><br /></td></tr>
+<tr class="separator:af7f9931c92a75075ebfef4b9ee59bc89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8df105dd73d3e2247baebe9834a1e78"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; const <a class="el" href="classImageData.html">ImageData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a></td></tr>
+<tr class="memdesc:aa8df105dd73d3e2247baebe9834a1e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Currently shown image on display.  <a href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">Детальніше...</a><br /></td></tr>
+<tr class="separator:aa8df105dd73d3e2247baebe9834a1e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae87df47dfb2b7679f4e6925335b52f45"><td class="memItemLeft" align="right" valign="top">const Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">texture</a></td></tr>
+<tr class="memdesc:ae87df47dfb2b7679f4e6925335b52f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture used to draw with OpenGL.  <a href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">Детальніше...</a><br /></td></tr>
+<tr class="separator:ae87df47dfb2b7679f4e6925335b52f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af65232afa58a5aae89fb9f1b4838988a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a> [2]</td></tr>
+<tr class="memdesc:af65232afa58a5aae89fb9f1b4838988a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range of channel value where apply dissection.  <a href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">Детальніше...</a><br /></td></tr>
+<tr class="separator:af65232afa58a5aae89fb9f1b4838988a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646f4897ccac8fdcc4afe09cb8b1163b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">dissection_y</a> [2]</td></tr>
+<tr class="memdesc:a646f4897ccac8fdcc4afe09cb8b1163b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range of proportional coefficients between dissection values. Coefficients must be in range [0, 1] to make sure that new channel values will not out of [0, 255] range.  <a href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">Детальніше...</a><br /></td></tr>
+<tr class="separator:a646f4897ccac8fdcc4afe09cb8b1163b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ab861abde60136af1e8cc2faf88545"><td class="memItemLeft" align="right" valign="top"><a class="el" href="image_8h.html#ab508346f18b7af159376771cf584c4ba">channel_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a98ab861abde60136af1e8cc2faf88545">dissection</a> [256]</td></tr>
+<tr class="memdesc:a98ab861abde60136af1e8cc2faf88545"><td class="mdescLeft">&#160;</td><td class="mdescRight">New channel values for dissection for image.  <a href="classProcessor.html#a98ab861abde60136af1e8cc2faf88545">Детальніше...</a><br /></td></tr>
+<tr class="separator:a98ab861abde60136af1e8cc2faf88545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a207a26aa9bab3b3975692b46684420f1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">dissectionF</a> [256]</td></tr>
+<tr class="memdesc:a207a26aa9bab3b3975692b46684420f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">New channel values for dissection for image in float type.  <a href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">Детальніше...</a><br /></td></tr>
+<tr class="separator:a207a26aa9bab3b3975692b46684420f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841b85e15f1214b4c1e1385dffe33fc5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a841b85e15f1214b4c1e1385dffe33fc5">dilate_params</a> [2]</td></tr>
+<tr class="memdesc:a841b85e15f1214b4c1e1385dffe33fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of max filter mask.  <a href="classProcessor.html#a841b85e15f1214b4c1e1385dffe33fc5">Детальніше...</a><br /></td></tr>
+<tr class="separator:a841b85e15f1214b4c1e1385dffe33fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47e09e09c2b70ecff17903950bc479b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a47e09e09c2b70ecff17903950bc479b1">erode_params</a> [2]</td></tr>
+<tr class="memdesc:a47e09e09c2b70ecff17903950bc479b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of min filter mask.  <a href="classProcessor.html#a47e09e09c2b70ecff17903950bc479b1">Детальніше...</a><br /></td></tr>
+<tr class="separator:a47e09e09c2b70ecff17903950bc479b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13288933a71944a6ee966262b54caca5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a></td></tr>
+<tr class="memdesc:a13288933a71944a6ee966262b54caca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to apply dissection to the image.  <a href="classProcessor.html#a13288933a71944a6ee966262b54caca5">Детальніше...</a><br /></td></tr>
+<tr class="separator:a13288933a71944a6ee966262b54caca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f50e7dde58dd293a1e45128999749b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a></td></tr>
+<tr class="memdesc:a28f50e7dde58dd293a1e45128999749b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to apply dilation to the image.  <a href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">Детальніше...</a><br /></td></tr>
+<tr class="separator:a28f50e7dde58dd293a1e45128999749b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b2f0fd7588b4691f8bff3d947a0dc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a></td></tr>
+<tr class="memdesc:ab2b2f0fd7588b4691f8bff3d947a0dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to apply erosion to the image.  <a href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">Детальніше...</a><br /></td></tr>
+<tr class="separator:ab2b2f0fd7588b4691f8bff3d947a0dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Детальний опис</h2>
+<div class="textblock"><p>Processing image. Calculates histogram, applies dissection or max filter and stores result image to texture. </p>
+<p>Also have implements interface to manipulate parameters in this class with imgui. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00015">15</a></p>
+</div><h2 class="groupheader">Конструктор(и)</h2>
+<a id="a87acdaf96820eefa38486dda8f90daa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87acdaf96820eefa38486dda8f90daa3">&#9670;&nbsp;</a></span>Processor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Processor::Processor </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; const <a class="el" href="classImageData.html">ImageData</a> &gt;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classProcessor.html" title="Processing image. Calculates histogram, applies dissection or max filter and stores result image to t...">Processor</a> constuctor. </p>
+<dl class="params"><dt>Аргументи</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input image that will be processed by this class. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8cpp_source.html">processor.cpp</a>, рядок <a class="el" href="processor_8cpp_source.html#l00007">7</a></p>
+<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    : <a class="code" href="classProcessor.html#af7f9931c92a75075ebfef4b9ee59bc89">orig</a>(input),</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;      <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>(input),</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;      <a class="code" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a>{100, 200},</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;      <a class="code" href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">dissection_y</a>{0, 1},</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;      <a class="code" href="classProcessor.html#a98ab861abde60136af1e8cc2faf88545">dissection</a>{0},</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      <a class="code" href="classProcessor.html#a841b85e15f1214b4c1e1385dffe33fc5">dilate_params</a>{1, 1},</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      <a class="code" href="classProcessor.html#a47e09e09c2b70ecff17903950bc479b1">erode_params</a>{1, 1},</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      <a class="code" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a>(<span class="keyword">false</span>),</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <a class="code" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a>(<span class="keyword">false</span>),</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      <a class="code" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a>(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classProcessor.html#a852ad59e8f329a6300ea2dddf4209d44">updateDissection</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="ttc" id="aclassProcessor_html_a13288933a71944a6ee966262b54caca5"><div class="ttname"><a href="classProcessor.html#a13288933a71944a6ee966262b54caca5">Processor::dissected</a></div><div class="ttdeci">bool dissected</div><div class="ttdoc">Flag to apply dissection to the image.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00057">processor.h:57</a></div></div>
+<div class="ttc" id="aclassProcessor_html_a28f50e7dde58dd293a1e45128999749b"><div class="ttname"><a href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">Processor::dilate</a></div><div class="ttdeci">bool dilate</div><div class="ttdoc">Flag to apply dilation to the image.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00061">processor.h:61</a></div></div>
+<div class="ttc" id="aclassProcessor_html_a47e09e09c2b70ecff17903950bc479b1"><div class="ttname"><a href="classProcessor.html#a47e09e09c2b70ecff17903950bc479b1">Processor::erode_params</a></div><div class="ttdeci">int erode_params[2]</div><div class="ttdoc">Size of min filter mask.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00053">processor.h:53</a></div></div>
+<div class="ttc" id="aclassProcessor_html_a646f4897ccac8fdcc4afe09cb8b1163b"><div class="ttname"><a href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">Processor::dissection_y</a></div><div class="ttdeci">float dissection_y[2]</div><div class="ttdoc">Range of proportional coefficients between dissection values. Coefficients must be in range [0,...</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00037">processor.h:37</a></div></div>
+<div class="ttc" id="aclassProcessor_html_a841b85e15f1214b4c1e1385dffe33fc5"><div class="ttname"><a href="classProcessor.html#a841b85e15f1214b4c1e1385dffe33fc5">Processor::dilate_params</a></div><div class="ttdeci">int dilate_params[2]</div><div class="ttdoc">Size of max filter mask.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00049">processor.h:49</a></div></div>
+<div class="ttc" id="aclassProcessor_html_a852ad59e8f329a6300ea2dddf4209d44"><div class="ttname"><a href="classProcessor.html#a852ad59e8f329a6300ea2dddf4209d44">Processor::updateDissection</a></div><div class="ttdeci">void updateDissection()</div><div class="ttdoc">Calculates new image and stores it to texture.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8cpp_source.html#l00022">processor.cpp:22</a></div></div>
+<div class="ttc" id="aclassProcessor_html_a98ab861abde60136af1e8cc2faf88545"><div class="ttname"><a href="classProcessor.html#a98ab861abde60136af1e8cc2faf88545">Processor::dissection</a></div><div class="ttdeci">channel_t dissection[256]</div><div class="ttdoc">New channel values for dissection for image.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00041">processor.h:41</a></div></div>
+<div class="ttc" id="aclassProcessor_html_aa8df105dd73d3e2247baebe9834a1e78"><div class="ttname"><a href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">Processor::data</a></div><div class="ttdeci">shared_ptr&lt; const ImageData &gt; data</div><div class="ttdoc">Currently shown image on display.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00023">processor.h:23</a></div></div>
+<div class="ttc" id="aclassProcessor_html_ab2b2f0fd7588b4691f8bff3d947a0dc2"><div class="ttname"><a href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">Processor::erode</a></div><div class="ttdeci">bool erode</div><div class="ttdoc">Flag to apply erosion to the image.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00065">processor.h:65</a></div></div>
+<div class="ttc" id="aclassProcessor_html_af65232afa58a5aae89fb9f1b4838988a"><div class="ttname"><a href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">Processor::dissection_x</a></div><div class="ttdeci">int dissection_x[2]</div><div class="ttdoc">Range of channel value where apply dissection.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00031">processor.h:31</a></div></div>
+<div class="ttc" id="aclassProcessor_html_af7f9931c92a75075ebfef4b9ee59bc89"><div class="ttname"><a href="classProcessor.html#af7f9931c92a75075ebfef4b9ee59bc89">Processor::orig</a></div><div class="ttdeci">shared_ptr&lt; const ImageData &gt; orig</div><div class="ttdoc">Original image with calculated histogram.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00019">processor.h:19</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Опис методів компонент</h2>
+<a id="a7a2f295cc922bc841c2fd8d2bc88ca38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a2f295cc922bc841c2fd8d2bc88ca38">&#9670;&nbsp;</a></span>process_image()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Processor::process_image </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implements interface to manipulate fields. </p>
+<dl class="params"><dt>Аргументи</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>name of window that will be shown. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Повертає</dt><dd>boolean value that shows that it is needed to update image. </dd></dl>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8cpp_source.html">processor.cpp</a>, рядок <a class="el" href="processor_8cpp_source.html#l00047">47</a></p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                              {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> opened = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">auto</span> img = <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;image;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">auto</span> tex_id = (<span class="keywordtype">void</span>*)(intptr_t)(<a class="code" href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">texture</a>.id);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ImGui::PushID(name);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ImVec2 size(img-&gt;width, img-&gt;height);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ImGui::SetNextWindowSize(size, ImGuiCond_FirstUseEver);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0,0));</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ImGui::Begin(name, &amp;opened, ImGuiWindowFlags_NoSavedSettings);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ImGui::Image(tex_id, ImGui::GetContentRegionAvail());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ImGui::End();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ImGui::PopStyleVar();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">char</span> info_name[128];</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    snprintf(info_name, 128, <span class="stringliteral">&quot;Info %s&quot;</span>, name);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    ImGui::Begin(info_name, NULL, ImGuiWindowFlags_NoSavedSettings);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;pointer = %ld&quot;</span>, (intptr_t)tex_id);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;size = %d x %d&quot;</span>, img-&gt;width, img-&gt;height);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ImGui::PlotHistogram(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="stringliteral">&quot;##&quot;</span>, <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;histogramF.get(), 256, 0, <span class="stringliteral">&quot;Histogram&quot;</span>, 0.0f,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;maxHistogramF, ImVec2(0, 100.0f));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> changed = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ImGui::Spacing();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Dissected&quot;</span>, &amp;<a class="code" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a>) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keyword">auto</span> val = <a class="code" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            changed |= ImGui::DragIntRange2(<span class="stringliteral">&quot;dissection x&quot;</span>, val, val + 1, 1, 0,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                            256, <span class="stringliteral">&quot;Min: %d&quot;</span>, <span class="stringliteral">&quot;Max: %d&quot;</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keyword">auto</span> val = <a class="code" href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">dissection_y</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            changed |= ImGui::DragFloatRange2(<span class="stringliteral">&quot;dissection y&quot;</span>, val, val + 1, 0.01,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                              0, 1, <span class="stringliteral">&quot;Min: %.2f&quot;</span>, <span class="stringliteral">&quot;Max: %.2f&quot;</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        ImGui::PlotLines(<span class="stringliteral">&quot;Lines&quot;</span>, <a class="code" href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">dissectionF</a>, 256, 0, NULL, 0, 1.0f,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                         ImVec2(0, 80.0f));</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    ImGui::Spacing();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Dilate&quot;</span>, &amp;<a class="code" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a>) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        changed |= ImGui::SliderInt2(<span class="stringliteral">&quot;dilate params&quot;</span>, <a class="code" href="classProcessor.html#a841b85e15f1214b4c1e1385dffe33fc5">dilate_params</a>, 0, 16);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Erode&quot;</span>, &amp;<a class="code" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a>) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        changed |= ImGui::SliderInt2(<span class="stringliteral">&quot;erode params&quot;</span>, <a class="code" href="classProcessor.html#a47e09e09c2b70ecff17903950bc479b1">erode_params</a>, 0, 16);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> (changed) <a class="code" href="classProcessor.html#a852ad59e8f329a6300ea2dddf4209d44">updateDissection</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    ImGui::End();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    ImGui::PopID();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> opened;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="ttc" id="aclassProcessor_html_a207a26aa9bab3b3975692b46684420f1"><div class="ttname"><a href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">Processor::dissectionF</a></div><div class="ttdeci">float dissectionF[256]</div><div class="ttdoc">New channel values for dissection for image in float type.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00045">processor.h:45</a></div></div>
+<div class="ttc" id="aclassProcessor_html_ae87df47dfb2b7679f4e6925335b52f45"><div class="ttname"><a href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">Processor::texture</a></div><div class="ttdeci">const Texture texture</div><div class="ttdoc">Texture used to draw with OpenGL.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00027">processor.h:27</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a852ad59e8f329a6300ea2dddf4209d44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a852ad59e8f329a6300ea2dddf4209d44">&#9670;&nbsp;</a></span>updateDissection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Processor::updateDissection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates new image and stores it to texture. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8cpp_source.html">processor.cpp</a>, рядок <a class="el" href="processor_8cpp_source.html#l00022">22</a></p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                 {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a> = <a class="code" href="classProcessor.html#af7f9931c92a75075ebfef4b9ee59bc89">orig</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a>) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">float</span> diffY = <a class="code" href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">dissection_y</a>[1] - <a class="code" href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">dissection_y</a>[0];</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> diffX = <a class="code" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a>[1] - <a class="code" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a>[0];</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">float</span> diff = diffY / diffX;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">float</span> acc = <a class="code" href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">dissection_y</a>[0];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        memset(<a class="code" href="classProcessor.html#a98ab861abde60136af1e8cc2faf88545">dissection</a>, 0, 256 * <span class="keyword">sizeof</span>(<a class="code" href="image_8h.html#ab508346f18b7af159376771cf584c4ba">channel_t</a>));</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        memset(<a class="code" href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">dissectionF</a>, 0, 256 * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <a class="code" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a>[0]; i &lt; <a class="code" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a>[1]; i++) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            acc += diff;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <a class="code" href="classProcessor.html#a98ab861abde60136af1e8cc2faf88545">dissection</a>[i] = acc * 255;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">dissectionF</a>[i] = acc;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a> = make_shared&lt;ImageData&gt;(<a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;image-&gt;dissect(<a class="code" href="classProcessor.html#a98ab861abde60136af1e8cc2faf88545">dissection</a>));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a>) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a> = make_shared&lt;ImageData&gt;(<a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;image-&gt;dilate(<a class="code" href="classProcessor.html#a841b85e15f1214b4c1e1385dffe33fc5">dilate_params</a>));</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a>) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a> = make_shared&lt;ImageData&gt;(<a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;image-&gt;erode(<a class="code" href="classProcessor.html#a47e09e09c2b70ecff17903950bc479b1">erode_params</a>));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">texture</a>.update(*<a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;image);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="ttc" id="aimage_8h_html_ab508346f18b7af159376771cf584c4ba"><div class="ttname"><a href="image_8h.html#ab508346f18b7af159376771cf584c4ba">channel_t</a></div><div class="ttdeci">unsigned char channel_t</div><div class="ttdoc">Channel type for image. Used unsigned char because our channel values are in range [0,...</div><div class="ttdef"><b>Definition:</b> <a href="image_8h_source.html#l00019">image.h:19</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Компонентні дані</h2>
+<a id="aa8df105dd73d3e2247baebe9834a1e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8df105dd73d3e2247baebe9834a1e78">&#9670;&nbsp;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;const <a class="el" href="classImageData.html">ImageData</a>&gt; Processor::data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Currently shown image on display. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00023">23</a></p>
+
+</div>
+</div>
+<a id="a28f50e7dde58dd293a1e45128999749b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f50e7dde58dd293a1e45128999749b">&#9670;&nbsp;</a></span>dilate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Processor::dilate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag to apply dilation to the image. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00061">61</a></p>
+
+</div>
+</div>
+<a id="a841b85e15f1214b4c1e1385dffe33fc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841b85e15f1214b4c1e1385dffe33fc5">&#9670;&nbsp;</a></span>dilate_params</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Processor::dilate_params[2]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Size of max filter mask. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00049">49</a></p>
+
+</div>
+</div>
+<a id="a13288933a71944a6ee966262b54caca5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13288933a71944a6ee966262b54caca5">&#9670;&nbsp;</a></span>dissected</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Processor::dissected</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag to apply dissection to the image. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00057">57</a></p>
+
+</div>
+</div>
+<a id="a98ab861abde60136af1e8cc2faf88545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98ab861abde60136af1e8cc2faf88545">&#9670;&nbsp;</a></span>dissection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="image_8h.html#ab508346f18b7af159376771cf584c4ba">channel_t</a> Processor::dissection[256]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>New channel values for dissection for image. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00041">41</a></p>
+
+</div>
+</div>
+<a id="af65232afa58a5aae89fb9f1b4838988a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af65232afa58a5aae89fb9f1b4838988a">&#9670;&nbsp;</a></span>dissection_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Processor::dissection_x[2]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Range of channel value where apply dissection. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00031">31</a></p>
+
+</div>
+</div>
+<a id="a646f4897ccac8fdcc4afe09cb8b1163b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a646f4897ccac8fdcc4afe09cb8b1163b">&#9670;&nbsp;</a></span>dissection_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Processor::dissection_y[2]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Range of proportional coefficients between dissection values. Coefficients must be in range [0, 1] to make sure that new channel values will not out of [0, 255] range. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00037">37</a></p>
+
+</div>
+</div>
+<a id="a207a26aa9bab3b3975692b46684420f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a207a26aa9bab3b3975692b46684420f1">&#9670;&nbsp;</a></span>dissectionF</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Processor::dissectionF[256]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>New channel values for dissection for image in float type. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00045">45</a></p>
+
+</div>
+</div>
+<a id="ab2b2f0fd7588b4691f8bff3d947a0dc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b2f0fd7588b4691f8bff3d947a0dc2">&#9670;&nbsp;</a></span>erode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Processor::erode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag to apply erosion to the image. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00065">65</a></p>
+
+</div>
+</div>
+<a id="a47e09e09c2b70ecff17903950bc479b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47e09e09c2b70ecff17903950bc479b1">&#9670;&nbsp;</a></span>erode_params</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Processor::erode_params[2]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Size of min filter mask. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00053">53</a></p>
+
+</div>
+</div>
+<a id="af7f9931c92a75075ebfef4b9ee59bc89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7f9931c92a75075ebfef4b9ee59bc89">&#9670;&nbsp;</a></span>orig</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;const <a class="el" href="classImageData.html">ImageData</a>&gt; Processor::orig</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Original image with calculated histogram. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00019">19</a></p>
+
+</div>
+</div>
+<a id="ae87df47dfb2b7679f4e6925335b52f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae87df47dfb2b7679f4e6925335b52f45">&#9670;&nbsp;</a></span>texture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Texture Processor::texture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Texture used to draw with OpenGL. </p>
+
+<p class="definition">Див. визначення в файлі <a class="el" href="processor_8h_source.html">processor.h</a>, рядок <a class="el" href="processor_8h_source.html#l00027">27</a></p>
+
+</div>
+</div>
+<hr/>Документація цих класів була створена з файлів:<ul>
+<li><a class="el" href="processor_8h_source.html">processor.h</a></li>
+<li><a class="el" href="processor_8cpp_source.html">processor.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -223,50 +224,56 @@ $(function() {
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ImGui::SetNextWindowSize(size, ImGuiCond_FirstUseEver);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0,0));</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ImGui::Begin(name, &amp;opened, ImGuiWindowFlags_NoSavedSettings);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ImGui::Image(tex_id, ImGui::GetContentRegionAvail());</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ImGui::End();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ImGui::PopStyleVar();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">char</span> info_name[128];</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    snprintf(info_name, 128, <span class="stringliteral">&quot;Info %s&quot;</span>, name);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    ImGui::Begin(info_name, NULL, ImGuiWindowFlags_NoSavedSettings);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;pointer = %ld&quot;</span>, (intptr_t)tex_id);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;size = %d x %d&quot;</span>, img-&gt;width, img-&gt;height);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ImGui::PlotHistogram(</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="stringliteral">&quot;##&quot;</span>, <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;histogramF.get(), 256, 0, <span class="stringliteral">&quot;Histogram&quot;</span>, 0.0f,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;maxHistogramF, ImVec2(0, 100.0f));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> changed = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ImGui::Spacing();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Dissected&quot;</span>, &amp;<a class="code" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a>) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keyword">auto</span> val = <a class="code" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            changed |= ImGui::DragIntRange2(<span class="stringliteral">&quot;dissection x&quot;</span>, val, val + 1, 1, 0,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                            256, <span class="stringliteral">&quot;Min: %d&quot;</span>, <span class="stringliteral">&quot;Max: %d&quot;</span>);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keyword">auto</span> val = <a class="code" href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">dissection_y</a>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            changed |= ImGui::DragFloatRange2(<span class="stringliteral">&quot;dissection y&quot;</span>, val, val + 1, 0.01,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                              0, 1, <span class="stringliteral">&quot;Min: %.2f&quot;</span>, <span class="stringliteral">&quot;Max: %.2f&quot;</span>);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        ImGui::PlotLines(<span class="stringliteral">&quot;Lines&quot;</span>, <a class="code" href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">dissectionF</a>, 256, 0, NULL, 0, 1.0f,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                         ImVec2(0, 80.0f));</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    ImGui::Spacing();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Dilate&quot;</span>, &amp;<a class="code" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a>) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        changed |= ImGui::SliderInt2(<span class="stringliteral">&quot;dilate params&quot;</span>, <a class="code" href="classProcessor.html#a841b85e15f1214b4c1e1385dffe33fc5">dilate_params</a>, 0, 16);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Erode&quot;</span>, &amp;<a class="code" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a>) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        changed |= ImGui::SliderInt2(<span class="stringliteral">&quot;erode params&quot;</span>, <a class="code" href="classProcessor.html#a47e09e09c2b70ecff17903950bc479b1">erode_params</a>, 0, 16);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> (changed) <a class="code" href="classProcessor.html#a852ad59e8f329a6300ea2dddf4209d44">updateDissection</a>();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    ImGui::End();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    ImGui::PopID();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> opened;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ImVec2 cont_sz = ImGui::GetContentRegionAvail();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ImVec2 img_size(cont_sz.x, img-&gt;height * cont_sz.x / img-&gt;width);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ImGui::Image(tex_id, img_size);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ImGui::End();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    ImGui::PopStyleVar();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">char</span> info_name[128];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    snprintf(info_name, 128, <span class="stringliteral">&quot;Info %s&quot;</span>, name);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ImGui::Begin(info_name, NULL, ImGuiWindowFlags_NoSavedSettings);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;pointer = %ld&quot;</span>, (intptr_t)tex_id);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ImGui::Text(<span class="stringliteral">&quot;size = %d x %d&quot;</span>, img-&gt;width, img-&gt;height);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    ImGui::PushItemWidth(-1);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    ImGui::PlotHistogram(</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="stringliteral">&quot;##histogram&quot;</span>, <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;histogramF.get(), 256, 0, <span class="stringliteral">&quot;Histogram&quot;</span>, 0.0f,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>-&gt;maxHistogramF, ImVec2(0, 100.0f));</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    ImGui::PopItemWidth();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">bool</span> changed = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    ImGui::Spacing();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Dissected&quot;</span>, &amp;<a class="code" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#a13288933a71944a6ee966262b54caca5">dissected</a>) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keyword">auto</span> val = <a class="code" href="classProcessor.html#af65232afa58a5aae89fb9f1b4838988a">dissection_x</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            changed |= ImGui::DragIntRange2(<span class="stringliteral">&quot;dissection x&quot;</span>, val, val + 1, 1, 0,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                            256, <span class="stringliteral">&quot;Min: %d&quot;</span>, <span class="stringliteral">&quot;Max: %d&quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keyword">auto</span> val = <a class="code" href="classProcessor.html#a646f4897ccac8fdcc4afe09cb8b1163b">dissection_y</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            changed |= ImGui::DragFloatRange2(<span class="stringliteral">&quot;dissection y&quot;</span>, val, val + 1, 0.01,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                              0, 1, <span class="stringliteral">&quot;Min: %.2f&quot;</span>, <span class="stringliteral">&quot;Max: %.2f&quot;</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        ImGui::PushItemWidth(-1);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        ImGui::PlotLines(<span class="stringliteral">&quot;##dissection&quot;</span>, <a class="code" href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">dissectionF</a>, 256, 0, NULL, 0, 1.0f,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                         ImVec2(0, 80.0f));</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        ImGui::PopItemWidth();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    ImGui::Spacing();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Dilate&quot;</span>, &amp;<a class="code" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#a28f50e7dde58dd293a1e45128999749b">dilate</a>) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        changed |= ImGui::SliderInt2(<span class="stringliteral">&quot;dilate params&quot;</span>, <a class="code" href="classProcessor.html#a841b85e15f1214b4c1e1385dffe33fc5">dilate_params</a>, 0, 16);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    changed |= ImGui::Checkbox(<span class="stringliteral">&quot;Erode&quot;</span>, &amp;<a class="code" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classProcessor.html#ab2b2f0fd7588b4691f8bff3d947a0dc2">erode</a>) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        changed |= ImGui::SliderInt2(<span class="stringliteral">&quot;erode params&quot;</span>, <a class="code" href="classProcessor.html#a47e09e09c2b70ecff17903950bc479b1">erode_params</a>, 0, 16);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (changed) <a class="code" href="classProcessor.html#a852ad59e8f329a6300ea2dddf4209d44">updateDissection</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    ImGui::End();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ImGui::PopID();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> opened;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
 <div class="ttc" id="aclassProcessor_html_a207a26aa9bab3b3975692b46684420f1"><div class="ttname"><a href="classProcessor.html#a207a26aa9bab3b3975692b46684420f1">Processor::dissectionF</a></div><div class="ttdeci">float dissectionF[256]</div><div class="ttdoc">New channel values for dissection for image in float type.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00045">processor.h:45</a></div></div>
 <div class="ttc" id="aclassProcessor_html_ae87df47dfb2b7679f4e6925335b52f45"><div class="ttname"><a href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">Processor::texture</a></div><div class="ttdeci">const Texture texture</div><div class="ttdoc">Texture used to draw with OpenGL.</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00027">processor.h:27</a></div></div>
 </div><!-- fragment -->

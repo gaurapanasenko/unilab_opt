@@ -57,49 +57,55 @@
 \DoxyCodeLine{00054     ImGui::SetNextWindowSize(size, ImGuiCond\_FirstUseEver);}
 \DoxyCodeLine{00055     ImGui::PushStyleVar(ImGuiStyleVar\_WindowPadding, ImVec2(0,0));}
 \DoxyCodeLine{00056     ImGui::Begin(name, \&opened, ImGuiWindowFlags\_NoSavedSettings);}
-\DoxyCodeLine{00057     ImGui::Image(tex\_id, ImGui::GetContentRegionAvail());}
-\DoxyCodeLine{00058     ImGui::End();}
-\DoxyCodeLine{00059     ImGui::PopStyleVar();}
-\DoxyCodeLine{00060 }
-\DoxyCodeLine{00061     \textcolor{keywordtype}{char} info\_name[128];}
-\DoxyCodeLine{00062     snprintf(info\_name, 128, \textcolor{stringliteral}{"{}Info \%s"{}}, name);}
-\DoxyCodeLine{00063     ImGui::Begin(info\_name, NULL, ImGuiWindowFlags\_NoSavedSettings);}
-\DoxyCodeLine{00064     ImGui::Text(\textcolor{stringliteral}{"{}pointer = \%ld"{}}, (intptr\_t)tex\_id);}
-\DoxyCodeLine{00065     ImGui::Text(\textcolor{stringliteral}{"{}size = \%d x \%d"{}}, img-\/>width, img-\/>height);}
-\DoxyCodeLine{00066     ImGui::PlotHistogram(}
-\DoxyCodeLine{00067                 \textcolor{stringliteral}{"{}\#\#"{}}, \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>histogramF.get(), 256, 0, \textcolor{stringliteral}{"{}Histogram"{}}, 0.0f,}
-\DoxyCodeLine{00068                 \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>maxHistogramF, ImVec2(0, 100.0f));}
-\DoxyCodeLine{00069     \textcolor{keywordtype}{bool} changed = \textcolor{keyword}{false};}
-\DoxyCodeLine{00070     ImGui::Spacing();}
-\DoxyCodeLine{00071     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dissected"{}}, \&\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}});}
-\DoxyCodeLine{00072     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}}) \{}
-\DoxyCodeLine{00073         \{}
-\DoxyCodeLine{00074             \textcolor{keyword}{auto} val = \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}};}
-\DoxyCodeLine{00075             changed |= ImGui::DragIntRange2(\textcolor{stringliteral}{"{}dissection x"{}}, val, val + 1, 1, 0,}
-\DoxyCodeLine{00076                                             256, \textcolor{stringliteral}{"{}Min: \%d"{}}, \textcolor{stringliteral}{"{}Max: \%d"{}});}
-\DoxyCodeLine{00077         \}}
-\DoxyCodeLine{00078         \{}
-\DoxyCodeLine{00079             \textcolor{keyword}{auto} val = \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}};}
-\DoxyCodeLine{00080             changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}dissection y"{}}, val, val + 1, 0.01,}
-\DoxyCodeLine{00081                                               0, 1, \textcolor{stringliteral}{"{}Min: \%.2f"{}}, \textcolor{stringliteral}{"{}Max: \%.2f"{}});}
-\DoxyCodeLine{00082         \}}
-\DoxyCodeLine{00083         ImGui::PlotLines(\textcolor{stringliteral}{"{}Lines"{}}, \mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}, 256, 0, NULL, 0, 1.0f,}
-\DoxyCodeLine{00084                          ImVec2(0, 80.0f));}
-\DoxyCodeLine{00085     \}}
-\DoxyCodeLine{00086     ImGui::Spacing();}
-\DoxyCodeLine{00087     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dilate"{}}, \&\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}});}
-\DoxyCodeLine{00088     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}}) \{}
-\DoxyCodeLine{00089         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}dilate params"{}}, \mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}, 0, 16);}
-\DoxyCodeLine{00090     \}}
-\DoxyCodeLine{00091     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Erode"{}}, \&\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}});}
-\DoxyCodeLine{00092     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}) \{}
-\DoxyCodeLine{00093         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}erode params"{}}, \mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}, 0, 16);}
-\DoxyCodeLine{00094     \}}
-\DoxyCodeLine{00095     \textcolor{keywordflow}{if} (changed) \mbox{\hyperlink{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}{updateDissection}}();}
-\DoxyCodeLine{00096     ImGui::End();}
-\DoxyCodeLine{00097 }
-\DoxyCodeLine{00098     ImGui::PopID();}
-\DoxyCodeLine{00099     \textcolor{keywordflow}{return} opened;}
-\DoxyCodeLine{00100 \}}
+\DoxyCodeLine{00057     ImVec2 cont\_sz = ImGui::GetContentRegionAvail();}
+\DoxyCodeLine{00058     ImVec2 img\_size(cont\_sz.x, img-\/>height * cont\_sz.x / img-\/>width);}
+\DoxyCodeLine{00059     ImGui::Image(tex\_id, img\_size);}
+\DoxyCodeLine{00060     ImGui::End();}
+\DoxyCodeLine{00061     ImGui::PopStyleVar();}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063     \textcolor{keywordtype}{char} info\_name[128];}
+\DoxyCodeLine{00064     snprintf(info\_name, 128, \textcolor{stringliteral}{"{}Info \%s"{}}, name);}
+\DoxyCodeLine{00065     ImGui::Begin(info\_name, NULL, ImGuiWindowFlags\_NoSavedSettings);}
+\DoxyCodeLine{00066     ImGui::Text(\textcolor{stringliteral}{"{}pointer = \%ld"{}}, (intptr\_t)tex\_id);}
+\DoxyCodeLine{00067     ImGui::Text(\textcolor{stringliteral}{"{}size = \%d x \%d"{}}, img-\/>width, img-\/>height);}
+\DoxyCodeLine{00068     ImGui::PushItemWidth(-\/1);}
+\DoxyCodeLine{00069     ImGui::PlotHistogram(}
+\DoxyCodeLine{00070                 \textcolor{stringliteral}{"{}\#\#histogram"{}}, \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>histogramF.get(), 256, 0, \textcolor{stringliteral}{"{}Histogram"{}}, 0.0f,}
+\DoxyCodeLine{00071                 \mbox{\hyperlink{classProcessor_aa8df105dd73d3e2247baebe9834a1e78}{data}}-\/>maxHistogramF, ImVec2(0, 100.0f));}
+\DoxyCodeLine{00072     ImGui::PopItemWidth();}
+\DoxyCodeLine{00073     \textcolor{keywordtype}{bool} changed = \textcolor{keyword}{false};}
+\DoxyCodeLine{00074     ImGui::Spacing();}
+\DoxyCodeLine{00075     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dissected"{}}, \&\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}});}
+\DoxyCodeLine{00076     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a13288933a71944a6ee966262b54caca5}{dissected}}) \{}
+\DoxyCodeLine{00077         \{}
+\DoxyCodeLine{00078             \textcolor{keyword}{auto} val = \mbox{\hyperlink{classProcessor_af65232afa58a5aae89fb9f1b4838988a}{dissection\_x}};}
+\DoxyCodeLine{00079             changed |= ImGui::DragIntRange2(\textcolor{stringliteral}{"{}dissection x"{}}, val, val + 1, 1, 0,}
+\DoxyCodeLine{00080                                             256, \textcolor{stringliteral}{"{}Min: \%d"{}}, \textcolor{stringliteral}{"{}Max: \%d"{}});}
+\DoxyCodeLine{00081         \}}
+\DoxyCodeLine{00082         \{}
+\DoxyCodeLine{00083             \textcolor{keyword}{auto} val = \mbox{\hyperlink{classProcessor_a646f4897ccac8fdcc4afe09cb8b1163b}{dissection\_y}};}
+\DoxyCodeLine{00084             changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}dissection y"{}}, val, val + 1, 0.01,}
+\DoxyCodeLine{00085                                               0, 1, \textcolor{stringliteral}{"{}Min: \%.2f"{}}, \textcolor{stringliteral}{"{}Max: \%.2f"{}});}
+\DoxyCodeLine{00086         \}}
+\DoxyCodeLine{00087         ImGui::PushItemWidth(-\/1);}
+\DoxyCodeLine{00088         ImGui::PlotLines(\textcolor{stringliteral}{"{}\#\#dissection"{}}, \mbox{\hyperlink{classProcessor_a207a26aa9bab3b3975692b46684420f1}{dissectionF}}, 256, 0, NULL, 0, 1.0f,}
+\DoxyCodeLine{00089                          ImVec2(0, 80.0f));}
+\DoxyCodeLine{00090         ImGui::PopItemWidth();}
+\DoxyCodeLine{00091     \}}
+\DoxyCodeLine{00092     ImGui::Spacing();}
+\DoxyCodeLine{00093     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Dilate"{}}, \&\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}});}
+\DoxyCodeLine{00094     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_a28f50e7dde58dd293a1e45128999749b}{dilate}}) \{}
+\DoxyCodeLine{00095         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}dilate params"{}}, \mbox{\hyperlink{classProcessor_a841b85e15f1214b4c1e1385dffe33fc5}{dilate\_params}}, 0, 16);}
+\DoxyCodeLine{00096     \}}
+\DoxyCodeLine{00097     changed |= ImGui::Checkbox(\textcolor{stringliteral}{"{}Erode"{}}, \&\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}});}
+\DoxyCodeLine{00098     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcessor_ab2b2f0fd7588b4691f8bff3d947a0dc2}{erode}}) \{}
+\DoxyCodeLine{00099         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}erode params"{}}, \mbox{\hyperlink{classProcessor_a47e09e09c2b70ecff17903950bc479b1}{erode\_params}}, 0, 16);}
+\DoxyCodeLine{00100     \}}
+\DoxyCodeLine{00101     \textcolor{keywordflow}{if} (changed) \mbox{\hyperlink{classProcessor_a852ad59e8f329a6300ea2dddf4209d44}{updateDissection}}();}
+\DoxyCodeLine{00102     ImGui::End();}
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{00104     ImGui::PopID();}
+\DoxyCodeLine{00105     \textcolor{keywordflow}{return} opened;}
+\DoxyCodeLine{00106 \}}
 
 \end{DoxyCode}

@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лаборатрні роботи 1-5: Звіт з лабораторних робіт 1-5</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лаборатрні роботи 1-5
+   </div>
+   <div id="projectbrief">Проектування систем під мобільні платформи</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Звіт з лабораторних робіт 1-5 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>за дисципліною "Проектування систем під мобільні платформи" <br  />
+ студента групи ПА-17-2 <br  />
+ Панасенка Єгора Сергійовича <br  />
+ Кафедра комп'ютерних технологій <br  />
+ ФПМ, ДНУ, 2017-2018 навч.р. <br  />
+</p>
+<p>Звіт доступний за посиланням <br  />
+ <a href="https://gaurapanasenko.github.io/unilab_opt/DSfMP/html/index.html">https://gaurapanasenko.github.io/unilab_opt/DSfMP/html/index.html</a>. <br  />
+ Вихідний код доступний за посиланням <br  />
+ <a href="https://github.com/gaurapanasenko/unilab/tree/master/08/DSfMP">https://github.com/gaurapanasenko/unilab/tree/master/08/DSfMP</a></p>
+<h2><a class="anchor" id="autotoc_md0"></a>
+Постановка задачі лабораторної роботи №1</h2>
+<p><b>Тема:</b> Вступ у розробку Android - додатків</p>
+<p><b>Мета роботи:</b> знайомство з інструментами розробки Android- додатків; отримання навичок складання та налагодження програм Android-додаткiв.</p>
+<h3><a class="anchor" id="autotoc_md1"></a>
+Методичні вказівки</h3>
+<p>Android - операційна система для мобільних пристроїв: смартфонів, планшетних комп'ютерів, КПК. В даний час саме Android є найбільш широко використовуваною операційною системою для мобільних пристроїв. Це безкоштовна операційна система, заснована на <a class="el" href="classLinux.html" title="Клас який позначає деякий дистрибутив Linux.">Linux</a> з інтерфейсом програмування Java.</p>
+<p>Платформа Android об'єднує операційну систему, побудовану на основі ядра ОС <a class="el" href="classLinux.html" title="Клас який позначає деякий дистрибутив Linux.">Linux</a>, проміжне програмне забезпечення і вбудовані мобільні додатки. Розробка і розвиток мобільної платформи Android виконується в рамках проекту AOSP (Android Open Source Project) під керуванням OHA (Open Handset Alliance), керує всім процесом Google.</p>
+<p>Android підтримує фонове виконання завдань; надає розвинену бібліотеку елементів інтерфейсу користувача; підтримує 2D- і BD-графіку, використовуючи OpenGL стандарт; підтримує доступ до файлової системи і вбудованої бази даних SQLite.</p>
+<p>Додаток для Android пишеться на мові Java, а середовище розробки можна вибрати, наприклад, з популярних засобів розробки, таких як Android Studio або Eclipse.</p>
+<p>Android Studio - середовище розробки під Android, заснована на IntelliJ IDEA. Вона надає інтегровані інструменти для розробки і налагодження. Для налагодження додатків використовується емулятор телефону - віртуальна машина, на якій буде запускатися створене додаток.</p>
+<p>Щоб створити емулятор телефону, вибираємо в меню Android Studio пункти SDK Manager | Tools | AVD Manager | Device Definitions.</p>
+<p>Далі потрібно вибрати потрібну версію віртуального пристрою і при необхідності відредагувати його параметри.</p>
+<p>Далі розглянемо етапи створення нового проекту. Після запуску Android Studio вибираємо New Project, з'явиться діалогове вікно майстра.</p>
+<ul>
+<li>Поле Application name - ім'я, яке буде відображатися в заголовку програми.</li>
+<li>Поле Company Domain служить для вказівки адреси вашого сайту.</li>
+<li>Поле Package name формує спеціальний Java-пакет на основі вашого імені з попереднього поля.</li>
+<li>Поле Project location дозволяє вибрати місце на диску для створюваного проекту.</li>
+<li>Після натискання на кнопку Next переходимо до наступного вікна. Тут вибираємо типи пристроїв, під які будемо розробляти додаток. У більшості випадків ми буде писати для смартфонів і планшетів, тому залишаємо прапорець у першого пункту. Також можна створювати додатки для Android TV, Android Wear і Glass.</li>
+<li>Далі необхідно вибрати зовнішній вигляд екрану програми. Виберемо, наприклад, варіант Blank Activity. Після натискання кнопки Finish студія формує проект і створює необхідну структуру з різних файлів і папок.</li>
+</ul>
+<p>У лівій частині середовища розробки на вкладці Android з'явиться ієрархічний список з папок, які відносяться до проекту. Вкладка Android містить дві основні папки: app і Gradle Scripts. Перша папка app є окремим модулем для програми та містить всі необхідні файли програми - код, ресурси картинок і т.п. Друга папка служить для різних налаштувань для керування проектом. Розкриваємо папку app. У ній знаходяться три папки: manifest, java, res.</p>
+<p>Папка manifest містить єдиний файл маніфесту AndroidManifest.xml. У цьому файлі повинні бути оголошені всі активності, служби, приймачі і контент-провайдери додатки. Також він повинен містити необхідні додатком дозволу. «AndroidManifest.xml» можна розглядати, як опис для розгортання Android-додатки.</p>
+<p>Папка java містить три папки - робочу і для тестів. Робоча папка має назву пакета і містить файли класів. Зараз там один клас MainActivity.</p>
+<p>Папка res містить файли ресурсів, розбитих на окремі папки.</p>
+<p>Запуск програми здійснюється вибором команди Run в пункті меню Run. Після цього в емуляторі завантажиться розроблена програма, на екрані з'явиться вікно програми з написом «Hello World!» і заголовком програми.</p>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Порядок виконання роботи</h3>
+<ol type="1">
+<li>Вивчити методичні вказівки до виконання лабораторної роботи №1.</li>
+<li>Запустити на виконання Android Studio.</li>
+<li>Якщо буде використовуватися зовнішній емулятор для запуску Android-додатків (наприклад, BlueStacks або Genymotion), завантажити його.</li>
+<li>Створити в середовищі Android Studio проект.</li>
+<li>Вивчити вміст файлу AndroidManifest.xml з папки manifest і папку res, що містить файли ресурсів проекту.</li>
+<li>Запустити створене додаток в емуляторі Android і спостерігати за появою цього додатка і результатів його роботи у вікні додатків емулятора.</li>
+<li>Вивчити вміст файлів проекту activity_main.xml і MainActivity.java. Відредагувати їх вміст для отримання нового тексту на екрані і запустити додаток в емуляторі Android.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Постановка задачі лабораторної роботи №2</h2>
+<p><b>Тема:</b> Створення призначених для користувача інтерфейсів і використання елементів управління в додатках під Android</p>
+<p><b>Мета роботи:</b> навчитися створювати додатки з елементами управління; отримати навички використання елементів управління в Android-додатках.</p>
+<h3><a class="anchor" id="autotoc_md4"></a>
+Методичні вказівки</h3>
+<p>Часто при роботі додатка на екрані дисплея повинні знаходитися елементи управління. Елементи управління - це доступні для маніпулювання екранні об'єкти. Їх можна розділити на чотири основні категорії:</p>
+<ul>
+<li>командні елементи управління, які застосовуються для виконання функцій;</li>
+<li>елементи вибору, що дозволяють вибирати дані або налаштування;</li>
+<li>елементи введення, що застосовуються для введення даних;</li>
+<li>елементи відображення, використовувані для виведення.</li>
+</ul>
+<p>Командні елементи управління виконують деякі дії. Головним командним елементом є кнопка, яка має безліч варіантів відображення. Дія виконується відразу після натискання на кнопку. Часто особливим чином виділяється кнопка за замовчуванням, відповідна найбільш часто використовуваному дії. Кнопки, поміщені на панель інструментів, зазвичай стають квадратними, втрачають текстовий напис і обзаводяться піктограмою - поясненням у вигляді графічного значка.</p>
+<p>Елементи вибору дозволяють користувачеві вибрати з групи допустимих об'єктів той, з яким буде вчинено дію.</p>
+<p>Елементи вибору застосовуються також для дій з налаштування. Поширеними елементами вибору є прапорці і списки. Клацнувши по прапорці, користувач негайно побачить що з'явилась галочка. Елементи управління типу «список» дозволяють здійснювати вибір з кінцевого безлічі текстових рядків, кожна з яких представляє команду, об'єкт або ознака. Користувач може вибрати єдиний рядок тексту, натиснувши на неї.</p>
+<p>Елементи введення дають користувачеві можливість не тільки вибирати існуючі відомості, але і вводити нову інформацію. Найпростіший елемент - поле редагування тексту (поле введення). В цю категорію потрапляють також такі елементи управління, як лічильники і повзунки.</p>
+<p>Елементи управління відображенням використовуються для управління візуальним представленням інформації на екрані. Типовими прикладами елементів відображення є роздільники і смуги прокрутки. Сюди ж входять роздільники сторінок, лінійки, направляючі, сітки і рамки.</p>
+<p>Кожному об'єкту потрібно задати розміри, координати, колір, текст і т.д. Android підтримує спосіб, заснований на XML- розмітці, який нагадує розмітку веб-сторінки. Можна використовувати і візуальний спосіб перетягування об'єктів за допомогою миші.</p>
+<p>Файли XML-розмітки знаходяться в папці res / layout проекту. Папка містить ресурси, які не пов'язані з кодом. Крім розмітки, там же містяться зображення, звуки, рядки для локалізації і т.д.</p>
+<p>Відкриємо створений на практичному занятті №2 проект. Коли розмітка відкрита в графічному поданні, то зліва від основної частини редактора коду можна побачити панель інструментів, в якій згруповані різні елементи за категоріями: Widgets, Texts, Layouts і т.д.</p>
+<p>У групі Images знайдіть елемент ImageButton, перетягніть його на форму і відпустіть. Далі необхідно вибрати зображення для кнопки.</p>
+<p>У вкладці Component Tree виберемо елемент Constraint Layout (екран). В панелі властивостей Properties відобразяться найуживаніші властивості обраного компонента. До них відносяться ідентифікатор, ширина і висота. Вибираємо View all properties (дві стрілочки), щоб відкрити всі властивості компонента. Знайдіть властивість background. Клацніть поруч з цим словом у другій колонці. З'явиться текстове поле, в яке можна ввести значення вручну і кнопка з трьома крапками, яка запустить діалогове вікно для створення ресурсу.Переходимо на вкладку Color і вибираємо потрібний колір.</p>
+<p>Далі можна поміняти картинку для графічної кнопки. Знаходимо відповідне зображення і копіюємо його в папку res / drawable проекту. Потім виділяємо елемент ImageButton на формі і в панелі властивостей вибираємо властивість srcCompat. Знову клацаємо на кнопці з трьома крапками і вибираємо ресурс в категорії Drawable - там має з'явитися ресурс з ім'ям доданого раніше файлу. Там же в вікні властивостей знаходимо властивість onClick і вручну прописуємо onClick - це буде ім'ям методу для обробки натискання на кнопку.</p>
+<p>Далі встановіть курсор миші всередині тексту "onClick" у кнопки (переключившись в режим Text) і натисніть комбінацію Alt + Enter. У спливаючому вікні вибрати варіант Create 'onClick (View)' in 'MainActivity'. У коді класу MainActivity з'явиться заготовка для обробки клацання кнопки. Необхідно набрати наступний текст:</p>
+<div class="fragment"><div class="line"><span class="keyword">import</span> android.os.Bundle;</div>
+<div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;  </div>
+<div class="line"><span class="keyword">import</span> android.view.View; </div>
+<div class="line"><span class="keyword">import</span> android.widget.TextView;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MainActivity <span class="keyword">extends</span> AppCompatActivity {</div>
+<div class="line">    <span class="keyword">private</span> TextView mHelloTextView;</div>
+<div class="line"> </div>
+<div class="line">    @Override</div>
+<div class="line">    <span class="keyword">protected</span> <span class="keywordtype">void</span> onCreate(Bundle savedInstanceState) {</div>
+<div class="line">        super.onCreate(savedInstanceState); </div>
+<div class="line">        setContentView(R.layout.activity_main); </div>
+<div class="line">        mHelloTextView=(TextView)findViewById(R.id.textView);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">public</span> <span class="keywordtype">void</span> onClick(View view) {</div>
+<div class="line">        mHelloTextView.setText(<span class="stringliteral">&quot;Hello!&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Далі необхідно запустити програму в емуляторі Android, натиснути на створену кнопку і спостерігати за зміною тексту на екрані.</p>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Порядок виконання роботи</h3>
+<ol type="1">
+<li>Вивчити методичні вказівки до виконання лабораторної роботи №2.</li>
+<li>Запустити на виконання Android Studio.</li>
+<li>Якщо буде використовуватися зовнішній емулятор для запуску Android-додатків (наприклад, BlueStacks або Genymotion), завантажити його.</li>
+<li>Відкрити в середовищі Android Studio проект, розроблений в ході виконання лабораторної роботи №2 або створити новий проект.</li>
+<li>Розмістити на формі елементи управління ImageButton і TextView, налаштувати їх параметри.</li>
+<li>У вікні java-коду проекту додати рядки обробки натискання на кнопку.</li>
+<li>Запустити створений додаток в емуляторі Android і спостерігати за появою цього додатка і результатів його роботи у вікні емулятора.</li>
+<li>Додати в проект інші елементи управління, налаштувати їх властивості та перевірити роботу програми в емуляторі Android.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Постановка задачі лабораторної роботи №2</h2>
+<p><b>Тема:</b> 2Б-анімація, створення і використання служб в додатках під Android</p>
+<p><b>Мета роботи:</b> знайомство з можливостями створення Android- додатків з використанням анімації; отримати навички створення Android-додатків з використанням ID-анімації.</p>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Методичні вказівки</h3>
+<p>Android надає потужні API для анімації елементів призначених для користувацького інтерфейсу і побудови 2D і 3D зображень. Платформа Android надає дві системи анімації: анімація властивостей, що з'явилася в Android 3.0, і анімація компонентів для користувача інтерфейсу (спадкоємців класу View).</p>
+<p>Анімація властивостей (Property Animation) дозволяє визначити анімацію для зміни будь-якого властивості об'єкта, незалежно від того зображується воно на екрані чи ні.</p>
+<p>Анімація компонентів для користувача інтерфейсу використовується для реалізації анімації перетворень над спадкоємцями класу View. Для розрахунку анімації перетворень використовується наступна інформація: початкова точка, кінцева точка, розмір, поворот і інші загальні аспекти анімації. Анімація перетворень може виконувати серії простих змін вмісту екземпляра класу View. Наприклад, для текстового поля можна переміщати, обертати, розтягувати, стискати текст, якщо визначено фонове зображення, воно повинно змінюватися разом з текстом. Пакет android.view.animation надає всі класи, необхідні для реалізації анімації перетворень.</p>
+<p>Для завдання послідовності інструкцій анімації перетворень використовується XML код. Такі файли з XML кодом повинні розташовуватися в папці res / anim / проекту.</p>
+<p>Розглянемо послідовність розробки програми, що використовує анімацію.</p>
+<p>Створимо новий проект в Android Studio. Далі підготуємо кілька додаткових файлів, які будуть використовуватися при анімації. В папці drawable проекту створимо файл sun.xml з таким вмістом:</p>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">encoding</span>=<span class="stringliteral">&quot;utf-8&quot;</span>?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">shape</span></div>
+<div class="line"><span class="keyword">xmlns:android</span>=<span class="stringliteral">&quot;http://schemas.android.com/apk/res/android&quot;</span> <span class="keyword">android:dither</span>=<span class="stringliteral">&quot;true&quot;</span> <span class="keyword">android:shape</span>=<span class="stringliteral">&quot;oval&quot;</span> &gt;</div>
+<div class="line">&lt;<span class="keywordtype">gradient</span> <span class="keyword">android:endColor</span>=<span class="stringliteral">&quot;#ffff6600&quot;</span> <span class="keyword">android:gradientRadius</span>=<span class="stringliteral">&quot;150&quot;</span> <span class="keyword">android:startColor</span>=<span class="stringliteral">&quot;#ffffcc00&quot;</span> <span class="keyword">android:type</span>=<span class="stringliteral">&quot;radial&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">android:useLevel</span>=<span class="stringliteral">&quot;false&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">size</span></div>
+<div class="line"><span class="keyword">android:height</span>=<span class="stringliteral">&quot;150dp&quot;</span> <span class="keyword">android:width</span>=<span class="stringliteral">&quot;150dp&quot;</span> /&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">shape</span>&gt;</div>
+</div><!-- fragment --><p>Тут для зображення сонця використовується овал, а також для кольору застосовується градієнт - плавну зміну кольору від темно-жовтого (startColor) до світло-жовтого (endColor).</p>
+<p>У тій же папці drawable створимо новий файл sky.xml такого змісту:</p>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">encoding</span>=<span class="stringliteral">&quot;utf-8&quot;</span>?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">shape</span></div>
+<div class="line"><span class="keyword">xmlns:android</span>=<span class="stringliteral">&quot;http://schemas.android.com/apk/res/android&quot;</span> <span class="keyword">android:dither</span>=<span class="stringliteral">&quot;true&quot;</span> <span class="keyword">android:shape</span>=<span class="stringliteral">&quot;rectangle&quot;</span> &gt;</div>
+<div class="line">&lt;<span class="keywordtype">gradient</span> <span class="keyword">android:angle</span>=<span class="stringliteral">&quot;90&quot;</span></div>
+<div class="line"><span class="keyword">android:endColor</span>=<span class="stringliteral">&quot;#ff000033 &quot;</span></div>
+<div class="line"><span class="keyword">android:startColor</span>=<span class="stringliteral">&quot;#ff0000ff&quot;</span></div>
+<div class="line">/&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">shape</span>&gt;</div>
+</div><!-- fragment --><p>Тут задана фігура в виглядi прямокутника (rectangle) з блакитним градієнтом від нижнього краю до верхнього.</p>
+<p>В тієї ж папці drawable створимо новий файл <code>grass.xml</code> такого змісту:</p>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">encoding</span>=<span class="stringliteral">&quot;utf-8&quot;</span>?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">shape</span></div>
+<div class="line"><span class="keyword">xmlns:android</span>=<span class="stringliteral">&quot;http://schemas.android.com/apk/res/android&quot;</span> <span class="keyword">android:dither</span>=<span class="stringliteral">&quot;true&quot;</span> <span class="keyword">android:shape</span>=<span class="stringliteral">&quot;rectangle&quot;</span> &gt;</div>
+<div class="line">&lt;<span class="keywordtype">gradient</span> <span class="keyword">android:angle</span>=<span class="stringliteral">&quot;90&quot;</span></div>
+<div class="line"><span class="keyword">android:endColor</span>=<span class="stringliteral">&quot;#ff003300&quot;</span> <span class="keyword">android:startColor</span>=<span class="stringliteral">&quot;#ff009900&quot;</span> /&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">shape</span>&gt;</div>
+</div><!-- fragment --><p>Тут заданий зелений прямокутник з градієнтом.</p>
+<p>Далі в файл <code>strings.xml</code> в папці <code>res/values</code> додамо наступні рядки: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;sun&quot;</span>&gt;<span class="keyword">Солнце</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;grass&quot;</span>&gt;<span class="keyword">Трава</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">string</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;sky&quot;</span>&gt;<span class="keyword">Небо</span>&lt;/<span class="keywordtype">string</span>&gt;</div>
+</div><!-- fragment --><p>Потім відкриємо розмітку головною активіті <code>activity_main.xml</code> і додамо в неї кілька елементів <code>ImageView</code>. Має вийти наступний вміст файлу:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">RelativeLayout</span> <span class="keyword">xmlns:android</span>= <span class="stringliteral">&quot;http://schemas.android.com/apk/res/android&quot;</span></div>
+<div class="line"><span class="keyword">xmlns:tools</span>=<span class="stringliteral">&quot;http://schemas.android.com/tools&quot;</span> <span class="keyword">android:layout_width</span>=<span class="stringliteral">&quot;match_parent&quot;</span> <span class="keyword">android:layout_height</span>=<span class="stringliteral">&quot;match_parent&quot;</span> <span class="keyword">tools:context</span>=<span class="stringliteral">&quot;.MainActivity&quot;</span> &gt; &lt;<span class="keywordtype">ImageView</span></div>
+<div class="line"><span class="keyword">android:id</span>=<span class="stringliteral">&quot;@+id/sky&quot;</span> <span class="keyword">android:layout_width</span>=<span class="stringliteral">&quot;flll_parent&quot;</span> <span class="keyword">android:layout_height</span>=<span class="stringliteral">&quot;fill_parent&quot;</span> <span class="keyword">android:contentDescription</span>=<span class="stringliteral">&quot;@string/sk y&quot;</span> <span class="keyword">android:src</span>=<span class="stringliteral">&quot;@drawable/sky&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">ImageView</span> <span class="keyword">android:id</span>=<span class="stringliteral">&quot;@+id/sun&quot;</span></div>
+<div class="line"><span class="keyword">android:layout_width</span>=<span class="stringliteral">&quot;wrap_content&quot;</span> <span class="keyword">android:layout_height</span>=<span class="stringliteral">&quot;wrap_content&quot;</span> <span class="keyword">android:layout_centerHorizontal</span>=<span class="stringliteral">&quot;true&quot;</span> <span class="keyword">android:contentDescription</span>=<span class="stringliteral">&quot;@string/sun&quot;</span> <span class="keyword">android:scaleType</span>=<span class="stringliteral">&quot;fitCenter&quot;</span> <span class="keyword">android:src</span>=<span class="stringliteral">&quot;@drawable/sun&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">ImageView</span> <span class="keyword">android:id</span>=<span class="stringliteral">&quot;@+id/grass&quot;</span> <span class="keyword">android:layout_width</span>=<span class="stringliteral">&quot;fill_parent&quot;</span></div>
+<div class="line"><span class="keyword">android:layout_height</span>=<span class="stringliteral">&quot;150dp&quot;</span> <span class="keyword">android:layout_alignParentBottom</span>=<span class="stringliteral">&quot;true&quot;</span> <span class="keyword">android:contentDescription</span>=<span class="stringliteral">&quot;@string/grass&quot;</span> <span class="keyword">android:src</span>=<span class="stringliteral">&quot;@drawable/grass&quot;</span> /&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">RelativeLayout</span>&gt;</div>
+</div><!-- fragment --><p>У всіх елементів <code>ImageView</code> в атрибуті <code>android: src</code> прописані створені фігури, які тепер можна бачити на екрані. Далі створимо нову папку <code>res/anim</code>, в якій будуть знаходитися файли анімації. У цій папці створимо новий файл <code>sun_rise.xml</code> наступного змісту: </p><div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">encoding</span>=<span class="stringliteral">&quot;utf-8&quot;</span>?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">set</span> <span class="keyword">xmlns:android</span>=<span class="stringliteral">&quot;http://schemas.android.com/apk/res/android&quot;</span> <span class="keyword">android:duration</span>=<span class="stringliteral">&quot;5000&quot;</span></div>
+<div class="line"><span class="keyword">android:fillAfter</span>=<span class="stringliteral">&quot;true&quot;</span> <span class="keyword">android:interpolator</span>=<span class="stringliteral">&quot;@android:anim/accelerate_decelerate_interpolator&quot;</span> <span class="keyword">android:shareInterpolator</span>=<span class="stringliteral">&quot;false&quot;</span> &gt;</div>
+<div class="line">&lt;<span class="keywordtype">scale</span></div>
+<div class="line"><span class="keyword">android:fromXScale</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">android:fromYScale</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">android:pivotX</span>=<span class="stringliteral">&quot;50%&quot;</span> <span class="keyword">android:pivotY</span>=<span class="stringliteral">&quot;50%&quot;</span> <span class="keyword">android:toXScale</span>=<span class="stringliteral">&quot;1.5&quot;</span> <span class="keyword">android:toYScale</span>=<span class="stringliteral">&quot;1.5&quot;</span> /&gt;</div>
+<div class="line">&lt;<span class="keywordtype">translate</span> <span class="keyword">android:fromYDelta</span>=<span class="stringliteral">&quot;80%p&quot;</span> <span class="keyword">android:toYDelta</span>=<span class="stringliteral">&quot;10%p&quot;</span></div>
+<div class="line">/&gt;</div>
+<div class="line">&lt;<span class="keywordtype">alpha</span></div>
+<div class="line"><span class="keyword">android:fromAlpha</span>=<span class="stringliteral">&quot;0.3&quot;</span> <span class="keyword">android:toAlpha</span>=<span class="stringliteral">&quot;1.0&quot;</span> /&gt;</div>
+<div class="line"> </div>
+<div class="line">&lt;/<span class="keywordtype">set</span>&gt;</div>
+</div><!-- fragment --><p>У блоці set встановлені параметри анімації. Наприклад, параметр android: duration показує, що анімація повинна відбутися протягом 5 секунд. Параметр <code>fillAfter</code> управляє станом анімації - вона не повинна стрибати в початок. Параметр <code>android</code>: interpolator використовує системну константу для невеликого прискорення від початку до середини анімації і гальмування від середини до кінця анімації.</p>
+<p>Усередині блоку set встановлюються спеціальні блоки, що відповідають за характер анімації: зміна розмірів, позиції і прозорості. Наприклад, фігура сонця буде збільшуватися від свого початкового розміру в півтора рази рівномірно від своєї середини (scale). Елемент translate рухає сонце по екрану вертикально вгору. Ми відштовхуємося щодо батьківського елементу, використовуючи суфікс "p". Сонце починає рух в позиції 80% від батьківського елемента по осі Y і закінчує рух в позиції 10%. При русі також змінюється прозорість сонця від повної прозорості до повної непрозорості (alpha). Далі в файлі MainActivity.java записуємо програмний код програми:</p>
+<div class="fragment"><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div>
+<div class="line"><span class="keyword">import</span> android.os.Bundle;</div>
+<div class="line"><span class="keyword">import</span> android.view.animation.Animation;</div>
+<div class="line"><span class="keyword">import</span> android.view.animation.AnimationUtils;</div>
+<div class="line"><span class="keyword">import</span> android.widget.ImageView;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MainActivity <span class="keyword">extends</span> AppCompatActivity{ </div>
+<div class="line"> </div>
+<div class="line">    @Override</div>
+<div class="line">    <span class="keyword">protected</span> <span class="keywordtype">void</span> onCreate (Bundle savedInstanceState) {</div>
+<div class="line">        super.onCreate (savedInstanceState);</div>
+<div class="line">        setContentView (R.layout.activity_main);</div>
+<div class="line">        <span class="comment">// Отримуємо посилання на зображення сонця</span></div>
+<div class="line">        ImageView sunImageView = (ImageView) findViewById (R.id.sun);</div>
+<div class="line">        <span class="comment">// Анімація для сходу сонця Animation sunRiseAnimation = </span></div>
+<div class="line">        AnimationUtils.loadAnimation (<span class="keyword">this</span>, R.anim.sun_rise);</div>
+<div class="line">        <span class="comment">// Підключаємо анімацію до фотографії View sunImageView.startAnimation (sunRiseAnimation)</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+Порядок виконання роботи</h3>
+<ol type="1">
+<li>Вивчити методичні вказівки до виконання лабораторної роботи №3.</li>
+<li>Запустити на виконання Android Studio.</li>
+<li>Якщо буде використовуватися зовнішній емулятор для запуску Android-додатків (наприклад, BlueStacks або Genymotion), завантажити його.</li>
+<li>Створити в середовищі Android Studio проект, розроблений на практичному занятті №4.</li>
+<li>Створити в відповідних директоріях проекту файли <code>grass.xml</code>, <code>sky.xml</code>, <code>sun.xml</code>.</li>
+<li>Додати в проект графічні зображення нерухомих і рухомих зображень.</li>
+<li>Створити нову папку <code>res/anim</code> і додати в неї файл <code>sun_rise.xml</code>.</li>
+<li>У вікні java-коду проекту додати рядки для отримання анімованого зображення.</li>
+<li>Запустити створене додаток в емуляторі Android і спостерігати за появою цього додатка і результатів його роботи у вікні додатків емулятора.</li>
+<li>Створити новий додаток із застосуванням анімованого зображення.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Постановка задачі лабораторної роботи №4</h2>
+<p><b>Тема:</b> Створення та використання Меню</p>
+<p><b>Мета роботи:</b> Знайомство з контекстним меню в Android, створення меню за допомогою ресурсів</p>
+<h3><a class="anchor" id="autotoc_md10"></a>
+Методичні вказівки</h3>
+<h4><a class="anchor" id="autotoc_md11"></a>
+Меню в Android</h4>
+<p>Використання меню в додатках дозволяє зберегти цінне екранний простір, яке в іншому випадку було б зайнято відносно рідко використовуваними елементами призначеного для користувача інтерфейсу.</p>
+<p>Кожна Активність може мати меню, що реалізують специфічні тільки для неї функції. Можна використовувати також контекстні меню, індивідуальні для кожного Уявлення на екрані.</p>
+<h4><a class="anchor" id="autotoc_md12"></a>
+Основи використання меню</h4>
+<p>В Android реалізована підтримка триступеневої системи меню, оптимізовану, в першу чергу, для невеликих екранів:</p>
+<ul>
+<li>Основне меню виникає внизу на екрані при натисканні на кнопку «menu» пристрою. Воно може відображати текст і іконки для обмеженого (за замовчуванням, не більше шести) числа пунктів. Для цього меню рекомендується використовувати іконки з колірною гамою в вигляді відтінків сірого з елементами рельєфності. Це меню не може містити радиокнопки і чекбокси. Якщо число пунктів такого меню перевищує максимально допустиме значення, в меню автоматично з'являється пункт з написом «ще» ( «more»). При натисканні на нього відобразиться Розширене меню.</li>
+<li>Розширене меню відображає прокручуваний список, елементами якого є пункти, які не ввійшли до основного меню. У цьому списку не можуть відображатися іконки, але є можливість відображення радіокнопок і чекбоксів. Оскільки не існує способу відобразити розширене меню замість основного, про зміну стану якихось компонентів програми або системи рекомендується повідомляти користувача за допомогою зміни іконок або тексту пунктів меню.</li>
+<li>Дочірнє меню (меню третього рівня) може бути викликано з основного або розширеного меню і відображається у спливаючому вікні. Вкладеність не підтримується, і спроба викликати з дочірнього ще одне меню призведе до викиду винятку. створення меню</li>
+</ul>
+<p>При зверненні до меню викликається метод onCreateOptionsMenu Активності і для появи меню на екрані його потрібно перевизначити. Даний метод отримує в якості параметра об'єкт класу Menu, який в подальшому використовується для маніпуляцій з пунктами меню.</p>
+<p>Для додавання нових пунктів в меню використовується метод add об'єкта Menu з наступними параметрами:</p><ul>
+<li>Група: для об'єднання пунктів меню для групової обробки</li>
+<li>Ідентифікатор: унікальний ідентифікатор пункту меню. Цей ідентифікатор передається обробнику натиснення на пункт меню - методу onOptionsItemSelected.</li>
+<li>Порядок: значення, яке вказує порядок, в якому пункти меню будуть виводитися.</li>
+<li>Текст: напис на даному пункті меню.</li>
+</ul>
+<p>Після успішного створення меню метод onCreateOptionsMenu повинен повернути значення <code>true</code>.</p>
+<p>Приклад показує створення меню з трьох пунктів з використанням строкових ресурсів:</p>
+<div class="fragment"><div class="line">@Override</div>
+<div class="line"><span class="keyword">public</span> <span class="keywordtype">boolean</span> onCreateOptionsMenu(Menu menu) {</div>
+<div class="line">    super.onCreateOptionsMenu(menu);</div>
+<div class="line">    menu.add(0, Menu.FIRST, Menu.NONE, R.string.menu_item1);</div>
+<div class="line">    menu.add(0, Menu.FIRST+1, Menu.NONE, R.string.menu_item2);</div>
+<div class="line">    menu.add(0, Menu.FIRST+2, Menu.NONE, R.string.menu_item3);</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md13"></a>
+Створення контекстних меню</h4>
+<p>Найбільш часто використовуваним способом створення контекстного меню в Android є перевизначення методу onCreateContextMenu Активності: </p><div class="fragment"><div class="line">@Override</div>
+<div class="line"><span class="keyword">public</span> <span class="keywordtype">void</span> onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) { </div>
+<div class="line">    super.onCreateContextMenu(menu, v, menuInfo);</div>
+<div class="line">    menu.setHeaderTitle(<span class="stringliteral">&quot;Конекстное меню&quot;</span>);</div>
+<div class="line">    menu.add(0, Menu.FIRST, Menu.NONE, <span class="stringliteral">&quot;Пункт 1&quot;</span>);</div>
+<div class="line">    menu.add(0, Menu.FIRST+1, Menu.NONE, <span class="stringliteral">&quot;Пункт 2&quot;</span>);</div>
+<div class="line">    menu.add(0, Menu.FIRST+2, Menu.NONE, <span class="stringliteral">&quot;Пункт 3&quot;</span>);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Реєстрація обробника контекстного меню для потрібних уявлень здійснюється за допомогою методу Активності registerForContextMenu: <br  />
+</p>
+<div class="fragment"><div class="line">@Override</div>
+<div class="line"><span class="keyword">public</span> <span class="keywordtype">void</span> onCreate(Bundle savedInstanceState) {</div>
+<div class="line">    super.onCreate(savedInstanceState);</div>
+<div class="line">    setContentView(R.layout.main);</div>
+<div class="line">    tv = (TextView) findViewById(R.id.text_view);</div>
+<div class="line">    registerForContextMenu(tv);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Приклад:</p>
+<div class="fragment"><div class="line">@Override</div>
+<div class="line"><span class="keyword">public</span> <span class="keywordtype">boolean</span> onContextItemSelected(MenuItem item) {</div>
+<div class="line">    <span class="keywordflow">switch</span> (item.getItemId()) {</div>
+<div class="line">    <span class="keywordflow">case</span> DELETE_ID:</div>
+<div class="line">        AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();</div>
+<div class="line">        db.deleteItem(info.id);</div>
+<div class="line">        populate();</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> super.onContextItemSelected(item);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md14"></a>
+Порядок виконання роботи</h3>
+<p>Модифікуйте проект <code>MetroPicker</code> наступним чином:</p><ol type="1">
+<li>Додайте головне меню в Активність, яка буде показувати список станцій метро. В меню повинен бути один пункт: «повернутися». Меню створіть динамічно в коді, без використання строкових ресурсів.</li>
+<li>Динамічно створіть контекстне меню для Уявлення TextView, що відображає обрану станцію метро головною Активності. Вибір пункту меню повинен скидати обрану станцію.</li>
+<li>Для головної Активності створіть основне меню з двох пунктів: «скинути» і «вийти». Реалізуйте потрібні функції при виборі цих пунктів.</li>
+<li>Повторіть реалізацію п.п. 1, 2 і 3 за допомогою ресурсів, що описують меню.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md15"></a>
+Постановка задачі лабораторної роботи №5</h2>
+<p><b>Тема:</b> Робота з&#160;SQLite&#160;без класу-адаптера</p>
+<p><b>Мета роботи:</b> Освоїти взаємодію з СКБД SQLite без застосування спеціальних класів-адаптерів в Android</p>
+<h3><a class="anchor" id="autotoc_md16"></a>
+Методичні вказівки</h3>
+<p>Механізм роботи з базами даних в Android дозволяє зберігати і обробляти структуровану інформацію. Будь-який додаток може створювати свої власні бази даних, над якими воно буде мати повний контроль.</p>
+<p>В Android використовується бібліотека SQLite, що представляє із себе реляционную СКБД, що володіє наступними характерними особливостями: вільно поширювана (open source), що підтримує стандартна мова запитів і транзакції, легка, однорівнева (вбудована), відмовостійка.</p>
+<h4><a class="anchor" id="autotoc_md17"></a>
+Робота з СКБД без адаптера</h4>
+<p>При небажанні використовувати клас <code>SQLiteOpenHelper</code> (і взагалі адаптер БД) можна скористатися методом <code>openOrCreateDatabase</code> контексту програми:</p>
+<div class="fragment"><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DATABASE_NAME = <span class="stringliteral">&quot;myDatabase.db&quot;</span>; </div>
+<div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DATABASE_TABLE = <span class="stringliteral">&quot;mainTable&quot;</span>; </div>
+<div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DATABASE_CREATE = <span class="stringliteral">&quot;create table &quot;</span></div>
+<div class="line">    + DATABASE_TABLE + <span class="stringliteral">&quot; ( _id integer primary key autoincrement,&quot;</span></div>
+<div class="line">    + <span class="stringliteral">&quot;column_one text not null);&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">SQLiteDatabase myDatabase;</div>
+<div class="line"><span class="keyword">private</span> <span class="keywordtype">void</span> createDatabase() {</div>
+<div class="line">    myDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, <span class="keyword">null</span>); </div>
+<div class="line">    myDatabase.execSQL(DATABASE_CREATE);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>В цьому випадку можна працювати з базою даних за допомогою, наприклад, методу execSQL примірника БД, як показано на прикладі вище.</p>
+<h4><a class="anchor" id="autotoc_md18"></a>
+Особливості роботи з БД в Android</h4>
+<p>При роботі з базами даних в Android слід уникати зберігання BLOB'ов з таблицях через різкого падіння ефективності роботи. Як показано в прикладі адаптера БД, для кожної таблиці рекомендується створювати автоікрементное поле <code>_id</code>, яке буде унікальним індексом для рядків. Якщо ж планується делегувати доступ до БД за допомогою контент-провайдерів, таке поле є обов'язковим.</p>
+<h3><a class="anchor" id="autotoc_md19"></a>
+Порядок виконання роботи</h3>
+<p>Мета даної лабораторної роботи - освоїти взаємодію з СУБД&#160;SQLite&#160;без застосування спеціальних класів-адаптерів. &#160;</p><ol type="1">
+<li>Створіть новий проект&#160;SQLTest,&#160;головна Активність якого буде розширювати клас&#160;ListActivity.</li>
+<li>У методі&#160;onCreate&#160;головною Активності зробіть відкриття або створення БД, використовуючи в якості основи інформацію з пункту "Робота з СУБД без адаптера" і методу&#160;onUpgrade&#160;допоміжного класу з попереднього пункту.&#160;Після створення БД створіть таблицю з будь-яким полем (плюс індекс), в яку додайте&#160;3-5 унікальних записів зі строковим полем.&#160;Індекс повинен інкрементуватися автоматично.</li>
+<li>У цьому ж методі зробіть запит до таблиці, який одержує всі рядки і за допомогою наявного курсора запишіть дані в масив рядків.</li>
+<li>За допомогою додаткової розмітки і адаптера&#160;ArrayAdapter&#160;покажіть отримані з СУБД дані на екрані Активності.</li>
+<li>Додайте обробник кліка на елемент списку, щоб при ньому запитували з БД індекс елемента з цим рядком і відображався за допомогою&#160;Toast.</li>
+<li>Додайте контекстне меню до елементів списку, що містить пункт "видалити" і реалізуйте видалення.&#160;Після видалення повинні проводиться дії з&#160;п.п.&#160;3 і 4 для зміни складу відображуваних даних.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md20"></a>
+Приклад роботи програми</h2>
+<div class="image">
+<img src="Screenshot_20210321-150716_DSfMP.png" alt=""/>
+</div>
+<p>  Домашня сторінка програми на українській мові.</p>
+<div class="image">
+<img src="Screenshot_20210321-150724_DSfMP.png" alt=""/>
+</div>
+<p>  Домашня сторінка програми на англійскій мові.</p>
+<div class="image">
+<img src="Screenshot_20210321-150825_DSfMP.png" alt=""/>
+</div>
+<p>  Анімований экран з картинками, у данному випадку день.</p>
+<div class="image">
+<img src="Screenshot_20210321-150833_DSfMP.png" alt=""/>
+</div>
+<p>  Анімований экран з картинками, у данному випадку ніч.</p>
+<div class="image">
+<img src="Screenshot_20210321-191010_DSfMP.png" alt=""/>
+</div>
+<p>  Головне меню на українській мові.</p>
+<div class="image">
+<img src="Screenshot_20210321-191017_DSfMP.png" alt=""/>
+</div>
+<p>  Головне меню на англійскій мові.</p>
+<div class="image">
+<img src="Screenshot_20210321-191024_DSfMP.png" alt=""/>
+</div>
+<p>  Пуста база даних дастрибутивів <a class="el" href="classLinux.html" title="Клас який позначає деякий дистрибутив Linux.">Linux</a>.</p>
+<div class="image">
+<img src="Screenshot_20210321-191232_DSfMP.png" alt=""/>
+</div>
+<p>  Заповнена база даних дастрибутивів <a class="el" href="classLinux.html" title="Клас який позначає деякий дистрибутив Linux.">Linux</a>.</p>
+<h2><a class="anchor" id="autotoc_md21"></a>
+Висновки</h2>
+<ol type="1">
+<li>Було застосовано фрамеворк QT та програмний застосунок для розробнки QtCreator для розробки програми під мобільні системи.</li>
+<li>Створено інтерфейс за допомогою мови QML та теми Material за допомогою графічного редактору QtCreator у дезайнері.</li>
+<li>У дезайнері використаний таймлайн для створення 2D анімації.</li>
+<li>Створено меню програми у якому можна перейти на іншу сторінку програми, також реалізовано вибір мови при роботі програми.</li>
+<li>Використано технологію SQLite як базу даних та розроблено інтерфейс для керування базою даних. </li>
+</ol>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

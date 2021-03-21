@@ -1,0 +1,200 @@
+\hypertarget{PixyWorld_8ui_8qml_source}{}\doxysubsection{Pixy\+World.\+ui.\+qml}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 import QtQuick 2.9}
+\DoxyCodeLine{00002 import QtQuick.Controls 2.2}
+\DoxyCodeLine{00003 import QtQuick.Timeline 1.0}
+\DoxyCodeLine{00004 import QtGraphicalEffects 1.0}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 Page \{}
+\DoxyCodeLine{00007     id: page}
+\DoxyCodeLine{00008     width: 600}
+\DoxyCodeLine{00009     height: 400}
+\DoxyCodeLine{00010     anchors.fill: parent}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012     title: qsTr("{}PixyWorld"{})}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014     Item \{}
+\DoxyCodeLine{00015         id: scene}
+\DoxyCodeLine{00016         width: 512}
+\DoxyCodeLine{00017         height: 338}
+\DoxyCodeLine{00018         transform: Scale \{}
+\DoxyCodeLine{00019             xScale: page.width / scene.width}
+\DoxyCodeLine{00020             yScale: page.height / scene.height}
+\DoxyCodeLine{00021         \}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023         Image \{}
+\DoxyCodeLine{00024             id: skyImage}
+\DoxyCodeLine{00025             source: "{}sky.png"{}}
+\DoxyCodeLine{00026             anchors.fill: parent}
+\DoxyCodeLine{00027             smooth: false}
+\DoxyCodeLine{00028             visible: false}
+\DoxyCodeLine{00029         \}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031         BrightnessContrast \{}
+\DoxyCodeLine{00032             id: sky}
+\DoxyCodeLine{00033             anchors.fill: skyImage}
+\DoxyCodeLine{00034             source: skyImage}
+\DoxyCodeLine{00035             brightness: -\/0.7}
+\DoxyCodeLine{00036             contrast: 0}
+\DoxyCodeLine{00037         \}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039         Image \{}
+\DoxyCodeLine{00040             id: sun}
+\DoxyCodeLine{00041             source: "{}sun.png"{}}
+\DoxyCodeLine{00042             smooth: false}
+\DoxyCodeLine{00043             x: 224}
+\DoxyCodeLine{00044             y: 0}
+\DoxyCodeLine{00045         \}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047         Image \{}
+\DoxyCodeLine{00048             id: groundImage}
+\DoxyCodeLine{00049             source: "{}ground.png"{}}
+\DoxyCodeLine{00050             anchors.fill: parent}
+\DoxyCodeLine{00051             smooth: false}
+\DoxyCodeLine{00052             visible: false}
+\DoxyCodeLine{00053         \}}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055         BrightnessContrast \{}
+\DoxyCodeLine{00056             id: ground}
+\DoxyCodeLine{00057             anchors.fill: groundImage}
+\DoxyCodeLine{00058             source: groundImage}
+\DoxyCodeLine{00059             brightness: -\/0.7}
+\DoxyCodeLine{00060             contrast: 0}
+\DoxyCodeLine{00061         \}}
+\DoxyCodeLine{00062     \}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064     Timeline \{}
+\DoxyCodeLine{00065         id: timeline}
+\DoxyCodeLine{00066         animations: [}
+\DoxyCodeLine{00067             TimelineAnimation \{}
+\DoxyCodeLine{00068                 id: timelineAnimation}
+\DoxyCodeLine{00069                 duration: 5000}
+\DoxyCodeLine{00070                 loops: -\/1}
+\DoxyCodeLine{00071                 running: true}
+\DoxyCodeLine{00072                 to: 1000}
+\DoxyCodeLine{00073                 from: 0}
+\DoxyCodeLine{00074             \}}
+\DoxyCodeLine{00075         ]}
+\DoxyCodeLine{00076         startFrame: 0}
+\DoxyCodeLine{00077         enabled: true}
+\DoxyCodeLine{00078         endFrame: 1000}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080         KeyframeGroup \{}
+\DoxyCodeLine{00081             target: sun}
+\DoxyCodeLine{00082             property: "{}x"{}}
+\DoxyCodeLine{00083             Keyframe \{}
+\DoxyCodeLine{00084                 value: 518}
+\DoxyCodeLine{00085                 frame: 251}
+\DoxyCodeLine{00086             \}}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088             Keyframe \{}
+\DoxyCodeLine{00089                 value: 224}
+\DoxyCodeLine{00090                 frame: 499}
+\DoxyCodeLine{00091             \}}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093             Keyframe \{}
+\DoxyCodeLine{00094                 value: -\/70}
+\DoxyCodeLine{00095                 frame: 750}
+\DoxyCodeLine{00096             \}}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098             Keyframe \{}
+\DoxyCodeLine{00099                 value: 518}
+\DoxyCodeLine{00100                 frame: 0}
+\DoxyCodeLine{00101             \}}
+\DoxyCodeLine{00102         \}}
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{00104         KeyframeGroup \{}
+\DoxyCodeLine{00105             target: sun}
+\DoxyCodeLine{00106             property: "{}y"{}}
+\DoxyCodeLine{00107             Keyframe \{}
+\DoxyCodeLine{00108                 value: 70}
+\DoxyCodeLine{00109                 frame: 250}
+\DoxyCodeLine{00110             \}}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112             Keyframe \{}
+\DoxyCodeLine{00113                 easing.bezierCurve: [0.11, 0.989, 0.222, 0.994, 1, 1]}
+\DoxyCodeLine{00114                 value: 0}
+\DoxyCodeLine{00115                 frame: 500}
+\DoxyCodeLine{00116             \}}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118             Keyframe \{}
+\DoxyCodeLine{00119                 easing.bezierCurve: [0.779, 0.000643, 0.889, 0.00527, 1, 1]}
+\DoxyCodeLine{00120                 value: 60}
+\DoxyCodeLine{00121                 frame: 750}
+\DoxyCodeLine{00122             \}}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00124             Keyframe \{}
+\DoxyCodeLine{00125                 value: 80}
+\DoxyCodeLine{00126                 frame: 0}
+\DoxyCodeLine{00127             \}}
+\DoxyCodeLine{00128         \}}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130         KeyframeGroup \{}
+\DoxyCodeLine{00131             target: ground}
+\DoxyCodeLine{00132             property: "{}brightness"{}}
+\DoxyCodeLine{00133             Keyframe \{}
+\DoxyCodeLine{00134                 value: -\/0.7}
+\DoxyCodeLine{00135                 frame: 0}
+\DoxyCodeLine{00136             \}}
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{00138             Keyframe \{}
+\DoxyCodeLine{00139                 value: -\/0.7}
+\DoxyCodeLine{00140                 frame: 250}
+\DoxyCodeLine{00141             \}}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143             Keyframe \{}
+\DoxyCodeLine{00144                 value: 0}
+\DoxyCodeLine{00145                 frame: 350}
+\DoxyCodeLine{00146             \}}
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{00148             Keyframe \{}
+\DoxyCodeLine{00149                 value: 0}
+\DoxyCodeLine{00150                 frame: 650}
+\DoxyCodeLine{00151             \}}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153             Keyframe \{}
+\DoxyCodeLine{00154                 value: -\/0.7}
+\DoxyCodeLine{00155                 frame: 750}
+\DoxyCodeLine{00156             \}}
+\DoxyCodeLine{00157         \}}
+\DoxyCodeLine{00158 }
+\DoxyCodeLine{00159         KeyframeGroup \{}
+\DoxyCodeLine{00160             target: sky}
+\DoxyCodeLine{00161             property: "{}brightness"{}}
+\DoxyCodeLine{00162             Keyframe \{}
+\DoxyCodeLine{00163                 value: -\/0.7}
+\DoxyCodeLine{00164                 frame: 0}
+\DoxyCodeLine{00165             \}}
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00167             Keyframe \{}
+\DoxyCodeLine{00168                 value: -\/0.7}
+\DoxyCodeLine{00169                 frame: 250}
+\DoxyCodeLine{00170             \}}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00172             Keyframe \{}
+\DoxyCodeLine{00173                 value: 0}
+\DoxyCodeLine{00174                 frame: 350}
+\DoxyCodeLine{00175             \}}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00177             Keyframe \{}
+\DoxyCodeLine{00178                 value: 0}
+\DoxyCodeLine{00179                 frame: 650}
+\DoxyCodeLine{00180             \}}
+\DoxyCodeLine{00181 }
+\DoxyCodeLine{00182             Keyframe \{}
+\DoxyCodeLine{00183                 value: -\/0.7}
+\DoxyCodeLine{00184                 frame: 750}
+\DoxyCodeLine{00185             \}}
+\DoxyCodeLine{00186         \}}
+\DoxyCodeLine{00187     \}}
+\DoxyCodeLine{00188 \}}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00190 /*\#\#\string^\#\#}
+\DoxyCodeLine{00191 Designer \{}
+\DoxyCodeLine{00192     D\{i:0;formeditorZoom:0.75\}D\{i:5\}D\{i:7\}D\{i:8\}}
+\DoxyCodeLine{00193 \}}
+\DoxyCodeLine{00194 \#\#\string^\#\#*/}
+\DoxyCodeLine{00195 }
+
+\end{DoxyCode}

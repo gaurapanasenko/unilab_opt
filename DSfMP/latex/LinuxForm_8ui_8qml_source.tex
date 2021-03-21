@@ -1,0 +1,83 @@
+\hypertarget{LinuxForm_8ui_8qml_source}{}\doxysubsection{Linux\+Form.\+ui.\+qml}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 import QtQuick 2.14}
+\DoxyCodeLine{00002 import QtQuick.Controls 2.2}
+\DoxyCodeLine{00003 import Qt.labs.qmlmodels 1.0}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 Page \{}
+\DoxyCodeLine{00006     id: page}
+\DoxyCodeLine{00007     width: 600}
+\DoxyCodeLine{00008     height: 400}
+\DoxyCodeLine{00009     anchors.fill: parent}
+\DoxyCodeLine{00010     property alias addButton: addButton}
+\DoxyCodeLine{00011     property alias familyEdit: familyEdit}
+\DoxyCodeLine{00012     property alias nameEdit: nameEdit}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014     title: qsTr("{}Linux distributions database"{})}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016     Item \{}
+\DoxyCodeLine{00017         id: addRow}
+\DoxyCodeLine{00018         height: addButton.height}
+\DoxyCodeLine{00019         anchors.left: parent.left}
+\DoxyCodeLine{00020         anchors.right: parent.right}
+\DoxyCodeLine{00021         anchors.top: parent.top}
+\DoxyCodeLine{00022         anchors.rightMargin: 10}
+\DoxyCodeLine{00023         anchors.leftMargin: 10}
+\DoxyCodeLine{00024         anchors.topMargin: 10}
+\DoxyCodeLine{00025         Button \{}
+\DoxyCodeLine{00026             id: addButton}
+\DoxyCodeLine{00027             text: "{}+"{}}
+\DoxyCodeLine{00028             anchors.right: parent.right}
+\DoxyCodeLine{00029             anchors.top: parent.top}
+\DoxyCodeLine{00030             anchors.topMargin: 0}
+\DoxyCodeLine{00031             anchors.rightMargin: 0}
+\DoxyCodeLine{00032         \}}
+\DoxyCodeLine{00033         Item \{}
+\DoxyCodeLine{00034             id: addFields}
+\DoxyCodeLine{00035             anchors.verticalCenter: addButton.verticalCenter}
+\DoxyCodeLine{00036             anchors.right: addButton.left}
+\DoxyCodeLine{00037             anchors.top: parent.top}
+\DoxyCodeLine{00038             anchors.topMargin: 0}
+\DoxyCodeLine{00039             anchors.left: parent.left}
+\DoxyCodeLine{00040             anchors.rightMargin: 10}
+\DoxyCodeLine{00041             anchors.leftMargin: 0}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043             TextField \{}
+\DoxyCodeLine{00044                 id: nameEdit}
+\DoxyCodeLine{00045                 text: "{}"{}}
+\DoxyCodeLine{00046                 anchors.left: parent.left}
+\DoxyCodeLine{00047                 anchors.right: parent.horizontalCenter}
+\DoxyCodeLine{00048                 anchors.rightMargin: 5}
+\DoxyCodeLine{00049                 anchors.leftMargin: 0}
+\DoxyCodeLine{00050                 color: "{}white"{}}
+\DoxyCodeLine{00051             \}}
+\DoxyCodeLine{00052             TextField \{}
+\DoxyCodeLine{00053                 id: familyEdit}
+\DoxyCodeLine{00054                 text: "{}"{}}
+\DoxyCodeLine{00055                 anchors.left: parent.horizontalCenter}
+\DoxyCodeLine{00056                 anchors.right: parent.right}
+\DoxyCodeLine{00057                 anchors.top: parent.top}
+\DoxyCodeLine{00058                 anchors.topMargin: 0}
+\DoxyCodeLine{00059                 anchors.leftMargin: 5}
+\DoxyCodeLine{00060                 anchors.rightMargin: 0}
+\DoxyCodeLine{00061                 color: "{}white"{}}
+\DoxyCodeLine{00062             \}}
+\DoxyCodeLine{00063         \}}
+\DoxyCodeLine{00064     \}}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066     LinuxView \{}
+\DoxyCodeLine{00067         id: linuxView}
+\DoxyCodeLine{00068         anchors.left: parent.left}
+\DoxyCodeLine{00069         anchors.right: parent.right}
+\DoxyCodeLine{00070         anchors.top: addRow.bottom}
+\DoxyCodeLine{00071         anchors.bottom: parent.bottom}
+\DoxyCodeLine{00072         anchors.rightMargin: 0}
+\DoxyCodeLine{00073         anchors.leftMargin: 0}
+\DoxyCodeLine{00074         anchors.bottomMargin: 10}
+\DoxyCodeLine{00075         anchors.topMargin: 10}
+\DoxyCodeLine{00076         model: linuxModel}
+\DoxyCodeLine{00077     \}}
+\DoxyCodeLine{00078 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,24 @@
+\hypertarget{qmltranslator_8cpp_source}{}\doxysubsection{qmltranslator.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <QtGui>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qmltranslator_8h}{qmltranslator.h}}"{}}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{\Hypertarget{qmltranslator_8cpp_source_l00004}\mbox{\hyperlink{classQmlTranslator_a6903817015a1beea00c3a6f3c0063b35}{00004}} \mbox{\hyperlink{classQmlTranslator_a6903817015a1beea00c3a6f3c0063b35}{QmlTranslator::QmlTranslator}}(QObject *parent) : QObject(parent)}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \}}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{\Hypertarget{qmltranslator_8cpp_source_l00009}\mbox{\hyperlink{classQmlTranslator_a4cad06c1d84cd83756faf48baaaafe03}{00009}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classQmlTranslator_a4cad06c1d84cd83756faf48baaaafe03}{QmlTranslator::setTranslation}}(QString translation)}
+\DoxyCodeLine{00010 \{}
+\DoxyCodeLine{00011     qApp-\/>removeTranslator(\&\mbox{\hyperlink{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}{m\_translator}});}
+\DoxyCodeLine{00012     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}{m\_translator}}.load(\textcolor{stringliteral}{"{}DSfMP\_"{}} + translation, \textcolor{stringliteral}{"{}:/"{}})) \{}
+\DoxyCodeLine{00013         qApp-\/>installTranslator(\&\mbox{\hyperlink{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}{m\_translator}});}
+\DoxyCodeLine{00014     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00015         qDebug() << \textcolor{stringliteral}{"{}Failed to load translation file: "{}}}
+\DoxyCodeLine{00016             << \textcolor{stringliteral}{"{}DSfMP\_"{}} + translation;}
+\DoxyCodeLine{00017     \}}
+\DoxyCodeLine{00018     emit \mbox{\hyperlink{classQmlTranslator_a5acc88dd3333562fb0994fa979a4a6c7}{languageChanged}}();}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}

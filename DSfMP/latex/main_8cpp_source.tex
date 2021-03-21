@@ -1,0 +1,84 @@
+\hypertarget{main_8cpp_source}{}\doxysubsection{main.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <QGuiApplication>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <QQmlApplicationEngine>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <QQmlContext>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <QSqlQuery>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <QSqlError>}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include <QFile>}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qmltranslator_8h}{qmltranslator.h}}"{}}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{linuxmodel_8h}{linuxmodel.h}}"{}}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}\mbox{\hyperlink{main_8cpp_a39dc88d73783e112dbfcf98adbdbefa6}{00011}} \textcolor{preprocessor}{\#define DATABASE "{}db\_name.sqlite"{}}}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}\mbox{\hyperlink{main_8cpp_a911b845bc11d309583bb3f583058eaef}{00013}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{main_8cpp_a911b845bc11d309583bb3f583058eaef}{CREATE\_DB}} = \textcolor{stringliteral}{"{}CREATE TABLE 'linux' ("{}}}
+\DoxyCodeLine{00014 \textcolor{stringliteral}{"{}    'id'   INTEGER,"{}}}
+\DoxyCodeLine{00015 \textcolor{stringliteral}{"{}    'name' TEXT,"{}}}
+\DoxyCodeLine{00016 \textcolor{stringliteral}{"{}    'family'   TEXT,"{}}}
+\DoxyCodeLine{00017 \textcolor{stringliteral}{"{}    PRIMARY KEY('id' AUTOINCREMENT)"{}}}
+\DoxyCodeLine{00018 \textcolor{stringliteral}{"{});"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}\mbox{\hyperlink{main_8cpp_a15c61d991c0aedb43caac7087de6f385}{00019}} \textcolor{keyword}{const} \textcolor{keywordtype}{char} * \mbox{\hyperlink{main_8cpp_a15c61d991c0aedb43caac7087de6f385}{FILL\_DB}} = \textcolor{stringliteral}{"{}INSERT INTO linux (name, family) VALUES"{}}}
+\DoxyCodeLine{00020 \textcolor{stringliteral}{"{}('Debian', 'apt'),"{}}}
+\DoxyCodeLine{00021 \textcolor{stringliteral}{"{}('Ubuntu', 'apt'),"{}}}
+\DoxyCodeLine{00022 \textcolor{stringliteral}{"{}('OpenSUSE', 'rpm'),"{}}}
+\DoxyCodeLine{00023 \textcolor{stringliteral}{"{}('Arch Linux', 'pacman');"{}};}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}\mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00025}} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} *argv[])}
+\DoxyCodeLine{00026 \{}
+\DoxyCodeLine{00027 \textcolor{preprocessor}{\#if QT\_VERSION < QT\_VERSION\_CHECK(6, 0, 0)}}
+\DoxyCodeLine{00028     QCoreApplication::setAttribute(Qt::AA\_EnableHighDpiScaling);}
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031     QGuiApplication app(argc, argv);}
+\DoxyCodeLine{00032     \mbox{\hyperlink{classQmlTranslator}{QmlTranslator}} qmlTranslator;}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034     \textcolor{keywordtype}{bool} existsDb = QFile::exists(\mbox{\hyperlink{main_8cpp_a39dc88d73783e112dbfcf98adbdbefa6}{DATABASE}});}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036     QSqlDatabase sdb = QSqlDatabase::addDatabase(\textcolor{stringliteral}{"{}QSQLITE"{}});}
+\DoxyCodeLine{00037     QSqlQuery query(sdb);}
+\DoxyCodeLine{00038     sdb.setDatabaseName(\mbox{\hyperlink{main_8cpp_a39dc88d73783e112dbfcf98adbdbefa6}{DATABASE}});}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{if} (!sdb.open()) \{}
+\DoxyCodeLine{00040         qDebug() << sdb.lastError().text();}
+\DoxyCodeLine{00041         qDebug() << \textcolor{stringliteral}{"{}Failed to open database."{}};}
+\DoxyCodeLine{00042         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00043     \}}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{if} (!existsDb) \{}
+\DoxyCodeLine{00045         \{}
+\DoxyCodeLine{00046             \textcolor{keywordtype}{bool} success = query.exec(\mbox{\hyperlink{main_8cpp_a911b845bc11d309583bb3f583058eaef}{CREATE\_DB}});}
+\DoxyCodeLine{00047             \textcolor{keywordflow}{if} (!success) \{}
+\DoxyCodeLine{00048                 qDebug() << query.lastError().text();}
+\DoxyCodeLine{00049                 qDebug() << \textcolor{stringliteral}{"{}Failed to create database."{}};}
+\DoxyCodeLine{00050                 \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00051             \}}
+\DoxyCodeLine{00052         \}}
+\DoxyCodeLine{00053         \{}
+\DoxyCodeLine{00054             \textcolor{keywordtype}{bool} success = query.exec(\mbox{\hyperlink{main_8cpp_a15c61d991c0aedb43caac7087de6f385}{FILL\_DB}});}
+\DoxyCodeLine{00055             \textcolor{keywordflow}{if} (!success) \{}
+\DoxyCodeLine{00056                 qDebug() << query.lastError().text();}
+\DoxyCodeLine{00057                 qDebug() << \textcolor{stringliteral}{"{}Failed to fill database."{}};}
+\DoxyCodeLine{00058                 \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00059             \}}
+\DoxyCodeLine{00060         \}}
+\DoxyCodeLine{00061     \}}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063     \mbox{\hyperlink{classLinuxModel}{LinuxModel}} *linuxModel = \textcolor{keyword}{new} \mbox{\hyperlink{classLinuxModel}{LinuxModel}}(sdb, \&app);}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065     QQmlApplicationEngine engine;}
+\DoxyCodeLine{00066     \textcolor{keyword}{const} QUrl url(QStringLiteral(\textcolor{stringliteral}{"{}qrc:/main.qml"{}}));}
+\DoxyCodeLine{00067     engine.rootContext()-\/>setContextProperty(\textcolor{stringliteral}{"{}qmlTranslator"{}}, \&qmlTranslator);}
+\DoxyCodeLine{00068     engine.rootContext()-\/>setContextProperty(\textcolor{stringliteral}{"{}linuxModel"{}}, linuxModel);}
+\DoxyCodeLine{00069     QObject::connect(\&engine, \&QQmlApplicationEngine::objectCreated,}
+\DoxyCodeLine{00070                      \&app, [url](QObject *obj, \textcolor{keyword}{const} QUrl \&objUrl) \{}
+\DoxyCodeLine{00071         \textcolor{keywordflow}{if} (!obj \&\& url == objUrl)}
+\DoxyCodeLine{00072             QCoreApplication::exit(-\/1);}
+\DoxyCodeLine{00073     \}, Qt::QueuedConnection);}
+\DoxyCodeLine{00074     QObject::connect(\&qmlTranslator, \&\mbox{\hyperlink{classQmlTranslator_a5acc88dd3333562fb0994fa979a4a6c7}{QmlTranslator::languageChanged}},}
+\DoxyCodeLine{00075                      \&engine, \&QQmlApplicationEngine::retranslate, Qt::QueuedConnection);}
+\DoxyCodeLine{00076     engine.load(url);}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078     \textcolor{keywordflow}{return} app.exec();}
+\DoxyCodeLine{00079 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,31 @@
+\hypertarget{linuxmodel_8h_source}{}\doxysubsection{linuxmodel.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef LINUXMODEL\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define LINUXMODEL\_H}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <QSqlTableModel>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include <QJsonObject>}}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8h_source_l00012}\mbox{\hyperlink{classLinuxModel}{00012}} \textcolor{keyword}{class }\mbox{\hyperlink{classLinuxModel}{LinuxModel}} : \textcolor{keyword}{public} QSqlTableModel}
+\DoxyCodeLine{00013 \{}
+\DoxyCodeLine{00014     Q\_OBJECT}
+\DoxyCodeLine{00015 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021     \textcolor{keyword}{explicit} \mbox{\hyperlink{classLinuxModel_a63f8545565433b712a3ef781b35b9c89}{LinuxModel}}(QSqlDatabase \&sdb, QObject *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00025     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00032     QVariant \mbox{\hyperlink{classLinuxModel_acbac937bafe86e6001ac5572de2435b1}{data}}(\textcolor{keyword}{const} QModelIndex \&index, \textcolor{keywordtype}{int} role) \textcolor{keyword}{const};}
+\DoxyCodeLine{00037     QHash<int, QByteArray> \mbox{\hyperlink{classLinuxModel_a543727339d72a4055037c5685b5102d4}{roleNames}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{00042     Q\_INVOKABLE \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinuxModel_a76c81cdbf499fad293e0023616118ad2}{remove}}(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{00049     Q\_INVOKABLE \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinuxModel_ae1c8735d931dd460485a2e0e7bbc65f4}{update}}(\textcolor{keywordtype}{int} i, QString col, QString value);}
+\DoxyCodeLine{00056     Q\_INVOKABLE \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinuxModel_a96147880eeafa9e8217fbeb8e3e7147d}{append}}(QJsonObject obj);}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{00058 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{linuxmodel_8h_source_l00062}\mbox{\hyperlink{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}{00062}}     QHash<int, QByteArray> \mbox{\hyperlink{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}{m\_roleNames}};}
+\DoxyCodeLine{\Hypertarget{linuxmodel_8h_source_l00066}\mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{00066}}     QSqlDatabase \&\mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}};}
+\DoxyCodeLine{00067 \};}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// LINUXMODEL\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,154 @@
+\hypertarget{main_8cpp}{}\doxysubsection{Файл main.\+cpp}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$QGui\+Application$>$}\newline
+{\ttfamily \#include $<$QQml\+Application\+Engine$>$}\newline
+{\ttfamily \#include $<$QQml\+Context$>$}\newline
+{\ttfamily \#include $<$QSql\+Database$>$}\newline
+{\ttfamily \#include $<$QSql\+Query$>$}\newline
+{\ttfamily \#include $<$QSql\+Error$>$}\newline
+{\ttfamily \#include $<$QFile$>$}\newline
+{\ttfamily \#include \char`\"{}qmltranslator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}linuxmodel.\+h\char`\"{}}\newline
+\doxysubsubsection*{Макровизначення}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a39dc88d73783e112dbfcf98adbdbefa6}{DATABASE}}~\char`\"{}db\+\_\+name.\+sqlite\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_a911b845bc11d309583bb3f583058eaef}{CREATE\+\_\+\+DB}}
+\item 
+const char $\ast$ \mbox{\hyperlink{main_8cpp_a15c61d991c0aedb43caac7087de6f385}{FILL\+\_\+\+DB}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис макровизначень}
+\mbox{\Hypertarget{main_8cpp_a39dc88d73783e112dbfcf98adbdbefa6}\label{main_8cpp_a39dc88d73783e112dbfcf98adbdbefa6}} 
+\index{main.cpp@{main.cpp}!DATABASE@{DATABASE}}
+\index{DATABASE@{DATABASE}!main.cpp@{main.cpp}}
+\doxyparagraph{\texorpdfstring{DATABASE}{DATABASE}}
+{\footnotesize\ttfamily \#define DATABASE~\char`\"{}db\+\_\+name.\+sqlite\char`\"{}}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}, рядок \mbox{\hyperlink{main_8cpp_source_l00011}{11}}
+
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxyparagraph{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}, рядок \mbox{\hyperlink{main_8cpp_source_l00025}{25}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026 \{}
+\DoxyCodeLine{00027 \textcolor{preprocessor}{\#if QT\_VERSION < QT\_VERSION\_CHECK(6, 0, 0)}}
+\DoxyCodeLine{00028     QCoreApplication::setAttribute(Qt::AA\_EnableHighDpiScaling);}
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031     QGuiApplication app(argc, argv);}
+\DoxyCodeLine{00032     \mbox{\hyperlink{classQmlTranslator}{QmlTranslator}} qmlTranslator;}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034     \textcolor{keywordtype}{bool} existsDb = QFile::exists(\mbox{\hyperlink{main_8cpp_a39dc88d73783e112dbfcf98adbdbefa6}{DATABASE}});}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036     QSqlDatabase sdb = QSqlDatabase::addDatabase(\textcolor{stringliteral}{"{}QSQLITE"{}});}
+\DoxyCodeLine{00037     QSqlQuery query(sdb);}
+\DoxyCodeLine{00038     sdb.setDatabaseName(\mbox{\hyperlink{main_8cpp_a39dc88d73783e112dbfcf98adbdbefa6}{DATABASE}});}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{if} (!sdb.open()) \{}
+\DoxyCodeLine{00040         qDebug() << sdb.lastError().text();}
+\DoxyCodeLine{00041         qDebug() << \textcolor{stringliteral}{"{}Failed to open database."{}};}
+\DoxyCodeLine{00042         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00043     \}}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{if} (!existsDb) \{}
+\DoxyCodeLine{00045         \{}
+\DoxyCodeLine{00046             \textcolor{keywordtype}{bool} success = query.exec(\mbox{\hyperlink{main_8cpp_a911b845bc11d309583bb3f583058eaef}{CREATE\_DB}});}
+\DoxyCodeLine{00047             \textcolor{keywordflow}{if} (!success) \{}
+\DoxyCodeLine{00048                 qDebug() << query.lastError().text();}
+\DoxyCodeLine{00049                 qDebug() << \textcolor{stringliteral}{"{}Failed to create database."{}};}
+\DoxyCodeLine{00050                 \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00051             \}}
+\DoxyCodeLine{00052         \}}
+\DoxyCodeLine{00053         \{}
+\DoxyCodeLine{00054             \textcolor{keywordtype}{bool} success = query.exec(\mbox{\hyperlink{main_8cpp_a15c61d991c0aedb43caac7087de6f385}{FILL\_DB}});}
+\DoxyCodeLine{00055             \textcolor{keywordflow}{if} (!success) \{}
+\DoxyCodeLine{00056                 qDebug() << query.lastError().text();}
+\DoxyCodeLine{00057                 qDebug() << \textcolor{stringliteral}{"{}Failed to fill database."{}};}
+\DoxyCodeLine{00058                 \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00059             \}}
+\DoxyCodeLine{00060         \}}
+\DoxyCodeLine{00061     \}}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063     \mbox{\hyperlink{classLinuxModel}{LinuxModel}} *linuxModel = \textcolor{keyword}{new} \mbox{\hyperlink{classLinuxModel}{LinuxModel}}(sdb, \&app);}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065     QQmlApplicationEngine engine;}
+\DoxyCodeLine{00066     \textcolor{keyword}{const} QUrl url(QStringLiteral(\textcolor{stringliteral}{"{}qrc:/main.qml"{}}));}
+\DoxyCodeLine{00067     engine.rootContext()-\/>setContextProperty(\textcolor{stringliteral}{"{}qmlTranslator"{}}, \&qmlTranslator);}
+\DoxyCodeLine{00068     engine.rootContext()-\/>setContextProperty(\textcolor{stringliteral}{"{}linuxModel"{}}, linuxModel);}
+\DoxyCodeLine{00069     QObject::connect(\&engine, \&QQmlApplicationEngine::objectCreated,}
+\DoxyCodeLine{00070                      \&app, [url](QObject *obj, \textcolor{keyword}{const} QUrl \&objUrl) \{}
+\DoxyCodeLine{00071         \textcolor{keywordflow}{if} (!obj \&\& url == objUrl)}
+\DoxyCodeLine{00072             QCoreApplication::exit(-\/1);}
+\DoxyCodeLine{00073     \}, Qt::QueuedConnection);}
+\DoxyCodeLine{00074     QObject::connect(\&qmlTranslator, \&\mbox{\hyperlink{classQmlTranslator_a5acc88dd3333562fb0994fa979a4a6c7}{QmlTranslator::languageChanged}},}
+\DoxyCodeLine{00075                      \&engine, \&QQmlApplicationEngine::retranslate, Qt::QueuedConnection);}
+\DoxyCodeLine{00076     engine.load(url);}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078     \textcolor{keywordflow}{return} app.exec();}
+\DoxyCodeLine{00079 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{main_8cpp_a911b845bc11d309583bb3f583058eaef}\label{main_8cpp_a911b845bc11d309583bb3f583058eaef}} 
+\index{main.cpp@{main.cpp}!CREATE\_DB@{CREATE\_DB}}
+\index{CREATE\_DB@{CREATE\_DB}!main.cpp@{main.cpp}}
+\doxyparagraph{\texorpdfstring{CREATE\_DB}{CREATE\_DB}}
+{\footnotesize\ttfamily const char$\ast$ CREATE\+\_\+\+DB}
+
+{\bfseries Початкові значення}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"{}CREATE TABLE 'linux' ("{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}    'id'   INTEGER,"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}    'name' TEXT,"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}    'family'   TEXT,"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}    PRIMARY KEY('id' AUTOINCREMENT)"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{});"{}}}
+
+\end{DoxyCode}
+
+
+Див. визначення в файлі \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}, рядок \mbox{\hyperlink{main_8cpp_source_l00013}{13}}
+
+\mbox{\Hypertarget{main_8cpp_a15c61d991c0aedb43caac7087de6f385}\label{main_8cpp_a15c61d991c0aedb43caac7087de6f385}} 
+\index{main.cpp@{main.cpp}!FILL\_DB@{FILL\_DB}}
+\index{FILL\_DB@{FILL\_DB}!main.cpp@{main.cpp}}
+\doxyparagraph{\texorpdfstring{FILL\_DB}{FILL\_DB}}
+{\footnotesize\ttfamily const char$\ast$ FILL\+\_\+\+DB}
+
+{\bfseries Початкові значення}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"{}INSERT INTO linux (name, family) VALUES"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}('Debian', 'apt'),"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}('Ubuntu', 'apt'),"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}('OpenSUSE', 'rpm'),"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}('Arch Linux', 'pacman');"{}}}
+
+\end{DoxyCode}
+
+
+Див. визначення в файлі \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}, рядок \mbox{\hyperlink{main_8cpp_source_l00019}{19}}
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лаборатрні роботи 1-5: Текст програми linuxmodel.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лаборатрні роботи 1-5
+   </div>
+   <div id="projectbrief">Проектування систем під мобільні платформи</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">linuxmodel.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="linuxmodel_8h.html">Див. документацію.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LINUXMODEL_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LINUXMODEL_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QSqlTableModel&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QSqlDatabase&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QJsonObject&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classLinuxModel.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLinuxModel.html">LinuxModel</a> : <span class="keyword">public</span> QSqlTableModel</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classLinuxModel.html#a63f8545565433b712a3ef781b35b9c89">LinuxModel</a>(QSqlDatabase &amp;sdb, QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLinuxModel.html#a91a8e068b7ed61e59fd606baf163bc39">refresh</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QVariant <a class="code" href="classLinuxModel.html#acbac937bafe86e6001ac5572de2435b1">data</a>(<span class="keyword">const</span> QModelIndex &amp;index, <span class="keywordtype">int</span> role) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QHash&lt;int, QByteArray&gt; <a class="code" href="classLinuxModel.html#a543727339d72a4055037c5685b5102d4">roleNames</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="classLinuxModel.html#a76c81cdbf499fad293e0023616118ad2">remove</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="classLinuxModel.html#ae1c8735d931dd460485a2e0e7bbc65f4">update</a>(<span class="keywordtype">int</span> i, QString col, QString value);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Q_INVOKABLE <span class="keywordtype">void</span> <a class="code" href="classLinuxModel.html#a96147880eeafa9e8217fbeb8e3e7147d">append</a>(QJsonObject obj);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classLinuxModel.html#a10a75a90010e66bdf1d84c70c893a670">   62</a></span>&#160;    QHash&lt;int, QByteArray&gt; <a class="code" href="classLinuxModel.html#a10a75a90010e66bdf1d84c70c893a670">m_roleNames</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classLinuxModel.html#ab4e2b0ddbddfd007463316a1eead8c4b">   66</a></span>&#160;    QSqlDatabase &amp;<a class="code" href="classLinuxModel.html#ab4e2b0ddbddfd007463316a1eead8c4b">m_sdb</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LINUXMODEL_H</span></div>
+<div class="ttc" id="aclassLinuxModel_html"><div class="ttname"><a href="classLinuxModel.html">LinuxModel</a></div><div class="ttdoc">Модель бази даних дистрибутивів Linux.</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8h_source.html#l00012">linuxmodel.h:13</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_a10a75a90010e66bdf1d84c70c893a670"><div class="ttname"><a href="classLinuxModel.html#a10a75a90010e66bdf1d84c70c893a670">LinuxModel::m_roleNames</a></div><div class="ttdeci">QHash&lt; int, QByteArray &gt; m_roleNames</div><div class="ttdoc">Прив'язку номеру стовбця до її назви.</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8h_source.html#l00062">linuxmodel.h:62</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_a543727339d72a4055037c5685b5102d4"><div class="ttname"><a href="classLinuxModel.html#a543727339d72a4055037c5685b5102d4">LinuxModel::roleNames</a></div><div class="ttdeci">QHash&lt; int, QByteArray &gt; roleNames() const</div><div class="ttdoc">Виводить прив'язку номеру стовбця до її назви.</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8cpp_source.html#l00048">linuxmodel.cpp:48</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_a63f8545565433b712a3ef781b35b9c89"><div class="ttname"><a href="classLinuxModel.html#a63f8545565433b712a3ef781b35b9c89">LinuxModel::LinuxModel</a></div><div class="ttdeci">LinuxModel(QSqlDatabase &amp;sdb, QObject *parent=nullptr)</div><div class="ttdoc">LinuxModel конструктор</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8cpp_source.html#l00016">linuxmodel.cpp:16</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_a76c81cdbf499fad293e0023616118ad2"><div class="ttname"><a href="classLinuxModel.html#a76c81cdbf499fad293e0023616118ad2">LinuxModel::remove</a></div><div class="ttdeci">Q_INVOKABLE void remove(int i)</div><div class="ttdoc">Видаляє елемент по id у базі данних.</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8cpp_source.html#l00053">linuxmodel.cpp:53</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_a91a8e068b7ed61e59fd606baf163bc39"><div class="ttname"><a href="classLinuxModel.html#a91a8e068b7ed61e59fd606baf163bc39">LinuxModel::refresh</a></div><div class="ttdeci">void refresh()</div><div class="ttdoc">Загрузити оновлені данні з бази даних.</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8cpp_source.html#l00089">linuxmodel.cpp:89</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_a96147880eeafa9e8217fbeb8e3e7147d"><div class="ttname"><a href="classLinuxModel.html#a96147880eeafa9e8217fbeb8e3e7147d">LinuxModel::append</a></div><div class="ttdeci">Q_INVOKABLE void append(QJsonObject obj)</div><div class="ttdoc">Додає новий об'єкт до бази даних. Дані необхідно передавати у вигляді json. Наприклад {&quot;name&quot;: &quot;Ubunt...</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8cpp_source.html#l00076">linuxmodel.cpp:76</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_ab4e2b0ddbddfd007463316a1eead8c4b"><div class="ttname"><a href="classLinuxModel.html#ab4e2b0ddbddfd007463316a1eead8c4b">LinuxModel::m_sdb</a></div><div class="ttdeci">QSqlDatabase &amp; m_sdb</div><div class="ttdoc">Посилання на об'єкт, який підключений до бази даних.</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8h_source.html#l00066">linuxmodel.h:66</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_acbac937bafe86e6001ac5572de2435b1"><div class="ttname"><a href="classLinuxModel.html#acbac937bafe86e6001ac5572de2435b1">LinuxModel::data</a></div><div class="ttdeci">QVariant data(const QModelIndex &amp;index, int role) const</div><div class="ttdoc">Перевантажений метод, який дозволяє QT отримати значення даних.</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8cpp_source.html#l00033">linuxmodel.cpp:33</a></div></div>
+<div class="ttc" id="aclassLinuxModel_html_ae1c8735d931dd460485a2e0e7bbc65f4"><div class="ttname"><a href="classLinuxModel.html#ae1c8735d931dd460485a2e0e7bbc65f4">LinuxModel::update</a></div><div class="ttdeci">Q_INVOKABLE void update(int i, QString col, QString value)</div><div class="ttdoc">Оновити значення у базі даних.</div><div class="ttdef"><b>Definition:</b> <a href="linuxmodel_8cpp_source.html#l00062">linuxmodel.cpp:62</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

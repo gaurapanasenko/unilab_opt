@@ -1,0 +1,322 @@
+\hypertarget{classLinuxModel}{}\doxysubsection{Клас Linux\+Model}
+\label{classLinuxModel}\index{LinuxModel@{LinuxModel}}
+
+
+Модель бази даних дистрибутивів \mbox{\hyperlink{classLinux}{Linux}}.  
+
+
+
+
+{\ttfamily \#include $<$linuxmodel.\+h$>$}
+
+Схема успадкувань для Linux\+Model\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLinuxModel}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLinuxModel_a63f8545565433b712a3ef781b35b9c89}{Linux\+Model}} (QSql\+Database \&sdb, QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classLinuxModel}{Linux\+Model}} конструктор \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}} ()
+\begin{DoxyCompactList}\small\item\em Загрузити оновлені данні з бази даних. \end{DoxyCompactList}\item 
+QVariant \mbox{\hyperlink{classLinuxModel_acbac937bafe86e6001ac5572de2435b1}{data}} (const QModel\+Index \&index, int role) const
+\begin{DoxyCompactList}\small\item\em Перевантажений метод, який дозволяє QT отримати значення даних. \end{DoxyCompactList}\item 
+QHash$<$ int, QByte\+Array $>$ \mbox{\hyperlink{classLinuxModel_a543727339d72a4055037c5685b5102d4}{role\+Names}} () const
+\begin{DoxyCompactList}\small\item\em Виводить прив\textquotesingle{}язку номеру стовбця до її назви. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classLinuxModel_a76c81cdbf499fad293e0023616118ad2}{remove}} (int i)
+\begin{DoxyCompactList}\small\item\em Видаляє елемент по id у базі данних. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classLinuxModel_ae1c8735d931dd460485a2e0e7bbc65f4}{update}} (int i, QString col, QString value)
+\begin{DoxyCompactList}\small\item\em Оновити значення у базі даних. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classLinuxModel_a96147880eeafa9e8217fbeb8e3e7147d}{append}} (QJson\+Object obj)
+\begin{DoxyCompactList}\small\item\em Додає новий об\textquotesingle{}єкт до бази даних. Дані необхідно передавати у вигляді json. Наприклад {\ttfamily \{\char`\"{}name\char`\"{}\+: \char`\"{}\+Ubuntu\char`\"{}, \char`\"{}family\char`\"{}\+: \char`\"{}apt\char`\"{}\}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Приватні дані}
+\begin{DoxyCompactItemize}
+\item 
+QHash$<$ int, QByte\+Array $>$ \mbox{\hyperlink{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}{m\+\_\+role\+Names}}
+\begin{DoxyCompactList}\small\item\em Прив\textquotesingle{}язку номеру стовбця до її назви. \end{DoxyCompactList}\item 
+QSql\+Database \& \mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\+\_\+sdb}}
+\begin{DoxyCompactList}\small\item\em Посилання на об\textquotesingle{}єкт, який підключений до бази даних. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Детальний опис}
+Модель бази даних дистрибутивів \mbox{\hyperlink{classLinux}{Linux}}. 
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8h_source}{linuxmodel.\+h}}, рядок \mbox{\hyperlink{linuxmodel_8h_source_l00012}{12}}
+
+
+
+\doxysubsubsection{Конструктор(и)}
+\mbox{\Hypertarget{classLinuxModel_a63f8545565433b712a3ef781b35b9c89}\label{classLinuxModel_a63f8545565433b712a3ef781b35b9c89}} 
+\index{LinuxModel@{LinuxModel}!LinuxModel@{LinuxModel}}
+\index{LinuxModel@{LinuxModel}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{LinuxModel()}{LinuxModel()}}
+{\footnotesize\ttfamily Linux\+Model\+::\+Linux\+Model (\begin{DoxyParamCaption}\item[{QSql\+Database \&}]{sdb,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{classLinuxModel}{Linux\+Model}} конструктор 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em sdb} & Підключена база даних. \\
+\hline
+{\em parent} & Батьтівскій об\textquotesingle{}єкт \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8cpp_source}{linuxmodel.\+cpp}}, рядок \mbox{\hyperlink{linuxmodel_8cpp_source_l00016}{16}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017     : QSqlTableModel(parent), \mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}}(sdb)}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019     setTable(\textcolor{stringliteral}{"{}linux"{}});}
+\DoxyCodeLine{00020     setEditStrategy(QSqlTableModel::QSqlTableModel::OnFieldChange);}
+\DoxyCodeLine{00021     select();}
+\DoxyCodeLine{00022     setHeaderData(0, Qt::Horizontal, tr(\textcolor{stringliteral}{"{}Name"{}}));}
+\DoxyCodeLine{00023     setHeaderData(1, Qt::Horizontal, tr(\textcolor{stringliteral}{"{}Family"{}}));}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025     \textcolor{keywordtype}{int} idx = 0;}
+\DoxyCodeLine{00026     \textcolor{keywordflow}{while}(\mbox{\hyperlink{linuxmodel_8cpp_a73f57f09a48d9676411d6995a6ef595b}{COLUMN\_NAMES}}[idx]) \{}
+\DoxyCodeLine{00027         \mbox{\hyperlink{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}{m\_roleNames}}[Qt::UserRole + idx + 1] = \mbox{\hyperlink{linuxmodel_8cpp_a73f57f09a48d9676411d6995a6ef595b}{COLUMN\_NAMES}}[idx];}
+\DoxyCodeLine{00028         idx++;}
+\DoxyCodeLine{00029     \}}
+\DoxyCodeLine{00030     \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00031 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис методів компонент}
+\mbox{\Hypertarget{classLinuxModel_a96147880eeafa9e8217fbeb8e3e7147d}\label{classLinuxModel_a96147880eeafa9e8217fbeb8e3e7147d}} 
+\index{LinuxModel@{LinuxModel}!append@{append}}
+\index{append@{append}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily void Linux\+Model\+::append (\begin{DoxyParamCaption}\item[{QJson\+Object}]{obj }\end{DoxyParamCaption})}
+
+
+
+Додає новий об\textquotesingle{}єкт до бази даних. Дані необхідно передавати у вигляді json. Наприклад {\ttfamily \{\char`\"{}name\char`\"{}\+: \char`\"{}\+Ubuntu\char`\"{}, \char`\"{}family\char`\"{}\+: \char`\"{}apt\char`\"{}\}} 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em obj} & дані об\textquotesingle{}єкту у вигляді json. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8cpp_source}{linuxmodel.\+cpp}}, рядок \mbox{\hyperlink{linuxmodel_8cpp_source_l00076}{76}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077 \{}
+\DoxyCodeLine{00078     QSqlQuery query(\mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}});}
+\DoxyCodeLine{00079     query.prepare(\textcolor{stringliteral}{"{}INSERT INTO linux (name, family) VALUES (:name, :family)"{}});}
+\DoxyCodeLine{00080     query.bindValue(0, obj.value(\textcolor{stringliteral}{"{}name"{}}).toString());}
+\DoxyCodeLine{00081     query.bindValue(1, obj.value(\textcolor{stringliteral}{"{}family"{}}).toString());}
+\DoxyCodeLine{00082     \textcolor{keywordtype}{bool} success = query.exec();}
+\DoxyCodeLine{00083     \textcolor{keywordflow}{if} (!success) \{}
+\DoxyCodeLine{00084         qDebug() << query.lastError().text();}
+\DoxyCodeLine{00085     \}}
+\DoxyCodeLine{00086     \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00087 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLinuxModel_acbac937bafe86e6001ac5572de2435b1}\label{classLinuxModel_acbac937bafe86e6001ac5572de2435b1}} 
+\index{LinuxModel@{LinuxModel}!data@{data}}
+\index{data@{data}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily QVariant Linux\+Model\+::data (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index,  }\item[{int}]{role }\end{DoxyParamCaption}) const}
+
+
+
+Перевантажений метод, який дозволяє QT отримати значення даних. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em index} & Номер рядка. \\
+\hline
+{\em role} & Номер стовбця. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+Значення комірки у базі даних. 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8cpp_source}{linuxmodel.\+cpp}}, рядок \mbox{\hyperlink{linuxmodel_8cpp_source_l00033}{33}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033                                                                   \{}
+\DoxyCodeLine{00034     QVariant value = QSqlQueryModel::data(index, role);}
+\DoxyCodeLine{00035     \textcolor{keywordflow}{if}(role < Qt::UserRole)}
+\DoxyCodeLine{00036     \{}
+\DoxyCodeLine{00037         value = QSqlQueryModel::data(index, role);}
+\DoxyCodeLine{00038     \}}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00040     \{}
+\DoxyCodeLine{00041         \textcolor{keywordtype}{int} columnIdx = role -\/ Qt::UserRole -\/ 1;}
+\DoxyCodeLine{00042         QModelIndex modelIndex = this-\/>index(index.row(), columnIdx);}
+\DoxyCodeLine{00043         value = QSqlQueryModel::data(modelIndex, Qt::DisplayRole);}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{00046 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}\label{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}} 
+\index{LinuxModel@{LinuxModel}!refresh@{refresh}}
+\index{refresh@{refresh}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily void Linux\+Model\+::refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Загрузити оновлені данні з бази даних. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8cpp_source}{linuxmodel.\+cpp}}, рядок \mbox{\hyperlink{linuxmodel_8cpp_source_l00089}{89}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089                          \{}
+\DoxyCodeLine{00090     QSqlQuery query(\mbox{\hyperlink{linuxmodel_8cpp_a222200fa56951eda600c3cfb7136cb7f}{SQL\_SELECT}}, \mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}});}
+\DoxyCodeLine{00091     this-\/>setQuery(query);}
+\DoxyCodeLine{00092 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLinuxModel_a76c81cdbf499fad293e0023616118ad2}\label{classLinuxModel_a76c81cdbf499fad293e0023616118ad2}} 
+\index{LinuxModel@{LinuxModel}!remove@{remove}}
+\index{remove@{remove}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily void Linux\+Model\+::remove (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Видаляє елемент по id у базі данних. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em i} & id об\textquotesingle{}єкту. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8cpp_source}{linuxmodel.\+cpp}}, рядок \mbox{\hyperlink{linuxmodel_8cpp_source_l00053}{53}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00055     QSqlQuery query(\mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}});}
+\DoxyCodeLine{00056     query.prepare(\textcolor{stringliteral}{"{}DELETE FROM linux WHERE id = :id;"{}});}
+\DoxyCodeLine{00057     query.bindValue(0, i);}
+\DoxyCodeLine{00058     query.exec();}
+\DoxyCodeLine{00059     \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00060 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLinuxModel_a543727339d72a4055037c5685b5102d4}\label{classLinuxModel_a543727339d72a4055037c5685b5102d4}} 
+\index{LinuxModel@{LinuxModel}!roleNames@{roleNames}}
+\index{roleNames@{roleNames}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{roleNames()}{roleNames()}}
+{\footnotesize\ttfamily QHash$<$ int, QByte\+Array $>$ Linux\+Model\+::role\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Виводить прив\textquotesingle{}язку номеру стовбця до її назви. 
+
+\begin{DoxyReturn}{Повертає}
+Хеш таблицю. 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8cpp_source}{linuxmodel.\+cpp}}, рядок \mbox{\hyperlink{linuxmodel_8cpp_source_l00048}{48}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049 \{}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{return} \mbox{\hyperlink{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}{m\_roleNames}};}
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLinuxModel_ae1c8735d931dd460485a2e0e7bbc65f4}\label{classLinuxModel_ae1c8735d931dd460485a2e0e7bbc65f4}} 
+\index{LinuxModel@{LinuxModel}!update@{update}}
+\index{update@{update}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Linux\+Model\+::update (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{QString}]{col,  }\item[{QString}]{value }\end{DoxyParamCaption})}
+
+
+
+Оновити значення у базі даних. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em i} & id об\textquotesingle{}єкту. \\
+\hline
+{\em col} & Назва колонки. \\
+\hline
+{\em value} & Нове значення. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8cpp_source}{linuxmodel.\+cpp}}, рядок \mbox{\hyperlink{linuxmodel_8cpp_source_l00062}{62}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063 \{}
+\DoxyCodeLine{00064     QSqlQuery query(\mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}});}
+\DoxyCodeLine{00065     QString q = \textcolor{stringliteral}{"{}UPDATE linux SET \%1 = '\%2' WHERE id = :id;"{}};}
+\DoxyCodeLine{00066     query.prepare(q.arg(col).arg(value));}
+\DoxyCodeLine{00067     query.bindValue(\textcolor{stringliteral}{"{}:id"{}}, i);}
+\DoxyCodeLine{00068     \textcolor{keywordtype}{bool} success = query.exec();}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if} (!success) \{}
+\DoxyCodeLine{00070         qDebug() << query.lastError().text() << value;}
+\DoxyCodeLine{00071         qDebug() << query.lastQuery();}
+\DoxyCodeLine{00072     \}}
+\DoxyCodeLine{00073     \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00074 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Компонентні дані}
+\mbox{\Hypertarget{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}\label{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}} 
+\index{LinuxModel@{LinuxModel}!m\_roleNames@{m\_roleNames}}
+\index{m\_roleNames@{m\_roleNames}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{m\_roleNames}{m\_roleNames}}
+{\footnotesize\ttfamily QHash$<$int, QByte\+Array$>$ Linux\+Model\+::m\+\_\+role\+Names\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Прив\textquotesingle{}язку номеру стовбця до її назви. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8h_source}{linuxmodel.\+h}}, рядок \mbox{\hyperlink{linuxmodel_8h_source_l00062}{62}}
+
+\mbox{\Hypertarget{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}\label{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}} 
+\index{LinuxModel@{LinuxModel}!m\_sdb@{m\_sdb}}
+\index{m\_sdb@{m\_sdb}!LinuxModel@{LinuxModel}}
+\doxyparagraph{\texorpdfstring{m\_sdb}{m\_sdb}}
+{\footnotesize\ttfamily QSql\+Database\& Linux\+Model\+::m\+\_\+sdb\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Посилання на об\textquotesingle{}єкт, який підключений до бази даних. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{linuxmodel_8h_source}{linuxmodel.\+h}}, рядок \mbox{\hyperlink{linuxmodel_8h_source_l00066}{66}}
+
+
+
+Документація цих класів була створена з файлів\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{linuxmodel_8h}{linuxmodel.\+h}}\item 
+\mbox{\hyperlink{linuxmodel_8cpp}{linuxmodel.\+cpp}}\end{DoxyCompactItemize}

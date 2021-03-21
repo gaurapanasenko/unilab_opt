@@ -1,0 +1,140 @@
+\hypertarget{classQmlTranslator}{}\doxysubsection{Клас Qml\+Translator}
+\label{classQmlTranslator}\index{QmlTranslator@{QmlTranslator}}
+
+
+Дозволяє змінювати мову при роботі програми з QML.  
+
+
+
+
+{\ttfamily \#include $<$qmltranslator.\+h$>$}
+
+Схема успадкувань для Qml\+Translator\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQmlTranslator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Сигнали}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classQmlTranslator_a5acc88dd3333562fb0994fa979a4a6c7}{language\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em Сигнал який говорить що мова була змінена. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQmlTranslator_a6903817015a1beea00c3a6f3c0063b35}{Qml\+Translator}} (QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classQmlTranslator}{Qml\+Translator}} конструктор \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classQmlTranslator_a4cad06c1d84cd83756faf48baaaafe03}{set\+Translation}} (QString translation)
+\begin{DoxyCompactList}\small\item\em Задає мову яка повинна відображатися \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Приватні дані}
+\begin{DoxyCompactItemize}
+\item 
+QTranslator \mbox{\hyperlink{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}{m\+\_\+translator}}
+\begin{DoxyCompactList}\small\item\em Перекладач, який зберігає поточний переклад програми. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Детальний опис}
+Дозволяє змінювати мову при роботі програми з QML. 
+
+Див. визначення в файлі \mbox{\hyperlink{qmltranslator_8h_source}{qmltranslator.\+h}}, рядок \mbox{\hyperlink{qmltranslator_8h_source_l00011}{11}}
+
+
+
+\doxysubsubsection{Конструктор(и)}
+\mbox{\Hypertarget{classQmlTranslator_a6903817015a1beea00c3a6f3c0063b35}\label{classQmlTranslator_a6903817015a1beea00c3a6f3c0063b35}} 
+\index{QmlTranslator@{QmlTranslator}!QmlTranslator@{QmlTranslator}}
+\index{QmlTranslator@{QmlTranslator}!QmlTranslator@{QmlTranslator}}
+\doxyparagraph{\texorpdfstring{QmlTranslator()}{QmlTranslator()}}
+{\footnotesize\ttfamily Qml\+Translator\+::\+Qml\+Translator (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{classQmlTranslator}{Qml\+Translator}} конструктор 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em parent} & Посилання на батьківскій об\textquotesingle{}єкт \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{qmltranslator_8cpp_source}{qmltranslator.\+cpp}}, рядок \mbox{\hyperlink{qmltranslator_8cpp_source_l00004}{4}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004                                             : QObject(parent)}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис методів компонент}
+\mbox{\Hypertarget{classQmlTranslator_a5acc88dd3333562fb0994fa979a4a6c7}\label{classQmlTranslator_a5acc88dd3333562fb0994fa979a4a6c7}} 
+\index{QmlTranslator@{QmlTranslator}!languageChanged@{languageChanged}}
+\index{languageChanged@{languageChanged}!QmlTranslator@{QmlTranslator}}
+\doxyparagraph{\texorpdfstring{languageChanged}{languageChanged}}
+{\footnotesize\ttfamily void Qml\+Translator\+::language\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Сигнал який говорить що мова була змінена. 
+
+\mbox{\Hypertarget{classQmlTranslator_a4cad06c1d84cd83756faf48baaaafe03}\label{classQmlTranslator_a4cad06c1d84cd83756faf48baaaafe03}} 
+\index{QmlTranslator@{QmlTranslator}!setTranslation@{setTranslation}}
+\index{setTranslation@{setTranslation}!QmlTranslator@{QmlTranslator}}
+\doxyparagraph{\texorpdfstring{setTranslation()}{setTranslation()}}
+{\footnotesize\ttfamily void Qml\+Translator\+::set\+Translation (\begin{DoxyParamCaption}\item[{QString}]{translation }\end{DoxyParamCaption})}
+
+
+
+Задає мову яка повинна відображатися 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em translation} & Код мови, наприклад \char`\"{}en\+\_\+\+US\char`\"{}. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{qmltranslator_8cpp_source}{qmltranslator.\+cpp}}, рядок \mbox{\hyperlink{qmltranslator_8cpp_source_l00009}{9}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010 \{}
+\DoxyCodeLine{00011     qApp-\/>removeTranslator(\&\mbox{\hyperlink{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}{m\_translator}});}
+\DoxyCodeLine{00012     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}{m\_translator}}.load(\textcolor{stringliteral}{"{}DSfMP\_"{}} + translation, \textcolor{stringliteral}{"{}:/"{}})) \{}
+\DoxyCodeLine{00013         qApp-\/>installTranslator(\&\mbox{\hyperlink{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}{m\_translator}});}
+\DoxyCodeLine{00014     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00015         qDebug() << \textcolor{stringliteral}{"{}Failed to load translation file: "{}}}
+\DoxyCodeLine{00016             << \textcolor{stringliteral}{"{}DSfMP\_"{}} + translation;}
+\DoxyCodeLine{00017     \}}
+\DoxyCodeLine{00018     emit \mbox{\hyperlink{classQmlTranslator_a5acc88dd3333562fb0994fa979a4a6c7}{languageChanged}}();}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Компонентні дані}
+\mbox{\Hypertarget{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}\label{classQmlTranslator_a4ad06726cc310d3aee71a4532f04fa74}} 
+\index{QmlTranslator@{QmlTranslator}!m\_translator@{m\_translator}}
+\index{m\_translator@{m\_translator}!QmlTranslator@{QmlTranslator}}
+\doxyparagraph{\texorpdfstring{m\_translator}{m\_translator}}
+{\footnotesize\ttfamily QTranslator Qml\+Translator\+::m\+\_\+translator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Перекладач, який зберігає поточний переклад програми. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{qmltranslator_8h_source}{qmltranslator.\+h}}, рядок \mbox{\hyperlink{qmltranslator_8h_source_l00038}{38}}
+
+
+
+Документація цих класів була створена з файлів\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{qmltranslator_8h}{qmltranslator.\+h}}\item 
+\mbox{\hyperlink{qmltranslator_8cpp}{qmltranslator.\+cpp}}\end{DoxyCompactItemize}

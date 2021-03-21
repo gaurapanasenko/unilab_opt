@@ -1,0 +1,97 @@
+\hypertarget{linuxmodel_8cpp_source}{}\doxysubsection{linuxmodel.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{linuxmodel_8h}{linuxmodel.h}}"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <QSqlQuery>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <QSqlError>}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00005}\mbox{\hyperlink{linuxmodel_8cpp_a73f57f09a48d9676411d6995a6ef595b}{00005}} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{linuxmodel_8cpp_a73f57f09a48d9676411d6995a6ef595b}{COLUMN\_NAMES}}[] = \{}
+\DoxyCodeLine{00006   \textcolor{stringliteral}{"{}linux\_id"{}},}
+\DoxyCodeLine{00007   \textcolor{stringliteral}{"{}name"{}},}
+\DoxyCodeLine{00008   \textcolor{stringliteral}{"{}family"{}},}
+\DoxyCodeLine{00009   NULL}
+\DoxyCodeLine{00010 \};}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00012}\mbox{\hyperlink{linuxmodel_8cpp_a222200fa56951eda600c3cfb7136cb7f}{00012}} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{linuxmodel_8cpp_a222200fa56951eda600c3cfb7136cb7f}{SQL\_SELECT}} =}
+\DoxyCodeLine{00013   \textcolor{stringliteral}{"{}SELECT linux.id, linux.name, linux.family FROM linux"{}};}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00016}\mbox{\hyperlink{classLinuxModel_a63f8545565433b712a3ef781b35b9c89}{00016}} \mbox{\hyperlink{classLinuxModel_a63f8545565433b712a3ef781b35b9c89}{LinuxModel::LinuxModel}}(QSqlDatabase \&sdb, QObject *parent)}
+\DoxyCodeLine{00017     : QSqlTableModel(parent), m\_sdb(sdb)}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019     setTable(\textcolor{stringliteral}{"{}linux"{}});}
+\DoxyCodeLine{00020     setEditStrategy(QSqlTableModel::QSqlTableModel::OnFieldChange);}
+\DoxyCodeLine{00021     select();}
+\DoxyCodeLine{00022     setHeaderData(0, Qt::Horizontal, tr(\textcolor{stringliteral}{"{}Name"{}}));}
+\DoxyCodeLine{00023     setHeaderData(1, Qt::Horizontal, tr(\textcolor{stringliteral}{"{}Family"{}}));}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025     \textcolor{keywordtype}{int} idx = 0;}
+\DoxyCodeLine{00026     \textcolor{keywordflow}{while}(\mbox{\hyperlink{linuxmodel_8cpp_a73f57f09a48d9676411d6995a6ef595b}{COLUMN\_NAMES}}[idx]) \{}
+\DoxyCodeLine{00027         \mbox{\hyperlink{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}{m\_roleNames}}[Qt::UserRole + idx + 1] = \mbox{\hyperlink{linuxmodel_8cpp_a73f57f09a48d9676411d6995a6ef595b}{COLUMN\_NAMES}}[idx];}
+\DoxyCodeLine{00028         idx++;}
+\DoxyCodeLine{00029     \}}
+\DoxyCodeLine{00030     \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00031 \}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00033}\mbox{\hyperlink{classLinuxModel_acbac937bafe86e6001ac5572de2435b1}{00033}} QVariant \mbox{\hyperlink{classLinuxModel_acbac937bafe86e6001ac5572de2435b1}{LinuxModel::data}}(\textcolor{keyword}{const} QModelIndex \&index, \textcolor{keywordtype}{int} role)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{00034     QVariant value = QSqlQueryModel::data(index, role);}
+\DoxyCodeLine{00035     \textcolor{keywordflow}{if}(role < Qt::UserRole)}
+\DoxyCodeLine{00036     \{}
+\DoxyCodeLine{00037         value = QSqlQueryModel::data(index, role);}
+\DoxyCodeLine{00038     \}}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00040     \{}
+\DoxyCodeLine{00041         \textcolor{keywordtype}{int} columnIdx = role -\/ Qt::UserRole -\/ 1;}
+\DoxyCodeLine{00042         QModelIndex modelIndex = this-\/>index(index.row(), columnIdx);}
+\DoxyCodeLine{00043         value = QSqlQueryModel::data(modelIndex, Qt::DisplayRole);}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{00046 \}}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00048}\mbox{\hyperlink{classLinuxModel_a543727339d72a4055037c5685b5102d4}{00048}} QHash<int, QByteArray> \mbox{\hyperlink{classLinuxModel_a543727339d72a4055037c5685b5102d4}{LinuxModel::roleNames}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00049 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{return} \mbox{\hyperlink{classLinuxModel_a10a75a90010e66bdf1d84c70c893a670}{m\_roleNames}};}
+\DoxyCodeLine{00051 \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00053}\mbox{\hyperlink{classLinuxModel_a76c81cdbf499fad293e0023616118ad2}{00053}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinuxModel_a76c81cdbf499fad293e0023616118ad2}{LinuxModel::remove}}(\textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00055     QSqlQuery query(\mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}});}
+\DoxyCodeLine{00056     query.prepare(\textcolor{stringliteral}{"{}DELETE FROM linux WHERE id = :id;"{}});}
+\DoxyCodeLine{00057     query.bindValue(0, i);}
+\DoxyCodeLine{00058     query.exec();}
+\DoxyCodeLine{00059     \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00060 \}}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00062}\mbox{\hyperlink{classLinuxModel_ae1c8735d931dd460485a2e0e7bbc65f4}{00062}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinuxModel_ae1c8735d931dd460485a2e0e7bbc65f4}{LinuxModel::update}}(\textcolor{keywordtype}{int} i, QString col, QString value)}
+\DoxyCodeLine{00063 \{}
+\DoxyCodeLine{00064     QSqlQuery query(\mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}});}
+\DoxyCodeLine{00065     QString q = \textcolor{stringliteral}{"{}UPDATE linux SET \%1 = '\%2' WHERE id = :id;"{}};}
+\DoxyCodeLine{00066     query.prepare(q.arg(col).arg(value));}
+\DoxyCodeLine{00067     query.bindValue(\textcolor{stringliteral}{"{}:id"{}}, i);}
+\DoxyCodeLine{00068     \textcolor{keywordtype}{bool} success = query.exec();}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if} (!success) \{}
+\DoxyCodeLine{00070         qDebug() << query.lastError().text() << value;}
+\DoxyCodeLine{00071         qDebug() << query.lastQuery();}
+\DoxyCodeLine{00072     \}}
+\DoxyCodeLine{00073     \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00074 \}}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00076}\mbox{\hyperlink{classLinuxModel_a96147880eeafa9e8217fbeb8e3e7147d}{00076}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinuxModel_a96147880eeafa9e8217fbeb8e3e7147d}{LinuxModel::append}}(QJsonObject obj)}
+\DoxyCodeLine{00077 \{}
+\DoxyCodeLine{00078     QSqlQuery query(\mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}});}
+\DoxyCodeLine{00079     query.prepare(\textcolor{stringliteral}{"{}INSERT INTO linux (name, family) VALUES (:name, :family)"{}});}
+\DoxyCodeLine{00080     query.bindValue(0, obj.value(\textcolor{stringliteral}{"{}name"{}}).toString());}
+\DoxyCodeLine{00081     query.bindValue(1, obj.value(\textcolor{stringliteral}{"{}family"{}}).toString());}
+\DoxyCodeLine{00082     \textcolor{keywordtype}{bool} success = query.exec();}
+\DoxyCodeLine{00083     \textcolor{keywordflow}{if} (!success) \{}
+\DoxyCodeLine{00084         qDebug() << query.lastError().text();}
+\DoxyCodeLine{00085     \}}
+\DoxyCodeLine{00086     \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{refresh}}();}
+\DoxyCodeLine{00087 \}}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{\Hypertarget{linuxmodel_8cpp_source_l00089}\mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{00089}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinuxModel_a91a8e068b7ed61e59fd606baf163bc39}{LinuxModel::refresh}}() \{}
+\DoxyCodeLine{00090     QSqlQuery query(\mbox{\hyperlink{linuxmodel_8cpp_a222200fa56951eda600c3cfb7136cb7f}{SQL\_SELECT}}, \mbox{\hyperlink{classLinuxModel_ab4e2b0ddbddfd007463316a1eead8c4b}{m\_sdb}});}
+\DoxyCodeLine{00091     this-\/>setQuery(query);}
+\DoxyCodeLine{00092 \}}
+
+\end{DoxyCode}

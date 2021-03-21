@@ -1,0 +1,470 @@
+за дисципліною \char`\"{}Проектування систем під мобільні платформи\char`\"{} ~\newline
+ студента групи ПА-\/17-\/2 ~\newline
+ Панасенка Єгора Сергійовича ~\newline
+ Кафедра комп\textquotesingle{}ютерних технологій ~\newline
+ ФПМ, ДНУ, 2017-\/2018 навч.\+р. ~\newline
+
+
+Звіт доступний за посиланням ~\newline
+ \href{https://gaurapanasenko.github.io/unilab_opt/DSfMP/html/index.html}{\texttt{ https\+://gaurapanasenko.\+github.\+io/unilab\+\_\+opt/\+DSf\+MP/html/index.\+html}}. ~\newline
+ Вихідний код доступний за посиланням ~\newline
+ \href{https://github.com/gaurapanasenko/unilab/tree/master/08/DSfMP}{\texttt{ https\+://github.\+com/gaurapanasenko/unilab/tree/master/08/\+DSf\+MP}}\hypertarget{index_autotoc_md0}{}\doxysubsubsection{Постановка задачі лабораторної роботи №1}\label{index_autotoc_md0}
+{\bfseries{Тема\+:}} Вступ у розробку Android -\/ додатків
+
+{\bfseries{Мета роботи\+:}} знайомство з інструментами розробки Android-\/ додатків; отримання навичок складання та налагодження програм Android-\/додаткiв.\hypertarget{index_autotoc_md1}{}\doxyparagraph{Методичні вказівки}\label{index_autotoc_md1}
+Android -\/ операційна система для мобільних пристроїв\+: смартфонів, планшетних комп\textquotesingle{}ютерів, КПК. В даний час саме Android є найбільш широко використовуваною операційною системою для мобільних пристроїв. Це безкоштовна операційна система, заснована на \mbox{\hyperlink{classLinux}{Linux}} з інтерфейсом програмування Java.
+
+Платформа Android об\textquotesingle{}єднує операційну систему, побудовану на основі ядра ОС \mbox{\hyperlink{classLinux}{Linux}}, проміжне програмне забезпечення і вбудовані мобільні додатки. Розробка і розвиток мобільної платформи Android виконується в рамках проекту AOSP (Android Open Source Project) під керуванням OHA (Open Handset Alliance), керує всім процесом Google.
+
+Android підтримує фонове виконання завдань; надає розвинену бібліотеку елементів інтерфейсу користувача; підтримує 2D-\/ і BD-\/графіку, використовуючи Open\+GL стандарт; підтримує доступ до файлової системи і вбудованої бази даних SQLite.
+
+Додаток для Android пишеться на мові Java, а середовище розробки можна вибрати, наприклад, з популярних засобів розробки, таких як Android Studio або Eclipse.
+
+Android Studio -\/ середовище розробки під Android, заснована на IntelliJ IDEA. Вона надає інтегровані інструменти для розробки і налагодження. Для налагодження додатків використовується емулятор телефону -\/ віртуальна машина, на якій буде запускатися створене додаток.
+
+Щоб створити емулятор телефону, вибираємо в меню Android Studio пункти SDK Manager $\vert$ Tools $\vert$ AVD Manager $\vert$ Device Definitions.
+
+Далі потрібно вибрати потрібну версію віртуального пристрою і при необхідності відредагувати його параметри.
+
+Далі розглянемо етапи створення нового проекту. Після запуску Android Studio вибираємо New Project, з\textquotesingle{}явиться діалогове вікно майстра.
+
+
+\begin{DoxyItemize}
+\item Поле Application name -\/ ім\textquotesingle{}я, яке буде відображатися в заголовку програми.
+\item Поле Company Domain служить для вказівки адреси вашого сайту.
+\item Поле Package name формує спеціальний Java-\/пакет на основі вашого імені з попереднього поля.
+\item Поле Project location дозволяє вибрати місце на диску для створюваного проекту.
+\item Після натискання на кнопку Next переходимо до наступного вікна. Тут вибираємо типи пристроїв, під які будемо розробляти додаток. У більшості випадків ми буде писати для смартфонів і планшетів, тому залишаємо прапорець у першого пункту. Також можна створювати додатки для Android TV, Android Wear і Glass.
+\item Далі необхідно вибрати зовнішній вигляд екрану програми. Виберемо, наприклад, варіант Blank Activity. Після натискання кнопки Finish студія формує проект і створює необхідну структуру з різних файлів і папок.
+\end{DoxyItemize}
+
+У лівій частині середовища розробки на вкладці Android з\textquotesingle{}явиться ієрархічний список з папок, які відносяться до проекту. Вкладка Android містить дві основні папки\+: app і Gradle Scripts. Перша папка app є окремим модулем для програми та містить всі необхідні файли програми -\/ код, ресурси картинок і т.\+п. Друга папка служить для різних налаштувань для керування проектом. Розкриваємо папку app. У ній знаходяться три папки\+: manifest, java, res.
+
+Папка manifest містить єдиний файл маніфесту Android\+Manifest.\+xml. У цьому файлі повинні бути оголошені всі активності, служби, приймачі і контент-\/провайдери додатки. Також він повинен містити необхідні додатком дозволу. «\+Android\+Manifest.\+xml» можна розглядати, як опис для розгортання Android-\/додатки.
+
+Папка java містить три папки -\/ робочу і для тестів. Робоча папка має назву пакета і містить файли класів. Зараз там один клас Main\+Activity.
+
+Папка res містить файли ресурсів, розбитих на окремі папки.
+
+Запуск програми здійснюється вибором команди Run в пункті меню Run. Після цього в емуляторі завантажиться розроблена програма, на екрані з\textquotesingle{}явиться вікно програми з написом «\+Hello World!» і заголовком програми.\hypertarget{index_autotoc_md2}{}\doxyparagraph{Порядок виконання роботи}\label{index_autotoc_md2}
+
+\begin{DoxyEnumerate}
+\item Вивчити методичні вказівки до виконання лабораторної роботи №1.
+\item Запустити на виконання Android Studio.
+\item Якщо буде використовуватися зовнішній емулятор для запуску Android-\/додатків (наприклад, Blue\+Stacks або Genymotion), завантажити його.
+\item Створити в середовищі Android Studio проект.
+\item Вивчити вміст файлу Android\+Manifest.\+xml з папки manifest і папку res, що містить файли ресурсів проекту.
+\item Запустити створене додаток в емуляторі Android і спостерігати за появою цього додатка і результатів його роботи у вікні додатків емулятора.
+\item Вивчити вміст файлів проекту activity\+\_\+main.\+xml і Main\+Activity.\+java. Відредагувати їх вміст для отримання нового тексту на екрані і запустити додаток в емуляторі Android.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md3}{}\doxysubsubsection{Постановка задачі лабораторної роботи №2}\label{index_autotoc_md3}
+{\bfseries{Тема\+:}} Створення призначених для користувача інтерфейсів і використання елементів управління в додатках під Android
+
+{\bfseries{Мета роботи\+:}} навчитися створювати додатки з елементами управління; отримати навички використання елементів управління в Android-\/додатках.\hypertarget{index_autotoc_md4}{}\doxyparagraph{Методичні вказівки}\label{index_autotoc_md4}
+Часто при роботі додатка на екрані дисплея повинні знаходитися елементи управління. Елементи управління -\/ це доступні для маніпулювання екранні об\textquotesingle{}єкти. Їх можна розділити на чотири основні категорії\+:
+
+
+\begin{DoxyItemize}
+\item командні елементи управління, які застосовуються для виконання функцій;
+\item елементи вибору, що дозволяють вибирати дані або налаштування;
+\item елементи введення, що застосовуються для введення даних;
+\item елементи відображення, використовувані для виведення.
+\end{DoxyItemize}
+
+Командні елементи управління виконують деякі дії. Головним командним елементом є кнопка, яка має безліч варіантів відображення. Дія виконується відразу після натискання на кнопку. Часто особливим чином виділяється кнопка за замовчуванням, відповідна найбільш часто використовуваному дії. Кнопки, поміщені на панель інструментів, зазвичай стають квадратними, втрачають текстовий напис і обзаводяться піктограмою -\/ поясненням у вигляді графічного значка.
+
+Елементи вибору дозволяють користувачеві вибрати з групи допустимих об\textquotesingle{}єктів той, з яким буде вчинено дію.
+
+Елементи вибору застосовуються також для дій з налаштування. Поширеними елементами вибору є прапорці і списки. Клацнувши по прапорці, користувач негайно побачить що з\textquotesingle{}явилась галочка. Елементи управління типу «список» дозволяють здійснювати вибір з кінцевого безлічі текстових рядків, кожна з яких представляє команду, об\textquotesingle{}єкт або ознака. Користувач може вибрати єдиний рядок тексту, натиснувши на неї.
+
+Елементи введення дають користувачеві можливість не тільки вибирати існуючі відомості, але і вводити нову інформацію. Найпростіший елемент -\/ поле редагування тексту (поле введення). В цю категорію потрапляють також такі елементи управління, як лічильники і повзунки.
+
+Елементи управління відображенням використовуються для управління візуальним представленням інформації на екрані. Типовими прикладами елементів відображення є роздільники і смуги прокрутки. Сюди ж входять роздільники сторінок, лінійки, направляючі, сітки і рамки.
+
+Кожному об\textquotesingle{}єкту потрібно задати розміри, координати, колір, текст і т.\+д. Android підтримує спосіб, заснований на XML-\/ розмітці, який нагадує розмітку веб-\/сторінки. Можна використовувати і візуальний спосіб перетягування об\textquotesingle{}єктів за допомогою миші.
+
+Файли XML-\/розмітки знаходяться в папці res / layout проекту. Папка містить ресурси, які не пов\textquotesingle{}язані з кодом. Крім розмітки, там же містяться зображення, звуки, рядки для локалізації і т.\+д.
+
+Відкриємо створений на практичному занятті №2 проект. Коли розмітка відкрита в графічному поданні, то зліва від основної частини редактора коду можна побачити панель інструментів, в якій згруповані різні елементи за категоріями\+: Widgets, Texts, Layouts і т.\+д.
+
+У групі Images знайдіть елемент Image\+Button, перетягніть його на форму і відпустіть. Далі необхідно вибрати зображення для кнопки.
+
+У вкладці Component Tree виберемо елемент Constraint Layout (екран). В панелі властивостей Properties відобразяться найуживаніші властивості обраного компонента. До них відносяться ідентифікатор, ширина і висота. Вибираємо View all properties (дві стрілочки), щоб відкрити всі властивості компонента. Знайдіть властивість background. Клацніть поруч з цим словом у другій колонці. З\textquotesingle{}явиться текстове поле, в яке можна ввести значення вручну і кнопка з трьома крапками, яка запустить діалогове вікно для створення ресурсу.\+Переходимо на вкладку Color і вибираємо потрібний колір.
+
+Далі можна поміняти картинку для графічної кнопки. Знаходимо відповідне зображення і копіюємо його в папку res / drawable проекту. Потім виділяємо елемент Image\+Button на формі і в панелі властивостей вибираємо властивість src\+Compat. Знову клацаємо на кнопці з трьома крапками і вибираємо ресурс в категорії Drawable -\/ там має з\textquotesingle{}явитися ресурс з ім\textquotesingle{}ям доданого раніше файлу. Там же в вікні властивостей знаходимо властивість on\+Click і вручну прописуємо on\+Click -\/ це буде ім\textquotesingle{}ям методу для обробки натискання на кнопку.
+
+Далі встановіть курсор миші всередині тексту \char`\"{}on\+Click\char`\"{} у кнопки (переключившись в режим Text) і натисніть комбінацію Alt + Enter. У спливаючому вікні вибрати варіант Create \textquotesingle{}on\+Click (View)\textquotesingle{} in \textquotesingle{}Main\+Activity\textquotesingle{}. У коді класу Main\+Activity з\textquotesingle{}явиться заготовка для обробки клацання кнопки. Необхідно набрати наступний текст\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{import} android.os.Bundle;}
+\DoxyCodeLine{\textcolor{keyword}{import} android.support.v7.app.AppCompatActivity;  }
+\DoxyCodeLine{\textcolor{keyword}{import} android.view.View; }
+\DoxyCodeLine{\textcolor{keyword}{import} android.widget.TextView;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public} \textcolor{keyword}{class }MainActivity \textcolor{keyword}{extends} AppCompatActivity \{}
+\DoxyCodeLine{    \textcolor{keyword}{private} TextView mHelloTextView;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    @Override}
+\DoxyCodeLine{    \textcolor{keyword}{protected} \textcolor{keywordtype}{void} onCreate(Bundle savedInstanceState) \{}
+\DoxyCodeLine{        super.onCreate(savedInstanceState); }
+\DoxyCodeLine{        setContentView(R.layout.activity\_main); }
+\DoxyCodeLine{        mHelloTextView=(TextView)findViewById(R.id.textView);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keyword}{public} \textcolor{keywordtype}{void} onClick(View view) \{}
+\DoxyCodeLine{        mHelloTextView.setText(\textcolor{stringliteral}{"{}Hello!"{}});}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Далі необхідно запустити програму в емуляторі Android, натиснути на створену кнопку і спостерігати за зміною тексту на екрані.\hypertarget{index_autotoc_md5}{}\doxyparagraph{Порядок виконання роботи}\label{index_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Вивчити методичні вказівки до виконання лабораторної роботи №2.
+\item Запустити на виконання Android Studio.
+\item Якщо буде використовуватися зовнішній емулятор для запуску Android-\/додатків (наприклад, Blue\+Stacks або Genymotion), завантажити його.
+\item Відкрити в середовищі Android Studio проект, розроблений в ході виконання лабораторної роботи №2 або створити новий проект.
+\item Розмістити на формі елементи управління Image\+Button і Text\+View, налаштувати їх параметри.
+\item У вікні java-\/коду проекту додати рядки обробки натискання на кнопку.
+\item Запустити створений додаток в емуляторі Android і спостерігати за появою цього додатка і результатів його роботи у вікні емулятора.
+\item Додати в проект інші елементи управління, налаштувати їх властивості та перевірити роботу програми в емуляторі Android.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md6}{}\doxysubsubsection{Постановка задачі лабораторної роботи №2}\label{index_autotoc_md6}
+{\bfseries{Тема\+:}} 2Б-\/анімація, створення і використання служб в додатках під Android
+
+{\bfseries{Мета роботи\+:}} знайомство з можливостями створення Android-\/ додатків з використанням анімації; отримати навички створення Android-\/додатків з використанням ID-\/анімації.\hypertarget{index_autotoc_md7}{}\doxyparagraph{Методичні вказівки}\label{index_autotoc_md7}
+Android надає потужні API для анімації елементів призначених для користувацького інтерфейсу і побудови 2D і 3D зображень. Платформа Android надає дві системи анімації\+: анімація властивостей, що з\textquotesingle{}явилася в Android 3.\+0, і анімація компонентів для користувача інтерфейсу (спадкоємців класу View).
+
+Анімація властивостей (Property Animation) дозволяє визначити анімацію для зміни будь-\/якого властивості об\textquotesingle{}єкта, незалежно від того зображується воно на екрані чи ні.
+
+Анімація компонентів для користувача інтерфейсу використовується для реалізації анімації перетворень над спадкоємцями класу View. Для розрахунку анімації перетворень використовується наступна інформація\+: початкова точка, кінцева точка, розмір, поворот і інші загальні аспекти анімації. Анімація перетворень може виконувати серії простих змін вмісту екземпляра класу View. Наприклад, для текстового поля можна переміщати, обертати, розтягувати, стискати текст, якщо визначено фонове зображення, воно повинно змінюватися разом з текстом. Пакет android.\+view.\+animation надає всі класи, необхідні для реалізації анімації перетворень.
+
+Для завдання послідовності інструкцій анімації перетворень використовується XML код. Такі файли з XML кодом повинні розташовуватися в папці res / anim / проекту.
+
+Розглянемо послідовність розробки програми, що використовує анімацію.
+
+Створимо новий проект в Android Studio. Далі підготуємо кілька додаткових файлів, які будуть використовуватися при анімації. В папці drawable проекту створимо файл sun.\+xml з таким вмістом\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\textcolor{keyword}{xml} \textcolor{keyword}{version}=\textcolor{stringliteral}{"{}1.0"{}} \textcolor{keyword}{encoding}=\textcolor{stringliteral}{"{}utf-\/8"{}}?>}
+\DoxyCodeLine{<\textcolor{keywordtype}{shape}}
+\DoxyCodeLine{\textcolor{keyword}{xmlns:android}=\textcolor{stringliteral}{"{}http://schemas.android.com/apk/res/android"{}} \textcolor{keyword}{android:dither}=\textcolor{stringliteral}{"{}true"{}} \textcolor{keyword}{android:shape}=\textcolor{stringliteral}{"{}oval"{}} >}
+\DoxyCodeLine{<\textcolor{keywordtype}{gradient} \textcolor{keyword}{android:endColor}=\textcolor{stringliteral}{"{}\#ffff6600"{}} \textcolor{keyword}{android:gradientRadius}=\textcolor{stringliteral}{"{}150"{}} \textcolor{keyword}{android:startColor}=\textcolor{stringliteral}{"{}\#ffffcc00"{}} \textcolor{keyword}{android:type}=\textcolor{stringliteral}{"{}radial"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{android:useLevel}=\textcolor{stringliteral}{"{}false"{}} />}
+\DoxyCodeLine{<\textcolor{keywordtype}{size}}
+\DoxyCodeLine{\textcolor{keyword}{android:height}=\textcolor{stringliteral}{"{}150dp"{}} \textcolor{keyword}{android:width}=\textcolor{stringliteral}{"{}150dp"{}} />}
+\DoxyCodeLine{</\textcolor{keywordtype}{shape}>}
+
+\end{DoxyCode}
+
+
+Тут для зображення сонця використовується овал, а також для кольору застосовується градієнт -\/ плавну зміну кольору від темно-\/жовтого (start\+Color) до світло-\/жовтого (end\+Color).
+
+У тій же папці drawable створимо новий файл sky.\+xml такого змісту\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\textcolor{keyword}{xml} \textcolor{keyword}{version}=\textcolor{stringliteral}{"{}1.0"{}} \textcolor{keyword}{encoding}=\textcolor{stringliteral}{"{}utf-\/8"{}}?>}
+\DoxyCodeLine{<\textcolor{keywordtype}{shape}}
+\DoxyCodeLine{\textcolor{keyword}{xmlns:android}=\textcolor{stringliteral}{"{}http://schemas.android.com/apk/res/android"{}} \textcolor{keyword}{android:dither}=\textcolor{stringliteral}{"{}true"{}} \textcolor{keyword}{android:shape}=\textcolor{stringliteral}{"{}rectangle"{}} >}
+\DoxyCodeLine{<\textcolor{keywordtype}{gradient} \textcolor{keyword}{android:angle}=\textcolor{stringliteral}{"{}90"{}}}
+\DoxyCodeLine{\textcolor{keyword}{android:endColor}=\textcolor{stringliteral}{"{}\#ff000033 "{}}}
+\DoxyCodeLine{\textcolor{keyword}{android:startColor}=\textcolor{stringliteral}{"{}\#ff0000ff"{}}}
+\DoxyCodeLine{/>}
+\DoxyCodeLine{</\textcolor{keywordtype}{shape}>}
+
+\end{DoxyCode}
+
+
+Тут задана фігура в виглядi прямокутника (rectangle) з блакитним градієнтом від нижнього краю до верхнього.
+
+В тієї ж папці drawable створимо новий файл {\ttfamily grass.\+xml} такого змісту\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\textcolor{keyword}{xml} \textcolor{keyword}{version}=\textcolor{stringliteral}{"{}1.0"{}} \textcolor{keyword}{encoding}=\textcolor{stringliteral}{"{}utf-\/8"{}}?>}
+\DoxyCodeLine{<\textcolor{keywordtype}{shape}}
+\DoxyCodeLine{\textcolor{keyword}{xmlns:android}=\textcolor{stringliteral}{"{}http://schemas.android.com/apk/res/android"{}} \textcolor{keyword}{android:dither}=\textcolor{stringliteral}{"{}true"{}} \textcolor{keyword}{android:shape}=\textcolor{stringliteral}{"{}rectangle"{}} >}
+\DoxyCodeLine{<\textcolor{keywordtype}{gradient} \textcolor{keyword}{android:angle}=\textcolor{stringliteral}{"{}90"{}}}
+\DoxyCodeLine{\textcolor{keyword}{android:endColor}=\textcolor{stringliteral}{"{}\#ff003300"{}} \textcolor{keyword}{android:startColor}=\textcolor{stringliteral}{"{}\#ff009900"{}} />}
+\DoxyCodeLine{</\textcolor{keywordtype}{shape}>}
+
+\end{DoxyCode}
+
+
+Тут заданий зелений прямокутник з градієнтом.
+
+Далі в файл {\ttfamily strings.\+xml} в папці {\ttfamily res/values} додамо наступні рядки\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{string} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}sun"{}}>\textcolor{keyword}{Солнце}</\textcolor{keywordtype}{string}>}
+\DoxyCodeLine{<\textcolor{keywordtype}{string} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}grass"{}}>\textcolor{keyword}{Трава}</\textcolor{keywordtype}{string}>}
+\DoxyCodeLine{<\textcolor{keywordtype}{string} \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}sky"{}}>\textcolor{keyword}{Небо}</\textcolor{keywordtype}{string}>}
+
+\end{DoxyCode}
+
+
+Потім відкриємо розмітку головною активіті {\ttfamily activity\+\_\+main.\+xml} і додамо в неї кілька елементів {\ttfamily Image\+View}. Має вийти наступний вміст файлу\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{RelativeLayout} \textcolor{keyword}{xmlns:android}= \textcolor{stringliteral}{"{}http://schemas.android.com/apk/res/android"{}}}
+\DoxyCodeLine{\textcolor{keyword}{xmlns:tools}=\textcolor{stringliteral}{"{}http://schemas.android.com/tools"{}} \textcolor{keyword}{android:layout\_width}=\textcolor{stringliteral}{"{}match\_parent"{}} \textcolor{keyword}{android:layout\_height}=\textcolor{stringliteral}{"{}match\_parent"{}} \textcolor{keyword}{tools:context}=\textcolor{stringliteral}{"{}.MainActivity"{}} > <\textcolor{keywordtype}{ImageView}}
+\DoxyCodeLine{\textcolor{keyword}{android:id}=\textcolor{stringliteral}{"{}@+id/sky"{}} \textcolor{keyword}{android:layout\_width}=\textcolor{stringliteral}{"{}flll\_parent"{}} \textcolor{keyword}{android:layout\_height}=\textcolor{stringliteral}{"{}fill\_parent"{}} \textcolor{keyword}{android:contentDescription}=\textcolor{stringliteral}{"{}@string/sk y"{}} \textcolor{keyword}{android:src}=\textcolor{stringliteral}{"{}@drawable/sky"{}} />}
+\DoxyCodeLine{<\textcolor{keywordtype}{ImageView} \textcolor{keyword}{android:id}=\textcolor{stringliteral}{"{}@+id/sun"{}}}
+\DoxyCodeLine{\textcolor{keyword}{android:layout\_width}=\textcolor{stringliteral}{"{}wrap\_content"{}} \textcolor{keyword}{android:layout\_height}=\textcolor{stringliteral}{"{}wrap\_content"{}} \textcolor{keyword}{android:layout\_centerHorizontal}=\textcolor{stringliteral}{"{}true"{}} \textcolor{keyword}{android:contentDescription}=\textcolor{stringliteral}{"{}@string/sun"{}} \textcolor{keyword}{android:scaleType}=\textcolor{stringliteral}{"{}fitCenter"{}} \textcolor{keyword}{android:src}=\textcolor{stringliteral}{"{}@drawable/sun"{}} />}
+\DoxyCodeLine{<\textcolor{keywordtype}{ImageView} \textcolor{keyword}{android:id}=\textcolor{stringliteral}{"{}@+id/grass"{}} \textcolor{keyword}{android:layout\_width}=\textcolor{stringliteral}{"{}fill\_parent"{}}}
+\DoxyCodeLine{\textcolor{keyword}{android:layout\_height}=\textcolor{stringliteral}{"{}150dp"{}} \textcolor{keyword}{android:layout\_alignParentBottom}=\textcolor{stringliteral}{"{}true"{}} \textcolor{keyword}{android:contentDescription}=\textcolor{stringliteral}{"{}@string/grass"{}} \textcolor{keyword}{android:src}=\textcolor{stringliteral}{"{}@drawable/grass"{}} />}
+\DoxyCodeLine{</\textcolor{keywordtype}{RelativeLayout}>}
+
+\end{DoxyCode}
+
+
+У всіх елементів {\ttfamily Image\+View} в атрибуті {\ttfamily android\+: src} прописані створені фігури, які тепер можна бачити на екрані. Далі створимо нову папку {\ttfamily res/anim}, в якій будуть знаходитися файли анімації. У цій папці створимо новий файл {\ttfamily sun\+\_\+rise.\+xml} наступного змісту\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\textcolor{keyword}{xml} \textcolor{keyword}{version}=\textcolor{stringliteral}{"{}1.0"{}} \textcolor{keyword}{encoding}=\textcolor{stringliteral}{"{}utf-\/8"{}}?>}
+\DoxyCodeLine{<\textcolor{keywordtype}{set} \textcolor{keyword}{xmlns:android}=\textcolor{stringliteral}{"{}http://schemas.android.com/apk/res/android"{}} \textcolor{keyword}{android:duration}=\textcolor{stringliteral}{"{}5000"{}}}
+\DoxyCodeLine{\textcolor{keyword}{android:fillAfter}=\textcolor{stringliteral}{"{}true"{}} \textcolor{keyword}{android:interpolator}=\textcolor{stringliteral}{"{}@android:anim/accelerate\_decelerate\_interpolator"{}} \textcolor{keyword}{android:shareInterpolator}=\textcolor{stringliteral}{"{}false"{}} >}
+\DoxyCodeLine{<\textcolor{keywordtype}{scale}}
+\DoxyCodeLine{\textcolor{keyword}{android:fromXScale}=\textcolor{stringliteral}{"{}1.0"{}} \textcolor{keyword}{android:fromYScale}=\textcolor{stringliteral}{"{}1.0"{}} \textcolor{keyword}{android:pivotX}=\textcolor{stringliteral}{"{}50\%"{}} \textcolor{keyword}{android:pivotY}=\textcolor{stringliteral}{"{}50\%"{}} \textcolor{keyword}{android:toXScale}=\textcolor{stringliteral}{"{}1.5"{}} \textcolor{keyword}{android:toYScale}=\textcolor{stringliteral}{"{}1.5"{}} />}
+\DoxyCodeLine{<\textcolor{keywordtype}{translate} \textcolor{keyword}{android:fromYDelta}=\textcolor{stringliteral}{"{}80\%p"{}} \textcolor{keyword}{android:toYDelta}=\textcolor{stringliteral}{"{}10\%p"{}}}
+\DoxyCodeLine{/>}
+\DoxyCodeLine{<\textcolor{keywordtype}{alpha}}
+\DoxyCodeLine{\textcolor{keyword}{android:fromAlpha}=\textcolor{stringliteral}{"{}0.3"{}} \textcolor{keyword}{android:toAlpha}=\textcolor{stringliteral}{"{}1.0"{}} />}
+\DoxyCodeLine{}
+\DoxyCodeLine{</\textcolor{keywordtype}{set}>}
+
+\end{DoxyCode}
+
+
+У блоці set встановлені параметри анімації. Наприклад, параметр android\+: duration показує, що анімація повинна відбутися протягом 5 секунд. Параметр {\ttfamily fill\+After} управляє станом анімації -\/ вона не повинна стрибати в початок. Параметр {\ttfamily android}\+: interpolator використовує системну константу для невеликого прискорення від початку до середини анімації і гальмування від середини до кінця анімації.
+
+Усередині блоку set встановлюються спеціальні блоки, що відповідають за характер анімації\+: зміна розмірів, позиції і прозорості. Наприклад, фігура сонця буде збільшуватися від свого початкового розміру в півтора рази рівномірно від своєї середини (scale). Елемент translate рухає сонце по екрану вертикально вгору. Ми відштовхуємося щодо батьківського елементу, використовуючи суфікс \char`\"{}p\char`\"{}. Сонце починає рух в позиції 80\% від батьківського елемента по осі Y і закінчує рух в позиції 10\%. При русі також змінюється прозорість сонця від повної прозорості до повної непрозорості (alpha). Далі в файлі Main\+Activity.\+java записуємо програмний код програми\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{import} android.support.v7.app.AppCompatActivity;}
+\DoxyCodeLine{\textcolor{keyword}{import} android.os.Bundle;}
+\DoxyCodeLine{\textcolor{keyword}{import} android.view.animation.Animation;}
+\DoxyCodeLine{\textcolor{keyword}{import} android.view.animation.AnimationUtils;}
+\DoxyCodeLine{\textcolor{keyword}{import} android.widget.ImageView;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public} \textcolor{keyword}{class }MainActivity \textcolor{keyword}{extends} AppCompatActivity\{ }
+\DoxyCodeLine{}
+\DoxyCodeLine{    @Override}
+\DoxyCodeLine{    \textcolor{keyword}{protected} \textcolor{keywordtype}{void} onCreate (Bundle savedInstanceState) \{}
+\DoxyCodeLine{        super.onCreate (savedInstanceState);}
+\DoxyCodeLine{        setContentView (R.layout.activity\_main);}
+\DoxyCodeLine{        \textcolor{comment}{// Отримуємо посилання на зображення сонця}}
+\DoxyCodeLine{        ImageView sunImageView = (ImageView) findViewById (R.id.sun);}
+\DoxyCodeLine{        \textcolor{comment}{// Анімація для сходу сонця Animation sunRiseAnimation = }}
+\DoxyCodeLine{        AnimationUtils.loadAnimation (\textcolor{keyword}{this}, R.anim.sun\_rise);}
+\DoxyCodeLine{        \textcolor{comment}{// Підключаємо анімацію до фотографії View sunImageView.startAnimation (sunRiseAnimation)}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md8}{}\doxyparagraph{Порядок виконання роботи}\label{index_autotoc_md8}
+
+\begin{DoxyEnumerate}
+\item Вивчити методичні вказівки до виконання лабораторної роботи №3.
+\item Запустити на виконання Android Studio.
+\item Якщо буде використовуватися зовнішній емулятор для запуску Android-\/додатків (наприклад, Blue\+Stacks або Genymotion), завантажити його.
+\item Створити в середовищі Android Studio проект, розроблений на практичному занятті №4.
+\item Створити в відповідних директоріях проекту файли {\ttfamily grass.\+xml}, {\ttfamily sky.\+xml}, {\ttfamily sun.\+xml}.
+\item Додати в проект графічні зображення нерухомих і рухомих зображень.
+\item Створити нову папку {\ttfamily res/anim} і додати в неї файл {\ttfamily sun\+\_\+rise.\+xml}.
+\item У вікні java-\/коду проекту додати рядки для отримання анімованого зображення.
+\item Запустити створене додаток в емуляторі Android і спостерігати за появою цього додатка і результатів його роботи у вікні додатків емулятора.
+\item Створити новий додаток із застосуванням анімованого зображення.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md9}{}\doxysubsubsection{Постановка задачі лабораторної роботи №4}\label{index_autotoc_md9}
+{\bfseries{Тема\+:}} Створення та використання Меню
+
+{\bfseries{Мета роботи\+:}} Знайомство з контекстним меню в Android, створення меню за допомогою ресурсів\hypertarget{index_autotoc_md10}{}\doxyparagraph{Методичні вказівки}\label{index_autotoc_md10}
+\hypertarget{index_autotoc_md11}{}\doxysubparagraph{Меню в Android}\label{index_autotoc_md11}
+Використання меню в додатках дозволяє зберегти цінне екранний простір, яке в іншому випадку було б зайнято відносно рідко використовуваними елементами призначеного для користувача інтерфейсу.
+
+Кожна Активність може мати меню, що реалізують специфічні тільки для неї функції. Можна використовувати також контекстні меню, індивідуальні для кожного Уявлення на екрані.\hypertarget{index_autotoc_md12}{}\doxysubparagraph{Основи використання меню}\label{index_autotoc_md12}
+В Android реалізована підтримка триступеневої системи меню, оптимізовану, в першу чергу, для невеликих екранів\+:
+
+
+\begin{DoxyItemize}
+\item Основне меню виникає внизу на екрані при натисканні на кнопку «menu» пристрою. Воно може відображати текст і іконки для обмеженого (за замовчуванням, не більше шести) числа пунктів. Для цього меню рекомендується використовувати іконки з колірною гамою в вигляді відтінків сірого з елементами рельєфності. Це меню не може містити радиокнопки і чекбокси. Якщо число пунктів такого меню перевищує максимально допустиме значення, в меню автоматично з\textquotesingle{}являється пункт з написом «ще» ( «more»). При натисканні на нього відобразиться Розширене меню.
+\item Розширене меню відображає прокручуваний список, елементами якого є пункти, які не ввійшли до основного меню. У цьому списку не можуть відображатися іконки, але є можливість відображення радіокнопок і чекбоксів. Оскільки не існує способу відобразити розширене меню замість основного, про зміну стану якихось компонентів програми або системи рекомендується повідомляти користувача за допомогою зміни іконок або тексту пунктів меню.
+\item Дочірнє меню (меню третього рівня) може бути викликано з основного або розширеного меню і відображається у спливаючому вікні. Вкладеність не підтримується, і спроба викликати з дочірнього ще одне меню призведе до викиду винятку. створення меню
+\end{DoxyItemize}
+
+При зверненні до меню викликається метод on\+Create\+Options\+Menu Активності і для появи меню на екрані його потрібно перевизначити. Даний метод отримує в якості параметра об\textquotesingle{}єкт класу Menu, який в подальшому використовується для маніпуляцій з пунктами меню.
+
+Для додавання нових пунктів в меню використовується метод add об\textquotesingle{}єкта Menu з наступними параметрами\+:
+\begin{DoxyItemize}
+\item Група\+: для об\textquotesingle{}єднання пунктів меню для групової обробки
+\item Ідентифікатор\+: унікальний ідентифікатор пункту меню. Цей ідентифікатор передається обробнику натиснення на пункт меню -\/ методу on\+Options\+Item\+Selected.
+\item Порядок\+: значення, яке вказує порядок, в якому пункти меню будуть виводитися.
+\item Текст\+: напис на даному пункті меню.
+\end{DoxyItemize}
+
+Після успішного створення меню метод on\+Create\+Options\+Menu повинен повернути значення {\ttfamily true}.
+
+Приклад показує створення меню з трьох пунктів з використанням строкових ресурсів\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@Override}
+\DoxyCodeLine{\textcolor{keyword}{public} \textcolor{keywordtype}{boolean} onCreateOptionsMenu(Menu menu) \{}
+\DoxyCodeLine{    super.onCreateOptionsMenu(menu);}
+\DoxyCodeLine{    menu.add(0, Menu.FIRST, Menu.NONE, R.string.menu\_item1);}
+\DoxyCodeLine{    menu.add(0, Menu.FIRST+1, Menu.NONE, R.string.menu\_item2);}
+\DoxyCodeLine{    menu.add(0, Menu.FIRST+2, Menu.NONE, R.string.menu\_item3);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md13}{}\doxysubparagraph{Створення контекстних меню}\label{index_autotoc_md13}
+Найбільш часто використовуваним способом створення контекстного меню в Android є перевизначення методу on\+Create\+Context\+Menu Активності\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@Override}
+\DoxyCodeLine{\textcolor{keyword}{public} \textcolor{keywordtype}{void} onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) \{ }
+\DoxyCodeLine{    super.onCreateContextMenu(menu, v, menuInfo);}
+\DoxyCodeLine{    menu.setHeaderTitle(\textcolor{stringliteral}{"{}Конекстное меню"{}});}
+\DoxyCodeLine{    menu.add(0, Menu.FIRST, Menu.NONE, \textcolor{stringliteral}{"{}Пункт 1"{}});}
+\DoxyCodeLine{    menu.add(0, Menu.FIRST+1, Menu.NONE, \textcolor{stringliteral}{"{}Пункт 2"{}});}
+\DoxyCodeLine{    menu.add(0, Menu.FIRST+2, Menu.NONE, \textcolor{stringliteral}{"{}Пункт 3"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Реєстрація обробника контекстного меню для потрібних уявлень здійснюється за допомогою методу Активності register\+For\+Context\+Menu\+: ~\newline
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@Override}
+\DoxyCodeLine{\textcolor{keyword}{public} \textcolor{keywordtype}{void} onCreate(Bundle savedInstanceState) \{}
+\DoxyCodeLine{    super.onCreate(savedInstanceState);}
+\DoxyCodeLine{    setContentView(R.layout.main);}
+\DoxyCodeLine{    tv = (TextView) findViewById(R.id.text\_view);}
+\DoxyCodeLine{    registerForContextMenu(tv);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Приклад\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@Override}
+\DoxyCodeLine{\textcolor{keyword}{public} \textcolor{keywordtype}{boolean} onContextItemSelected(MenuItem item) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{switch} (item.getItemId()) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{case} DELETE\_ID:}
+\DoxyCodeLine{        AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();}
+\DoxyCodeLine{        db.deleteItem(info.id);}
+\DoxyCodeLine{        populate();}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} super.onContextItemSelected(item);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md14}{}\doxyparagraph{Порядок виконання роботи}\label{index_autotoc_md14}
+Модифікуйте проект {\ttfamily Metro\+Picker} наступним чином\+:
+\begin{DoxyEnumerate}
+\item Додайте головне меню в Активність, яка буде показувати список станцій метро. В меню повинен бути один пункт\+: «повернутися». Меню створіть динамічно в коді, без використання строкових ресурсів.
+\item Динамічно створіть контекстне меню для Уявлення Text\+View, що відображає обрану станцію метро головною Активності. Вибір пункту меню повинен скидати обрану станцію.
+\item Для головної Активності створіть основне меню з двох пунктів\+: «скинути» і «вийти». Реалізуйте потрібні функції при виборі цих пунктів.
+\item Повторіть реалізацію п.\+п. 1, 2 і 3 за допомогою ресурсів, що описують меню.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md15}{}\doxysubsubsection{Постановка задачі лабораторної роботи №5}\label{index_autotoc_md15}
+{\bfseries{Тема\+:}} Робота з~SQLite~без класу-\/адаптера
+
+{\bfseries{Мета роботи\+:}} Освоїти взаємодію з СКБД SQLite без застосування спеціальних класів-\/адаптерів в Android\hypertarget{index_autotoc_md16}{}\doxyparagraph{Методичні вказівки}\label{index_autotoc_md16}
+Механізм роботи з базами даних в Android дозволяє зберігати і обробляти структуровану інформацію. Будь-\/який додаток може створювати свої власні бази даних, над якими воно буде мати повний контроль.
+
+В Android використовується бібліотека SQLite, що представляє із себе реляционную СКБД, що володіє наступними характерними особливостями\+: вільно поширювана (open source), що підтримує стандартна мова запитів і транзакції, легка, однорівнева (вбудована), відмовостійка.\hypertarget{index_autotoc_md17}{}\doxysubparagraph{Робота з СКБД без адаптера}\label{index_autotoc_md17}
+При небажанні використовувати клас {\ttfamily SQLite\+Open\+Helper} (і взагалі адаптер БД) можна скористатися методом {\ttfamily open\+Or\+Create\+Database} контексту програми\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String DATABASE\_NAME = \textcolor{stringliteral}{"{}myDatabase.db"{}}; }
+\DoxyCodeLine{\textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String DATABASE\_TABLE = \textcolor{stringliteral}{"{}mainTable"{}}; }
+\DoxyCodeLine{\textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} String DATABASE\_CREATE = \textcolor{stringliteral}{"{}create table "{}}}
+\DoxyCodeLine{    + DATABASE\_TABLE + \textcolor{stringliteral}{"{} ( \_id integer primary key autoincrement,"{}}}
+\DoxyCodeLine{    + \textcolor{stringliteral}{"{}column\_one text not null);"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{SQLiteDatabase myDatabase;}
+\DoxyCodeLine{\textcolor{keyword}{private} \textcolor{keywordtype}{void} createDatabase() \{}
+\DoxyCodeLine{    myDatabase = openOrCreateDatabase(DATABASE\_NAME, MODE\_PRIVATE, \textcolor{keyword}{null}); }
+\DoxyCodeLine{    myDatabase.execSQL(DATABASE\_CREATE);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+В цьому випадку можна працювати з базою даних за допомогою, наприклад, методу exec\+SQL примірника БД, як показано на прикладі вище.\hypertarget{index_autotoc_md18}{}\doxysubparagraph{Особливості роботи з БД в Android}\label{index_autotoc_md18}
+При роботі з базами даних в Android слід уникати зберігання BLOB\textquotesingle{}ов з таблицях через різкого падіння ефективності роботи. Як показано в прикладі адаптера БД, для кожної таблиці рекомендується створювати автоікрементное поле {\ttfamily \+\_\+id}, яке буде унікальним індексом для рядків. Якщо ж планується делегувати доступ до БД за допомогою контент-\/провайдерів, таке поле є обов\textquotesingle{}язковим.\hypertarget{index_autotoc_md19}{}\doxyparagraph{Порядок виконання роботи}\label{index_autotoc_md19}
+Мета даної лабораторної роботи -\/ освоїти взаємодію з СУБД~SQLite~без застосування спеціальних класів-\/адаптерів. ~
+\begin{DoxyEnumerate}
+\item Створіть новий проект~SQLTest,~головна Активність якого буде розширювати клас~List\+Activity.
+\item У методі~on\+Create~головною Активності зробіть відкриття або створення БД, використовуючи в якості основи інформацію з пункту \char`\"{}Робота з СУБД без адаптера\char`\"{} і методу~on\+Upgrade~допоміжного класу з попереднього пункту.~Після створення БД створіть таблицю з будь-\/яким полем (плюс індекс), в яку додайте~3-\/5 унікальних записів зі строковим полем.~Індекс повинен інкрементуватися автоматично.
+\item У цьому ж методі зробіть запит до таблиці, який одержує всі рядки і за допомогою наявного курсора запишіть дані в масив рядків.
+\item За допомогою додаткової розмітки і адаптера~Array\+Adapter~покажіть отримані з СУБД дані на екрані Активності.
+\item Додайте обробник кліка на елемент списку, щоб при ньому запитували з БД індекс елемента з цим рядком і відображався за допомогою~Toast.
+\item Додайте контекстне меню до елементів списку, що містить пункт \char`\"{}видалити\char`\"{} і реалізуйте видалення.~Після видалення повинні проводиться дії з~п.\+п.~3 і 4 для зміни складу відображуваних даних.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md20}{}\doxysubsubsection{Приклад роботи програми}\label{index_autotoc_md20}
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Screenshot_20210321-150716_DSfMP.png}}
+\end{DoxyImageNoCaption}
+ Домашня сторінка програми на українській мові.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Screenshot_20210321-150724_DSfMP.png}}
+\end{DoxyImageNoCaption}
+ Домашня сторінка програми на англійскій мові.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Screenshot_20210321-150825_DSfMP.png}}
+\end{DoxyImageNoCaption}
+ Анімований экран з картинками, у данному випадку день.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Screenshot_20210321-150833_DSfMP.png}}
+\end{DoxyImageNoCaption}
+ Анімований экран з картинками, у данному випадку ніч.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Screenshot_20210321-191010_DSfMP.png}}
+\end{DoxyImageNoCaption}
+ Головне меню на українській мові.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Screenshot_20210321-191017_DSfMP.png}}
+\end{DoxyImageNoCaption}
+ Головне меню на англійскій мові.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Screenshot_20210321-191024_DSfMP.png}}
+\end{DoxyImageNoCaption}
+ Пуста база даних дастрибутивів \mbox{\hyperlink{classLinux}{Linux}}.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Screenshot_20210321-191232_DSfMP.png}}
+\end{DoxyImageNoCaption}
+ Заповнена база даних дастрибутивів \mbox{\hyperlink{classLinux}{Linux}}.\hypertarget{index_autotoc_md21}{}\doxysubsubsection{Висновки}\label{index_autotoc_md21}
+
+\begin{DoxyEnumerate}
+\item Було застосовано фрамеворк QT та програмний застосунок для розробнки Qt\+Creator для розробки програми під мобільні системи.
+\item Створено інтерфейс за допомогою мови QML та теми Material за допомогою графічного редактору Qt\+Creator у дезайнері.
+\item У дезайнері використаний таймлайн для створення 2D анімації.
+\item Створено меню програми у якому можна перейти на іншу сторінку програми, також реалізовано вибір мови при роботі програми.
+\item Використано технологію SQLite як базу даних та розроблено інтерфейс для керування базою даних. 
+\end{DoxyEnumerate}

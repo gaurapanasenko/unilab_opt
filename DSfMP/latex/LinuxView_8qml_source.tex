@@ -1,0 +1,61 @@
+\hypertarget{LinuxView_8qml_source}{}\doxysubsection{Linux\+View.\+qml}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 import QtQuick 2.14}
+\DoxyCodeLine{00002 import QtQuick.Controls 2.2}
+\DoxyCodeLine{00003 import Qt.labs.qmlmodels 1.0}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 ListView \{}
+\DoxyCodeLine{00006     id: view}
+\DoxyCodeLine{00007     height: 300}
+\DoxyCodeLine{00008     delegate: Item \{}
+\DoxyCodeLine{00009         id: row}
+\DoxyCodeLine{00010         height: button.height}
+\DoxyCodeLine{00011         x: 10}
+\DoxyCodeLine{00012         width: view.width -\/ 20}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014         Button \{}
+\DoxyCodeLine{00015             id: button}
+\DoxyCodeLine{00016             text: "{}-\/"{}}
+\DoxyCodeLine{00017             onClicked: view.model.remove(linux\_id)}
+\DoxyCodeLine{00018             anchors.right: parent.right}
+\DoxyCodeLine{00019             anchors.top: parent.top}
+\DoxyCodeLine{00020             anchors.topMargin: 0}
+\DoxyCodeLine{00021             anchors.rightMargin: 0}
+\DoxyCodeLine{00022         \}}
+\DoxyCodeLine{00023         Item \{}
+\DoxyCodeLine{00024             anchors.verticalCenter: button.verticalCenter}
+\DoxyCodeLine{00025             anchors.right: button.left}
+\DoxyCodeLine{00026             anchors.top: parent.top}
+\DoxyCodeLine{00027             anchors.topMargin: 0}
+\DoxyCodeLine{00028             anchors.left: parent.left}
+\DoxyCodeLine{00029             anchors.rightMargin: 10}
+\DoxyCodeLine{00030             anchors.leftMargin: 0}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032             TextField \{}
+\DoxyCodeLine{00033                 id: nameEdit}
+\DoxyCodeLine{00034                 text: name}
+\DoxyCodeLine{00035                 anchors.left: parent.left}
+\DoxyCodeLine{00036                 anchors.right: parent.horizontalCenter}
+\DoxyCodeLine{00037                 anchors.rightMargin: 5}
+\DoxyCodeLine{00038                 anchors.leftMargin: 0}
+\DoxyCodeLine{00039                 color: "{}white"{}}
+\DoxyCodeLine{00040                 onEditingFinished: linuxModel.update(linux\_id, "{}name"{}, text)}
+\DoxyCodeLine{00041             \}}
+\DoxyCodeLine{00042             TextField \{}
+\DoxyCodeLine{00043                 id: familyEdit}
+\DoxyCodeLine{00044                 text: family}
+\DoxyCodeLine{00045                 anchors.left: parent.horizontalCenter}
+\DoxyCodeLine{00046                 anchors.right: parent.right}
+\DoxyCodeLine{00047                 anchors.top: parent.top}
+\DoxyCodeLine{00048                 anchors.topMargin: 0}
+\DoxyCodeLine{00049                 anchors.leftMargin: 5}
+\DoxyCodeLine{00050                 anchors.rightMargin: 0}
+\DoxyCodeLine{00051                 color: "{}white"{}}
+\DoxyCodeLine{00052                 onEditingFinished: linuxModel.update(linux\_id, "{}family"{}, text)}
+\DoxyCodeLine{00053             \}}
+\DoxyCodeLine{00054         \}}
+\DoxyCodeLine{00055     \}}
+\DoxyCodeLine{00056 \}}
+
+\end{DoxyCode}

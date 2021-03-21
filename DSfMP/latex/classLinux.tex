@@ -1,0 +1,185 @@
+\hypertarget{classLinux}{}\doxysubsection{Клас Linux}
+\label{classLinux}\index{Linux@{Linux}}
+
+
+Клас який позначає деякий дистрибутив \mbox{\hyperlink{classLinux}{Linux}}.  
+
+
+
+
+{\ttfamily \#include $<$linux.\+h$>$}
+
+\doxysubsubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLinux_a73dc9e35f6f9d17611b4df17b83e9ccc}{Linux}} (const QString \&\mbox{\hyperlink{classLinux_a87198b8b65832e0d2a1596ef1eca67b7}{name}}, const QString \&\mbox{\hyperlink{classLinux_aee2346cb03f74942e8d08e22d8a7636a}{family}})
+\item 
+QString \mbox{\hyperlink{classLinux_a87198b8b65832e0d2a1596ef1eca67b7}{name}} () const
+\begin{DoxyCompactList}\small\item\em Забирає назву дистрибутиву. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLinux_ada848437c76977f40069af7aadee0444}{set\+Name}} (const QString \&\mbox{\hyperlink{classLinux_a87198b8b65832e0d2a1596ef1eca67b7}{name}})
+\begin{DoxyCompactList}\small\item\em Задає нову назву дистрибутиву. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classLinux_aee2346cb03f74942e8d08e22d8a7636a}{family}} () const
+\item 
+void \mbox{\hyperlink{classLinux_afa1911e2b9ea74575dbaa86cba614598}{set\+Family}} (const QString \&\mbox{\hyperlink{classLinux_aee2346cb03f74942e8d08e22d8a7636a}{family}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Приватні дані}
+\begin{DoxyCompactItemize}
+\item 
+QString \mbox{\hyperlink{classLinux_a53afbb5847e3f57696c531085930816b}{m\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em Сигнал який говорить що назва дистрибутиву була змінена. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classLinux_a1e5e51bba08d2fcbb74cf67f1138f2de}{m\+\_\+family}}
+\begin{DoxyCompactList}\small\item\em Сімейство дистрибутиву. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Детальний опис}
+Клас який позначає деякий дистрибутив \mbox{\hyperlink{classLinux}{Linux}}. 
+
+Див. визначення в файлі \mbox{\hyperlink{linux_8h_source}{linux.\+h}}, рядок \mbox{\hyperlink{linux_8h_source_l00009}{9}}
+
+
+
+\doxysubsubsection{Конструктор(и)}
+\mbox{\Hypertarget{classLinux_a73dc9e35f6f9d17611b4df17b83e9ccc}\label{classLinux_a73dc9e35f6f9d17611b4df17b83e9ccc}} 
+\index{Linux@{Linux}!Linux@{Linux}}
+\index{Linux@{Linux}!Linux@{Linux}}
+\doxyparagraph{\texorpdfstring{Linux()}{Linux()}}
+{\footnotesize\ttfamily Linux\+::\+Linux (\begin{DoxyParamCaption}\item[{const QString \&}]{name,  }\item[{const QString \&}]{family }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{linux_8cpp_source}{linux.\+cpp}}, рядок \mbox{\hyperlink{linux_8cpp_source_l00003}{3}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004     : \mbox{\hyperlink{classLinux_a53afbb5847e3f57696c531085930816b}{m\_name}}(\mbox{\hyperlink{classLinux_a87198b8b65832e0d2a1596ef1eca67b7}{name}}), \mbox{\hyperlink{classLinux_a1e5e51bba08d2fcbb74cf67f1138f2de}{m\_family}}(\mbox{\hyperlink{classLinux_aee2346cb03f74942e8d08e22d8a7636a}{family}})}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис методів компонент}
+\mbox{\Hypertarget{classLinux_aee2346cb03f74942e8d08e22d8a7636a}\label{classLinux_aee2346cb03f74942e8d08e22d8a7636a}} 
+\index{Linux@{Linux}!family@{family}}
+\index{family@{family}!Linux@{Linux}}
+\doxyparagraph{\texorpdfstring{family()}{family()}}
+{\footnotesize\ttfamily QString Linux\+::family (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{linux_8cpp_source}{linux.\+cpp}}, рядок \mbox{\hyperlink{linux_8cpp_source_l00020}{20}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021 \{}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{return} \mbox{\hyperlink{classLinux_a1e5e51bba08d2fcbb74cf67f1138f2de}{m\_family}};}
+\DoxyCodeLine{00023 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLinux_a87198b8b65832e0d2a1596ef1eca67b7}\label{classLinux_a87198b8b65832e0d2a1596ef1eca67b7}} 
+\index{Linux@{Linux}!name@{name}}
+\index{name@{name}!Linux@{Linux}}
+\doxyparagraph{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily QString Linux\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Забирає назву дистрибутиву. 
+
+\begin{DoxyReturn}{Повертає}
+Назва дистрибутиву. 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{linux_8cpp_source}{linux.\+cpp}}, рядок \mbox{\hyperlink{linux_8cpp_source_l00009}{9}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010 \{}
+\DoxyCodeLine{00011     \textcolor{keywordflow}{return} \mbox{\hyperlink{classLinux_a53afbb5847e3f57696c531085930816b}{m\_name}};}
+\DoxyCodeLine{00012 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLinux_afa1911e2b9ea74575dbaa86cba614598}\label{classLinux_afa1911e2b9ea74575dbaa86cba614598}} 
+\index{Linux@{Linux}!setFamily@{setFamily}}
+\index{setFamily@{setFamily}!Linux@{Linux}}
+\doxyparagraph{\texorpdfstring{setFamily()}{setFamily()}}
+{\footnotesize\ttfamily void Linux\+::set\+Family (\begin{DoxyParamCaption}\item[{const QString \&}]{family }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{linux_8cpp_source}{linux.\+cpp}}, рядок \mbox{\hyperlink{linux_8cpp_source_l00025}{25}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026 \{}
+\DoxyCodeLine{00027     \mbox{\hyperlink{classLinux_a1e5e51bba08d2fcbb74cf67f1138f2de}{m\_family}} = \mbox{\hyperlink{classLinux_aee2346cb03f74942e8d08e22d8a7636a}{family}};}
+\DoxyCodeLine{00028     \textcolor{comment}{//emit familyChanged();}}
+\DoxyCodeLine{00029 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classLinux_ada848437c76977f40069af7aadee0444}\label{classLinux_ada848437c76977f40069af7aadee0444}} 
+\index{Linux@{Linux}!setName@{setName}}
+\index{setName@{setName}!Linux@{Linux}}
+\doxyparagraph{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Linux\+::set\+Name (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Задає нову назву дистрибутиву. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em name} & Нова назва дистрибутиву. \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{linux_8cpp_source}{linux.\+cpp}}, рядок \mbox{\hyperlink{linux_8cpp_source_l00014}{14}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00016     \mbox{\hyperlink{classLinux_a53afbb5847e3f57696c531085930816b}{m\_name}} = \mbox{\hyperlink{classLinux_a87198b8b65832e0d2a1596ef1eca67b7}{name}};}
+\DoxyCodeLine{00017     \textcolor{comment}{//emit nameChanged();}}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Компонентні дані}
+\mbox{\Hypertarget{classLinux_a1e5e51bba08d2fcbb74cf67f1138f2de}\label{classLinux_a1e5e51bba08d2fcbb74cf67f1138f2de}} 
+\index{Linux@{Linux}!m\_family@{m\_family}}
+\index{m\_family@{m\_family}!Linux@{Linux}}
+\doxyparagraph{\texorpdfstring{m\_family}{m\_family}}
+{\footnotesize\ttfamily QString Linux\+::m\+\_\+family\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Сімейство дистрибутиву. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{linux_8h_source}{linux.\+h}}, рядок \mbox{\hyperlink{linux_8h_source_l00043}{43}}
+
+\mbox{\Hypertarget{classLinux_a53afbb5847e3f57696c531085930816b}\label{classLinux_a53afbb5847e3f57696c531085930816b}} 
+\index{Linux@{Linux}!m\_name@{m\_name}}
+\index{m\_name@{m\_name}!Linux@{Linux}}
+\doxyparagraph{\texorpdfstring{m\_name}{m\_name}}
+{\footnotesize\ttfamily QString Linux\+::m\+\_\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Сигнал який говорить що назва дистрибутиву була змінена. 
+
+Ім\textquotesingle{}я дистрибутиву \mbox{\hyperlink{classLinux}{Linux}}. 
+
+Див. визначення в файлі \mbox{\hyperlink{linux_8h_source}{linux.\+h}}, рядок \mbox{\hyperlink{linux_8h_source_l00039}{39}}
+
+
+
+Документація цих класів була створена з файлів\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{linux_8h}{linux.\+h}}\item 
+\mbox{\hyperlink{linux_8cpp}{linux.\+cpp}}\end{DoxyCompactItemize}

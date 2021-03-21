@@ -1,0 +1,23 @@
+\hypertarget{Linux_8qml_source}{}\doxysubsection{Linux.\+qml}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 import QtQuick 2.14}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 LinuxForm \{}
+\DoxyCodeLine{00004     Connections \{}
+\DoxyCodeLine{00005         target: addButton}
+\DoxyCodeLine{00006         onClicked: \{}
+\DoxyCodeLine{00007             linuxModel.append(\{"{}name"{}: nameEdit.text, "{}family"{}: familyEdit.text\})}
+\DoxyCodeLine{00008             nameEdit.text = "{}"{}}
+\DoxyCodeLine{00009             familyEdit.text = "{}"{}}
+\DoxyCodeLine{00010         \}}
+\DoxyCodeLine{00011     \}}
+\DoxyCodeLine{00012 \}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 /*\#\#\string^\#\#}
+\DoxyCodeLine{00015 Designer \{}
+\DoxyCodeLine{00016     D\{i:0;autoSize:true;height:480;width:640\}}
+\DoxyCodeLine{00017 \}}
+\DoxyCodeLine{00018 \#\#\string^\#\#*/}
+
+\end{DoxyCode}

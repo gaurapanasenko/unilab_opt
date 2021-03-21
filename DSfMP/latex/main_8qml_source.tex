@@ -1,0 +1,96 @@
+\hypertarget{main_8qml_source}{}\doxysubsection{main.\+qml}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 import QtQuick 2.9}
+\DoxyCodeLine{00002 import QtQuick.Controls 2.2}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 ApplicationWindow \{}
+\DoxyCodeLine{00005     id: window}
+\DoxyCodeLine{00006     width: 640}
+\DoxyCodeLine{00007     height: 480}
+\DoxyCodeLine{00008     visible: true}
+\DoxyCodeLine{00009     //title: qsTr("{}Stack"{})}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011     header: ToolBar \{}
+\DoxyCodeLine{00012         id: toolbar}
+\DoxyCodeLine{00013         contentHeight: toolButton.implicitHeight}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015         ToolButton \{}
+\DoxyCodeLine{00016             id: toolButton}
+\DoxyCodeLine{00017             text: stackView.depth > 1 ? "{}\(\backslash\)u2190"{} : "{}\(\backslash\)u2261"{}}
+\DoxyCodeLine{00018             font.pixelSize: Qt.application.font.pixelSize * 1.6}
+\DoxyCodeLine{00019             onClicked: \{}
+\DoxyCodeLine{00020                 if (stackView.depth > 1) \{}
+\DoxyCodeLine{00021                     stackView.pop()}
+\DoxyCodeLine{00022                 \} else \{}
+\DoxyCodeLine{00023                     drawer.open()}
+\DoxyCodeLine{00024                 \}}
+\DoxyCodeLine{00025             \}}
+\DoxyCodeLine{00026         \}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028         Label \{}
+\DoxyCodeLine{00029             text: stackView.currentItem.title}
+\DoxyCodeLine{00030             anchors.centerIn: parent}
+\DoxyCodeLine{00031         \}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033         ComboBox \{}
+\DoxyCodeLine{00034             id: comboBox}
+\DoxyCodeLine{00035             anchors.verticalCenter: parent.verticalCenter}
+\DoxyCodeLine{00036             anchors.right: parent.right}
+\DoxyCodeLine{00037             anchors.rightMargin: 10}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039             model: ["{}uk\_UA"{}, "{}en\_US"{}]}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041             onCurrentTextChanged: \{}
+\DoxyCodeLine{00042                 qmlTranslator.setTranslation(comboBox.currentText)}
+\DoxyCodeLine{00043             \}}
+\DoxyCodeLine{00044         \}}
+\DoxyCodeLine{00045     \}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047     MouseArea \{}
+\DoxyCodeLine{00048         anchors.fill: parent}
+\DoxyCodeLine{00049         acceptedButtons: Qt.RightButton}
+\DoxyCodeLine{00050         onClicked: drawer.open()}
+\DoxyCodeLine{00051     \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053     Drawer \{}
+\DoxyCodeLine{00054         id: drawer}
+\DoxyCodeLine{00055         width: window.width * 0.66}
+\DoxyCodeLine{00056         height: window.height}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{00058         Column \{}
+\DoxyCodeLine{00059             anchors.fill: parent}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061             ItemDelegate \{}
+\DoxyCodeLine{00062                 text: qsTr("{}PixyWorld"{})}
+\DoxyCodeLine{00063                 width: parent.width}
+\DoxyCodeLine{00064                 onClicked: \{}
+\DoxyCodeLine{00065                     stackView.push("{}PixyWorld.ui.qml"{})}
+\DoxyCodeLine{00066                     drawer.close()}
+\DoxyCodeLine{00067                 \}}
+\DoxyCodeLine{00068             \}}
+\DoxyCodeLine{00069             ItemDelegate \{}
+\DoxyCodeLine{00070                 text: qsTr("{}Linux distributions database"{})}
+\DoxyCodeLine{00071                 width: parent.width}
+\DoxyCodeLine{00072                 onClicked: \{}
+\DoxyCodeLine{00073                     stackView.push("{}Linux.qml"{}, \{"{}linuxModel"{}: linuxModel\})}
+\DoxyCodeLine{00074                     drawer.close()}
+\DoxyCodeLine{00075                 \}}
+\DoxyCodeLine{00076             \}}
+\DoxyCodeLine{00077         \}}
+\DoxyCodeLine{00078     \}}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080     StackView \{}
+\DoxyCodeLine{00081         id: stackView}
+\DoxyCodeLine{00082         initialItem: "{}HomeForm.ui.qml"{}}
+\DoxyCodeLine{00083         anchors.fill: parent}
+\DoxyCodeLine{00084     \}}
+\DoxyCodeLine{00085 \}}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087 /*\#\#\string^\#\#}
+\DoxyCodeLine{00088 Designer \{}
+\DoxyCodeLine{00089     D\{i:0;formeditorZoom:0.5\}D\{i:4\}}
+\DoxyCodeLine{00090 \}}
+\DoxyCodeLine{00091 \#\#\string^\#\#*/}
+
+\end{DoxyCode}

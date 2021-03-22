@@ -1,0 +1,402 @@
+за дисципліною \char`\"{}Інтелектуальні інформаційні системи\char`\"{} ~\newline
+ студента групи ПА-\/17-\/2 ~\newline
+ Панасенка Єгора Сергійовича ~\newline
+ Кафедра комп\textquotesingle{}ютерних технологій ~\newline
+ ФПМ, ДНУ, 2017-\/2018 навч.\+р. ~\newline
+
+
+Звіт доступний за посиланням ~\newline
+ \href{https://gaurapanasenko.github.io/unilab_opt/IIS_Lab1/html/index.html}{\texttt{ https\+://gaurapanasenko.\+github.\+io/unilab\+\_\+opt/\+IIS\+\_\+\+Lab1/html/index.\+html}}. ~\newline
+ Вихідний код доступний за посиланням ~\newline
+ \href{https://github.com/gaurapanasenko/unilab/tree/master/08/IIS_Lab1}{\texttt{ https\+://github.\+com/gaurapanasenko/unilab/tree/master/08/\+IIS\+\_\+\+Lab1}}\hypertarget{index_autotoc_md0}{}\doxysubsection{Постановка задачі}\label{index_autotoc_md0}
+Використовуючи предикати parent(string parent, string son-\/daughter), women(symbol) і man(symbol), розробити предикати, що визначають такі поняття\+:
+
+
+\begin{DoxyEnumerate}
+\item Правнучка
+\item Двоюрідний брат.
+\item Внук
+\item Дівер
+\item Зять
+\item Тесть
+\item Свекруха
+\item Теща
+\item Свекор
+\item Прадідусь
+\item Племінник
+\item Прабабуся
+\item Племінниця
+\item Свояк
+\item Тітка
+\item Своячка
+\item Дядько
+\item Дідусь
+\item Правнук
+\item Внучка
+\item Бабуся
+\end{DoxyEnumerate}
+
+Написати програму для пошуку і видачі на екран відповідного родича в базі даних.\hypertarget{index_autotoc_md1}{}\doxysubsection{Побудова сімейного дерева}\label{index_autotoc_md1}
+Побудуємо деяке сімейне дерево.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_1}}
+\end{DoxyImageNoCaption}
+
+
+Тепер розглянемо деякі приклади по списку. \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Номер   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Назва   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Код   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Запит   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Відповідь   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Додаткова інформація    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Номер   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Назва   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Код   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Запит   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Відповідь   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Додаткова інформація    }\\\cline{1-6}
+\endhead
+1   &Правнучка   &great\+\_\+granddaughter   &Ava   &Eva   &-\/    \\\cline{1-6}
+2   &Двоюрідний брат   &cousin   &Andrew   &William   &-\/    \\\cline{1-6}
+3   &Внук   &grandson   &Sam   &Andrew   &-\/    \\\cline{1-6}
+4   &Дівер   &brother\+\_\+in\+\_\+law   &Sarah   &Noah   &брат чоловіка    \\\cline{1-6}
+5   &Зять   &son\+\_\+in\+\_\+law   &Elijah   &Adam   &чоловік дочки    \\\cline{1-6}
+6   &Тесть   &father\+\_\+in\+\_\+law1   &Adam   &Elijah   &батько дружини    \\\cline{1-6}
+7   &Свекруха   &mother\+\_\+in\+\_\+law1   &Sarah   &Olivia   &мати чоловіка    \\\cline{1-6}
+8   &Теща   &mother\+\_\+in\+\_\+law2   &Adam   &Isabella   &мати дружини    \\\cline{1-6}
+9   &Свекор   &father\+\_\+in\+\_\+law2   &Sarah   &Sam   &батько чоловіка    \\\cline{1-6}
+10   &Прадідусь   &great\+\_\+grandfather   &Andrew   &Liam   &-\/    \\\cline{1-6}
+11   &Племінник   &nephew   &Noah   &Andrew   &-\/    \\\cline{1-6}
+12   &Прабабуся   &great\+\_\+grandmother   &Andrew   &Ava   &-\/    \\\cline{1-6}
+13   &Племінниця   &niece   &Noah   &Eva   &-\/    \\\cline{1-6}
+14   &Свояк   &sibling\+\_\+in\+\_\+law   &Benjamin   &Adam   &чоловік сестри дружини    \\\cline{1-6}
+15   &Тітка   &aunt   &Eva   &Charlotte   &-\/    \\\cline{1-6}
+16   &Своячка   &sister\+\_\+in\+\_\+law   &Adam   &Charlotte   &сестра дружини    \\\cline{1-6}
+17   &Дядько   &uncle   &Eva   &Noah   &-\/    \\\cline{1-6}
+18   &Дідусь   &grandfather   &Andrew   &Sam   &-\/    \\\cline{1-6}
+19   &Правнук   &great\+\_\+grandson   &Liam   &Andrew   &-\/    \\\cline{1-6}
+20   &Внучка   &granddaughter   &Sam   &Eva   &-\/    \\\cline{1-6}
+21   &Бабуся   &grandmother   &Andrew   &Olivia   &-\/   \\\cline{1-6}
+\end{longtabu}
+\hypertarget{index_autotoc_md2}{}\doxysubsection{Результат роботи програми}\label{index_autotoc_md2}
+Використаємо компілятор {\ttfamily swipl}, для початку зкомпілюємо нашу програму. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[gaura@gauramid IIS\_Lab1]\$ swipl -\/c main.pl}
+\DoxyCodeLine{\% autoloading prolog\_codewalk:must\_be/2 from /usr/lib64/swipl-\/7.6.4/library/error}
+\DoxyCodeLine{\% autoloading prolog\_debug:backtrace/1 from /usr/lib64/swipl-\/7.6.4/library/prolog\_stack}
+\DoxyCodeLine{\% autoloading prolog\_codewalk:portray\_clause/1 from /usr/lib64/swipl-\/7.6.4/library/listing}
+\DoxyCodeLine{\% autoloading prolog\_codewalk:clause\_info/4 from /usr/lib64/swipl-\/7.6.4/library/prolog\_clause}
+\DoxyCodeLine{\% autoloading prolog\_codewalk:initialization\_layout/4 from /usr/lib64/swipl-\/7.6.4/library/prolog\_clause}
+\DoxyCodeLine{\% autoloading qsave:current\_foreign\_library/2 from /usr/lib64/swipl-\/7.6.4/library/shlib}
+\DoxyCodeLine{\% autoloading oset:reverse/2 from /usr/lib64/swipl-\/7.6.4/library/lists}
+\DoxyCodeLine{\% autoloading record:member/2 from /usr/lib64/swipl-\/7.6.4/library/lists}
+\DoxyCodeLine{\% autoloading plunit:prolog\_stack\_frame\_property/2 from /usr/lib64/swipl-\/7.6.4/library/prolog\_stack}
+\DoxyCodeLine{\% autoloading plunit:get\_prolog\_backtrace/2 from /usr/lib64/swipl-\/7.6.4/library/prolog\_stack}
+\DoxyCodeLine{\% autoloading error:assertion/1 from /usr/lib64/swipl-\/7.6.4/library/debug}
+\DoxyCodeLine{\% autoloading prolog\_codewalk:clause\_name/2 from /usr/lib64/swipl-\/7.6.4/library/prolog\_clause}
+\DoxyCodeLine{\% Autoloader: iteration 1 resolved 10 predicates and loaded 12 files in 0.274 seconds.  Restarting ...}
+\DoxyCodeLine{\% Autoloader: loaded 10 files in 2 iterations in 0.389 seconds}
+
+\end{DoxyCode}
+
+
+Тепер запустимо програму та перевіримо відповідність предикатів із прикладами навединими у таблиці. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[gaura@gauramid IIS\_Lab1]\$ ./a.out}
+\DoxyCodeLine{Welcome to SWI-\/Prolog (threaded, 64 bits, version 7.6.4)}
+\DoxyCodeLine{SWI-\/Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.}
+\DoxyCodeLine{Please run ?-\/ license. \textcolor{keywordflow}{for} legal details.}
+\DoxyCodeLine{}
+\DoxyCodeLine{For online help and background, visit http:\textcolor{comment}{//www.swi-\/prolog.org}}
+\DoxyCodeLine{For built-\/in help, use ?-\/ help(Topic). or ?-\/ apropos(Word).}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ run\_tests.}
+\DoxyCodeLine{\% PL-\/Unit: main}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:164:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{.}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:168:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:170:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:172:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:174:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:176:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:178:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:180:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:182:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:184:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:186:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:188:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:190:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:192:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:194:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:196:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:198:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{.}
+\DoxyCodeLine{Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS\_Lab1/main.pl:202:}
+\DoxyCodeLine{        PL-\/Unit: Test x: Test succeeded with choicepoint}
+\DoxyCodeLine{. done}
+\DoxyCodeLine{\% All 21 tests passed}
+\DoxyCodeLine{\textcolor{keyword}{true}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ halt.}
+
+\end{DoxyCode}
+
+
+Тепер запустимо усі предикати. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[gaura@gauramid IIS\_Lab1]\$ ./a.out}
+\DoxyCodeLine{Welcome to SWI-\/Prolog (threaded, 64 bits, version 7.6.4)}
+\DoxyCodeLine{SWI-\/Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.}
+\DoxyCodeLine{Please run ?-\/ license. \textcolor{keywordflow}{for} legal details.}
+\DoxyCodeLine{}
+\DoxyCodeLine{For online help and background, visit http:\textcolor{comment}{//www.swi-\/prolog.org}}
+\DoxyCodeLine{For built-\/in help, use ?-\/ help(Topic). or ?-\/ apropos(Word).}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ great\_granddaughter(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Liam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Eva"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Ava"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Eva"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ cousin(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}James"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}James"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}James"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}William"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}William"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}William"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ grandson(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Liam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Liam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Noah"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Ava"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Ava"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Noah"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Isabella"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}James"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Isabella"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Elijah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Olivia"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}William"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ brother\_in\_law(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sarah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Noah"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sarah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Noah"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ son\_in\_law(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Isabella"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Benjamin"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Isabella"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Isabella"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Elijah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Elijah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ father\_in\_law1(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Elijah"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Elijah"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ mother\_in\_law1(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Olivia"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Ava"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sarah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Olivia"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sarah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Olivia"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ mother\_in\_law2(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Benjamin"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Isabella"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Isabella"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Isabella"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ father\_in\_law2(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Olivia"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Liam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sarah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Sam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sarah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Sam"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ great\_grandfather(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Liam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Liam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}William"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Liam"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ nephew(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sarah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}James"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Charlotte"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Noah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}William"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ great\_grandmother(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Ava"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Ava"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}William"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Ava"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ niece(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Charlotte"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Eva"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Noah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Eva"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ sibling\_in\_law(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Benjamin"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Benjamin"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Benjamin"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Benjamin"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ aunt(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Charlotte"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Charlotte"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}James"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Sarah"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ sister\_in\_law(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Charlotte"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Charlotte"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Benjamin"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Sarah"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ uncle(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}William"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Adam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Noah"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Noah"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ grandfather(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Liam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Noah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Liam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Elijah"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Elijah"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Sam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Sam"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}William"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Sam"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ great\_grandson(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Liam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Ava"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Andrew"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Liam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}William"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Ava"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}William"{}}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ granddaughter(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Isabella"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Eva"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Elijah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Eva"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Olivia"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Eva"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Sam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Eva"{}}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ grandmother(A,B).}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Adam"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Ava"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Noah"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Ava"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}James"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Isabella"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Isabella"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Isabella"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Eva"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Olivia"{}} ;}
+\DoxyCodeLine{A = \textcolor{stringliteral}{"{}Andrew"{}},}
+\DoxyCodeLine{B = \textcolor{stringliteral}{"{}Olivia"{}} ;}
+\DoxyCodeLine{\textcolor{keyword}{false}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ halt.}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{Висновки}\label{index_autotoc_md3}
+Було розроблено пролог програму та перевірено деяке сімейне дерево за допомогою цієї програми, також було выведено на экран усі перелічені варіанти сімених зв\textquotesingle{}язків перелічених у постановці задачі. 

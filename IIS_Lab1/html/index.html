@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лаборатрна робота 1: Звіт з лабораторної роботи 1</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лаборатрна робота 1
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Звіт з лабораторної роботи 1 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>за дисципліною "Інтелектуальні інформаційні системи" <br  />
+ студента групи ПА-17-2 <br  />
+ Панасенка Єгора Сергійовича <br  />
+ Кафедра комп'ютерних технологій <br  />
+ ФПМ, ДНУ, 2017-2018 навч.р. <br  />
+</p>
+<p>Звіт доступний за посиланням <br  />
+ <a href="https://gaurapanasenko.github.io/unilab_opt/IIS_Lab1/html/index.html">https://gaurapanasenko.github.io/unilab_opt/IIS_Lab1/html/index.html</a>. <br  />
+ Вихідний код доступний за посиланням <br  />
+ <a href="https://github.com/gaurapanasenko/unilab/tree/master/08/IIS_Lab1">https://github.com/gaurapanasenko/unilab/tree/master/08/IIS_Lab1</a></p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+Постановка задачі</h1>
+<p>Використовуючи предикати parent(string parent, string son-daughter), women(symbol) і man(symbol), розробити предикати, що визначають такі поняття:</p>
+<ol type="1">
+<li>Правнучка</li>
+<li>Двоюрідний брат.</li>
+<li>Внук</li>
+<li>Дівер</li>
+<li>Зять</li>
+<li>Тесть</li>
+<li>Свекруха</li>
+<li>Теща</li>
+<li>Свекор</li>
+<li>Прадідусь</li>
+<li>Племінник</li>
+<li>Прабабуся</li>
+<li>Племінниця</li>
+<li>Свояк</li>
+<li>Тітка</li>
+<li>Своячка</li>
+<li>Дядько</li>
+<li>Дідусь</li>
+<li>Правнук</li>
+<li>Внучка</li>
+<li>Бабуся</li>
+</ol>
+<p>Написати програму для пошуку і видачі на екран відповідного родича в базі даних.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Побудова сімейного дерева</h1>
+<p>Побудуємо деяке сімейне дерево.</p>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
+</div>
+<p>Тепер розглянемо деякі приклади по списку. </p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Номер   </th><th class="markdownTableHeadNone">Назва   </th><th class="markdownTableHeadNone">Код   </th><th class="markdownTableHeadNone">Запит   </th><th class="markdownTableHeadNone">Відповідь   </th><th class="markdownTableHeadNone">Додаткова інформація    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">1   </td><td class="markdownTableBodyNone">Правнучка   </td><td class="markdownTableBodyNone">great_granddaughter   </td><td class="markdownTableBodyNone">Ava   </td><td class="markdownTableBodyNone">Eva   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">2   </td><td class="markdownTableBodyNone">Двоюрідний брат   </td><td class="markdownTableBodyNone">cousin   </td><td class="markdownTableBodyNone">Andrew   </td><td class="markdownTableBodyNone">William   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">3   </td><td class="markdownTableBodyNone">Внук   </td><td class="markdownTableBodyNone">grandson   </td><td class="markdownTableBodyNone">Sam   </td><td class="markdownTableBodyNone">Andrew   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">4   </td><td class="markdownTableBodyNone">Дівер   </td><td class="markdownTableBodyNone">brother_in_law   </td><td class="markdownTableBodyNone">Sarah   </td><td class="markdownTableBodyNone">Noah   </td><td class="markdownTableBodyNone">брат чоловіка    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">5   </td><td class="markdownTableBodyNone">Зять   </td><td class="markdownTableBodyNone">son_in_law   </td><td class="markdownTableBodyNone">Elijah   </td><td class="markdownTableBodyNone">Adam   </td><td class="markdownTableBodyNone">чоловік дочки    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Тесть   </td><td class="markdownTableBodyNone">father_in_law1   </td><td class="markdownTableBodyNone">Adam   </td><td class="markdownTableBodyNone">Elijah   </td><td class="markdownTableBodyNone">батько дружини    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">7   </td><td class="markdownTableBodyNone">Свекруха   </td><td class="markdownTableBodyNone">mother_in_law1   </td><td class="markdownTableBodyNone">Sarah   </td><td class="markdownTableBodyNone">Olivia   </td><td class="markdownTableBodyNone">мати чоловіка    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">8   </td><td class="markdownTableBodyNone">Теща   </td><td class="markdownTableBodyNone">mother_in_law2   </td><td class="markdownTableBodyNone">Adam   </td><td class="markdownTableBodyNone">Isabella   </td><td class="markdownTableBodyNone">мати дружини    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">9   </td><td class="markdownTableBodyNone">Свекор   </td><td class="markdownTableBodyNone">father_in_law2   </td><td class="markdownTableBodyNone">Sarah   </td><td class="markdownTableBodyNone">Sam   </td><td class="markdownTableBodyNone">батько чоловіка    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">Прадідусь   </td><td class="markdownTableBodyNone">great_grandfather   </td><td class="markdownTableBodyNone">Andrew   </td><td class="markdownTableBodyNone">Liam   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">11   </td><td class="markdownTableBodyNone">Племінник   </td><td class="markdownTableBodyNone">nephew   </td><td class="markdownTableBodyNone">Noah   </td><td class="markdownTableBodyNone">Andrew   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">12   </td><td class="markdownTableBodyNone">Прабабуся   </td><td class="markdownTableBodyNone">great_grandmother   </td><td class="markdownTableBodyNone">Andrew   </td><td class="markdownTableBodyNone">Ava   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">13   </td><td class="markdownTableBodyNone">Племінниця   </td><td class="markdownTableBodyNone">niece   </td><td class="markdownTableBodyNone">Noah   </td><td class="markdownTableBodyNone">Eva   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">14   </td><td class="markdownTableBodyNone">Свояк   </td><td class="markdownTableBodyNone">sibling_in_law   </td><td class="markdownTableBodyNone">Benjamin   </td><td class="markdownTableBodyNone">Adam   </td><td class="markdownTableBodyNone">чоловік сестри дружини    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">15   </td><td class="markdownTableBodyNone">Тітка   </td><td class="markdownTableBodyNone">aunt   </td><td class="markdownTableBodyNone">Eva   </td><td class="markdownTableBodyNone">Charlotte   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">16   </td><td class="markdownTableBodyNone">Своячка   </td><td class="markdownTableBodyNone">sister_in_law   </td><td class="markdownTableBodyNone">Adam   </td><td class="markdownTableBodyNone">Charlotte   </td><td class="markdownTableBodyNone">сестра дружини    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">17   </td><td class="markdownTableBodyNone">Дядько   </td><td class="markdownTableBodyNone">uncle   </td><td class="markdownTableBodyNone">Eva   </td><td class="markdownTableBodyNone">Noah   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">18   </td><td class="markdownTableBodyNone">Дідусь   </td><td class="markdownTableBodyNone">grandfather   </td><td class="markdownTableBodyNone">Andrew   </td><td class="markdownTableBodyNone">Sam   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">19   </td><td class="markdownTableBodyNone">Правнук   </td><td class="markdownTableBodyNone">great_grandson   </td><td class="markdownTableBodyNone">Liam   </td><td class="markdownTableBodyNone">Andrew   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">20   </td><td class="markdownTableBodyNone">Внучка   </td><td class="markdownTableBodyNone">granddaughter   </td><td class="markdownTableBodyNone">Sam   </td><td class="markdownTableBodyNone">Eva   </td><td class="markdownTableBodyNone">-    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">21   </td><td class="markdownTableBodyNone">Бабуся   </td><td class="markdownTableBodyNone">grandmother   </td><td class="markdownTableBodyNone">Andrew   </td><td class="markdownTableBodyNone">Olivia   </td><td class="markdownTableBodyNone">-   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Результат роботи програми</h1>
+<p>Використаємо компілятор <code>swipl</code>, для початку зкомпілюємо нашу програму. </p><div class="fragment"><div class="line">[gaura@gauramid IIS_Lab1]$ swipl -c main.pl</div>
+<div class="line">% autoloading prolog_codewalk:must_be/2 from /usr/lib64/swipl-7.6.4/library/error</div>
+<div class="line">% autoloading prolog_debug:backtrace/1 from /usr/lib64/swipl-7.6.4/library/prolog_stack</div>
+<div class="line">% autoloading prolog_codewalk:portray_clause/1 from /usr/lib64/swipl-7.6.4/library/listing</div>
+<div class="line">% autoloading prolog_codewalk:clause_info/4 from /usr/lib64/swipl-7.6.4/library/prolog_clause</div>
+<div class="line">% autoloading prolog_codewalk:initialization_layout/4 from /usr/lib64/swipl-7.6.4/library/prolog_clause</div>
+<div class="line">% autoloading qsave:current_foreign_library/2 from /usr/lib64/swipl-7.6.4/library/shlib</div>
+<div class="line">% autoloading oset:reverse/2 from /usr/lib64/swipl-7.6.4/library/lists</div>
+<div class="line">% autoloading record:member/2 from /usr/lib64/swipl-7.6.4/library/lists</div>
+<div class="line">% autoloading plunit:prolog_stack_frame_property/2 from /usr/lib64/swipl-7.6.4/library/prolog_stack</div>
+<div class="line">% autoloading plunit:get_prolog_backtrace/2 from /usr/lib64/swipl-7.6.4/library/prolog_stack</div>
+<div class="line">% autoloading error:assertion/1 from /usr/lib64/swipl-7.6.4/library/debug</div>
+<div class="line">% autoloading prolog_codewalk:clause_name/2 from /usr/lib64/swipl-7.6.4/library/prolog_clause</div>
+<div class="line">% Autoloader: iteration 1 resolved 10 predicates and loaded 12 files in 0.274 seconds.  Restarting ...</div>
+<div class="line">% Autoloader: loaded 10 files in 2 iterations in 0.389 seconds</div>
+</div><!-- fragment --><p>Тепер запустимо програму та перевіримо відповідність предикатів із прикладами навединими у таблиці. </p><div class="fragment"><div class="line">[gaura@gauramid IIS_Lab1]$ ./a.out</div>
+<div class="line">Welcome to SWI-Prolog (threaded, 64 bits, version 7.6.4)</div>
+<div class="line">SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.</div>
+<div class="line">Please run ?- license. <span class="keywordflow">for</span> legal details.</div>
+<div class="line"> </div>
+<div class="line">For online help and background, visit http:<span class="comment">//www.swi-prolog.org</span></div>
+<div class="line">For built-in help, use ?- help(Topic). or ?- apropos(Word).</div>
+<div class="line"> </div>
+<div class="line">?- run_tests.</div>
+<div class="line">% PL-Unit: main</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:164:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">.</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:168:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:170:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:172:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:174:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:176:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:178:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:180:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:182:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:184:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:186:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:188:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:190:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:192:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:194:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:196:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:198:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">.</div>
+<div class="line">Warning: /home/gaura/git/gaurapanasenko/unilab/08/IIS_Lab1/main.pl:202:</div>
+<div class="line">        PL-Unit: Test x: Test succeeded with choicepoint</div>
+<div class="line">. done</div>
+<div class="line">% All 21 tests passed</div>
+<div class="line"><span class="keyword">true</span>.</div>
+<div class="line"> </div>
+<div class="line">?- halt.</div>
+</div><!-- fragment --><p>Тепер запустимо усі предикати. </p><div class="fragment"><div class="line">[gaura@gauramid IIS_Lab1]$ ./a.out</div>
+<div class="line">Welcome to SWI-Prolog (threaded, 64 bits, version 7.6.4)</div>
+<div class="line">SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.</div>
+<div class="line">Please run ?- license. <span class="keywordflow">for</span> legal details.</div>
+<div class="line"> </div>
+<div class="line">For online help and background, visit http:<span class="comment">//www.swi-prolog.org</span></div>
+<div class="line">For built-in help, use ?- help(Topic). or ?- apropos(Word).</div>
+<div class="line"> </div>
+<div class="line">?- great_granddaughter(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Liam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Eva&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Ava&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Eva&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- cousin(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;James&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;James&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;James&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;William&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;William&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;William&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- grandson(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Liam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Liam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Noah&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Ava&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Ava&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Noah&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Isabella&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;James&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Isabella&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Elijah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Olivia&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Sam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Sam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;William&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- brother_in_law(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Sarah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Noah&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Sarah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Noah&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- son_in_law(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Isabella&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Benjamin&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Isabella&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Isabella&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Elijah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Elijah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- father_in_law1(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Elijah&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Elijah&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- mother_in_law1(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Olivia&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Ava&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Sarah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Olivia&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Sarah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Olivia&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- mother_in_law2(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Benjamin&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Isabella&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Isabella&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Isabella&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- father_in_law2(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Olivia&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Liam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Sarah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Sam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Sarah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Sam&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- great_grandfather(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Liam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Liam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;William&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Liam&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- nephew(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Sarah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;James&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Charlotte&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Noah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;William&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- great_grandmother(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Ava&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Ava&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;William&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Ava&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- niece(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Charlotte&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Eva&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Noah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Eva&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- sibling_in_law(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Benjamin&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Benjamin&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Benjamin&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Benjamin&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- aunt(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Charlotte&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Charlotte&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;James&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Sarah&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- sister_in_law(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Charlotte&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Charlotte&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Benjamin&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Sarah&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- uncle(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;William&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Adam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Noah&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Noah&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- grandfather(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Liam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Noah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Liam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Elijah&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Elijah&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Sam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Sam&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;William&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Sam&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- great_grandson(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Liam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Ava&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Andrew&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Liam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;William&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Ava&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;William&quot;</span>.</div>
+<div class="line"> </div>
+<div class="line">?- granddaughter(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Isabella&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Eva&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Elijah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Eva&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Olivia&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Eva&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Sam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Eva&quot;</span>.</div>
+<div class="line"> </div>
+<div class="line">?- grandmother(A,B).</div>
+<div class="line">A = <span class="stringliteral">&quot;Adam&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Ava&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Noah&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Ava&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;James&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Isabella&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Isabella&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Isabella&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Eva&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Olivia&quot;</span> ;</div>
+<div class="line">A = <span class="stringliteral">&quot;Andrew&quot;</span>,</div>
+<div class="line">B = <span class="stringliteral">&quot;Olivia&quot;</span> ;</div>
+<div class="line"><span class="keyword">false</span>.</div>
+<div class="line"> </div>
+<div class="line">?- halt.</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+Висновки</h1>
+<p>Було розроблено пролог програму та перевірено деяке сімейне дерево за допомогою цієї програми, також було выведено на экран усі перелічені варіанти сімених зв'язків перелічених у постановці задачі. </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

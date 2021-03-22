@@ -1,0 +1,212 @@
+\hypertarget{main_8pl_source}{}\doxysubsection{main.\+pl}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 in\_law(A,B) :-\/ }
+\DoxyCodeLine{00002     parent(A,C),}
+\DoxyCodeLine{00003     parent(B,C),}
+\DoxyCodeLine{00004     A\(\backslash\)=B.}
+\DoxyCodeLine{00005     }
+\DoxyCodeLine{00006 sibling(A,B) :-\/}
+\DoxyCodeLine{00007     parent(C,A),}
+\DoxyCodeLine{00008     parent(C,B),}
+\DoxyCodeLine{00009     A\(\backslash\)=B.}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 great\_granddaughter(A,B) :-\/ \%1}
+\DoxyCodeLine{00012     parent(A,C),}
+\DoxyCodeLine{00013     parent(C,D),}
+\DoxyCodeLine{00014     parent(D,B),}
+\DoxyCodeLine{00015     female(B).}
+\DoxyCodeLine{00016     }
+\DoxyCodeLine{00017 cousin(A,B) :-\/ \%2}
+\DoxyCodeLine{00018     male(B),}
+\DoxyCodeLine{00019     parent(C,A),}
+\DoxyCodeLine{00020     parent(D,B),}
+\DoxyCodeLine{00021     sibling(C,D).}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 grandson(A,B) :-\/ \%3}
+\DoxyCodeLine{00024     parent(A,C),}
+\DoxyCodeLine{00025     parent(C,B),}
+\DoxyCodeLine{00026     male(B).}
+\DoxyCodeLine{00027     }
+\DoxyCodeLine{00028 brother\_in\_law(A,B) :-\/ \%4}
+\DoxyCodeLine{00029     in\_law(A,C),}
+\DoxyCodeLine{00030     male(C),}
+\DoxyCodeLine{00031     sibling(C,B),}
+\DoxyCodeLine{00032     male(B).}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034 son\_in\_law(A,B) :-\/ \%5}
+\DoxyCodeLine{00035     parent(A,C),}
+\DoxyCodeLine{00036     in\_law(C,B),}
+\DoxyCodeLine{00037     male(B).}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039 father\_in\_law1(A,B) :-\/ \%6}
+\DoxyCodeLine{00040     parent(B,C),}
+\DoxyCodeLine{00041     in\_law(C,A),}
+\DoxyCodeLine{00042     female(C),}
+\DoxyCodeLine{00043     male(B).}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045 mother\_in\_law1(A,B) :-\/ \%7}
+\DoxyCodeLine{00046     parent(B,C),}
+\DoxyCodeLine{00047     female(B),}
+\DoxyCodeLine{00048     in\_law(A,C),}
+\DoxyCodeLine{00049     male(C).}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 mother\_in\_law2(A,B) :-\/ \%8}
+\DoxyCodeLine{00052     parent(B,C),}
+\DoxyCodeLine{00053     female(B),}
+\DoxyCodeLine{00054     in\_law(A,C),}
+\DoxyCodeLine{00055     female(C).}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057 father\_in\_law2(A,B) :-\/ \%9}
+\DoxyCodeLine{00058     parent(B,C),}
+\DoxyCodeLine{00059     in\_law(C,A),}
+\DoxyCodeLine{00060     male(C),}
+\DoxyCodeLine{00061     male(B).}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063 great\_grandfather(A,B) :-\/ \%10}
+\DoxyCodeLine{00064     parent(B,C),}
+\DoxyCodeLine{00065     parent(C,D),}
+\DoxyCodeLine{00066     parent(D,A),}
+\DoxyCodeLine{00067     male(B).}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069 nephew(A,B) :-\/ \%11}
+\DoxyCodeLine{00070     male(B),}
+\DoxyCodeLine{00071     parent(C,B),}
+\DoxyCodeLine{00072     sibling(A,C).}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074 great\_grandmother(A,B) :-\/ \%12}
+\DoxyCodeLine{00075     parent(B,C),}
+\DoxyCodeLine{00076     parent(C,D),}
+\DoxyCodeLine{00077     parent(D,A),}
+\DoxyCodeLine{00078     female(B).}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080 niece(A,B) :-\/ \%13}
+\DoxyCodeLine{00081     female(B),}
+\DoxyCodeLine{00082     parent(C,B),}
+\DoxyCodeLine{00083     sibling(A,C).}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085 sibling\_in\_law(A,B) :-\/ \%14}
+\DoxyCodeLine{00086     male(B),}
+\DoxyCodeLine{00087     in\_law(B,C),}
+\DoxyCodeLine{00088     female(C),}
+\DoxyCodeLine{00089     sibling(C,D),}
+\DoxyCodeLine{00090     female(D),}
+\DoxyCodeLine{00091     in\_law(D,A).}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093 aunt(A,B) :-\/ \%15}
+\DoxyCodeLine{00094     female(B),}
+\DoxyCodeLine{00095     sibling(B,C),}
+\DoxyCodeLine{00096     parent(C,A).}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098 sister\_in\_law(A,B) :-\/ \%16}
+\DoxyCodeLine{00099     female(B),}
+\DoxyCodeLine{00100     sibling(B,C),}
+\DoxyCodeLine{00101     female(C),}
+\DoxyCodeLine{00102     in\_law(A,C).}
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{00104 uncle(A,B) :-\/ \%17}
+\DoxyCodeLine{00105     male(B),}
+\DoxyCodeLine{00106     sibling(B,C),}
+\DoxyCodeLine{00107     parent(C,A).}
+\DoxyCodeLine{00108 }
+\DoxyCodeLine{00109 grandfather(A,B) :-\/ \%18}
+\DoxyCodeLine{00110     male(B),}
+\DoxyCodeLine{00111     parent(B, C),}
+\DoxyCodeLine{00112     parent(C, A).}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114 great\_grandson(A,B) :-\/ \%19}
+\DoxyCodeLine{00115     male(B),}
+\DoxyCodeLine{00116     parent(C, B),}
+\DoxyCodeLine{00117     parent(D, C),}
+\DoxyCodeLine{00118     parent(A, D).}
+\DoxyCodeLine{00119 }
+\DoxyCodeLine{00120 granddaughter(A,B) :-\/ \%20}
+\DoxyCodeLine{00121     female(B),}
+\DoxyCodeLine{00122     parent(C,B),}
+\DoxyCodeLine{00123     parent(A,C).}
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00125 grandmother(A,B) :-\/ \%21}
+\DoxyCodeLine{00126     female(B),}
+\DoxyCodeLine{00127     parent(B,C),}
+\DoxyCodeLine{00128     parent(C,A).}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130 parent("{}Liam"{}, "{}Sam"{}).}
+\DoxyCodeLine{00131 parent("{}Ava"{}, "{}Sam"{}).}
+\DoxyCodeLine{00132 parent("{}Isabella"{}, "{}Charlotte"{}).}
+\DoxyCodeLine{00133 parent("{}Isabella"{}, "{}Sarah"{}).}
+\DoxyCodeLine{00134 parent("{}Elijah"{}, "{}Sarah"{}).}
+\DoxyCodeLine{00135 parent("{}Olivia"{}, "{}Adam"{}).}
+\DoxyCodeLine{00136 parent("{}Sam"{}, "{}Adam"{}).}
+\DoxyCodeLine{00137 parent("{}Sam"{}, "{}Noah"{}).}
+\DoxyCodeLine{00138 parent("{}Charlotte"{}, "{}James"{}).}
+\DoxyCodeLine{00139 parent("{}Benjamin"{}, "{}James"{}).}
+\DoxyCodeLine{00140 parent("{}Sarah"{}, "{}Eva"{}).}
+\DoxyCodeLine{00141 parent("{}Adam"{}, "{}Eva"{}).}
+\DoxyCodeLine{00142 parent("{}Sarah"{}, "{}Andrew"{}).}
+\DoxyCodeLine{00143 parent("{}Adam"{}, "{}Andrew"{}).}
+\DoxyCodeLine{00144 parent("{}Noah"{}, "{}William"{}).}
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{00146 male("{}Liam"{}).}
+\DoxyCodeLine{00147 male("{}Elijah"{}).}
+\DoxyCodeLine{00148 male("{}Sam"{}).}
+\DoxyCodeLine{00149 male("{}Benjamin"{}).}
+\DoxyCodeLine{00150 male("{}Adam"{}).}
+\DoxyCodeLine{00151 male("{}Noah"{}).}
+\DoxyCodeLine{00152 male("{}James"{}).}
+\DoxyCodeLine{00153 male("{}Andrew"{}).}
+\DoxyCodeLine{00154 male("{}William"{}).}
+\DoxyCodeLine{00155 }
+\DoxyCodeLine{00156 female("{}Ava"{}).}
+\DoxyCodeLine{00157 female("{}Isabella"{}).}
+\DoxyCodeLine{00158 female("{}Olivia"{}).}
+\DoxyCodeLine{00159 female("{}Charlotte"{}).}
+\DoxyCodeLine{00160 female("{}Sarah"{}).}
+\DoxyCodeLine{00161 female("{}Eva"{}).}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163 :-\/ begin\_tests(main).}
+\DoxyCodeLine{00164 test(x) :-\/}
+\DoxyCodeLine{00165     great\_granddaughter("{}Ava"{}, "{}Eva"{}).}
+\DoxyCodeLine{00166 test(x) :-\/}
+\DoxyCodeLine{00167     cousin("{}Andrew"{}, "{}William"{}).}
+\DoxyCodeLine{00168 test(x) :-\/}
+\DoxyCodeLine{00169     grandson("{}Sam"{}, "{}Andrew"{}).}
+\DoxyCodeLine{00170 test(x) :-\/}
+\DoxyCodeLine{00171     brother\_in\_law("{}Sarah"{}, "{}Noah"{}).}
+\DoxyCodeLine{00172 test(x) :-\/}
+\DoxyCodeLine{00173     son\_in\_law("{}Elijah"{}, "{}Adam"{}).}
+\DoxyCodeLine{00174 test(x) :-\/}
+\DoxyCodeLine{00175     father\_in\_law1("{}Adam"{}, "{}Elijah"{}).}
+\DoxyCodeLine{00176 test(x) :-\/}
+\DoxyCodeLine{00177     mother\_in\_law1("{}Sarah"{}, "{}Olivia"{}).}
+\DoxyCodeLine{00178 test(x) :-\/}
+\DoxyCodeLine{00179     mother\_in\_law2("{}Adam"{}, "{}Isabella"{}).}
+\DoxyCodeLine{00180 test(x) :-\/}
+\DoxyCodeLine{00181     father\_in\_law2("{}Sarah"{}, "{}Sam"{}).}
+\DoxyCodeLine{00182 test(x) :-\/}
+\DoxyCodeLine{00183     great\_grandfather("{}Andrew"{}, "{}Liam"{}).}
+\DoxyCodeLine{00184 test(x) :-\/}
+\DoxyCodeLine{00185     nephew("{}Noah"{}, "{}Andrew"{}).}
+\DoxyCodeLine{00186 test(x) :-\/}
+\DoxyCodeLine{00187     great\_grandmother("{}Andrew"{}, "{}Ava"{}).}
+\DoxyCodeLine{00188 test(x) :-\/}
+\DoxyCodeLine{00189     niece("{}Noah"{}, "{}Eva"{}).}
+\DoxyCodeLine{00190 test(x) :-\/}
+\DoxyCodeLine{00191     sibling\_in\_law("{}Benjamin"{}, "{}Adam"{}).}
+\DoxyCodeLine{00192 test(x) :-\/}
+\DoxyCodeLine{00193     aunt("{}Eva"{}, "{}Charlotte"{}).}
+\DoxyCodeLine{00194 test(x) :-\/}
+\DoxyCodeLine{00195     sister\_in\_law("{}Adam"{}, "{}Charlotte"{}).}
+\DoxyCodeLine{00196 test(x) :-\/}
+\DoxyCodeLine{00197     uncle("{}Eva"{}, "{}Noah"{}).}
+\DoxyCodeLine{00198 test(x) :-\/}
+\DoxyCodeLine{00199     grandfather("{}Andrew"{}, "{}Sam"{}).}
+\DoxyCodeLine{00200 test(x) :-\/}
+\DoxyCodeLine{00201     great\_grandson("{}Liam"{}, "{}Andrew"{}).}
+\DoxyCodeLine{00202 test(x) :-\/}
+\DoxyCodeLine{00203     granddaughter("{}Sam"{}, "{}Eva"{}).}
+\DoxyCodeLine{00204 test(x) :-\/}
+\DoxyCodeLine{00205     grandmother("{}Andrew"{}, "{}Olivia"{}).}
+\DoxyCodeLine{00206 }
+\DoxyCodeLine{00207 :-\/ end\_tests(main).}
+
+\end{DoxyCode}

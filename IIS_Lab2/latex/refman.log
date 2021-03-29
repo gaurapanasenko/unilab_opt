@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/TeX Live for SUSE Linux) (preloaded format=xelatex 2021.3.24)  29 MAR 2021 10:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/TeX Live for SUSE Linux) (preloaded format=pdflatex 2021.3.24)  29 MAR 2021 10:02
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -11,14 +11,14 @@ Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 (/usr/share/texmf/tex/latex/base/size10.clo
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count163
-\c@section=\count164
-\c@subsection=\count165
-\c@subsubsection=\count166
-\c@paragraph=\count167
-\c@subparagraph=\count168
-\c@figure=\count169
-\c@table=\count170
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
@@ -55,20 +55,20 @@ Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
 (/usr/share/texmf/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count171
-\calc@Bcount=\count172
+\calc@Acount=\count175
+\calc@Bcount=\count176
 \calc@Adimen=\dimen137
 \calc@Bdimen=\dimen138
 \calc@Askip=\skip51
 \calc@Bskip=\skip52
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count173
+\calc@Ccount=\count177
 \calc@Cskip=\skip53
 )
 (/usr/share/texmf/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count174
+\c@float@type=\count178
 \float@exts=\toks16
 \float@box=\box45
 \@float@everytoks=\toks17
@@ -86,18 +86,19 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (/usr/share/texmf/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: xetex.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 
-(/usr/share/texmf/tex/latex/graphics-def/xetex.def
-File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+(/usr/share/texmf/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 )
 (/usr/share/texmf/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
 \everycr=\toks20
 \minrowclearance=\skip54
 )
-\rownum=\count175
+\rownum=\count179
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
@@ -112,16 +113,16 @@ ozen version for doxygen
 \LTright=\skip56
 \LTpre=\skip57
 \LTpost=\skip58
-\LTchunksize=\count176
+\LTchunksize=\count180
 \LTcapwidth=\dimen139
 \LT@head=\box47
 \LT@firsthead=\box48
 \LT@foot=\box49
 \LT@lastfoot=\box50
-\LT@cols=\count177
-\LT@rows=\count178
-\c@LT@tables=\count179
-\c@LT@chunks=\count180
+\LT@cols=\count181
+\LT@rows=\count182
+\c@LT@tables=\count183
+\c@LT@chunks=\count184
 \LT@p@ftn=\toks21
 )
 (./tabu_doxygen.sty
@@ -130,16 +131,16 @@ rsion for doxygen
  (/usr/share/texmf/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box51
-\sift@deathcycles=\count181
+\sift@deathcycles=\count185
 \@vwid@loff=\dimen140
 \@vwid@roff=\dimen141
 )
-\c@taburow=\count182
-\tabu@nbcols=\count183
-\tabu@cnt=\count184
-\tabu@Xcol=\count185
-\tabu@alloc=\count186
-\tabu@nested=\count187
+\c@taburow=\count186
+\tabu@nbcols=\count187
+\tabu@cnt=\count188
+\tabu@Xcol=\count189
+\tabu@alloc=\count190
+\tabu@nested=\count191
 \tabu@target=\dimen142
 \tabu@spreadtarget=\dimen143
 \tabu@naturalX=\dimen144
@@ -164,11 +165,11 @@ Package: fancyvrb 2020/01/13 v3.5 verbatim text (tvz,hv)
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks24
 )
-\FV@CodeLineNo=\count188
+\FV@CodeLineNo=\count192
 \FV@InFile=\read3
 \FV@TabBox=\box56
-\c@FancyVerbLine=\count189
-\FV@StepNumber=\count190
+\c@FancyVerbLine=\count193
+\FV@StepNumber=\count194
 \FV@OutFile=\write3
 )
 (/usr/share/texmf/tex/latex/tools/tabularx.sty
@@ -178,19 +179,19 @@ Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 \TX@old@col=\dimen153
 \TX@target=\dimen154
 \TX@delta=\dimen155
-\TX@cols=\count191
+\TX@cols=\count195
 \TX@ftn=\toks25
 )
 (/usr/share/texmf/tex/latex/tools/multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count192
+\c@tracingmulticols=\count196
 \mult@box=\box57
 \multicol@leftmargin=\dimen156
-\c@unbalance=\count193
-\c@collectmore=\count194
-\doublecol@number=\count195
-\multicoltolerance=\count196
-\multicolpretolerance=\count197
+\c@unbalance=\count197
+\c@collectmore=\count198
+\doublecol@number=\count199
+\multicoltolerance=\count266
+\multicolpretolerance=\count267
 \full@width=\dimen157
 \page@free=\dimen158
 \premulticols=\dimen159
@@ -241,20 +242,20 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box98
 \@tempa=\box99
 \@tempa=\box100
-\c@minrows=\count198
-\c@columnbadness=\count199
-\c@finalcolumnbadness=\count266
+\c@minrows=\count268
+\c@columnbadness=\count269
+\c@finalcolumnbadness=\count270
 \last@try=\dimen162
 \multicolovershoot=\dimen163
 \multicolundershoot=\dimen164
 \mult@nat@firstbox=\box101
 \colbreak@box=\box102
-\mc@col@check@num=\count267
+\mc@col@check@num=\count271
 )
 (/usr/share/texmf/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip62
-\multirow@cntb=\count268
+\multirow@cntb=\count272
 \multirow@dima=\skip63
 \bigstrutjot=\dimen165
 )
@@ -286,7 +287,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks26
 \XKV@tempa@toks=\toks27
 )
-\XKV@depth=\count269
+\XKV@depth=\count273
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texmf/tex/latex/adjustbox/adjcalc.sty
@@ -308,7 +309,7 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/share/texmf/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 )
 \Gin@req@height=\dimen166
 \Gin@req@width=\dimen167
@@ -321,10 +322,10 @@ Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \tc@lly=\dimen169
 \tc@urx=\dimen170
 \tc@ury=\dimen171
-Package trimclip Info: Using driver 'tc-xetex.def'.
+Package trimclip Info: Using driver 'tc-pdftex.def'.
 
-(/usr/share/texmf/tex/latex/adjustbox/tc-xetex.def
-File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+(/usr/share/texmf/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
 \adjbox@Width=\dimen172
 \adjbox@Height=\dimen173
@@ -337,7 +338,7 @@ File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
 
 (/usr/share/texmf/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count270
+\c@checkoddpage=\count274
 ))
 (/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -357,115 +358,17 @@ ways
 
 (/usr/share/texmf/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count271
+\etb@tempcnta=\count275
 )
 (/usr/share/texmf/tex/generic/listofitems/listofitems.sty
 (/usr/share/texmf/tex/generic/listofitems/listofitems.tex
-Invalid UTF-8 byte or sequence at line 50 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 50 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 52 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 52 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 52 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 96 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 96 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 104 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 105 replaced by U+FFFD.
-\loi_cnt_foreach_nest=\count272
-Invalid UTF-8 byte or sequence at line 139 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 146 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 192 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 209 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 209 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 222 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 222 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 223 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 223 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 224 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 226 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 226 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 238 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 243 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 243 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 260 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 284 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 310 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 310 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 324 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 337 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 337 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 339 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 354 replaced by U+FFFD.
-\loi_nestcnt=\count273
-Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 375 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 375 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 375 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 375 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 377 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 378 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 398 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 398 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 399 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 409 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 411 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 414 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 422 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 422 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 426 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 428 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 433 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 433 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 441 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 441 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 442 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 443 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 443 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 443 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 446 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 446 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 446 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 448 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 448 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 451 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 455 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 455 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 458 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 458 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 472 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 475 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 492 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 508 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 508 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 509 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 509 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 519 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
+\loi_cnt_foreach_nest=\count276
+\loi_nestcnt=\count277
 )
 Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified 
 sep char (CT)
 )
-\c@@stackindex=\count274
+\c@@stackindex=\count278
 \@boxshift=\skip72
 \stack@tmplength=\skip73
 \temp@stkl=\skip74
@@ -474,7 +377,7 @@ sep char (CT)
 \@anchorbox=\box105
 \stackedbox=\box106
 \@centerbox=\box107
-\c@ROWcellindex@=\count275
+\c@ROWcellindex@=\count279
 )
 (/usr/share/texmf/tex/generic/ulem/ulem.sty
 \UL@box=\box108
@@ -482,7 +385,7 @@ sep char (CT)
 \UL@skip=\skip76
 \UL@hook=\toks29
 \UL@height=\dimen180
-\UL@pe=\count276
+\UL@pe=\count280
 \UL@pixel=\dimen181
 \ULC@box=\box110
 Package: ulem 2019/11/18
@@ -498,11 +401,8 @@ Package: ulem 2019/11/18
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks30
 \inpenc@posthook=\toks31
-
-
-Package inputenc Warning: inputenc package ignored with utf8 based engines.
-
-) (/usr/share/texmf/tex/latex/base/makeidx.sty
+)
+(/usr/share/texmf/tex/latex/base/makeidx.sty
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 (/usr/share/texmf/tex/latex/base/textcomp.sty
@@ -522,21 +422,215 @@ Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 
 (/usr/share/texmf/tex/latex/cyrillic/t2aenc.def
 File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
-)
-LaTeX Font Info:    Trying to load font information for T2A+lmr on input line 1
-12.
-LaTeX Font Info:    No file T2Almr.fd. on input line 112.
+Now handling font encoding T2A ...
+... processing UTF-8 mapping file for font encoding T2A
+
+(/usr/share/texmf/tex/latex/base/t2aenc.dfu
+File: t2aenc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0237 (decimal 567)
+   defining Unicode char U+0400 (decimal 1024)
+   defining Unicode char U+0401 (decimal 1025)
+   defining Unicode char U+0402 (decimal 1026)
+   defining Unicode char U+0403 (decimal 1027)
+   defining Unicode char U+0404 (decimal 1028)
+   defining Unicode char U+0405 (decimal 1029)
+   defining Unicode char U+0406 (decimal 1030)
+   defining Unicode char U+0407 (decimal 1031)
+   defining Unicode char U+0408 (decimal 1032)
+   defining Unicode char U+0409 (decimal 1033)
+   defining Unicode char U+040A (decimal 1034)
+   defining Unicode char U+040B (decimal 1035)
+   defining Unicode char U+040C (decimal 1036)
+   defining Unicode char U+040D (decimal 1037)
+   defining Unicode char U+040E (decimal 1038)
+   defining Unicode char U+040F (decimal 1039)
+   defining Unicode char U+0410 (decimal 1040)
+   defining Unicode char U+0411 (decimal 1041)
+   defining Unicode char U+0412 (decimal 1042)
+   defining Unicode char U+0413 (decimal 1043)
+   defining Unicode char U+0414 (decimal 1044)
+   defining Unicode char U+0415 (decimal 1045)
+   defining Unicode char U+0416 (decimal 1046)
+   defining Unicode char U+0417 (decimal 1047)
+   defining Unicode char U+0418 (decimal 1048)
+   defining Unicode char U+0419 (decimal 1049)
+   defining Unicode char U+041A (decimal 1050)
+   defining Unicode char U+041B (decimal 1051)
+   defining Unicode char U+041C (decimal 1052)
+   defining Unicode char U+041D (decimal 1053)
+   defining Unicode char U+041E (decimal 1054)
+   defining Unicode char U+041F (decimal 1055)
+   defining Unicode char U+0420 (decimal 1056)
+   defining Unicode char U+0421 (decimal 1057)
+   defining Unicode char U+0422 (decimal 1058)
+   defining Unicode char U+0423 (decimal 1059)
+   defining Unicode char U+0424 (decimal 1060)
+   defining Unicode char U+0425 (decimal 1061)
+   defining Unicode char U+0426 (decimal 1062)
+   defining Unicode char U+0427 (decimal 1063)
+   defining Unicode char U+0428 (decimal 1064)
+   defining Unicode char U+0429 (decimal 1065)
+   defining Unicode char U+042A (decimal 1066)
+   defining Unicode char U+042B (decimal 1067)
+   defining Unicode char U+042C (decimal 1068)
+   defining Unicode char U+042D (decimal 1069)
+   defining Unicode char U+042E (decimal 1070)
+   defining Unicode char U+042F (decimal 1071)
+   defining Unicode char U+0430 (decimal 1072)
+   defining Unicode char U+0431 (decimal 1073)
+   defining Unicode char U+0432 (decimal 1074)
+   defining Unicode char U+0433 (decimal 1075)
+   defining Unicode char U+0434 (decimal 1076)
+   defining Unicode char U+0435 (decimal 1077)
+   defining Unicode char U+0436 (decimal 1078)
+   defining Unicode char U+0437 (decimal 1079)
+   defining Unicode char U+0438 (decimal 1080)
+   defining Unicode char U+0439 (decimal 1081)
+   defining Unicode char U+043A (decimal 1082)
+   defining Unicode char U+043B (decimal 1083)
+   defining Unicode char U+043C (decimal 1084)
+   defining Unicode char U+043D (decimal 1085)
+   defining Unicode char U+043E (decimal 1086)
+   defining Unicode char U+043F (decimal 1087)
+   defining Unicode char U+0440 (decimal 1088)
+   defining Unicode char U+0441 (decimal 1089)
+   defining Unicode char U+0442 (decimal 1090)
+   defining Unicode char U+0443 (decimal 1091)
+   defining Unicode char U+0444 (decimal 1092)
+   defining Unicode char U+0445 (decimal 1093)
+   defining Unicode char U+0446 (decimal 1094)
+   defining Unicode char U+0447 (decimal 1095)
+   defining Unicode char U+0448 (decimal 1096)
+   defining Unicode char U+0449 (decimal 1097)
+   defining Unicode char U+044A (decimal 1098)
+   defining Unicode char U+044B (decimal 1099)
+   defining Unicode char U+044C (decimal 1100)
+   defining Unicode char U+044D (decimal 1101)
+   defining Unicode char U+044E (decimal 1102)
+   defining Unicode char U+044F (decimal 1103)
+   defining Unicode char U+0450 (decimal 1104)
+   defining Unicode char U+0451 (decimal 1105)
+   defining Unicode char U+0452 (decimal 1106)
+   defining Unicode char U+0453 (decimal 1107)
+   defining Unicode char U+0454 (decimal 1108)
+   defining Unicode char U+0455 (decimal 1109)
+   defining Unicode char U+0456 (decimal 1110)
+   defining Unicode char U+0457 (decimal 1111)
+   defining Unicode char U+0458 (decimal 1112)
+   defining Unicode char U+0459 (decimal 1113)
+   defining Unicode char U+045A (decimal 1114)
+   defining Unicode char U+045B (decimal 1115)
+   defining Unicode char U+045C (decimal 1116)
+   defining Unicode char U+045D (decimal 1117)
+   defining Unicode char U+045E (decimal 1118)
+   defining Unicode char U+045F (decimal 1119)
+   defining Unicode char U+0490 (decimal 1168)
+   defining Unicode char U+0491 (decimal 1169)
+   defining Unicode char U+0492 (decimal 1170)
+   defining Unicode char U+0493 (decimal 1171)
+   defining Unicode char U+0496 (decimal 1174)
+   defining Unicode char U+0497 (decimal 1175)
+   defining Unicode char U+0498 (decimal 1176)
+   defining Unicode char U+0499 (decimal 1177)
+   defining Unicode char U+049A (decimal 1178)
+   defining Unicode char U+049B (decimal 1179)
+   defining Unicode char U+049C (decimal 1180)
+   defining Unicode char U+049D (decimal 1181)
+   defining Unicode char U+04A0 (decimal 1184)
+   defining Unicode char U+04A1 (decimal 1185)
+   defining Unicode char U+04A2 (decimal 1186)
+   defining Unicode char U+04A3 (decimal 1187)
+   defining Unicode char U+04A4 (decimal 1188)
+   defining Unicode char U+04A5 (decimal 1189)
+   defining Unicode char U+04AA (decimal 1194)
+   defining Unicode char U+04AB (decimal 1195)
+   defining Unicode char U+04AE (decimal 1198)
+   defining Unicode char U+04AF (decimal 1199)
+   defining Unicode char U+04B0 (decimal 1200)
+   defining Unicode char U+04B1 (decimal 1201)
+   defining Unicode char U+04B2 (decimal 1202)
+   defining Unicode char U+04B3 (decimal 1203)
+   defining Unicode char U+04B6 (decimal 1206)
+   defining Unicode char U+04B7 (decimal 1207)
+   defining Unicode char U+04B8 (decimal 1208)
+   defining Unicode char U+04B9 (decimal 1209)
+   defining Unicode char U+04BA (decimal 1210)
+   defining Unicode char U+04BB (decimal 1211)
+   defining Unicode char U+04C0 (decimal 1216)
+   defining Unicode char U+04C1 (decimal 1217)
+   defining Unicode char U+04C2 (decimal 1218)
+   defining Unicode char U+04D0 (decimal 1232)
+   defining Unicode char U+04D1 (decimal 1233)
+   defining Unicode char U+04D2 (decimal 1234)
+   defining Unicode char U+04D3 (decimal 1235)
+   defining Unicode char U+04D4 (decimal 1236)
+   defining Unicode char U+04D5 (decimal 1237)
+   defining Unicode char U+04D6 (decimal 1238)
+   defining Unicode char U+04D7 (decimal 1239)
+   defining Unicode char U+04D8 (decimal 1240)
+   defining Unicode char U+04D9 (decimal 1241)
+   defining Unicode char U+04DA (decimal 1242)
+   defining Unicode char U+04DB (decimal 1243)
+   defining Unicode char U+04DC (decimal 1244)
+   defining Unicode char U+04DD (decimal 1245)
+   defining Unicode char U+04DE (decimal 1246)
+   defining Unicode char U+04DF (decimal 1247)
+   defining Unicode char U+04E2 (decimal 1250)
+   defining Unicode char U+04E3 (decimal 1251)
+   defining Unicode char U+04E4 (decimal 1252)
+   defining Unicode char U+04E5 (decimal 1253)
+   defining Unicode char U+04E6 (decimal 1254)
+   defining Unicode char U+04E7 (decimal 1255)
+   defining Unicode char U+04E8 (decimal 1256)
+   defining Unicode char U+04E9 (decimal 1257)
+   defining Unicode char U+04EC (decimal 1260)
+   defining Unicode char U+04ED (decimal 1261)
+   defining Unicode char U+04EE (decimal 1262)
+   defining Unicode char U+04EF (decimal 1263)
+   defining Unicode char U+04F0 (decimal 1264)
+   defining Unicode char U+04F1 (decimal 1265)
+   defining Unicode char U+04F2 (decimal 1266)
+   defining Unicode char U+04F3 (decimal 1267)
+   defining Unicode char U+04F4 (decimal 1268)
+   defining Unicode char U+04F5 (decimal 1269)
+   defining Unicode char U+04F8 (decimal 1272)
+   defining Unicode char U+04F9 (decimal 1273)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+27E8 (decimal 10216)
+   defining Unicode char U+27E9 (decimal 10217)
+   defining Unicode char U+FB00 (decimal 64256)
+   defining Unicode char U+FB01 (decimal 64257)
+   defining Unicode char U+FB02 (decimal 64258)
+   defining Unicode char U+FB03 (decimal 64259)
+   defining Unicode char U+FB04 (decimal 64260)
+   defining Unicode char U+FB05 (decimal 64261)
+   defining Unicode char U+FB06 (decimal 64262)
+))
 LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 1
 12.
 
 (/usr/share/texmf/tex/latex/cyrillic/t2acmr.fd
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
-
-LaTeX Font Warning: Font shape `T2A/lmr/m/n' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 112.
-
-) (/usr/share/texmf/tex/generic/babel/babel.sty
+))
+(/usr/share/texmf/tex/generic/babel/babel.sty
 Package: babel 2020/03/22 3.42 The Babel package
 
 (/usr/share/texmf/tex/generic/babel/switch.def
@@ -547,31 +641,19 @@ Language: ukraineb 2018/04/11 1.4c Ukrainian support for the Babel system
 
 (/usr/share/texmf/tex/generic/babel/babel.def
 File: babel.def 2020/03/22 3.42 Babel common definitions
-\babel@savecnt=\count277
+\babel@savecnt=\count281
 \U@D=\dimen183
 
-(/usr/share/texmf/tex/generic/babel/xebabel.def
-(/usr/share/texmf/tex/generic/babel/txtbabel.def))
+(/usr/share/texmf/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read4
-\bbl@dirlevel=\count278
+\bbl@dirlevel=\count282
 )
-
-Package babel Warning: inputenc should not be used with LuaTeX or XeTeX on inpu
-t line 117.
-
 Package babel Info: Making " an active character on input line 118.
 Package babel Info: Default for \cyrdash is provided on input line 161.
-Package ukrainian.ldf Info: Executing the 3.9 or latter on input line 167.
-Package ukrainian.ldf Info: Executing the post 3.9 branch for dates on input li
-ne 245.
-)) (/usr/share/texmf/tex/latex/base/fontenc.sty
-Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-2.
-
-(/usr/share/texmf/tex/latex/lm/t1lmr.fd
-File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
+(/usr/share/texmf/tex/latex/base/fontenc.sty
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+)
 (/usr/share/texmf/tex/latex/psnfss/helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
 )
@@ -596,9 +678,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/usr/share/texmf/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count279
-\Gm@cntv=\count280
-\c@Gm@tempcnt=\count281
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
 \Gm@bindingoffset=\dimen184
 \Gm@wd@mp=\dimen185
 \Gm@odd@mp=\dimen186
@@ -627,7 +709,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip90
 \bibsep=\skip91
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count282
+\c@NAT@ctr=\count286
 )
 (/usr/share/texmf/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
@@ -658,8 +740,8 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cftbeforefigskip=\skip115
 \cftfigindent=\skip116
 \cftfignumwidth=\skip117
-\c@lofdepth=\count283
-\c@lotdepth=\count284
+\c@lofdepth=\count287
+\c@lotdepth=\count288
 \cftbeforelottitleskip=\skip118
 \cftafterlottitleskip=\skip119
 \cftbeforetabskip=\skip120
@@ -674,6 +756,14 @@ Writing index file refman.idx
 (/usr/share/texmf/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 )
+
+Package newunicodechar Warning: Redefining Unicode character on input line 116.
+
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 117.
+
+
 (/usr/share/texmf/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
 
@@ -689,7 +779,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
+Package pdftexcmds Info: \pdfdraftmode found.
 )
 (/usr/share/texmf/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
@@ -713,11 +803,13 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen192
-\Hy@linkcounter=\count285
-\Hy@pagecounter=\count286
+\Hy@linkcounter=\count289
+\Hy@pagecounter=\count290
 
 (/usr/share/texmf/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
 )
 (/usr/share/texmf/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -725,7 +817,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/share/texmf/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count287
+\Hy@SavedSpaceFactor=\count291
 Package hyperref Info: Hyper figures OFF on input line 4547.
 Package hyperref Info: Link nesting OFF on input line 4552.
 Package hyperref Info: Hyper index ON on input line 4555.
@@ -753,7 +845,7 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 ))
-\c@Hy@tempcnt=\count288
+\c@Hy@tempcnt=\count292
 
 (/usr/share/texmf/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
@@ -765,7 +857,7 @@ LaTeX Info: Redefining \url on input line 5159.
 (/usr/share/texmf/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 )
-\Fld@menulength=\count289
+\Fld@menulength=\count293
 \Field@Width=\dimen194
 \Fld@charsize=\dimen195
 Package hyperref Info: Hyper figures OFF on input line 6430.
@@ -781,32 +873,26 @@ LaTeX Info: Redefining \pageref on input line 6504.
 (/usr/share/texmf/tex/generic/atbegshi/atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count290
-\c@Item=\count291
-\c@Hfootnote=\count292
+\Hy@abspage=\count294
+\c@Item=\count295
+\c@Hfootnote=\count296
 )
-Package hyperref Info: Driver (autodetected): hxetex.
+Package hyperref Info: Driver: hpdftex.
 
-(/usr/share/texmf/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
-
-(/usr/share/texmf/tex/latex/hyperref/puenc.def
-File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
-)
-(/usr/share/texmf/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
-)
-)
-\pdfm@box=\box112
-\c@Hy@AnnotLevel=\count293
-\HyField@AnnotCount=\count294
-\Fld@listcount=\count295
-\c@bookmark@seq@number=\count296
+(/usr/share/texmf/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+\Fld@listcount=\count297
+\c@bookmark@seq@number=\count298
 \Hy@SectionHShift=\skip123
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 135.
 Package hyperref Info: Option `unicode' set `true' on input line 135.
 
+(/usr/share/texmf/tex/latex/hyperref/puenc.def
+File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
 (/usr/share/texmf/tex/latex/caption/caption.sty
 Package: caption 2020/01/03 v3.4h Customizing captions (AR)
 
@@ -822,8 +908,8 @@ Package caption3 Info: TeX engine: e-TeX on input line 61.
 \caption@hangindent=\dimen258
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count297
-\c@continuedfloat=\count298
+\c@caption@flags=\count299
+\c@continuedfloat=\count300
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
@@ -834,17 +920,15 @@ Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 (/usr/share/texmf/tex/latex/etoc/etoc.sty
 Package: etoc 2019/11/17 v1.09b Completely customisable TOCs (JFB)
 \Etoc@toctoks=\toks33
-\c@etoc@tocid=\count299
-\c@etoc@tocdepth=\count300
-\etoc@framed@titlebox=\box113
-\etoc@framed@contentsbox=\box114
+\c@etoc@tocid=\count301
+\c@etoc@tocdepth=\count302
+\etoc@framed@titlebox=\box112
+\etoc@framed@contentsbox=\box113
 )
-(/usr/share/texmf/tex/latex/l3backend/l3backend-xdvipdfmx.def
-File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
-\g__graphics_track_int=\count301
-\l__pdf_internal_box=\box115
-\g__pdf_backend_object_int=\count302
-\g__pdf_backend_annotation_int=\count303
+(/usr/share/texmf/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count303
+\l__pdf_internal_box=\box114
 ) (./refman.aux)
 \openout1 = `refman.aux'.
 
@@ -857,14 +941,6 @@ LaTeX Font Info:    ... okay on input line 150.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
 LaTeX Font Info:    ... okay on input line 150.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-50.
-
-(/usr/share/texmf/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 150.
 LaTeX Font Info:    ... okay on input line 150.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
 LaTeX Font Info:    ... okay on input line 150.
@@ -884,6 +960,29 @@ File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 150.
+
+(/usr/share/texmf/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count304
+\scratchdimen=\dimen259
+\scratchbox=\box115
+\nofMPsegments=\count305
+\nofMParguments=\count306
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count307
+\MPscratchDim=\dimen260
+\MPnumerator=\count308
+\makeMPintoPDFobject=\count309
+\everyMPtoPDFconversion=\toks35
+) (/usr/share/texmf/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texmf/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 LaTeX Font Info:    Trying to load font information for T2A+phv on input line 1
 50.
 LaTeX Font Info:    No file T2Aphv.fd. on input line 150.
@@ -893,9 +992,9 @@ LaTeX Font Warning: Font shape `T2A/phv/m/n' undefined
 (Font)              using `T2A/cmr/m/n' instead on input line 150.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: xetex
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: xetex
+* driver: pdftex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -938,7 +1037,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count304
+\c@section@level=\count310
 )
 LaTeX Info: Redefining \ref on input line 150.
 LaTeX Info: Redefining \pageref on input line 150.
@@ -953,41 +1052,10 @@ Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Option `pageanchor' set `false' on input line 157.
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 157.
 
-Missing character: There is no Л in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no б in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no р in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no т in font larm1440!
-Missing character: There is no р in font larm1440!
-Missing character: There is no н in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no р in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no б in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no т in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no С in font larm1200!
-Missing character: There is no т in font larm1200!
-Missing character: There is no в in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no р in font larm1200!
-Missing character: There is no е in font larm1200!
-Missing character: There is no н in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no с in font larm1200!
-Missing character: There is no и in font larm1200!
-Missing character: There is no с in font larm1200!
-Missing character: There is no т in font larm1200!
-Missing character: There is no е in font larm1200!
-Missing character: There is no м in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no ю in font larm1200!
+Package hyperref Info: Option `unicode' set `true' on input line 157.
  [1
 
-]
+{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 \tf@toc=\write6
 \openout6 = `refman.toc'.
 
@@ -996,29 +1064,6 @@ Missing character: There is no ю in font larm1200!
 LaTeX Font Warning: Font shape `T2A/phv/b/n' undefined
 (Font)              using `T2A/phv/m/n' instead on input line 169.
 
-Missing character: There is no З in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
 LaTeX Font Info:    Trying to load font information for U+msa on input line 169
 .
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
@@ -1036,201 +1081,8 @@ LaTeX Font Info:    Trying to load font information for U+wasy on input line 16
 (/usr/share/texmf/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-Missing character: There is no П in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no О in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no В in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no П in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ж in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no Ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no Ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no Ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no Ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
 Package hyperref Info: Option `pageanchor' set `true' on input line 170.
-Missing character: There is no З in font larm1440!
-Missing character: There is no в in font larm1440!
-Missing character: There is no і in font larm1440!
-Missing character: There is no т in font larm1440!
-Missing character: There is no з in font larm1440!
-Missing character: There is no л in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no б in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no р in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no т in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no р in font larm1440!
-Missing character: There is no н in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no ї in font larm1440!
-Missing character: There is no р in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no б in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no т in font larm1440!
-Missing character: There is no и in font larm1440!
  (./index.tex
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no ц in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no ю in font larm1000!
-Missing character: There is no І in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no ь in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ц in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no П in font larm1000!
-Missing character: There is no А in font larm1000!
-Missing character: There is no П in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no Є in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no С in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no К in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no п in font larm1000!
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 4
 .
 
@@ -1239,75 +1091,11 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 4.
-Missing character: There is no ю in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no Ф in font larm1000!
-Missing character: There is no П in font larm1000!
-Missing character: There is no М in font larm1000!
-Missing character: There is no Д in font larm1000!
-Missing character: There is no Н in font larm1000!
-Missing character: There is no У in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no В in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no т in font larm1000!
 
 Underfull \hbox (badness 10000) in paragraph at lines 1--7
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--7
-
- []
-
-Missing character: There is no З in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no я in font larm1000!
-Missing character: There is no м in font larm1000!
 LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 1
 0.
 LaTeX Font Info:    No file T2Apcr.fd. on input line 10.
@@ -1315,931 +1103,24 @@ LaTeX Font Info:    No file T2Apcr.fd. on input line 10.
 LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
 (Font)              using `T2A/cmr/m/n' instead on input line 10.
 
-Missing character: There is no В in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no я in font larm1000!
-Missing character: There is no м in font larm1000!
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--12
-
- []
-
-Missing character: There is no П in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no с in font larm1200!
-Missing character: There is no т in font larm1200!
-Missing character: There is no а in font larm1200!
-Missing character: There is no н in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no в in font larm1200!
-Missing character: There is no к in font larm1200!
-Missing character: There is no а in font larm1200!
-Missing character: There is no з in font larm1200!
-Missing character: There is no а in font larm1200!
-Missing character: There is no д in font larm1200!
-Missing character: There is no а in font larm1200!
-Missing character: There is no ч in font larm1200!
-Missing character: There is no і in font larm1200!
-Missing character: There is no В in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no ш in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no я in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no ь in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no “ in font larm1000!
-Missing character: There is no О in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no ’ in font larm1000!
-Missing character: There is no є in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no ” in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no ь in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no К in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no є in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no ц in font larm1000!
-Missing character: There is no ю in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no я in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no М in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no ж in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no П in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no ю in font larm1000!
-Missing character: There is no я in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no я in font larm1000!
-Missing character: There is no є in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no О in font larm1200!
-Missing character: There is no п in font larm1200!
-Missing character: There is no и in font larm1200!
-Missing character: There is no с in font larm1200!
-Missing character: There is no р in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no б in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no т in font larm1200!
-Missing character: There is no и in font larm1200!
-Missing character: There is no п in font larm1200!
-Missing character: There is no р in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no г in font larm1200!
-Missing character: There is no р in font larm1200!
-Missing character: There is no а in font larm1200!
-Missing character: There is no м in font larm1200!
-Missing character: There is no и in font larm1200!
-Missing character: There is no П in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no ю in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no П in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no ж in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no щ in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no я in font larm1000!
-Missing character: There is no є in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no П in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no є in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no ю in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no ю in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ч in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no Н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ж in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no и in font larm1000!
-File: Screenshot_2021-03-29_09-47-47.png Graphic file (type bmp)
-<Screenshot_2021-03-29_09-47-47.png>
+ <./Screenshot_2021-03-29_09-47-47.png>
+<Screenshot_2021-03-29_09-47-47.png, id=62, 345.29pt x 468.75125pt>
+File: Screenshot_2021-03-29_09-47-47.png Graphic file (type png)
+<use Screenshot_2021-03-29_09-47-47.png>
+Package pdftex.def Info: Screenshot_2021-03-29_09-47-47.png  used on input line
+ 23.
+(pdftex.def)             Requested size: 258.8404pt x 351.3909pt.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 24.
-Missing character: There is no З in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no С in font larm0700!
-Missing character: There is no т in font larm0700!
-Missing character: There is no в in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no р in font larm0700!
-Missing character: There is no е in font larm0700!
-Missing character: There is no н in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no с in font larm0700!
-Missing character: There is no и in font larm0700!
-Missing character: There is no с in font larm0700!
-Missing character: There is no т in font larm0700!
-Missing character: There is no е in font larm0700!
-Missing character: There is no м in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no ю in font larm0700!
-[1]
-Missing character: There is no В in font larm1200!
-Missing character: There is no и in font larm1200!
-Missing character: There is no с in font larm1200!
-Missing character: There is no н in font larm1200!
-Missing character: There is no о in font larm1200!
-Missing character: There is no в in font larm1200!
-Missing character: There is no к in font larm1200!
-Missing character: There is no и in font larm1200!
-Missing character: There is no Б in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no м in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no ю in font larm1000!
-Missing character: There is no я in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no ю in font larm1000!
-Missing character: There is no є in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no д in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no х in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no е in font larm1000!
-Missing character: There is no р in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no г in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no є in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no б in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no т in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no ж in font larm1000!
-Missing character: There is no у in font larm1000!
-Missing character: There is no є in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no ї in font larm1000!
-Missing character: There is no з in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no у in font larm1000!
-)
-Missing character: There is no П in font larm1440!
-Missing character: There is no о in font larm1440!
-Missing character: There is no к in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no ж in font larm1440!
-Missing character: There is no ч in font larm1440!
-Missing character: There is no и in font larm1440!
-Missing character: There is no к in font larm1440!
-Missing character: There is no ф in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no й in font larm1440!
-Missing character: There is no л in font larm1440!
-Missing character: There is no в in font larm1440!
- (./files.tex
-Missing character: There is no Ф in font larm1200!
-Missing character: There is no а in font larm1200!
-Missing character: There is no й in font larm1200!
-Missing character: There is no л in font larm1200!
-Missing character: There is no и in font larm1200!
-Missing character: There is no П in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no в in font larm1000!
-Missing character: There is no н in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no п in font larm1000!
-Missing character: There is no и in font larm1000!
-Missing character: There is no с in font larm1000!
-Missing character: There is no о in font larm1000!
-Missing character: There is no к in font larm1000!
-Missing character: There is no ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no і in font larm1000!
-Missing character: There is no в in font larm1000!
-)
-Missing character: There is no Ф in font larm1440!
-Missing character: There is no а in font larm1440!
-Missing character: There is no й in font larm1440!
-Missing character: There is no л in font larm1440!
-Missing character: There is no и in font larm1440!
- (./lab3_8pro.tex
-Missing character: There is no Ф in font larm1200!
-Missing character: There is no а in font larm1200!
-Missing character: There is no й in font larm1200!
-Missing character: There is no л in font larm1200!
-) (./lab3_8pro_source.tex
-Missing character: There is no С in font larm0700!
-Missing character: There is no т in font larm0700!
-Missing character: There is no в in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no р in font larm0700!
-Missing character: There is no е in font larm0700!
-Missing character: There is no н in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no с in font larm0700!
-Missing character: There is no и in font larm0700!
-Missing character: There is no с in font larm0700!
-Missing character: There is no т in font larm0700!
-Missing character: There is no е in font larm0700!
-Missing character: There is no м in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no ю in font larm0700!
- [2])
-(./mainpage_8dox.tex
-Missing character: There is no Ф in font larm1200!
-Missing character: There is no а in font larm1200!
-Missing character: There is no й in font larm1200!
-Missing character: There is no л in font larm1200!
-)
-Missing character: There is no Ф in font larm1000!
-Missing character: There is no а in font larm1000!
-Missing character: There is no й in font larm1000!
-Missing character: There is no л in font larm1000!
-Missing character: There is no С in font larm0700!
-Missing character: There is no т in font larm0700!
-Missing character: There is no в in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no р in font larm0700!
-Missing character: There is no е in font larm0700!
-Missing character: There is no н in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no с in font larm0700!
-Missing character: There is no и in font larm0700!
-Missing character: There is no с in font larm0700!
-Missing character: There is no т in font larm0700!
-Missing character: There is no е in font larm0700!
-Missing character: There is no м in font larm0700!
-Missing character: There is no о in font larm0700!
-Missing character: There is no ю in font larm0700!
- [3] [4
+ [1]) (./files.tex) (./lab3_8pro.tex)
+(./lab3_8pro_source.tex [2]) (./mainpage_8dox.tex) [3] [4
 
 ]
 No file refman.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
 (./refman.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 190.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
 Package rerunfilecheck Info: File `refman.out' has not changed.
 (rerunfilecheck)             Checksum: EEF3EF0E004D7DE69456B0F965E05757;1722.
@@ -2249,12 +1130,23 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 17365 strings out of 479855
- 252265 string characters out of 5902547
- 547269 words of memory out of 5000000
- 34516 multiletter control sequences out of 15000+600000
- 545052 words of font info for 46 fonts, out of 8000000 for 9000
- 1098 hyphenation exceptions out of 8191
- 55i,15n,96p,942b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 17710 strings out of 481128
+ 254101 string characters out of 5922469
+ 540756 words of memory out of 5000000
+ 33094 multiletter control sequences out of 15000+600000
+ 543611 words of font info for 45 fonts, out of 8000000 for 9000
+ 891 hyphenation exceptions out of 8191
+ 55i,15n,96p,942b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}{/usr/share/texmf
+/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/c
+msy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share
+/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/p
+ublic/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1
+440.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on refman.pdf (5 pages, 116670 bytes).
+PDF statistics:
+ 126 PDF objects out of 1000 (max. 8388607)
+ 109 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on refman.pdf (5 pages).

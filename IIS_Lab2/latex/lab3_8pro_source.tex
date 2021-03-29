@@ -1,0 +1,77 @@
+\hypertarget{lab3_8pro_source}{}\doxysubsection{lab3.\+pro}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 /*****************************************************************************}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003         Copyright (c) My Company}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005  Project:  LAB2}
+\DoxyCodeLine{00006  FileName: LAB2.PRO}
+\DoxyCodeLine{00007  Purpose: No description}
+\DoxyCodeLine{00008  Written by: Visual Prolog}
+\DoxyCodeLine{00009  Comments:}
+\DoxyCodeLine{00010 ******************************************************************************/}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 include "{}lab2.inc"{}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 global database}
+\DoxyCodeLine{00015 parent(symbol A, symbol B)}
+\DoxyCodeLine{00016 female(symbol A)}
+\DoxyCodeLine{00017 male(symbol A)}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 predicates}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021   lab2()}
+\DoxyCodeLine{00022 show\_menu()}
+\DoxyCodeLine{00023 input\_tovar()}
+\DoxyCodeLine{00024 menu()}
+\DoxyCodeLine{00025 fill\_database()}
+\DoxyCodeLine{00026 nondeterm task(char X)}
+\DoxyCodeLine{00027 nondeterm fill\_by\_type(char X)}
+\DoxyCodeLine{00028 nondeterm grandfather(symbol A,symbol B) }
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030 clauses}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 grandfather(A,B) :-\/ \%18}
+\DoxyCodeLine{00033     male(B),}
+\DoxyCodeLine{00034     parent(B, C),}
+\DoxyCodeLine{00035     parent(C, A).}
+\DoxyCodeLine{00036   show\_menu:-\/}
+\DoxyCodeLine{00037     write("{}1. Fill the database :)\(\backslash\)n"{},}
+\DoxyCodeLine{00038          "{}2. Save the database :D\(\backslash\)n"{},}
+\DoxyCodeLine{00039          "{}3. Load the database *\_*\(\backslash\)n"{},}
+\DoxyCodeLine{00040          "{}4. Find my grand father!!! >:[\(\backslash\)n"{},}
+\DoxyCodeLine{00041          "{}5. Exit B-\/)\(\backslash\)n"{}),!.}
+\DoxyCodeLine{00042     }
+\DoxyCodeLine{00043   menu:-\/ show\_menu,input\_tovar.}
+\DoxyCodeLine{00044   }
+\DoxyCodeLine{00045   fill\_by\_type(X) :-\/ X='1',}
+\DoxyCodeLine{00046     write("{}Write father name.\(\backslash\)n"{}),readterm(symbol, A),}
+\DoxyCodeLine{00047     write("{}Write child name.\(\backslash\)n"{}),readterm(symbol, B),}
+\DoxyCodeLine{00048     assert(parent(A,B)),!.}
+\DoxyCodeLine{00049   fill\_by\_type(X) :-\/ X='2',write("{}Write name.\(\backslash\)n"{}),readterm(symbol, A),assert(male(A)),!.}
+\DoxyCodeLine{00050   fill\_by\_type(X) :-\/ X='3',write("{}Write name.\(\backslash\)n"{}),readterm(symbol, A),assert(female(A)),!.}
+\DoxyCodeLine{00051   fill\_by\_type(X) :-\/ X=X,write("{}You must choose one of 1-\/3.\(\backslash\)n"{}),fill\_database.}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   fill\_database :-\/ }
+\DoxyCodeLine{00054     write("{}Choose type of predicate:\(\backslash\)n"{},}
+\DoxyCodeLine{00055         "{}    1. Parent\(\backslash\)n"{},}
+\DoxyCodeLine{00056         "{}    2. Male\(\backslash\)n"{},}
+\DoxyCodeLine{00057         "{}    3. Female\(\backslash\)n"{}),readchar(X),fill\_by\_type(X),!.}
+\DoxyCodeLine{00058   }
+\DoxyCodeLine{00059   task(X) :-\/ X='1',fill\_database,menu.}
+\DoxyCodeLine{00060   task(X) :-\/ X='2',write("{}Write filename.\(\backslash\)n"{}),readterm(symbol, A),save(A),menu.}
+\DoxyCodeLine{00061   task(X) :-\/ X='3',write("{}Write filename.\(\backslash\)n"{}),readterm(symbol, A),consult(A),menu.}
+\DoxyCodeLine{00062   task(X) :-\/ X='4',write("{}Type your grandfather predicate.\(\backslash\)n"{}),readterm(symbol, A), grandfather(A,B), write(B, "{}\(\backslash\)n"{}), menu.}
+\DoxyCodeLine{00063   task(X) :-\/ X='5',write("{}Bye :-\/)\(\backslash\)n"{}),!.}
+\DoxyCodeLine{00064   task(X) :-\/ X=X,write("{}Bad value, try again!\(\backslash\)n"{}),menu.}
+\DoxyCodeLine{00065   }
+\DoxyCodeLine{00066   input\_tovar:-\/readchar(X),task(X),!.}
+\DoxyCodeLine{00067   }
+\DoxyCodeLine{00068   lab2():-\/menu,!.}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070 goal}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072   lab2().}
+
+\end{DoxyCode}

@@ -1,0 +1,69 @@
+\hypertarget{main_8pl_source}{}\doxysubsection{main.\+pl}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 node(a, b, 1).}
+\DoxyCodeLine{00002 node(b, c, 2).}
+\DoxyCodeLine{00003 node(c, d, 3).}
+\DoxyCodeLine{00004 node(d, e, 4).}
+\DoxyCodeLine{00005 node(e, c, 5).}
+\DoxyCodeLine{00006 node(c, a, 6).}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 both(A, B, node(A, B, C)) :-\/ }
+\DoxyCodeLine{00009     node(A, B, C).}
+\DoxyCodeLine{00010 both(A, B, node(B, A, C)) :-\/ }
+\DoxyCodeLine{00011     node(B, A, C).}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 is\_in(X, [X | \_]).}
+\DoxyCodeLine{00014 is\_in(X, [\_ | Tail]):-\/}
+\DoxyCodeLine{00015     is\_in(X, Tail).}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017 add(X, List, [X | List]).}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019 rec(A, A, Path, Path).}
+\DoxyCodeLine{00020 rec(A, B, Path, OutPath) :-\/}
+\DoxyCodeLine{00021     both(A, C, N),}
+\DoxyCodeLine{00022     not(is\_in(N, Path)),}
+\DoxyCodeLine{00023     add(N, Path, O),}
+\DoxyCodeLine{00024     rec(C, B, O, OutPath).}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026 sum\_path([node(\_, \_, T) | Tail], A) :-\/}
+\DoxyCodeLine{00027     count(Tail, B),}
+\DoxyCodeLine{00028     A = B + T, !.}
+\DoxyCodeLine{00029 sum\_path(\_,0) :-\/ !.}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 min(X, A, Y, \_, X, A) :-\/}
+\DoxyCodeLine{00032     X =< Y.}
+\DoxyCodeLine{00033 min(\_, \_, Y, B, Y, B).}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035 find\_min([X | Tail], Z, C) :-\/}
+\DoxyCodeLine{00036     find\_min(Tail, A, Y),}
+\DoxyCodeLine{00037     sum\_path(X, B),}
+\DoxyCodeLine{00038     min(A, Y, B, X, Z, C), !.}
+\DoxyCodeLine{00039 find\_min([X | \_], Z, X) :-\/}
+\DoxyCodeLine{00040     sum\_path(X, Z), !.}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042 count([\_ | Tail], A) :-\/}
+\DoxyCodeLine{00043     count(Tail, B),}
+\DoxyCodeLine{00044     A = B + 1, !.}
+\DoxyCodeLine{00045 count(\_,0) :-\/ !.}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047 count\_paths(A, B) :-\/}
+\DoxyCodeLine{00048     rec(A, A, [], C),}
+\DoxyCodeLine{00049     count(C, B).}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 travelable\_pred(A, B) :-\/}
+\DoxyCodeLine{00052     count\_paths(A, C),}
+\DoxyCodeLine{00053     C = B.}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055 count\_all\_nodes(A) :-\/}
+\DoxyCodeLine{00056     findall(node(A,B,C), node(A,B,C), Lst1),}
+\DoxyCodeLine{00057     count(Lst1, A).}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059 find\_optimal(X, Y) :-\/}
+\DoxyCodeLine{00060     findall(A, rec(a, c, [], A), Lst), find\_min(Lst, X, Y).}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{00062 travelable(A) :-\/}
+\DoxyCodeLine{00063     count\_all\_nodes(B),}
+\DoxyCodeLine{00064     travelable\_pred(A, B), !.}
+
+\end{DoxyCode}

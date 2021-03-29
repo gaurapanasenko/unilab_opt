@@ -1,0 +1,60 @@
+за дисципліною \char`\"{}Інтелектуальні інформаційні системи\char`\"{} ~\newline
+ студента групи ПА-\/17-\/2 ~\newline
+ Панасенка Єгора Сергійовича ~\newline
+ Кафедра комп\textquotesingle{}ютерних технологій ~\newline
+ ФПМ, ДНУ, 2020-\/2021 навч.\+р. ~\newline
+ Варант 17 ~\newline
+
+
+Звіт доступний за посиланням ~\newline
+ \href{https://gaurapanasenko.github.io/unilab_opt/IIS_Lab3/html/index.html}{\texttt{ https\+://gaurapanasenko.\+github.\+io/unilab\+\_\+opt/\+IIS\+\_\+\+Lab3/html/index.\+html}}. ~\newline
+ Вихідний код доступний за посиланням ~\newline
+ \href{https://github.com/gaurapanasenko/unilab/tree/master/08/IIS_Lab3}{\texttt{ https\+://github.\+com/gaurapanasenko/unilab/tree/master/08/\+IIS\+\_\+\+Lab3}}\hypertarget{index_autotoc_md0}{}\doxysubsection{Постановка задачі}\label{index_autotoc_md0}
+Розв’язати задачу про комівояжера, використовуючи такі методи пошуку\+:
+\begin{DoxyEnumerate}
+\item Метод перебору.
+\item Метод пошуку в глибину.
+\item Метод пошуку в ширину.
+\item Метод найкоротшого шляху.
+\item Метод Мура.
+\item Метод Дейкстри.
+\item Метод гілок і меж.
+\item Метод Нільсона. Розв’язати задачу про туриста, використовуючи такі методи пошуку\+:
+\item Метод перебору.
+\item Метод пошуку в глибину.
+\item Метод пошуку в ширину.
+\item Метод найкоротшого шляху.
+\item Метод Мура.
+\item Метод Дейкстри.
+\item Метод гілок і меж.
+\item Метод Нільсона.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md1}{}\doxysubsection{Побудова графу}\label{index_autotoc_md1}
+Побудуємо деяке сімейне дерево.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_1}}
+\end{DoxyImageNoCaption}
+\hypertarget{index_autotoc_md2}{}\doxysubsection{Результат роботи програми}\label{index_autotoc_md2}
+Використаємо компілятор {\ttfamily swipl}, для початку зкомпілюємо нашу програму.
+
+Тепер запустимо програму та перевримо роботу алгоритму пошуку перебору\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{?-\/ find\_optimal(X, Y).}
+\DoxyCodeLine{X = 0+1+2,}
+\DoxyCodeLine{Y = [node(b, c, 2), node(a, b, 1)].}
+
+\end{DoxyCode}
+
+
+Та запустимо перевірку алгоритму для задачі про мандрівника\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{?-\/ travelable(a).}
+\DoxyCodeLine{true.}
+\DoxyCodeLine{}
+\DoxyCodeLine{?-\/ travelable(f).}
+\DoxyCodeLine{false.}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{Висновки}\label{index_autotoc_md3}
+Було розроблено програму, яка здатна перебором вирішувати задачу комівояжера та задачу про мандрівника. Для обох задач був розроблений універсальні предикати, які можуть використовуватися для пошуку перебором у будь-\/якому двонаправленому графі. 

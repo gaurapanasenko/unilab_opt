@@ -1,0 +1,37 @@
+\hypertarget{main_8py_source}{}\doxysubsection{main.\+py}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00001}\mbox{\hyperlink{namespacemain}{00001}} \textcolor{comment}{\#!/usr/bin/env python3}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{keyword}{import} cv2}
+\DoxyCodeLine{00004 \textcolor{keyword}{import} numpy \textcolor{keyword}{as} np}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00006}\mbox{\hyperlink{namespacemain_a5e0c5a1026787434867621b0697ce7d6}{00006}} pmin, pmax, qmin, qmax = -\/2, 2, -\/2, 2}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00007}\mbox{\hyperlink{namespacemain_ae339aaa77bc367f02107a39e1252816f}{00007}} ppoints, qpoints = 500, 500}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00008}\mbox{\hyperlink{namespacemain_abab21f4766f0d312c619044e9aaff0ea}{00008}} max\_iterations = 10}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00009}\mbox{\hyperlink{namespacemain_a47e31ec8fa1129dad6660c5a1b479315}{00009}} infinity\_border = 10}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00011}\mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{00011}} image = np.zeros((ppoints, qpoints), dtype=\textcolor{stringliteral}{"{}uint8"{}})}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00013}\mbox{\hyperlink{namespacemain_a9414a588e926bdddab7b16638c3ec9e7}{00013}} pp = np.linspace(pmin, pmax, ppoints)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00014}\mbox{\hyperlink{namespacemain_adced31b05118ca74555058d52efb944d}{00014}} qq = np.linspace(qmin, qmax, qpoints)}
+\DoxyCodeLine{00015 print(\textcolor{stringliteral}{"{}hi"{}})}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017 \textcolor{keywordflow}{for} ip, p \textcolor{keywordflow}{in} enumerate(pp):}
+\DoxyCodeLine{00018     \textcolor{keywordflow}{for} iq, q \textcolor{keywordflow}{in} enumerate(qq):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00019}\mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{00019}}         z = 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00020}\mbox{\hyperlink{namespacemain_a078ad2dd792acdae58c3e73518f03804}{00020}}         c = p + 1j * q}
+\DoxyCodeLine{00021         \textcolor{keywordflow}{for} k \textcolor{keywordflow}{in} range(max\_iterations):}
+\DoxyCodeLine{00022             z = z**2 + c}
+\DoxyCodeLine{00023             \textcolor{keywordflow}{if} abs(z) > infinity\_border:}
+\DoxyCodeLine{00024                 image[iq,ip] = k * 20}
+\DoxyCodeLine{00025                 \textcolor{keywordflow}{break}}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027 cv2.imshow(\textcolor{stringliteral}{"{}img"{}}, image)}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029 \textcolor{keywordflow}{while} \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00030}\mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{00030}}     k = cv2.waitKey(0) \& 0xFF}
+\DoxyCodeLine{00031     \textcolor{keywordflow}{if} k == ord(\textcolor{stringliteral}{"{}q"{}}):}
+\DoxyCodeLine{00032         \textcolor{keywordflow}{break}}
+
+\end{DoxyCode}

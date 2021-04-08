@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторна робота 2: Текст програми processor.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторна робота 2
+   </div>
+   <div id="projectbrief">Элементи хаотичної динаміки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">processor.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="processor_8h.html">Див. документацію.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PROCESSOR_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PROCESSOR_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;gui/texture.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="julia_8h.html">julia.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classProcessor.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classProcessor.html">Processor</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classProcessor.html#a8f7dd5dc5d9eb9ad51fe5b94812911d6">    8</a></span>&#160;    <a class="code" href="classJulia.html">Julia</a> <a class="code" href="classProcessor.html#a8f7dd5dc5d9eb9ad51fe5b94812911d6">jul</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">    9</a></span>&#160;    shared_ptr&lt;const ImageData&gt; <a class="code" href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">data</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">   10</a></span>&#160;    <span class="keyword">const</span> Texture <a class="code" href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">texture</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classProcessor.html#a87acdaf96820eefa38486dda8f90daa3">   12</a></span>&#160;    <a class="code" href="classProcessor.html#a87acdaf96820eefa38486dda8f90daa3">Processor</a>(shared_ptr&lt;const ImageData&gt; input);</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classProcessor.html#a3fd19e0b2e70422b4c2b801d0e9827ea">   13</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classProcessor.html#a3fd19e0b2e70422b4c2b801d0e9827ea">update</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classProcessor.html#a7a2f295cc922bc841c2fd8d2bc88ca38">   15</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classProcessor.html#a7a2f295cc922bc841c2fd8d2bc88ca38">process_image</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *name);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// PROCESSOR_H</span></div>
+<div class="ttc" id="aclassJulia_html"><div class="ttname"><a href="classJulia.html">Julia</a></div><div class="ttdoc">Зберігає параметри для генерації множини Жуліа та створює вікно для їх налаштування.</div><div class="ttdef"><b>Definition:</b> <a href="julia_8h_source.html#l00009">julia.h:10</a></div></div>
+<div class="ttc" id="aclassProcessor_html"><div class="ttname"><a href="classProcessor.html">Processor</a></div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00007">processor.h:7</a></div></div>
+<div class="ttc" id="aclassProcessor_html_a3fd19e0b2e70422b4c2b801d0e9827ea"><div class="ttname"><a href="classProcessor.html#a3fd19e0b2e70422b4c2b801d0e9827ea">Processor::update</a></div><div class="ttdeci">void update()</div></div>
+<div class="ttc" id="aclassProcessor_html_a7a2f295cc922bc841c2fd8d2bc88ca38"><div class="ttname"><a href="classProcessor.html#a7a2f295cc922bc841c2fd8d2bc88ca38">Processor::process_image</a></div><div class="ttdeci">bool process_image(const char *name)</div></div>
+<div class="ttc" id="aclassProcessor_html_a87acdaf96820eefa38486dda8f90daa3"><div class="ttname"><a href="classProcessor.html#a87acdaf96820eefa38486dda8f90daa3">Processor::Processor</a></div><div class="ttdeci">Processor(shared_ptr&lt; const ImageData &gt; input)</div></div>
+<div class="ttc" id="aclassProcessor_html_a8f7dd5dc5d9eb9ad51fe5b94812911d6"><div class="ttname"><a href="classProcessor.html#a8f7dd5dc5d9eb9ad51fe5b94812911d6">Processor::jul</a></div><div class="ttdeci">Julia jul</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00008">processor.h:8</a></div></div>
+<div class="ttc" id="aclassProcessor_html_aa8df105dd73d3e2247baebe9834a1e78"><div class="ttname"><a href="classProcessor.html#aa8df105dd73d3e2247baebe9834a1e78">Processor::data</a></div><div class="ttdeci">shared_ptr&lt; const ImageData &gt; data</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00009">processor.h:9</a></div></div>
+<div class="ttc" id="aclassProcessor_html_ae87df47dfb2b7679f4e6925335b52f45"><div class="ttname"><a href="classProcessor.html#ae87df47dfb2b7679f4e6925335b52f45">Processor::texture</a></div><div class="ttdeci">const Texture texture</div><div class="ttdef"><b>Definition:</b> <a href="processor_8h_source.html#l00010">processor.h:10</a></div></div>
+<div class="ttc" id="ajulia_8h_html"><div class="ttname"><a href="julia_8h.html">julia.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

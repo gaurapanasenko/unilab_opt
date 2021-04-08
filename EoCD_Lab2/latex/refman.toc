@@ -1,0 +1,80 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {ukrainian}{}
+\contentsline {section}{\numberline {1}Звіт з лабораторної роботи №2}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Постановка задачі}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Теоретичні відомості}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Результат роботи програми}{1}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Алфавітний покажчик простору імен}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Простір імен}{4}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Алфавітний покажчик класів}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Класи}{4}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Покажчик файлв}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Файли}{4}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Опис простору імен}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Простір імен main}{5}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Опис змінних}{5}{subsubsection.5.1.1}%
+\contentsline {paragraph}{\numberline {5.1.1.1}c}{5}{paragraph.5.1.1.1}%
+\contentsline {paragraph}{\numberline {5.1.1.2}image}{5}{paragraph.5.1.1.2}%
+\contentsline {paragraph}{\numberline {5.1.1.3}infinity\_border}{6}{paragraph.5.1.1.3}%
+\contentsline {paragraph}{\numberline {5.1.1.4}k}{6}{paragraph.5.1.1.4}%
+\contentsline {paragraph}{\numberline {5.1.1.5}max\_iterations}{6}{paragraph.5.1.1.5}%
+\contentsline {paragraph}{\numberline {5.1.1.6}pmax}{6}{paragraph.5.1.1.6}%
+\contentsline {paragraph}{\numberline {5.1.1.7}pmin}{6}{paragraph.5.1.1.7}%
+\contentsline {paragraph}{\numberline {5.1.1.8}pp}{6}{paragraph.5.1.1.8}%
+\contentsline {paragraph}{\numberline {5.1.1.9}ppoints}{6}{paragraph.5.1.1.9}%
+\contentsline {paragraph}{\numberline {5.1.1.10}qmax}{6}{paragraph.5.1.1.10}%
+\contentsline {paragraph}{\numberline {5.1.1.11}qmin}{7}{paragraph.5.1.1.11}%
+\contentsline {paragraph}{\numberline {5.1.1.12}qpoints}{7}{paragraph.5.1.1.12}%
+\contentsline {paragraph}{\numberline {5.1.1.13}qq}{7}{paragraph.5.1.1.13}%
+\contentsline {paragraph}{\numberline {5.1.1.14}z}{7}{paragraph.5.1.1.14}%
+\contentsline {section}{\numberline {6}Класи}{7}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Клас Image}{7}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Детальний опис}{8}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Конструктор(и)}{8}{subsubsection.6.1.2}%
+\contentsline {paragraph}{\numberline {6.1.2.1}Image()}{8}{paragraph.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.3}Опис методів компонент}{8}{subsubsection.6.1.3}%
+\contentsline {paragraph}{\numberline {6.1.3.1}julia()}{8}{paragraph.6.1.3.1}%
+\contentsline {subsubsection}{\numberline {6.1.4}Компонентні дані}{9}{subsubsection.6.1.4}%
+\contentsline {paragraph}{\numberline {6.1.4.1}data}{9}{paragraph.6.1.4.1}%
+\contentsline {paragraph}{\numberline {6.1.4.2}size}{9}{paragraph.6.1.4.2}%
+\contentsline {subsection}{\numberline {6.2}Клас Julia}{9}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Детальний опис}{10}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Конструктор(и)}{10}{subsubsection.6.2.2}%
+\contentsline {paragraph}{\numberline {6.2.2.1}Julia()}{11}{paragraph.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.3}Опис методів компонент}{11}{subsubsection.6.2.3}%
+\contentsline {paragraph}{\numberline {6.2.3.1}getCoords()}{11}{paragraph.6.2.3.1}%
+\contentsline {paragraph}{\numberline {6.2.3.2}getInfinityBorder()}{11}{paragraph.6.2.3.2}%
+\contentsline {paragraph}{\numberline {6.2.3.3}getMax()}{12}{paragraph.6.2.3.3}%
+\contentsline {paragraph}{\numberline {6.2.3.4}getMaxIterations()}{12}{paragraph.6.2.3.4}%
+\contentsline {paragraph}{\numberline {6.2.3.5}getMin()}{12}{paragraph.6.2.3.5}%
+\contentsline {paragraph}{\numberline {6.2.3.6}getZ()}{13}{paragraph.6.2.3.6}%
+\contentsline {paragraph}{\numberline {6.2.3.7}imConfig()}{13}{paragraph.6.2.3.7}%
+\contentsline {subsubsection}{\numberline {6.2.4}Компонентні дані}{13}{subsubsection.6.2.4}%
+\contentsline {paragraph}{\numberline {6.2.4.1}infinityBorder}{13}{paragraph.6.2.4.1}%
+\contentsline {paragraph}{\numberline {6.2.4.2}maxIterations}{13}{paragraph.6.2.4.2}%
+\contentsline {paragraph}{\numberline {6.2.4.3}maxValue}{14}{paragraph.6.2.4.3}%
+\contentsline {paragraph}{\numberline {6.2.4.4}minValue}{14}{paragraph.6.2.4.4}%
+\contentsline {paragraph}{\numberline {6.2.4.5}z}{14}{paragraph.6.2.4.5}%
+\contentsline {section}{\numberline {7}Файли}{14}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Файл image.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{14}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}image.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{15}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Файл image.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{15}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Опис макровизначень}{16}{subsubsection.7.3.1}%
+\contentsline {paragraph}{\numberline {7.3.1.1}COMP}{16}{paragraph.7.3.1.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Опис визначень типів}{16}{subsubsection.7.3.2}%
+\contentsline {paragraph}{\numberline {7.3.2.1}color\_t}{16}{paragraph.7.3.2.1}%
+\contentsline {paragraph}{\numberline {7.3.2.2}pixel\_t}{16}{paragraph.7.3.2.2}%
+\contentsline {subsection}{\numberline {7.4}image.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{16}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Файл julia.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{16}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}julia.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{17}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Файл julia.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{17}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}julia.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{17}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.9}Файл main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{18}{subsection.7.9}%
+\contentsline {subsubsection}{\numberline {7.9.1}Опис макровизначень}{18}{subsubsection.7.9.1}%
+\contentsline {paragraph}{\numberline {7.9.1.1}PROJECT\_NAME}{18}{paragraph.7.9.1.1}%
+\contentsline {subsubsection}{\numberline {7.9.2}Опис функцій}{18}{subsubsection.7.9.2}%
+\contentsline {paragraph}{\numberline {7.9.2.1}main()}{19}{paragraph.7.9.2.1}%
+\contentsline {subsection}{\numberline {7.10}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{19}{subsection.7.10}%
+\contentsline {subsection}{\numberline {7.11}Файл main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{20}{subsection.7.11}%
+\contentsline {subsection}{\numberline {7.12}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{20}{subsection.7.12}%
+\contentsline {subsection}{\numberline {7.13}Файл mainpage.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dox}{21}{subsection.7.13}%

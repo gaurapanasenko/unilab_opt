@@ -1,0 +1,47 @@
+\hypertarget{image_8cpp_source}{}\doxysubsection{image.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <complex>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{image_8h}{image.h}}"{}}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00005}\mbox{\hyperlink{classImage_ab32b4cf543800fa73b3e09b9ff5ccefc}{00005}} \mbox{\hyperlink{classImage_ab32b4cf543800fa73b3e09b9ff5ccefc}{Image::Image}}(std::shared\_ptr<\textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\_t}}[]> data,}
+\DoxyCodeLine{00006              \textcolor{keyword}{const} \textcolor{keywordtype}{int} size[])}
+\DoxyCodeLine{00007     : data(data), size\{size[0], size[1]\}}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009 \}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{\Hypertarget{image_8cpp_source_l00011}\mbox{\hyperlink{classImage_af78df392b4647daeaab7c5c8faa0a672}{00011}} \mbox{\hyperlink{classImage}{Image}} \mbox{\hyperlink{classImage_af78df392b4647daeaab7c5c8faa0a672}{Image::julia}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} size[], \textcolor{keyword}{const} \mbox{\hyperlink{classJulia}{Julia}} \&jul)}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013     \textcolor{keyword}{const} \textcolor{keywordtype}{int} width = \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[0], height = \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[1];}
+\DoxyCodeLine{00014     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\_t}}[\mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[0] * \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[1]]);}
+\DoxyCodeLine{00015     std::pair<float, float> coord;}
+\DoxyCodeLine{00016     std::complex<float> \mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}}(jul.\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}}()[0], jul.\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}}()[1]), \mbox{\hyperlink{namespacemain_a078ad2dd792acdae58c3e73518f03804}{c}};}
+\DoxyCodeLine{00017     \textcolor{keywordtype}{int} maxIters = jul.\mbox{\hyperlink{classJulia_a736f205303f3cb6b729d8792bda3aafc}{getMaxIterations}}();}
+\DoxyCodeLine{00018     \textcolor{keywordtype}{float} inf = jul.\mbox{\hyperlink{classJulia_a907a4b40ac9337047af187a38efa34ab}{getInfinityBorder}}();}
+\DoxyCodeLine{00019     \textcolor{keywordtype}{int} i, j, \mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}}, cur = 0;}
+\DoxyCodeLine{00020     \textcolor{keywordflow}{for} (i = 0; i < width; i++) \{}
+\DoxyCodeLine{00021         \textcolor{keywordflow}{for} (j = 0; j < height; j++) \{}
+\DoxyCodeLine{00022             coord = jul.\mbox{\hyperlink{classJulia_ac922b442a55c9af512ddb1a418f2d338}{getCoords}}(i, j, \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}});}
+\DoxyCodeLine{00023             cur = 0;}
+\DoxyCodeLine{00024             \mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}} = std::complex<float>(jul.\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}}()[0], jul.\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}}()[1]);}
+\DoxyCodeLine{00025             \mbox{\hyperlink{namespacemain_a078ad2dd792acdae58c3e73518f03804}{c}} = std::complex<float>(coord.first, coord.second);}
+\DoxyCodeLine{00026             \textcolor{keywordflow}{for} (\mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}} = 0; \mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}} < maxIters; \mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}}++) \{}
+\DoxyCodeLine{00027                 \mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}} = pow(\mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}}, 2) + \mbox{\hyperlink{namespacemain_a078ad2dd792acdae58c3e73518f03804}{c}};}
+\DoxyCodeLine{00028                 \textcolor{keywordflow}{if} (abs(\mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}}) > inf) \{}
+\DoxyCodeLine{00029                     cur = \mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}} * 255 / maxIters;}
+\DoxyCodeLine{00030                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00031                 \}}
+\DoxyCodeLine{00032             \}}
+\DoxyCodeLine{00033             out\_data[j * width + i][0] = 0 * i / width;}
+\DoxyCodeLine{00034             out\_data[j * width + i][1] = cur;}
+\DoxyCodeLine{00035             out\_data[j * width + i][2] = 0 * j / height;}
+\DoxyCodeLine{00036             \textcolor{comment}{/*for (k = 0; k < 3; k++)}}
+\DoxyCodeLine{00037 \textcolor{comment}{                out\_data[j * width + i][k] = cur;*/}}
+\DoxyCodeLine{00038             out\_data[j * width + i][3] = 255;}
+\DoxyCodeLine{00039         \}}
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{return} \{out\_data, \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}\};}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}

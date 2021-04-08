@@ -1,0 +1,57 @@
+\hypertarget{julia_8cpp_source}{}\doxysubsection{julia.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <imgui.h>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{julia_8h}{julia.h}}"{}}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{\Hypertarget{julia_8cpp_source_l00005}\mbox{\hyperlink{classJulia_a36f250fe5454e8cf995c19661f52f219}{00005}} \mbox{\hyperlink{classJulia_a36f250fe5454e8cf995c19661f52f219}{Julia::Julia}}()}
+\DoxyCodeLine{00006     : minValue\{-\/2, -\/2\}, maxValue\{2, 2\},}
+\DoxyCodeLine{00007       maxIterations(50), infinityBorder(10), \mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}}\{0, 0\}}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 \}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{\Hypertarget{julia_8cpp_source_l00012}\mbox{\hyperlink{classJulia_ad85ffa6a8f2906f93df38ebbdeaaebcc}{00012}} \textcolor{keyword}{const} \textcolor{keywordtype}{float} *\mbox{\hyperlink{classJulia_ad85ffa6a8f2906f93df38ebbdeaaebcc}{Julia::getMin}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00013 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00014     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}};}
+\DoxyCodeLine{00015 \}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{\Hypertarget{julia_8cpp_source_l00017}\mbox{\hyperlink{classJulia_ab490e00779644a1678beadd2d4c4c320}{00017}} \textcolor{keyword}{const} \textcolor{keywordtype}{float} *\mbox{\hyperlink{classJulia_ab490e00779644a1678beadd2d4c4c320}{Julia::getMax}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00018 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}};}
+\DoxyCodeLine{00020 \}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{\Hypertarget{julia_8cpp_source_l00022}\mbox{\hyperlink{classJulia_a736f205303f3cb6b729d8792bda3aafc}{00022}} \textcolor{keywordtype}{int} \mbox{\hyperlink{classJulia_a736f205303f3cb6b729d8792bda3aafc}{Julia::getMaxIterations}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00023 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_ab6e8c538e50c1888baf3eb2153c69013}{maxIterations}};}
+\DoxyCodeLine{00025 \}}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{\Hypertarget{julia_8cpp_source_l00027}\mbox{\hyperlink{classJulia_a907a4b40ac9337047af187a38efa34ab}{00027}} \textcolor{keywordtype}{float} \mbox{\hyperlink{classJulia_a907a4b40ac9337047af187a38efa34ab}{Julia::getInfinityBorder}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{00028 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00029     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_ae60198288107cb249f5ab7d822db2b1f}{infinityBorder}};}
+\DoxyCodeLine{00030 \}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{\Hypertarget{julia_8cpp_source_l00032}\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{00032}} \textcolor{keyword}{const} \textcolor{keywordtype}{float} *\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{Julia::getZ}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_a2d8d5d1074c503be69594bc89c73bd69}{z}};}
+\DoxyCodeLine{00034 \}}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{\Hypertarget{julia_8cpp_source_l00036}\mbox{\hyperlink{classJulia_ac922b442a55c9af512ddb1a418f2d338}{00036}} std::pair<float, float> \mbox{\hyperlink{classJulia_ac922b442a55c9af512ddb1a418f2d338}{Julia::getCoords}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \textcolor{keyword}{const} \textcolor{keywordtype}{int} size[])\textcolor{keyword}{ const}}
+\DoxyCodeLine{00037 \textcolor{keyword}{}\{}
+\DoxyCodeLine{00038     std::pair<float, float> out(0, 0);}
+\DoxyCodeLine{00039     out.first = (\mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}[0] -\/ \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}[0]) * x / size[0] + \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}[0];}
+\DoxyCodeLine{00040     out.second = (\mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}[1] -\/ \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}[1]) * y / size[1] + \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}[1];}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{00042 \}}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{\Hypertarget{julia_8cpp_source_l00044}\mbox{\hyperlink{classJulia_a29688cf44f5ce0a352b1e731a446dc3c}{00044}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classJulia_a29688cf44f5ce0a352b1e731a446dc3c}{Julia::imConfig}}()}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046     \textcolor{keywordtype}{bool} changed = \textcolor{keyword}{false};}
+\DoxyCodeLine{00047     changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}X"{}}, \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}, \mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}+1, 0.01, -\/3, 3);}
+\DoxyCodeLine{00048     changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}Y"{}}, \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}+1, \mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}, 0.01, -\/3, 3);}
+\DoxyCodeLine{00049     changed |= ImGui::SliderInt(\textcolor{stringliteral}{"{}Max iterations"{}}, \&\mbox{\hyperlink{classJulia_ab6e8c538e50c1888baf3eb2153c69013}{maxIterations}}, 1, 400);}
+\DoxyCodeLine{00050     changed |= ImGui::DragFloat2(\textcolor{stringliteral}{"{}Z"{}}, \mbox{\hyperlink{classJulia_a2d8d5d1074c503be69594bc89c73bd69}{z}}, 0.01, -\/3, 3);}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{return} changed;}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}

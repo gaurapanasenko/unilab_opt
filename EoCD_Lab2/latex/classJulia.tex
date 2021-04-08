@@ -1,0 +1,348 @@
+\hypertarget{classJulia}{}\doxysubsection{Клас Julia}
+\label{classJulia}\index{Julia@{Julia}}
+
+
+Зберігає параметри для генерації множини Жуліа та створює вікно для їх налаштування.  
+
+
+
+
+{\ttfamily \#include $<$julia.\+h$>$}
+
+\doxysubsubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJulia_a36f250fe5454e8cf995c19661f52f219}{Julia}} ()
+\begin{DoxyCompactList}\small\item\em Сторює клас із начальними параметрами. За замовчанням виставлено\+: \end{DoxyCompactList}\item 
+const float $\ast$ \mbox{\hyperlink{classJulia_ad85ffa6a8f2906f93df38ebbdeaaebcc}{get\+Min}} () const
+\begin{DoxyCompactList}\small\item\em Забираємо мінімальні значення по обом осям. \end{DoxyCompactList}\item 
+const float $\ast$ \mbox{\hyperlink{classJulia_ab490e00779644a1678beadd2d4c4c320}{get\+Max}} () const
+\begin{DoxyCompactList}\small\item\em Забираємо максимальними значення по обом осям. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classJulia_a736f205303f3cb6b729d8792bda3aafc}{get\+Max\+Iterations}} () const
+\begin{DoxyCompactList}\small\item\em Забираємо максимальну кількість ітерацій. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classJulia_a907a4b40ac9337047af187a38efa34ab}{get\+Infinity\+Border}} () const
+\begin{DoxyCompactList}\small\item\em забираємо границю переходу у безкінечність. \end{DoxyCompactList}\item 
+const float $\ast$ \mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}} () const
+\begin{DoxyCompactList}\small\item\em забираємо початкове значення комплексного числа {\ttfamily z} \end{DoxyCompactList}\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classJulia_ac922b442a55c9af512ddb1a418f2d338}{get\+Coords}} (int x, int y, const int size\mbox{[}2\mbox{]}) const
+\begin{DoxyCompactList}\small\item\em Перетворює координати пікселів у координати множини Жуліа. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classJulia_a29688cf44f5ce0a352b1e731a446dc3c}{im\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Створює вікно для редагування параметрів. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Приватні дані}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{min\+Value}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Мінімальне значення по осі X та по осі Y. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{max\+Value}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Максимальне значення по осі X та по осі Y. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classJulia_ab6e8c538e50c1888baf3eb2153c69013}{max\+Iterations}}
+\begin{DoxyCompactList}\small\item\em Максимальна кількість ітерацій яку потрібно виконати, перед тим як вважати що ми знаходимося за множиною Жуліа. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classJulia_ae60198288107cb249f5ab7d822db2b1f}{infinity\+Border}}
+\begin{DoxyCompactList}\small\item\em Вважаємо що, якщо норма комплексного числа вишла за це число, то ми знаходимося за множиною Жуліа. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classJulia_a2d8d5d1074c503be69594bc89c73bd69}{z}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Початкове значення комплексного числа {\ttfamily z}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Детальний опис}
+Зберігає параметри для генерації множини Жуліа та створює вікно для їх налаштування. 
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8h_source}{julia.\+h}}, рядок \mbox{\hyperlink{julia_8h_source_l00009}{9}}
+
+
+
+\doxysubsubsection{Конструктор(и)}
+\mbox{\Hypertarget{classJulia_a36f250fe5454e8cf995c19661f52f219}\label{classJulia_a36f250fe5454e8cf995c19661f52f219}} 
+\index{Julia@{Julia}!Julia@{Julia}}
+\index{Julia@{Julia}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{Julia()}{Julia()}}
+{\footnotesize\ttfamily Julia\+::\+Julia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Сторює клас із начальними параметрами. За замовчанням виставлено\+: 
+
+
+\begin{DoxyItemize}
+\item коодинатна сітка у діапазонах \mbox{[}-\/2, 2\mbox{]} по обом осям,
+\item максимальна кількіст ітерацій 50,
+\item границя переходу у безкінечність 10. 
+\end{DoxyItemize}
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8cpp_source}{julia.\+cpp}}, рядок \mbox{\hyperlink{julia_8cpp_source_l00005}{5}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006     : \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}\{-\/2, -\/2\}, \mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}\{2, 2\},}
+\DoxyCodeLine{00007       \mbox{\hyperlink{classJulia_ab6e8c538e50c1888baf3eb2153c69013}{maxIterations}}(50), \mbox{\hyperlink{classJulia_ae60198288107cb249f5ab7d822db2b1f}{infinityBorder}}(10), \mbox{\hyperlink{classJulia_a2d8d5d1074c503be69594bc89c73bd69}{z}}\{0, 0\}}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис методів компонент}
+\mbox{\Hypertarget{classJulia_ac922b442a55c9af512ddb1a418f2d338}\label{classJulia_ac922b442a55c9af512ddb1a418f2d338}} 
+\index{Julia@{Julia}!getCoords@{getCoords}}
+\index{getCoords@{getCoords}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{getCoords()}{getCoords()}}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Julia\+::get\+Coords (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const int}]{size\mbox{[}2\mbox{]} }\end{DoxyParamCaption}) const}
+
+
+
+Перетворює координати пікселів у координати множини Жуліа. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em x} & номер пікселя по осі X \\
+\hline
+{\em y} & номер пікселя по осі Y \\
+\hline
+{\em size} & розмір картинки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+координати множини Жуліа 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8cpp_source}{julia.\+cpp}}, рядок \mbox{\hyperlink{julia_8cpp_source_l00036}{36}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037 \{}
+\DoxyCodeLine{00038     std::pair<float, float> out(0, 0);}
+\DoxyCodeLine{00039     out.first = (\mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}[0] -\/ \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}[0]) * x / size[0] + \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}[0];}
+\DoxyCodeLine{00040     out.second = (\mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}[1] -\/ \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}[1]) * y / size[1] + \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}[1];}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classJulia_a907a4b40ac9337047af187a38efa34ab}\label{classJulia_a907a4b40ac9337047af187a38efa34ab}} 
+\index{Julia@{Julia}!getInfinityBorder@{getInfinityBorder}}
+\index{getInfinityBorder@{getInfinityBorder}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{getInfinityBorder()}{getInfinityBorder()}}
+{\footnotesize\ttfamily float Julia\+::get\+Infinity\+Border (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+забираємо границю переходу у безкінечність. 
+
+\begin{DoxyReturn}{Повертає}
+границя переходу у безкінечність 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8cpp_source}{julia.\+cpp}}, рядок \mbox{\hyperlink{julia_8cpp_source_l00027}{27}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028 \{}
+\DoxyCodeLine{00029     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_ae60198288107cb249f5ab7d822db2b1f}{infinityBorder}};}
+\DoxyCodeLine{00030 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classJulia_ab490e00779644a1678beadd2d4c4c320}\label{classJulia_ab490e00779644a1678beadd2d4c4c320}} 
+\index{Julia@{Julia}!getMax@{getMax}}
+\index{getMax@{getMax}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{getMax()}{getMax()}}
+{\footnotesize\ttfamily const float $\ast$ Julia\+::get\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Забираємо максимальними значення по обом осям. 
+
+\begin{DoxyReturn}{Повертає}
+массив із мксимальними значеннями 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8cpp_source}{julia.\+cpp}}, рядок \mbox{\hyperlink{julia_8cpp_source_l00017}{17}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}};}
+\DoxyCodeLine{00020 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classJulia_a736f205303f3cb6b729d8792bda3aafc}\label{classJulia_a736f205303f3cb6b729d8792bda3aafc}} 
+\index{Julia@{Julia}!getMaxIterations@{getMaxIterations}}
+\index{getMaxIterations@{getMaxIterations}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{getMaxIterations()}{getMaxIterations()}}
+{\footnotesize\ttfamily int Julia\+::get\+Max\+Iterations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Забираємо максимальну кількість ітерацій. 
+
+\begin{DoxyReturn}{Повертає}
+максимальна кількість ітерацій 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8cpp_source}{julia.\+cpp}}, рядок \mbox{\hyperlink{julia_8cpp_source_l00022}{22}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023 \{}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_ab6e8c538e50c1888baf3eb2153c69013}{maxIterations}};}
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classJulia_ad85ffa6a8f2906f93df38ebbdeaaebcc}\label{classJulia_ad85ffa6a8f2906f93df38ebbdeaaebcc}} 
+\index{Julia@{Julia}!getMin@{getMin}}
+\index{getMin@{getMin}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{getMin()}{getMin()}}
+{\footnotesize\ttfamily const float $\ast$ Julia\+::get\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Забираємо мінімальні значення по обом осям. 
+
+\begin{DoxyReturn}{Повертає}
+массив із мінімальни значеннями 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8cpp_source}{julia.\+cpp}}, рядок \mbox{\hyperlink{julia_8cpp_source_l00012}{12}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013 \{}
+\DoxyCodeLine{00014     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}};}
+\DoxyCodeLine{00015 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classJulia_aea31a4ba2076cea30cd74e91877fb013}\label{classJulia_aea31a4ba2076cea30cd74e91877fb013}} 
+\index{Julia@{Julia}!getZ@{getZ}}
+\index{getZ@{getZ}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{getZ()}{getZ()}}
+{\footnotesize\ttfamily const float $\ast$ Julia\+::getZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+забираємо початкове значення комплексного числа {\ttfamily z} 
+
+\begin{DoxyReturn}{Повертає}
+значення комплексного числа {\ttfamily z} 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8cpp_source}{julia.\+cpp}}, рядок \mbox{\hyperlink{julia_8cpp_source_l00032}{32}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032                                \{}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{return} \mbox{\hyperlink{classJulia_a2d8d5d1074c503be69594bc89c73bd69}{z}};}
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classJulia_a29688cf44f5ce0a352b1e731a446dc3c}\label{classJulia_a29688cf44f5ce0a352b1e731a446dc3c}} 
+\index{Julia@{Julia}!imConfig@{imConfig}}
+\index{imConfig@{imConfig}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{imConfig()}{imConfig()}}
+{\footnotesize\ttfamily bool Julia\+::im\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Створює вікно для редагування параметрів. 
+
+\begin{DoxyReturn}{Повертає}
+перевірка, чи були змінені параметри у класі. 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8cpp_source}{julia.\+cpp}}, рядок \mbox{\hyperlink{julia_8cpp_source_l00044}{44}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046     \textcolor{keywordtype}{bool} changed = \textcolor{keyword}{false};}
+\DoxyCodeLine{00047     changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}X"{}}, \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}, \mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}+1, 0.01, -\/3, 3);}
+\DoxyCodeLine{00048     changed |= ImGui::DragFloatRange2(\textcolor{stringliteral}{"{}Y"{}}, \mbox{\hyperlink{classJulia_a8db1417fc9054daadfae7d33d5fffe53}{minValue}}+1, \mbox{\hyperlink{classJulia_a3ddde41f088205a0041c48a053a12670}{maxValue}}, 0.01, -\/3, 3);}
+\DoxyCodeLine{00049     changed |= ImGui::SliderInt(\textcolor{stringliteral}{"{}Max iterations"{}}, \&\mbox{\hyperlink{classJulia_ab6e8c538e50c1888baf3eb2153c69013}{maxIterations}}, 1, 400);}
+\DoxyCodeLine{00050     changed |= ImGui::DragFloat2(\textcolor{stringliteral}{"{}Z"{}}, \mbox{\hyperlink{classJulia_a2d8d5d1074c503be69594bc89c73bd69}{z}}, 0.01, -\/3, 3);}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{return} changed;}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Компонентні дані}
+\mbox{\Hypertarget{classJulia_ae60198288107cb249f5ab7d822db2b1f}\label{classJulia_ae60198288107cb249f5ab7d822db2b1f}} 
+\index{Julia@{Julia}!infinityBorder@{infinityBorder}}
+\index{infinityBorder@{infinityBorder}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{infinityBorder}{infinityBorder}}
+{\footnotesize\ttfamily float Julia\+::infinity\+Border\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Вважаємо що, якщо норма комплексного числа вишла за це число, то ми знаходимося за множиною Жуліа. 
+
+Це число означає що всі значення норми вище за це ми будемо вважати безкінечністью. 
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8h_source}{julia.\+h}}, рядок \mbox{\hyperlink{julia_8h_source_l00031}{31}}
+
+\mbox{\Hypertarget{classJulia_ab6e8c538e50c1888baf3eb2153c69013}\label{classJulia_ab6e8c538e50c1888baf3eb2153c69013}} 
+\index{Julia@{Julia}!maxIterations@{maxIterations}}
+\index{maxIterations@{maxIterations}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{maxIterations}{maxIterations}}
+{\footnotesize\ttfamily int Julia\+::max\+Iterations\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Максимальна кількість ітерацій яку потрібно виконати, перед тим як вважати що ми знаходимося за множиною Жуліа. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8h_source}{julia.\+h}}, рядок \mbox{\hyperlink{julia_8h_source_l00023}{23}}
+
+\mbox{\Hypertarget{classJulia_a3ddde41f088205a0041c48a053a12670}\label{classJulia_a3ddde41f088205a0041c48a053a12670}} 
+\index{Julia@{Julia}!maxValue@{maxValue}}
+\index{maxValue@{maxValue}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{maxValue}{maxValue}}
+{\footnotesize\ttfamily float Julia\+::max\+Value\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Максимальне значення по осі X та по осі Y. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8h_source}{julia.\+h}}, рядок \mbox{\hyperlink{julia_8h_source_l00018}{18}}
+
+\mbox{\Hypertarget{classJulia_a8db1417fc9054daadfae7d33d5fffe53}\label{classJulia_a8db1417fc9054daadfae7d33d5fffe53}} 
+\index{Julia@{Julia}!minValue@{minValue}}
+\index{minValue@{minValue}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{minValue}{minValue}}
+{\footnotesize\ttfamily float Julia\+::min\+Value\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Мінімальне значення по осі X та по осі Y. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8h_source}{julia.\+h}}, рядок \mbox{\hyperlink{julia_8h_source_l00014}{14}}
+
+\mbox{\Hypertarget{classJulia_a2d8d5d1074c503be69594bc89c73bd69}\label{classJulia_a2d8d5d1074c503be69594bc89c73bd69}} 
+\index{Julia@{Julia}!z@{z}}
+\index{z@{z}!Julia@{Julia}}
+\doxyparagraph{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily float Julia\+::z\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Початкове значення комплексного числа {\ttfamily z}. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{julia_8h_source}{julia.\+h}}, рядок \mbox{\hyperlink{julia_8h_source_l00035}{35}}
+
+
+
+Документація цих класів була створена з файлів\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{julia_8h}{julia.\+h}}\item 
+\mbox{\hyperlink{julia_8cpp}{julia.\+cpp}}\end{DoxyCompactItemize}

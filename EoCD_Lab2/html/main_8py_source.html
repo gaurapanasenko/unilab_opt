@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторна робота 2: Текст програми main.py</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторна робота 2
+   </div>
+   <div id="projectbrief">Элементи хаотичної динаміки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8py.html">Див. документацію.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacemain.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> cv2</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="namespacemain.html#a5e0c5a1026787434867621b0697ce7d6">    6</a></span>&#160;pmin, pmax, qmin, qmax = -2, 2, -2, 2</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespacemain.html#ae339aaa77bc367f02107a39e1252816f">    7</a></span>&#160;ppoints, qpoints = 500, 500</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacemain.html#abab21f4766f0d312c619044e9aaff0ea">    8</a></span>&#160;max_iterations = 10</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacemain.html#a47e31ec8fa1129dad6660c5a1b479315">    9</a></span>&#160;infinity_border = 10</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacemain.html#a377f0d69bf08cd5269df59e68932993b">   11</a></span>&#160;image = np.zeros((ppoints, qpoints), dtype=<span class="stringliteral">&quot;uint8&quot;</span>)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespacemain.html#a9414a588e926bdddab7b16638c3ec9e7">   13</a></span>&#160;pp = np.linspace(pmin, pmax, ppoints)</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacemain.html#adced31b05118ca74555058d52efb944d">   14</a></span>&#160;qq = np.linspace(qmin, qmax, qpoints)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;print(<span class="stringliteral">&quot;hi&quot;</span>)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordflow">for</span> ip, p <span class="keywordflow">in</span> enumerate(pp):</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">for</span> iq, q <span class="keywordflow">in</span> enumerate(qq):</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacemain.html#a51f766067fc5b0bf9d7833475b89fa78">   19</a></span>&#160;        z = 0</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespacemain.html#a078ad2dd792acdae58c3e73518f03804">   20</a></span>&#160;        c = p + 1j * q</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(max_iterations):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            z = z**2 + c</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">if</span> abs(z) &gt; infinity_border:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                image[iq,ip] = k * 20</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;cv2.imshow(<span class="stringliteral">&quot;img&quot;</span>, image)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacemain.html#abf32b47b98ca1d3527b88a6c3cf4f2cc">   30</a></span>&#160;    k = cv2.waitKey(0) &amp; 0xFF</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span> k == ord(<span class="stringliteral">&quot;q&quot;</span>):</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">break</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

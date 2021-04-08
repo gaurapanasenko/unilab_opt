@@ -1,0 +1,165 @@
+\hypertarget{classImage}{}\doxysubsection{Клас Image}
+\label{classImage}\index{Image@{Image}}
+
+
+Зберігає самі піскелі, та розмір картинки.  
+
+
+
+
+{\ttfamily \#include $<$image.\+h$>$}
+
+\doxysubsubsection*{Загальнодоступні елементи}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classImage_ab32b4cf543800fa73b3e09b9ff5ccefc}{Image}} (shared\+\_\+ptr$<$ const \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\+\_\+t}}\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}, const int \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Конструктор, який поеднує пікселі картинки, та її розмір у цей клас. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Загальнодоступні статичні елементи}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classImage}{Image}} \mbox{\hyperlink{classImage_af78df392b4647daeaab7c5c8faa0a672}{julia}} (const int \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}\mbox{[}2\mbox{]}, const \mbox{\hyperlink{classJulia}{Julia}} \&jul)
+\begin{DoxyCompactList}\small\item\em Метод який генерує нову картинку множини Жуліа. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Загальнодоступні атрибути}
+\begin{DoxyCompactItemize}
+\item 
+shared\+\_\+ptr$<$ const \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\+\_\+t}}\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}
+\begin{DoxyCompactList}\small\item\em Пікселі картинки. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Розмір картинки \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Детальний опис}
+Зберігає самі піскелі, та розмір картинки. 
+
+Див. визначення в файлі \mbox{\hyperlink{image_8h_source}{image.\+h}}, рядок \mbox{\hyperlink{image_8h_source_l00024}{24}}
+
+
+
+\doxysubsubsection{Конструктор(и)}
+\mbox{\Hypertarget{classImage_ab32b4cf543800fa73b3e09b9ff5ccefc}\label{classImage_ab32b4cf543800fa73b3e09b9ff5ccefc}} 
+\index{Image@{Image}!Image@{Image}}
+\index{Image@{Image}!Image@{Image}}
+\doxyparagraph{\texorpdfstring{Image()}{Image()}}
+{\footnotesize\ttfamily Image\+::\+Image (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ const \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\+\_\+t}}\mbox{[}$\,$\mbox{]}$>$}]{data,  }\item[{const int}]{size\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Конструктор, який поеднує пікселі картинки, та її розмір у цей клас. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em data} & пікселі картинки \\
+\hline
+{\em size} & розмір картинки \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{image_8cpp_source}{image.\+cpp}}, рядок \mbox{\hyperlink{image_8cpp_source_l00005}{5}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007     : \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}(\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}}), \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}\{\mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[0], \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[1]\}}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис методів компонент}
+\mbox{\Hypertarget{classImage_af78df392b4647daeaab7c5c8faa0a672}\label{classImage_af78df392b4647daeaab7c5c8faa0a672}} 
+\index{Image@{Image}!julia@{julia}}
+\index{julia@{julia}!Image@{Image}}
+\doxyparagraph{\texorpdfstring{julia()}{julia()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImage}{Image}} Image\+::julia (\begin{DoxyParamCaption}\item[{const int}]{size\mbox{[}2\mbox{]},  }\item[{const \mbox{\hyperlink{classJulia}{Julia}} \&}]{jul }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Метод який генерує нову картинку множини Жуліа. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em size} & розмір картинки \\
+\hline
+{\em jul} & вхідні параметри, які будуть використовуватися для генерації \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+нова картинка множини Жуліа 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{image_8cpp_source}{image.\+cpp}}, рядок \mbox{\hyperlink{image_8cpp_source_l00011}{11}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013     \textcolor{keyword}{const} \textcolor{keywordtype}{int} width = \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[0], height = \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[1];}
+\DoxyCodeLine{00014     std::shared\_ptr<pixel\_t[]> out\_data(\textcolor{keyword}{new} \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\_t}}[\mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[0] * \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}[1]]);}
+\DoxyCodeLine{00015     std::pair<float, float> coord;}
+\DoxyCodeLine{00016     std::complex<float> \mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}}(jul.\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}}()[0], jul.\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}}()[1]), \mbox{\hyperlink{namespacemain_a078ad2dd792acdae58c3e73518f03804}{c}};}
+\DoxyCodeLine{00017     \textcolor{keywordtype}{int} maxIters = jul.\mbox{\hyperlink{classJulia_a736f205303f3cb6b729d8792bda3aafc}{getMaxIterations}}();}
+\DoxyCodeLine{00018     \textcolor{keywordtype}{float} inf = jul.\mbox{\hyperlink{classJulia_a907a4b40ac9337047af187a38efa34ab}{getInfinityBorder}}();}
+\DoxyCodeLine{00019     \textcolor{keywordtype}{int} i, j, \mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}}, cur = 0;}
+\DoxyCodeLine{00020     \textcolor{keywordflow}{for} (i = 0; i < width; i++) \{}
+\DoxyCodeLine{00021         \textcolor{keywordflow}{for} (j = 0; j < height; j++) \{}
+\DoxyCodeLine{00022             coord = jul.\mbox{\hyperlink{classJulia_ac922b442a55c9af512ddb1a418f2d338}{getCoords}}(i, j, \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}});}
+\DoxyCodeLine{00023             cur = 0;}
+\DoxyCodeLine{00024             \mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}} = std::complex<float>(jul.\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}}()[0], jul.\mbox{\hyperlink{classJulia_aea31a4ba2076cea30cd74e91877fb013}{getZ}}()[1]);}
+\DoxyCodeLine{00025             \mbox{\hyperlink{namespacemain_a078ad2dd792acdae58c3e73518f03804}{c}} = std::complex<float>(coord.first, coord.second);}
+\DoxyCodeLine{00026             \textcolor{keywordflow}{for} (\mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}} = 0; \mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}} < maxIters; \mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}}++) \{}
+\DoxyCodeLine{00027                 \mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}} = pow(\mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}}, 2) + \mbox{\hyperlink{namespacemain_a078ad2dd792acdae58c3e73518f03804}{c}};}
+\DoxyCodeLine{00028                 \textcolor{keywordflow}{if} (abs(\mbox{\hyperlink{namespacemain_a51f766067fc5b0bf9d7833475b89fa78}{z}}) > inf) \{}
+\DoxyCodeLine{00029                     cur = \mbox{\hyperlink{namespacemain_abf32b47b98ca1d3527b88a6c3cf4f2cc}{k}} * 255 / maxIters;}
+\DoxyCodeLine{00030                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00031                 \}}
+\DoxyCodeLine{00032             \}}
+\DoxyCodeLine{00033             out\_data[j * width + i][0] = 0 * i / width;}
+\DoxyCodeLine{00034             out\_data[j * width + i][1] = cur;}
+\DoxyCodeLine{00035             out\_data[j * width + i][2] = 0 * j / height;}
+\DoxyCodeLine{00036             \textcolor{comment}{/*for (k = 0; k < 3; k++)}}
+\DoxyCodeLine{00037 \textcolor{comment}{                out\_data[j * width + i][k] = cur;*/}}
+\DoxyCodeLine{00038             out\_data[j * width + i][3] = 255;}
+\DoxyCodeLine{00039         \}}
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{return} \{out\_data, \mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{size}}\};}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Компонентні дані}
+\mbox{\Hypertarget{classImage_a0bff7334a9e45a84e0503448af829bbb}\label{classImage_a0bff7334a9e45a84e0503448af829bbb}} 
+\index{Image@{Image}!data@{data}}
+\index{data@{data}!Image@{Image}}
+\doxyparagraph{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$const \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\+\_\+t}}\mbox{[}$\,$\mbox{]}$>$ Image\+::data}
+
+
+
+Пікселі картинки. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{image_8h_source}{image.\+h}}, рядок \mbox{\hyperlink{image_8h_source_l00030}{30}}
+
+\mbox{\Hypertarget{classImage_ae47132c595efe5a83e903d6a541f578f}\label{classImage_ae47132c595efe5a83e903d6a541f578f}} 
+\index{Image@{Image}!size@{size}}
+\index{size@{size}!Image@{Image}}
+\doxyparagraph{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily const int Image\+::size\mbox{[}2\mbox{]}}
+
+
+
+Розмір картинки 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{image_8h_source}{image.\+h}}, рядок \mbox{\hyperlink{image_8h_source_l00034}{34}}
+
+
+
+Документація цих класів була створена з файлів\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{image_8h}{image.\+h}}\item 
+\mbox{\hyperlink{image_8cpp}{image.\+cpp}}\end{DoxyCompactItemize}

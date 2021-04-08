@@ -1,0 +1,29 @@
+\hypertarget{image_8h_source}{}\doxysubsection{image.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef IMAGE\_H}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define IMAGE\_H}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#import "{}\mbox{\hyperlink{julia_8h}{julia.h}}"{}}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00006}\mbox{\hyperlink{image_8h_a076912543697dbe4c46b79e8e44ad2fb}{00006}} \textcolor{preprocessor}{\#define COMP 4}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00014}\mbox{\hyperlink{image_8h_a34dec19af6e5af0115fcd30808101008}{00014}} \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \mbox{\hyperlink{image_8h_a34dec19af6e5af0115fcd30808101008}{color\_t}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00019}\mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{00019}} \textcolor{keyword}{typedef} \mbox{\hyperlink{image_8h_a34dec19af6e5af0115fcd30808101008}{color\_t}} \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\_t}}[\mbox{\hyperlink{image_8h_a076912543697dbe4c46b79e8e44ad2fb}{COMP}}];}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00024}\mbox{\hyperlink{classImage}{00024}} \textcolor{keyword}{class }\mbox{\hyperlink{classImage}{Image}}}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00026 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00030}\mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{00030}}     shared\_ptr<const pixel\_t[]> \mbox{\hyperlink{classImage_a0bff7334a9e45a84e0503448af829bbb}{data}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00034}\mbox{\hyperlink{classImage_ae47132c595efe5a83e903d6a541f578f}{00034}}     \textcolor{keyword}{const} \textcolor{keywordtype}{int} size[2];}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00042     \mbox{\hyperlink{classImage}{Image}}(shared\_ptr<\textcolor{keyword}{const} \mbox{\hyperlink{image_8h_a1460f307705ea52859d6ef9e52a43dac}{pixel\_t}}[]> data, \textcolor{keyword}{const} \textcolor{keywordtype}{int} size[2]);}
+\DoxyCodeLine{00049     \textcolor{keyword}{static} \mbox{\hyperlink{classImage}{Image}} julia(\textcolor{keyword}{const} \textcolor{keywordtype}{int} size[2], \textcolor{keyword}{const} \mbox{\hyperlink{classJulia}{Julia}}\& jul);}
+\DoxyCodeLine{00050 \};}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// IMAGE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,89 @@
+\hypertarget{main_8cpp}{}\doxysubsection{Файл main.\+cpp}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}gui/app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gui/texture.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}julia.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}image.\+h\char`\"{}}\newline
+\doxysubsubsection*{Макровизначення}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}{PROJECT\+\_\+\+NAME}}~\char`\"{}Ia\+MP\+\_\+\+Lab2\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}{main}} (int, char $\ast$$\ast$)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис макровизначень}
+\mbox{\Hypertarget{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}\label{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}} 
+\index{main.cpp@{main.cpp}!PROJECT\_NAME@{PROJECT\_NAME}}
+\index{PROJECT\_NAME@{PROJECT\_NAME}!main.cpp@{main.cpp}}
+\doxyparagraph{\texorpdfstring{PROJECT\_NAME}{PROJECT\_NAME}}
+{\footnotesize\ttfamily \#define PROJECT\+\_\+\+NAME~\char`\"{}Ia\+MP\+\_\+\+Lab2\char`\"{}}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}, рядок \mbox{\hyperlink{main_8cpp_source_l00010}{10}}
+
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}\label{main_8cpp_a2c3f6775325c30275d11c6abee2db6a0}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxyparagraph{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{char $\ast$$\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}, рядок \mbox{\hyperlink{main_8cpp_source_l00014}{14}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00016     App app(\mbox{\hyperlink{main_8cpp_ae73053051efbb45c3a39751f5ce9fb36}{PROJECT\_NAME}});}
+\DoxyCodeLine{00017     \mbox{\hyperlink{classJulia}{Julia}} jul;}
+\DoxyCodeLine{00018     shared\_ptr<const Image> \mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}};}
+\DoxyCodeLine{00019     \textcolor{keyword}{const} Texture texture;}
+\DoxyCodeLine{00020     \textcolor{keywordtype}{int} size[2] = \{200, 200\};}
+\DoxyCodeLine{00021     \textcolor{keyword}{auto} tex\_id = (\textcolor{keywordtype}{void}*)(intptr\_t)(texture.id);}
+\DoxyCodeLine{00022     \textcolor{keywordtype}{bool} changed = \textcolor{keyword}{true};}
+\DoxyCodeLine{00023     \mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}} = make\_shared<Image>(\mbox{\hyperlink{classImage_af78df392b4647daeaab7c5c8faa0a672}{Image::julia}}(size, jul));}
+\DoxyCodeLine{00024     texture.update(*\mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}});}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     \textcolor{comment}{// Main loop}}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{while} (!app.should\_closed())}
+\DoxyCodeLine{00028     \{}
+\DoxyCodeLine{00029         app.begin\_loop();}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031         ImVec2 sz(\mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}}-\/>size[0], \mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}}-\/>size[1]);}
+\DoxyCodeLine{00032         ImGui::SetNextWindowSize(sz, ImGuiCond\_FirstUseEver);}
+\DoxyCodeLine{00033         ImGui::PushStyleVar(ImGuiStyleVar\_WindowPadding, ImVec2(0, 0));}
+\DoxyCodeLine{00034         ImGui::Begin(\textcolor{stringliteral}{"{}Julia"{}});}
+\DoxyCodeLine{00035         ImVec2 cont\_sz = ImGui::GetContentRegionAvail();}
+\DoxyCodeLine{00036         ImVec2 img\_size(cont\_sz.x, \mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}}-\/>size[1] * cont\_sz.x / \mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}}-\/>size[0]);}
+\DoxyCodeLine{00037         ImGui::Image(tex\_id, img\_size);}
+\DoxyCodeLine{00038         ImGui::End();}
+\DoxyCodeLine{00039         ImGui::PopStyleVar();}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041         ImGui::Begin(\textcolor{stringliteral}{"{}Julia Config"{}}, NULL, ImGuiWindowFlags\_AlwaysAutoResize);}
+\DoxyCodeLine{00042         changed = jul.\mbox{\hyperlink{classJulia_a29688cf44f5ce0a352b1e731a446dc3c}{imConfig}}();}
+\DoxyCodeLine{00043         changed |= ImGui::SliderInt2(\textcolor{stringliteral}{"{}Size"{}}, size, 0, 500);}
+\DoxyCodeLine{00044         \textcolor{keywordflow}{if} (changed) \{}
+\DoxyCodeLine{00045             \mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}} = make\_shared<Image>(\mbox{\hyperlink{classImage_af78df392b4647daeaab7c5c8faa0a672}{Image::julia}}(size, jul));}
+\DoxyCodeLine{00046             texture.update(*\mbox{\hyperlink{namespacemain_a377f0d69bf08cd5269df59e68932993b}{image}});}
+\DoxyCodeLine{00047         \}}
+\DoxyCodeLine{00048         ImGui::End();}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050         app.end\_loop();}
+\DoxyCodeLine{00051     \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}

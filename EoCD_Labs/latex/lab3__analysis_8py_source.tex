@@ -1,0 +1,48 @@
+\hypertarget{lab3__analysis_8py_source}{}\doxysubsection{lab3\+\_\+analysis.\+py}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lab3__analysis_8py_source_l00001}\mbox{\hyperlink{namespacelab3__analysis}{00001}} \textcolor{comment}{\#!/usr/bin/env python3}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033 \textcolor{keyword}{from} sympy \textcolor{keyword}{import} *}
+\DoxyCodeLine{00034 \textcolor{keyword}{import} numpy \textcolor{keyword}{as} np}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{\Hypertarget{lab3__analysis_8py_source_l00043}\mbox{\hyperlink{namespacelab3__analysis_aed8485233268f3d2f90d1afc914a0ac7}{00043}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3__analysis_aed8485233268f3d2f90d1afc914a0ac7}{calc}}(X, t: int = 0) -\/> np.ndarray:}
+\DoxyCodeLine{00044     x1, x2 = X[0], X[1]}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{00046         x1**2-\/2*x1*x2+x2**2-\/9,}
+\DoxyCodeLine{00047         4*x1**2+x1*x2+4*x2**2-\/18,}
+\DoxyCodeLine{00048     ])}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{\Hypertarget{lab3__analysis_8py_source_l00051}\mbox{\hyperlink{namespacelab3__analysis_a23d7523e45494e32cec57972710c1751}{00051}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3__analysis_a23d7523e45494e32cec57972710c1751}{analyze}}() -\/> None:}
+\DoxyCodeLine{00052     t = symbols(\textcolor{stringliteral}{"{}t"{}})}
+\DoxyCodeLine{00053     x = symbols(\textcolor{stringliteral}{"{}x1 x2"{}}, cls=Function)}
+\DoxyCodeLine{00054     x = [i(t) \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} x]}
+\DoxyCodeLine{00055     f = \mbox{\hyperlink{namespacelab3__analysis_aed8485233268f3d2f90d1afc914a0ac7}{calc}}(x, t)}
+\DoxyCodeLine{00056     }
+\DoxyCodeLine{00057     I = Matrix([[i.diff(j) \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} x] \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} f])}
+\DoxyCodeLine{00058     print(\textcolor{stringliteral}{"{}Якобіан:"{}})}
+\DoxyCodeLine{00059     print(I)}
+\DoxyCodeLine{00060     }
+\DoxyCodeLine{00061     solutions = solve(f, x)}
+\DoxyCodeLine{00062     print(\textcolor{stringliteral}{"{}Особливі точки:"{}})}
+\DoxyCodeLine{00063     print(solutions)}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065     \textcolor{keywordflow}{for} X, Y \textcolor{keywordflow}{in} solutions:}
+\DoxyCodeLine{00066         print()}
+\DoxyCodeLine{00067         print(\textcolor{stringliteral}{"{}Точка:"{}}, X, Y)}
+\DoxyCodeLine{00068         eigenvals = list(I.subs(x[0], X).subs(x[1], Y).eigenvals().keys())}
+\DoxyCodeLine{00069         eigenvals = [complex(i) \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]}
+\DoxyCodeLine{00070         print(\textcolor{stringliteral}{"{}Власні числа:"{}}, eigenvals)}
+\DoxyCodeLine{00071         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals:}
+\DoxyCodeLine{00072             \textcolor{keywordflow}{if} i.imag == 0:}
+\DoxyCodeLine{00073                 print(i, \textcolor{stringliteral}{"{} -\/ сідло"{}})}
+\DoxyCodeLine{00074             \textcolor{keywordflow}{elif} i.imag != 0:}
+\DoxyCodeLine{00075                 \textcolor{keywordflow}{if} i.real == 0:}
+\DoxyCodeLine{00076                     print(i, \textcolor{stringliteral}{"{} -\/ центр"{}})}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078 \mbox{\hyperlink{namespacelab3__analysis_a23d7523e45494e32cec57972710c1751}{analyze}}()}
+
+\end{DoxyCode}

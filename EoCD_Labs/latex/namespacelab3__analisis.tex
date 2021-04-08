@@ -1,0 +1,89 @@
+\hypertarget{namespacelab3__analisis}{}\doxysubsection{Простір імен lab3\+\_\+analisis}
+\label{namespacelab3__analisis}\index{lab3\_analisis@{lab3\_analisis}}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+np.\+ndarray \mbox{\hyperlink{namespacelab3__analisis_a64d83e9b215b72f332e19a9930fbe068}{calc}} (X, int t=0)
+\begin{DoxyCompactList}\small\item\em Обчислює похідну системи по її значенням. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacelab3__analisis_a54b163ee6f444d989f373fa1d1b530dc}{analyze}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespacelab3__analisis_a54b163ee6f444d989f373fa1d1b530dc}\label{namespacelab3__analisis_a54b163ee6f444d989f373fa1d1b530dc}} 
+\index{lab3\_analisis@{lab3\_analisis}!analyze@{analyze}}
+\index{analyze@{analyze}!lab3\_analisis@{lab3\_analisis}}
+\doxyparagraph{\texorpdfstring{analyze()}{analyze()}}
+{\footnotesize\ttfamily def lab3\+\_\+analisis.\+analyze (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3__analisis_8py_source}{lab3\+\_\+analisis.\+py}}, рядок \mbox{\hyperlink{lab3__analisis_8py_source_l00022}{22}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3__analisis_a54b163ee6f444d989f373fa1d1b530dc}{analyze}}():}
+\DoxyCodeLine{00023     t = symbols(\textcolor{stringliteral}{"{}t"{}})}
+\DoxyCodeLine{00024     x = symbols(\textcolor{stringliteral}{"{}x1 x2"{}}, cls=Function)}
+\DoxyCodeLine{00025     x = [i(t) \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} x]}
+\DoxyCodeLine{00026     f = \mbox{\hyperlink{namespacelab3__analisis_a64d83e9b215b72f332e19a9930fbe068}{calc}}(x, t)}
+\DoxyCodeLine{00027     }
+\DoxyCodeLine{00028     I = Matrix([[i.diff(j) \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} x] \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} f])}
+\DoxyCodeLine{00029     print(\textcolor{stringliteral}{"{}Якобіан:"{}})}
+\DoxyCodeLine{00030     print(I)}
+\DoxyCodeLine{00031     }
+\DoxyCodeLine{00032     solutions = solve(f, x)}
+\DoxyCodeLine{00033     print(\textcolor{stringliteral}{"{}Особливі точки:"{}})}
+\DoxyCodeLine{00034     print(solutions)}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036     \textcolor{keywordflow}{for} X, Y \textcolor{keywordflow}{in} solutions:}
+\DoxyCodeLine{00037         print()}
+\DoxyCodeLine{00038         print(\textcolor{stringliteral}{"{}Точка:"{}}, X, Y)}
+\DoxyCodeLine{00039         eigenvals = list(I.subs(x[0], X).subs(x[1], Y).eigenvals().keys())}
+\DoxyCodeLine{00040         eigenvals = [complex(i) \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]}
+\DoxyCodeLine{00041         print(\textcolor{stringliteral}{"{}Власні числа:"{}}, eigenvals)}
+\DoxyCodeLine{00042         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals:}
+\DoxyCodeLine{00043             \textcolor{keywordflow}{if} i.imag == 0:}
+\DoxyCodeLine{00044                 print(i, \textcolor{stringliteral}{"{} -\/ сідло"{}})}
+\DoxyCodeLine{00045             \textcolor{keywordflow}{elif} i.imag != 0:}
+\DoxyCodeLine{00046                 \textcolor{keywordflow}{if} i.real == 0:}
+\DoxyCodeLine{00047                     print(i, \textcolor{stringliteral}{"{} -\/ центр"{}})}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049 \mbox{\hyperlink{namespacelab3__analisis_a54b163ee6f444d989f373fa1d1b530dc}{analyze}}()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelab3__analisis_a64d83e9b215b72f332e19a9930fbe068}\label{namespacelab3__analisis_a64d83e9b215b72f332e19a9930fbe068}} 
+\index{lab3\_analisis@{lab3\_analisis}!calc@{calc}}
+\index{calc@{calc}!lab3\_analisis@{lab3\_analisis}}
+\doxyparagraph{\texorpdfstring{calc()}{calc()}}
+{\footnotesize\ttfamily  np.\+ndarray lab3\+\_\+analisis.\+calc (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{int }]{t = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Обчислює похідну системи по її значенням. 
+
+\[\begin{cases}x_1\textnormal{\textquotesingle}(t)=x_1(t)^2-2x_1(t)x_2(t)+x2(t)^2-9\\ x_2\textnormal{\textquotesingle}(t)=4x_1(t)^2+x_1x_2(t)+4x_2(t)^2-18 \end{cases}\] 
+\begin{DoxyParams}{Аргументи}
+{\em X} & точка системи \\
+\hline
+{\em t} & час \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+вектор похідної 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3__analisis_8py_source}{lab3\+\_\+analisis.\+py}}, рядок \mbox{\hyperlink{lab3__analisis_8py_source_l00015}{15}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3__analisis_a64d83e9b215b72f332e19a9930fbe068}{calc}}(X, t: int = 0) -\/> np.ndarray:}
+\DoxyCodeLine{00016     x1, x2 = X[0], X[1]}
+\DoxyCodeLine{00017     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{00018         x1**2-\/2*x1*x2+x2**2-\/9,}
+\DoxyCodeLine{00019         4*x1**2+x1*x2+4*x2**2-\/18,}
+\DoxyCodeLine{00020     ])}
+\DoxyCodeLine{00021 }
+
+\end{DoxyCode}

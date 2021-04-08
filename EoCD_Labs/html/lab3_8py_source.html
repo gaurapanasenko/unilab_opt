@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторні роботи 3-5: Текст програми lab3.py</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторні роботи 3-5
+   </div>
+   <div id="projectbrief">Элементи хаотичної динаміки</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">lab3.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="lab3_8py.html">Див. документацію.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacelab3.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> odeint</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacelab3.html#acc083e81df850d2d086a79a3b2b30453">   12</a></span>&#160;x = np.linspace(-3.0, 3.0, 20)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacelab3.html#a349ceea86bd07b5bc787693c699ea746">   14</a></span>&#160;y = np.linspace(-3.0, 3.0, 20)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespacelab3.html#a399f78f177b21685bfe71eb8abf64a45">   24</a></span>&#160;starts = [</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ([0, 0], 0.6),</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ([2, -1.585], 100),</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ([-2.0, 1.0], 100),</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ([1, -2], 100),</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ([-1, 2], 100),</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;]</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacelab3.html#aea6a3219841fb7ecbc7ec78c6b086281">   39</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacelab3.html#aea6a3219841fb7ecbc7ec78c6b086281">calc</a>(X, t: int = 0) -&gt; np.ndarray:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    x1, x2 = X[0], X[1]</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> np.array([</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        x1**2-2*x1*x2+x2**2-9,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        4*x1**2+x1*x2+4*x2**2-18,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ])</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespacelab3.html#abe56b7d59ac34cec7fb224bf6ba0b373">   49</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacelab3.html#abe56b7d59ac34cec7fb224bf6ba0b373">print_vector_field</a>(x: np.ndarray, y: np.ndarray) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    X, Y = np.meshgrid(x, y)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    u, v = np.zeros(X.shape), np.zeros(Y.shape)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    NI, NJ = X.shape</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment"># Обчислює векторне поле по заданим значенням.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(NI):</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(NJ):</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            u[i, j], v[i, j] = <a class="code" href="namespacelab3.html#aea6a3219841fb7ecbc7ec78c6b086281">calc</a>([X[i, j], Y[i, j]])</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment"># Друкує на графік векторне поле.</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    plt.quiver(X, Y, u, v, color=<span class="stringliteral">&#39;r&#39;</span>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespacelab3.html#a221094be9e83a5b3d211cd7cc7afbf26">   62</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacelab3.html#a221094be9e83a5b3d211cd7cc7afbf26">print_trajectories</a>(starts: list) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment"># Обчислюємо траєкторії задані у змінній `starts`</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">for</span> s, t <span class="keywordflow">in</span> starts:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment"># Задаємо діапазон часу [0, t] та ділить відрізок на 2000 частин.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        tspan = np.linspace(0, t, 2000)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment"># Інтегрує систему до заданого часу `t` та початкових значень `s`</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        tr = odeint(calc, s, tspan)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment"># Друкуєму саму траєкторію</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        plt.plot(tr[:,0], tr[:,1])</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment"># Друкуємо початок траєкторії у вигляді кружечка</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        plt.plot([tr[0,0]], [tr[0,1]], <span class="stringliteral">&#39;o&#39;</span>)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment"># Друкуємо кінець траєкторії у вигляді квадратика</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        plt.plot([tr[-1,0]], [tr[-1,1]], <span class="stringliteral">&#39;s&#39;</span>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<a class="code" href="namespacelab3.html#abe56b7d59ac34cec7fb224bf6ba0b373">print_vector_field</a>(x, y)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<a class="code" href="namespacelab3.html#a221094be9e83a5b3d211cd7cc7afbf26">print_trajectories</a>(starts)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"># Друкуємо графік</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;plt.show()</div>
+<div class="ttc" id="anamespacelab3_html_a221094be9e83a5b3d211cd7cc7afbf26"><div class="ttname"><a href="namespacelab3.html#a221094be9e83a5b3d211cd7cc7afbf26">lab3.print_trajectories</a></div><div class="ttdeci">None print_trajectories(list starts)</div><div class="ttdoc">Будуємо траекторії.</div><div class="ttdef"><b>Definition:</b> <a href="lab3_8py_source.html#l00062">lab3.py:62</a></div></div>
+<div class="ttc" id="anamespacelab3_html_abe56b7d59ac34cec7fb224bf6ba0b373"><div class="ttname"><a href="namespacelab3.html#abe56b7d59ac34cec7fb224bf6ba0b373">lab3.print_vector_field</a></div><div class="ttdeci">None print_vector_field(np.ndarray x, np.ndarray y)</div><div class="ttdoc">Обчислює векторне поле у діапазонах [-3, 3] по обом осям.</div><div class="ttdef"><b>Definition:</b> <a href="lab3_8py_source.html#l00049">lab3.py:49</a></div></div>
+<div class="ttc" id="anamespacelab3_html_aea6a3219841fb7ecbc7ec78c6b086281"><div class="ttname"><a href="namespacelab3.html#aea6a3219841fb7ecbc7ec78c6b086281">lab3.calc</a></div><div class="ttdeci">np.ndarray calc(X, int t=0)</div><div class="ttdoc">Обчислює похідну системи по її значенням.</div><div class="ttdef"><b>Definition:</b> <a href="lab3_8py_source.html#l00039">lab3.py:39</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

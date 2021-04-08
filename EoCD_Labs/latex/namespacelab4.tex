@@ -1,0 +1,184 @@
+\hypertarget{namespacelab4}{}\doxysubsection{Простір імен lab4}
+\label{namespacelab4}\index{lab4@{lab4}}
+
+
+Лабораторна робота 4.  
+
+
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{namespacelab4_a29c2936f910b41d46dff1446943b7ace}{f}} (float x, float a)
+\begin{DoxyCompactList}\small\item\em Відображення з постановки задачі. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacelab4_a31acc15c8a505f135e341e3e94302cc6}{draw\+\_\+diagram}} ()
+\begin{DoxyCompactList}\small\item\em Друкує діаграму. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacelab4_af8b91e71c11c9f56fcc915849f9fcd42}{first\+Iters}} = 1024
+\begin{DoxyCompactList}\small\item\em Скільки перших ітерацій пропустити \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacelab4_af7a90202e7b9100178deba2cd7736111}{last\+Iters}} = 256
+\begin{DoxyCompactList}\small\item\em Скільки останніх ітерацій відобразити на діаграмі \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacelab4_a156b62dc3d6623c32ae40c02273da47a}{a\+Iters}} = 2000
+\begin{DoxyCompactList}\small\item\em Скільки значень $\alpha$ побудувати для діаграми. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{namespacelab4_a86ed30f5c358c9afac652f7cdc38798d}{alpha\+Range}} = \mbox{[}2.\+8, 3.\+8\mbox{]}
+\begin{DoxyCompactList}\small\item\em Діапазон значень $\alpha$ \mbox{[}2.\+8, 3.\+8\mbox{]}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespacelab4_ab8f4953018f61cf410c72f0eada983a8}{x\+Start}} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Стартове значення $x_0$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Детальний опис}
+Лабораторна робота 4. 
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Lab4.png}}
+\end{DoxyImageNoCaption}
+ 
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespacelab4_a31acc15c8a505f135e341e3e94302cc6}\label{namespacelab4_a31acc15c8a505f135e341e3e94302cc6}} 
+\index{lab4@{lab4}!draw\_diagram@{draw\_diagram}}
+\index{draw\_diagram@{draw\_diagram}!lab4@{lab4}}
+\doxyparagraph{\texorpdfstring{draw\_diagram()}{draw\_diagram()}}
+{\footnotesize\ttfamily  None lab4.\+draw\+\_\+diagram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Друкує діаграму. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab4_8py_source}{lab4.\+py}}, рядок \mbox{\hyperlink{lab4_8py_source_l00032}{32}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab4_a31acc15c8a505f135e341e3e94302cc6}{draw\_diagram}}() -\/> None:}
+\DoxyCodeLine{00033     \textcolor{comment}{\# Знаходимо усі можливі \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{00034     As = np.linspace(alphaRange[0], alphaRange[1], aIters)}
+\DoxyCodeLine{00035     \textcolor{comment}{\# Для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$ зберегти останні ітерації}}
+\DoxyCodeLine{00036     grid = np.zeros((lastIters, aIters))}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038     \textcolor{comment}{\# Робимо ітерації для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(aIters):}
+\DoxyCodeLine{00040         x = xStart}
+\DoxyCodeLine{00041         a = As[i]}
+\DoxyCodeLine{00042         \textcolor{comment}{\# Пропускаємо перші `firstIters` ітерації.}}
+\DoxyCodeLine{00043         \textcolor{keywordflow}{for} \_ \textcolor{keywordflow}{in} range(firstIters):}
+\DoxyCodeLine{00044             x = \mbox{\hyperlink{namespacelab4_a29c2936f910b41d46dff1446943b7ace}{f}}(x, a)}
+\DoxyCodeLine{00045         }
+\DoxyCodeLine{00046         \textcolor{comment}{\# Зберінаємо останні `lastIters` ітерацій.}}
+\DoxyCodeLine{00047         \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(lastIters):}
+\DoxyCodeLine{00048             x = \mbox{\hyperlink{namespacelab4_a29c2936f910b41d46dff1446943b7ace}{f}}(x, a)}
+\DoxyCodeLine{00049             grid[j, i] = x}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051     \textcolor{comment}{\# Друкуємо графік.}}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} grid:}
+\DoxyCodeLine{00053         plt.scatter(As, i, 1, alpha=0.25, color=\textcolor{stringliteral}{"{}black"{}})}
+\DoxyCodeLine{00054     plt.show()}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057 \mbox{\hyperlink{namespacelab4_a31acc15c8a505f135e341e3e94302cc6}{draw\_diagram}}()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelab4_a29c2936f910b41d46dff1446943b7ace}\label{namespacelab4_a29c2936f910b41d46dff1446943b7ace}} 
+\index{lab4@{lab4}!f@{f}}
+\index{f@{f}!lab4@{lab4}}
+\doxyparagraph{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily  None lab4.\+f (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{a }\end{DoxyParamCaption})}
+
+
+
+Відображення з постановки задачі. 
+
+\[x_{n+1}=\alpha x_n^2(1-x^2_n),\ n=0,1,2,\dots\] 
+\begin{DoxyParams}{Аргументи}
+{\em x} & значення $x_n$ \\
+\hline
+{\em a} & значення $\alpha$ \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab4_8py_source}{lab4.\+py}}, рядок \mbox{\hyperlink{lab4_8py_source_l00028}{28}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab4_a29c2936f910b41d46dff1446943b7ace}{f}}(x: float, a: float) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00029     \textcolor{keywordflow}{return} a*x**2*(1-\/x**2)}
+\DoxyCodeLine{00030 }
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{namespacelab4_a156b62dc3d6623c32ae40c02273da47a}\label{namespacelab4_a156b62dc3d6623c32ae40c02273da47a}} 
+\index{lab4@{lab4}!aIters@{aIters}}
+\index{aIters@{aIters}!lab4@{lab4}}
+\doxyparagraph{\texorpdfstring{aIters}{aIters}}
+{\footnotesize\ttfamily int lab4.\+a\+Iters = 2000}
+
+
+
+Скільки значень $\alpha$ побудувати для діаграми. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab4_8py_source}{lab4.\+py}}, рядок \mbox{\hyperlink{lab4_8py_source_l00015}{15}}
+
+\mbox{\Hypertarget{namespacelab4_a86ed30f5c358c9afac652f7cdc38798d}\label{namespacelab4_a86ed30f5c358c9afac652f7cdc38798d}} 
+\index{lab4@{lab4}!alphaRange@{alphaRange}}
+\index{alphaRange@{alphaRange}!lab4@{lab4}}
+\doxyparagraph{\texorpdfstring{alphaRange}{alphaRange}}
+{\footnotesize\ttfamily list lab4.\+alpha\+Range = \mbox{[}2.\+8, 3.\+8\mbox{]}}
+
+
+
+Діапазон значень $\alpha$ \mbox{[}2.\+8, 3.\+8\mbox{]}. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab4_8py_source}{lab4.\+py}}, рядок \mbox{\hyperlink{lab4_8py_source_l00017}{17}}
+
+\mbox{\Hypertarget{namespacelab4_af8b91e71c11c9f56fcc915849f9fcd42}\label{namespacelab4_af8b91e71c11c9f56fcc915849f9fcd42}} 
+\index{lab4@{lab4}!firstIters@{firstIters}}
+\index{firstIters@{firstIters}!lab4@{lab4}}
+\doxyparagraph{\texorpdfstring{firstIters}{firstIters}}
+{\footnotesize\ttfamily int lab4.\+first\+Iters = 1024}
+
+
+
+Скільки перших ітерацій пропустити 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab4_8py_source}{lab4.\+py}}, рядок \mbox{\hyperlink{lab4_8py_source_l00011}{11}}
+
+\mbox{\Hypertarget{namespacelab4_af7a90202e7b9100178deba2cd7736111}\label{namespacelab4_af7a90202e7b9100178deba2cd7736111}} 
+\index{lab4@{lab4}!lastIters@{lastIters}}
+\index{lastIters@{lastIters}!lab4@{lab4}}
+\doxyparagraph{\texorpdfstring{lastIters}{lastIters}}
+{\footnotesize\ttfamily int lab4.\+last\+Iters = 256}
+
+
+
+Скільки останніх ітерацій відобразити на діаграмі 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab4_8py_source}{lab4.\+py}}, рядок \mbox{\hyperlink{lab4_8py_source_l00013}{13}}
+
+\mbox{\Hypertarget{namespacelab4_ab8f4953018f61cf410c72f0eada983a8}\label{namespacelab4_ab8f4953018f61cf410c72f0eada983a8}} 
+\index{lab4@{lab4}!xStart@{xStart}}
+\index{xStart@{xStart}!lab4@{lab4}}
+\doxyparagraph{\texorpdfstring{xStart}{xStart}}
+{\footnotesize\ttfamily float lab4.\+x\+Start = 0.\+5}
+
+
+
+Стартове значення $x_0$. 
+
+Яке обчислено за допомогою рівняння\+: \[f\textnormal{\textquotesingle}(x_0,\alpha)=0\] 
+
+Див. визначення в файлі \mbox{\hyperlink{lab4_8py_source}{lab4.\+py}}, рядок \mbox{\hyperlink{lab4_8py_source_l00021}{21}}
+

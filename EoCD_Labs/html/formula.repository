@@ -1,0 +1,4 @@
+\_form#0=233x16:$\begin{cases}x_1'(t)=x_1(t)^2-2x_1(t)x_2(t)+x2(t)^2-9\end{cases}$
+\_form#1=251x31:$\begin{cases}x_1'(t)=x_1(t)^2-2x_1(t)x_2(t)+x2(t)^2-9\\ x_2'(t)=4x_1(t)^2+x_1x_2(t)+4x_2(t)^2-18 \end{cases}$
+\_form#2=430x16:\[\begin{cases}x_1'(t)=x_1(t)^2-2x_1(t)x_2(t)+x2(t)^2-9\\ x_2'(t)=4x_1(t)^2+x_1x_2(t)+4x_2(t)^2-18 \end{cases}\]
+\_form#3=430x16:\[\begin{cases}x_1'(t)=x_1(t)^2-2x_1(t)x_2(t)+x2(t)^2-9\\\ x_2'(t)=4x_1(t)^2+x_1x_2(t)+4x_2(t)^2-18 \end{cases}\]

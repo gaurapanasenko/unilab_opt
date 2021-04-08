@@ -1,0 +1,54 @@
+\hypertarget{lab4_8py_source}{}\doxysubsection{lab4.\+py}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lab4_8py_source_l00001}\mbox{\hyperlink{namespacelab4}{00001}} \textcolor{comment}{\#!/usr/bin/env python3}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{keyword}{import} matplotlib.pyplot \textcolor{keyword}{as} plt}
+\DoxyCodeLine{00008 \textcolor{keyword}{import} numpy \textcolor{keyword}{as} np}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{\Hypertarget{lab4_8py_source_l00011}\mbox{\hyperlink{namespacelab4_af8b91e71c11c9f56fcc915849f9fcd42}{00011}} firstIters = 1024}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{\Hypertarget{lab4_8py_source_l00013}\mbox{\hyperlink{namespacelab4_af7a90202e7b9100178deba2cd7736111}{00013}} lastIters = 256}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{lab4_8py_source_l00015}\mbox{\hyperlink{namespacelab4_a156b62dc3d6623c32ae40c02273da47a}{00015}} aIters = 2000}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{\Hypertarget{lab4_8py_source_l00017}\mbox{\hyperlink{namespacelab4_a86ed30f5c358c9afac652f7cdc38798d}{00017}} alphaRange = [2.8, 3.8]}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{\Hypertarget{lab4_8py_source_l00021}\mbox{\hyperlink{namespacelab4_ab8f4953018f61cf410c72f0eada983a8}{00021}} xStart = 0.5}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{\Hypertarget{lab4_8py_source_l00028}\mbox{\hyperlink{namespacelab4_a29c2936f910b41d46dff1446943b7ace}{00028}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab4_a29c2936f910b41d46dff1446943b7ace}{f}}(x: float, a: float) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00029     \textcolor{keywordflow}{return} a*x**2*(1-\/x**2)}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{\Hypertarget{lab4_8py_source_l00032}\mbox{\hyperlink{namespacelab4_a31acc15c8a505f135e341e3e94302cc6}{00032}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab4_a31acc15c8a505f135e341e3e94302cc6}{draw\_diagram}}() -\/> None:}
+\DoxyCodeLine{00033     \textcolor{comment}{\# Знаходимо усі можливі \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{00034     As = np.linspace(alphaRange[0], alphaRange[1], aIters)}
+\DoxyCodeLine{00035     \textcolor{comment}{\# Для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$ зберегти останні ітерації}}
+\DoxyCodeLine{00036     grid = np.zeros((lastIters, aIters))}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038     \textcolor{comment}{\# Робимо ітерації для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(aIters):}
+\DoxyCodeLine{00040         x = xStart}
+\DoxyCodeLine{00041         a = As[i]}
+\DoxyCodeLine{00042         \textcolor{comment}{\# Пропускаємо перші `firstIters` ітерації.}}
+\DoxyCodeLine{00043         \textcolor{keywordflow}{for} \_ \textcolor{keywordflow}{in} range(firstIters):}
+\DoxyCodeLine{00044             x = \mbox{\hyperlink{namespacelab4_a29c2936f910b41d46dff1446943b7ace}{f}}(x, a)}
+\DoxyCodeLine{00045         }
+\DoxyCodeLine{00046         \textcolor{comment}{\# Зберінаємо останні `lastIters` ітерацій.}}
+\DoxyCodeLine{00047         \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(lastIters):}
+\DoxyCodeLine{00048             x = \mbox{\hyperlink{namespacelab4_a29c2936f910b41d46dff1446943b7ace}{f}}(x, a)}
+\DoxyCodeLine{00049             grid[j, i] = x}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051     \textcolor{comment}{\# Друкуємо графік.}}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} grid:}
+\DoxyCodeLine{00053         plt.scatter(As, i, 1, alpha=0.25, color=\textcolor{stringliteral}{"{}black"{}})}
+\DoxyCodeLine{00054     plt.show()}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057 \mbox{\hyperlink{namespacelab4_a31acc15c8a505f135e341e3e94302cc6}{draw\_diagram}}()}
+
+\end{DoxyCode}

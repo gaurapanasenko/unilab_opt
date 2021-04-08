@@ -1,0 +1,215 @@
+\hypertarget{namespacelab3}{}\doxysubsection{Простір імен lab3}
+\label{namespacelab3}\index{lab3@{lab3}}
+
+
+Лабораторна робота 3.  
+
+
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+np.\+ndarray \mbox{\hyperlink{namespacelab3_aea6a3219841fb7ecbc7ec78c6b086281}{calc}} (X, int t=0)
+\begin{DoxyCompactList}\small\item\em Обчислює похідну системи по її значенням. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacelab3_abe56b7d59ac34cec7fb224bf6ba0b373}{print\+\_\+vector\+\_\+field}} (np.\+ndarray \mbox{\hyperlink{namespacelab3_acc083e81df850d2d086a79a3b2b30453}{x}}, np.\+ndarray \mbox{\hyperlink{namespacelab3_a349ceea86bd07b5bc787693c699ea746}{y}})
+\begin{DoxyCompactList}\small\item\em Обчислює векторне поле у діапазонах \mbox{[}-\/3, 3\mbox{]} по обом осям. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacelab3_a221094be9e83a5b3d211cd7cc7afbf26}{print\+\_\+trajectories}} (list \mbox{\hyperlink{namespacelab3_a399f78f177b21685bfe71eb8abf64a45}{starts}})
+\begin{DoxyCompactList}\small\item\em Будуємо траекторії. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelab3_acc083e81df850d2d086a79a3b2b30453}{x}} = np.\+linspace(-\/3.\+0, 3.\+0, 20)
+\begin{DoxyCompactList}\small\item\em Задаємо діапазон {\ttfamily x} для побудови векторного поля та кількість векторів. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacelab3_a349ceea86bd07b5bc787693c699ea746}{y}} = np.\+linspace(-\/3.\+0, 3.\+0, 20)
+\begin{DoxyCompactList}\small\item\em Задаємо діапазон {\ttfamily y} для побудови векторного поля та кількість векторів. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{namespacelab3_a399f78f177b21685bfe71eb8abf64a45}{starts}}
+\begin{DoxyCompactList}\small\item\em Задаємо декілька траєкторій. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Детальний опис}
+Лабораторна робота 3. 
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{Lab3.png}}
+\end{DoxyImageNoCaption}
+ 
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespacelab3_aea6a3219841fb7ecbc7ec78c6b086281}\label{namespacelab3_aea6a3219841fb7ecbc7ec78c6b086281}} 
+\index{lab3@{lab3}!calc@{calc}}
+\index{calc@{calc}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{calc()}{calc()}}
+{\footnotesize\ttfamily  np.\+ndarray lab3.\+calc (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{int }]{t = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Обчислює похідну системи по її значенням. 
+
+\[\begin{cases}x_1\textnormal{\textquotesingle}(t)=x_1(t)^2-2x_1(t)x_2(t)+x2(t)^2-9\\ x_2\textnormal{\textquotesingle}(t)=4x_1(t)^2+x_1x_2(t)+4x_2(t)^2-18 \end{cases}\] 
+\begin{DoxyParams}{Аргументи}
+{\em X} & точка системи \\
+\hline
+{\em t} & час \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Повертає}
+вектор похідної 
+\end{DoxyReturn}
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00039}{39}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_aea6a3219841fb7ecbc7ec78c6b086281}{calc}}(X, t: int = 0) -\/> np.ndarray:}
+\DoxyCodeLine{00040     x1, x2 = X[0], X[1]}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{00042         x1**2-\/2*x1*x2+x2**2-\/9,}
+\DoxyCodeLine{00043         4*x1**2+x1*x2+4*x2**2-\/18,}
+\DoxyCodeLine{00044     ])}
+\DoxyCodeLine{00045 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelab3_a221094be9e83a5b3d211cd7cc7afbf26}\label{namespacelab3_a221094be9e83a5b3d211cd7cc7afbf26}} 
+\index{lab3@{lab3}!print\_trajectories@{print\_trajectories}}
+\index{print\_trajectories@{print\_trajectories}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{print\_trajectories()}{print\_trajectories()}}
+{\footnotesize\ttfamily  None lab3.\+print\+\_\+trajectories (\begin{DoxyParamCaption}\item[{list}]{starts }\end{DoxyParamCaption})}
+
+
+
+Будуємо траекторії. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em starts} & змінна {\ttfamily starts}, яка задає усі траекторії \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00062}{62}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_a221094be9e83a5b3d211cd7cc7afbf26}{print\_trajectories}}(starts: list) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00063     \textcolor{comment}{\# Обчислюємо траєкторії задані у змінній `starts`}}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{for} s, t \textcolor{keywordflow}{in} starts:}
+\DoxyCodeLine{00065         \textcolor{comment}{\# Задаємо діапазон часу [0, t] та ділить відрізок на 2000 частин.}}
+\DoxyCodeLine{00066         tspan = np.linspace(0, t, 2000)}
+\DoxyCodeLine{00067         \textcolor{comment}{\# Інтегрує систему до заданого часу `t` та початкових значень `s`}}
+\DoxyCodeLine{00068         tr = odeint(calc, s, tspan)}
+\DoxyCodeLine{00069         \textcolor{comment}{\# Друкуєму саму траєкторію}}
+\DoxyCodeLine{00070         plt.plot(tr[:,0], tr[:,1])}
+\DoxyCodeLine{00071         \textcolor{comment}{\# Друкуємо початок траєкторії у вигляді кружечка}}
+\DoxyCodeLine{00072         plt.plot([tr[0,0]], [tr[0,1]], \textcolor{stringliteral}{'o'})}
+\DoxyCodeLine{00073         \textcolor{comment}{\# Друкуємо кінець траєкторії у вигляді квадратика}}
+\DoxyCodeLine{00074         plt.plot([tr[-\/1,0]], [tr[-\/1,1]], \textcolor{stringliteral}{'s'})}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 \mbox{\hyperlink{namespacelab3_abe56b7d59ac34cec7fb224bf6ba0b373}{print\_vector\_field}}(x, y)}
+\DoxyCodeLine{00078 \mbox{\hyperlink{namespacelab3_a221094be9e83a5b3d211cd7cc7afbf26}{print\_trajectories}}(starts)}
+\DoxyCodeLine{00079 \textcolor{comment}{\# Друкуємо графік}}
+\DoxyCodeLine{00080 plt.show()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelab3_abe56b7d59ac34cec7fb224bf6ba0b373}\label{namespacelab3_abe56b7d59ac34cec7fb224bf6ba0b373}} 
+\index{lab3@{lab3}!print\_vector\_field@{print\_vector\_field}}
+\index{print\_vector\_field@{print\_vector\_field}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{print\_vector\_field()}{print\_vector\_field()}}
+{\footnotesize\ttfamily  None lab3.\+print\+\_\+vector\+\_\+field (\begin{DoxyParamCaption}\item[{np.\+ndarray}]{x,  }\item[{np.\+ndarray}]{y }\end{DoxyParamCaption})}
+
+
+
+Обчислює векторне поле у діапазонах \mbox{[}-\/3, 3\mbox{]} по обом осям. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em x} & массив усіх можливих значень x \\
+\hline
+{\em y} & массив усіх можливих значень y \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00049}{49}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_abe56b7d59ac34cec7fb224bf6ba0b373}{print\_vector\_field}}(x: np.ndarray, y: np.ndarray) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00050     X, Y = np.meshgrid(x, y)}
+\DoxyCodeLine{00051     u, v = np.zeros(X.shape), np.zeros(Y.shape)}
+\DoxyCodeLine{00052     NI, NJ = X.shape}
+\DoxyCodeLine{00053     \textcolor{comment}{\# Обчислює векторне поле по заданим значенням.}}
+\DoxyCodeLine{00054     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(NI):}
+\DoxyCodeLine{00055         \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(NJ):}
+\DoxyCodeLine{00056             u[i, j], v[i, j] = \mbox{\hyperlink{namespacelab3_aea6a3219841fb7ecbc7ec78c6b086281}{calc}}([X[i, j], Y[i, j]])}
+\DoxyCodeLine{00057     \textcolor{comment}{\# Друкує на графік векторне поле.}}
+\DoxyCodeLine{00058     plt.quiver(X, Y, u, v, color=\textcolor{stringliteral}{'r'})}
+\DoxyCodeLine{00059 }
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{namespacelab3_a399f78f177b21685bfe71eb8abf64a45}\label{namespacelab3_a399f78f177b21685bfe71eb8abf64a45}} 
+\index{lab3@{lab3}!starts@{starts}}
+\index{starts@{starts}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{starts}{starts}}
+{\footnotesize\ttfamily list lab3.\+starts}
+
+{\bfseries Початкові значення}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 =  [}
+\DoxyCodeLine{00002     ([0, 0], 0.6),}
+\DoxyCodeLine{00003     ([2, -\/1.585], 100),}
+\DoxyCodeLine{00004     ([-\/2.0, 1.0], 100),}
+\DoxyCodeLine{00005     ([1, -\/2], 100),}
+\DoxyCodeLine{00006     ([-\/1, 2], 100),}
+\DoxyCodeLine{00007 ]}
+
+\end{DoxyCode}
+
+
+Задаємо декілька траєкторій. 
+
+Для кожної траекторії задаємо початкові значення та час для траєкторії.
+
+Загалом у нас 5 траекторій\+:
+\begin{DoxyItemize}
+\item З початком у кординаті (0, 0) та часом 0.\+6
+\item З початком у кординаті (2, -\/1.\+585) та часом 100
+\item З початком у кординаті (-\/2.\+0, 1.\+0) та часом 100
+\item З початком у кординаті (1, -\/2) та часом 100
+\item З початком у кординаті (-\/1, 2) та часом 100 
+\end{DoxyItemize}
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00024}{24}}
+
+\mbox{\Hypertarget{namespacelab3_acc083e81df850d2d086a79a3b2b30453}\label{namespacelab3_acc083e81df850d2d086a79a3b2b30453}} 
+\index{lab3@{lab3}!x@{x}}
+\index{x@{x}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily lab3.\+x = np.\+linspace(-\/3.\+0, 3.\+0, 20)}
+
+
+
+Задаємо діапазон {\ttfamily x} для побудови векторного поля та кількість векторів. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00012}{12}}
+
+\mbox{\Hypertarget{namespacelab3_a349ceea86bd07b5bc787693c699ea746}\label{namespacelab3_a349ceea86bd07b5bc787693c699ea746}} 
+\index{lab3@{lab3}!y@{y}}
+\index{y@{y}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily lab3.\+y = np.\+linspace(-\/3.\+0, 3.\+0, 20)}
+
+
+
+Задаємо діапазон {\ttfamily y} для побудови векторного поля та кількість векторів. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00014}{14}}
+

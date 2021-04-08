@@ -1,0 +1,65 @@
+\hypertarget{lab3_8py_source}{}\doxysubsection{lab3.\+py}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lab3_8py_source_l00001}\mbox{\hyperlink{namespacelab3}{00001}} \textcolor{comment}{\#!/usr/bin/env python3}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{keyword}{import} matplotlib.pyplot \textcolor{keyword}{as} plt}
+\DoxyCodeLine{00008 \textcolor{keyword}{import} numpy \textcolor{keyword}{as} np}
+\DoxyCodeLine{00009 \textcolor{keyword}{from} scipy.integrate \textcolor{keyword}{import} odeint}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{\Hypertarget{lab3_8py_source_l00012}\mbox{\hyperlink{namespacelab3_acc083e81df850d2d086a79a3b2b30453}{00012}} x = np.linspace(-\/3.0, 3.0, 20)}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{\Hypertarget{lab3_8py_source_l00014}\mbox{\hyperlink{namespacelab3_a349ceea86bd07b5bc787693c699ea746}{00014}} y = np.linspace(-\/3.0, 3.0, 20)}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{\Hypertarget{lab3_8py_source_l00024}\mbox{\hyperlink{namespacelab3_a399f78f177b21685bfe71eb8abf64a45}{00024}} starts = [}
+\DoxyCodeLine{00025     ([0, 0], 0.6),}
+\DoxyCodeLine{00026     ([2, -\/1.585], 100),}
+\DoxyCodeLine{00027     ([-\/2.0, 1.0], 100),}
+\DoxyCodeLine{00028     ([1, -\/2], 100),}
+\DoxyCodeLine{00029     ([-\/1, 2], 100),}
+\DoxyCodeLine{00030 ]}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{\Hypertarget{lab3_8py_source_l00039}\mbox{\hyperlink{namespacelab3_aea6a3219841fb7ecbc7ec78c6b086281}{00039}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_aea6a3219841fb7ecbc7ec78c6b086281}{calc}}(X, t: int = 0) -\/> np.ndarray:}
+\DoxyCodeLine{00040     x1, x2 = X[0], X[1]}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{00042         x1**2-\/2*x1*x2+x2**2-\/9,}
+\DoxyCodeLine{00043         4*x1**2+x1*x2+4*x2**2-\/18,}
+\DoxyCodeLine{00044     ])}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{\Hypertarget{lab3_8py_source_l00049}\mbox{\hyperlink{namespacelab3_abe56b7d59ac34cec7fb224bf6ba0b373}{00049}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_abe56b7d59ac34cec7fb224bf6ba0b373}{print\_vector\_field}}(x: np.ndarray, y: np.ndarray) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00050     X, Y = np.meshgrid(x, y)}
+\DoxyCodeLine{00051     u, v = np.zeros(X.shape), np.zeros(Y.shape)}
+\DoxyCodeLine{00052     NI, NJ = X.shape}
+\DoxyCodeLine{00053     \textcolor{comment}{\# Обчислює векторне поле по заданим значенням.}}
+\DoxyCodeLine{00054     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(NI):}
+\DoxyCodeLine{00055         \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(NJ):}
+\DoxyCodeLine{00056             u[i, j], v[i, j] = \mbox{\hyperlink{namespacelab3_aea6a3219841fb7ecbc7ec78c6b086281}{calc}}([X[i, j], Y[i, j]])}
+\DoxyCodeLine{00057     \textcolor{comment}{\# Друкує на графік векторне поле.}}
+\DoxyCodeLine{00058     plt.quiver(X, Y, u, v, color=\textcolor{stringliteral}{'r'})}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{\Hypertarget{lab3_8py_source_l00062}\mbox{\hyperlink{namespacelab3_a221094be9e83a5b3d211cd7cc7afbf26}{00062}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_a221094be9e83a5b3d211cd7cc7afbf26}{print\_trajectories}}(starts: list) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00063     \textcolor{comment}{\# Обчислюємо траєкторії задані у змінній `starts`}}
+\DoxyCodeLine{00064     \textcolor{keywordflow}{for} s, t \textcolor{keywordflow}{in} starts:}
+\DoxyCodeLine{00065         \textcolor{comment}{\# Задаємо діапазон часу [0, t] та ділить відрізок на 2000 частин.}}
+\DoxyCodeLine{00066         tspan = np.linspace(0, t, 2000)}
+\DoxyCodeLine{00067         \textcolor{comment}{\# Інтегрує систему до заданого часу `t` та початкових значень `s`}}
+\DoxyCodeLine{00068         tr = odeint(calc, s, tspan)}
+\DoxyCodeLine{00069         \textcolor{comment}{\# Друкуєму саму траєкторію}}
+\DoxyCodeLine{00070         plt.plot(tr[:,0], tr[:,1])}
+\DoxyCodeLine{00071         \textcolor{comment}{\# Друкуємо початок траєкторії у вигляді кружечка}}
+\DoxyCodeLine{00072         plt.plot([tr[0,0]], [tr[0,1]], \textcolor{stringliteral}{'o'})}
+\DoxyCodeLine{00073         \textcolor{comment}{\# Друкуємо кінець траєкторії у вигляді квадратика}}
+\DoxyCodeLine{00074         plt.plot([tr[-\/1,0]], [tr[-\/1,1]], \textcolor{stringliteral}{'s'})}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077 \mbox{\hyperlink{namespacelab3_abe56b7d59ac34cec7fb224bf6ba0b373}{print\_vector\_field}}(x, y)}
+\DoxyCodeLine{00078 \mbox{\hyperlink{namespacelab3_a221094be9e83a5b3d211cd7cc7afbf26}{print\_trajectories}}(starts)}
+\DoxyCodeLine{00079 \textcolor{comment}{\# Друкуємо графік}}
+\DoxyCodeLine{00080 plt.show()}
+
+\end{DoxyCode}

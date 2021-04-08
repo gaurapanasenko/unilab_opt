@@ -1,0 +1,40 @@
+\hypertarget{lab5_8py_source}{}\doxysubsection{lab5.\+py}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lab5_8py_source_l00001}\mbox{\hyperlink{namespacelab5}{00001}} \textcolor{comment}{\#!/usr/bin/env python3}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00010 \textcolor{keyword}{import} matplotlib.pyplot \textcolor{keyword}{as} plt}
+\DoxyCodeLine{00011 \textcolor{keyword}{import} numpy \textcolor{keyword}{as} np}
+\DoxyCodeLine{00012 \textcolor{keyword}{from} scipy.integrate \textcolor{keyword}{import} odeint}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{lab5_8py_source_l00015}\mbox{\hyperlink{namespacelab5_ae2daabf7b0e3f8141de43a4ff05e6f55}{00015}} tEnd = 10}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{\Hypertarget{lab5_8py_source_l00017}\mbox{\hyperlink{namespacelab5_a711b5432626a0173936d474e428bfc61}{00017}} tSize = 100000}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{\Hypertarget{lab5_8py_source_l00019}\mbox{\hyperlink{namespacelab5_a4d0bd17cfd5665d1abd0a903ee0f86f1}{00019}} startPoint = [50, 2, 2]}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{\Hypertarget{lab5_8py_source_l00031}\mbox{\hyperlink{namespacelab5_a05178c28900d344c40a64b26e4003520}{00031}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab5_a05178c28900d344c40a64b26e4003520}{sys}}(X, t=0) -\/> np.ndarray:}
+\DoxyCodeLine{00032     x, y, z = X}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{00034         3*x-\/y**2+z**2,}
+\DoxyCodeLine{00035         -\/y-\/700*z+10*x*y,}
+\DoxyCodeLine{00036         x+700*y-\/z-\/15*x*z}
+\DoxyCodeLine{00037     ])}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{\Hypertarget{lab5_8py_source_l00041}\mbox{\hyperlink{namespacelab5_a9fe1a9e51cc5e38ea6d3b4a0f917d1cb}{00041}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab5_a9fe1a9e51cc5e38ea6d3b4a0f917d1cb}{draw\_attractor}}() -\/> None:}
+\DoxyCodeLine{00042     tspan = np.linspace(0, tEnd, tSize)}
+\DoxyCodeLine{00043     ys = odeint(sys, startPoint, tspan)}
+\DoxyCodeLine{00044     fig = plt.figure()}
+\DoxyCodeLine{00045     ax = plt.axes(projection=\textcolor{stringliteral}{'3d'})}
+\DoxyCodeLine{00046     ax.plot3D(ys[:,0], ys[:,1], ys[:,2], alpha=0.75)}
+\DoxyCodeLine{00047     plt.show()}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050 \mbox{\hyperlink{namespacelab5_a9fe1a9e51cc5e38ea6d3b4a0f917d1cb}{draw\_attractor}}()}
+
+\end{DoxyCode}

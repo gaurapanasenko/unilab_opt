@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/TeX Live for SUSE Linux) (preloaded format=pdflatex 2021.3.24)  8 APR 2021 21:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/TeX Live for SUSE Linux) (preloaded format=pdflatex 2021.3.24)  8 APR 2021 21:49
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -929,8 +929,7 @@ Package: etoc 2019/11/17 v1.09b Completely customisable TOCs (JFB)
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count303
 \l__pdf_internal_box=\box114
-)
-No file refman.aux.
+) (./refman.aux)
 \openout1 = `refman.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
@@ -955,6 +954,7 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 150.
 LaTeX Font Info:    ... okay on input line 150.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 15
 0.
+
 (/usr/share/texmf/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
@@ -1042,53 +1042,58 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 150.
 LaTeX Info: Redefining \pageref on input line 150.
 LaTeX Info: Redefining \nameref on input line 150.
+ (./refman.out) (./refman.out)
 \@outlinefile=\write5
 \openout5 = `refman.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-
-No file refman.toc.
+\Etoc@tf=\read5
 Package hyperref Info: Option `pageanchor' set `false' on input line 157.
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 157.
 
 Package hyperref Info: Option `unicode' set `true' on input line 157.
-[1
+ [1
 
 {/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 \tf@toc=\write6
 \openout6 = `refman.toc'.
 
-Package hyperref Info: Option `pageanchor' set `true' on input line 170.
 
 
 LaTeX Font Warning: Font shape `T2A/phv/b/n' undefined
-(Font)              using `T2A/phv/m/n' instead on input line 173.
+(Font)              using `T2A/phv/m/n' instead on input line 169.
 
-(./index.tex
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 4
+LaTeX Font Info:    Trying to load font information for U+msa on input line 169
 .
- (/usr/share/texmf/tex/latex/psnfss/ts1phv.fd
-File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
-)
-LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 4.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
-
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 169
+.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 5.
-
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 16
+9.
 
 (/usr/share/texmf/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
+Package hyperref Info: Option `pageanchor' set `true' on input line 170.
+ (./index.tex
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 4
+.
+
+(/usr/share/texmf/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 4.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 7.
+ [1]
 LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 9
 .
 LaTeX Font Info:    No file T2Apcr.fd. on input line 9.
@@ -1097,38 +1102,7 @@ LaTeX Font Info:    No file T2Apcr.fd. on input line 9.
 LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
 (Font)              using `T2A/cmr/m/n' instead on input line 9.
 
-) (./namespaces.tex
-
-LaTeX Warning: Reference `namespacelab3' on page 1 undefined on input line 3.
-
-
-LaTeX Warning: Reference `namespacelab3__analysis' on page 1 undefined on input
- line 4.
-
-
-LaTeX Warning: Reference `namespacelab4' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Reference `namespacelab5' on page 1 undefined on input line 6.
-
-) (./files.tex
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 3.
- [1]
-
-LaTeX Warning: Reference `lab3_8py' on page 2 undefined on input line 3.
-
-
-LaTeX Warning: Reference `lab3__analysis_8py' on page 2 undefined on input line
- 4.
-
-
-LaTeX Warning: Reference `lab4_8py' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Reference `lab5_8py' on page 2 undefined on input line 6.
-
-) (./namespacelab3.tex
+) (./namespaces.tex) (./files.tex [2]) (./namespacelab3.tex
 
 LaTeX Font Warning: Font shape `T2A/phv/m/it' undefined
 (Font)              using `T2A/phv/m/n' instead on input line 12.
@@ -1138,139 +1112,93 @@ LaTeX Font Warning: Font shape `T2A/pcr/m/it' undefined
 (Font)              using `T2A/pcr/m/n' instead on input line 21.
 
  <./Lab3.png>
-<Lab3.png, id=55, 925.056pt x 494.3268pt>
+<Lab3.png, id=238, 925.056pt x 494.3268pt>
 File: Lab3.png Graphic file (type png)
 <use Lab3.png>
 Package pdftex.def Info: Lab3.png  used on input line 33.
 (pdftex.def)             Requested size: 455.24342pt x 243.27069pt.
- [2]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1 on input line 54.
-
-
+ [3]
 Underfull \hbox (badness 10000) detected at line 55
 [][][]
  []
 
-[3]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 2 on input line 87.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3 on input line 131.
-
-[4]) (./namespacelab3__analysis.tex [5] [6]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 4 on input line 113.
-
-
+[4] [5]) (./namespacelab3__analysis.tex [6] [7]
 Underfull \hbox (badness 10000) detected at line 114
 [][][]
  []
 
 ) (./namespacelab4.tex <./Lab4.png>
-<Lab4.png, id=164, 925.056pt x 494.3268pt>
+<Lab4.png, id=336, 925.056pt x 494.3268pt>
 File: Lab4.png Graphic file (type png)
 <use Lab4.png>
 Package pdftex.def Info: Lab4.png  used on input line 35.
 (pdftex.def)             Requested size: 455.24342pt x 243.27069pt.
- [7] [8]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 5 on input line 100.
-
-) (./namespacelab5.tex [9] <./Lab5_1.png>
-<Lab5_1.png, id=235, 925.056pt x 494.3268pt>
+ [8] [9]) (./namespacelab5.tex [10] <./Lab5_1.png>
+<Lab5_1.png, id=403, 925.056pt x 494.3268pt>
 File: Lab5_1.png Graphic file (type png)
 <use Lab5_1.png>
 Package pdftex.def Info: Lab5_1.png  used on input line 31.
 (pdftex.def)             Requested size: 455.24342pt x 243.27069pt.
  <./Lab5_2.png>
-<Lab5_2.png, id=237, 925.056pt x 494.3268pt>
+<Lab5_2.png, id=405, 925.056pt x 494.3268pt>
 File: Lab5_2.png Graphic file (type png)
 <use Lab5_2.png>
 Package pdftex.def Info: Lab5_2.png  used on input line 35.
 (pdftex.def)             Requested size: 455.24342pt x 243.27069pt.
- [10] <./Lab5_3.png>
-<Lab5_3.png, id=254, 925.056pt x 494.3268pt>
+ [11] <./Lab5_3.png>
+<Lab5_3.png, id=421, 925.056pt x 494.3268pt>
 File: Lab5_3.png Graphic file (type png)
 <use Lab5_3.png>
 Package pdftex.def Info: Lab5_3.png  used on input line 39.
 (pdftex.def)             Requested size: 455.24342pt x 243.27069pt.
-
-[11]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 6 on input line 88.
-
-
+ [12]
 Underfull \hbox (badness 10000) detected at line 89
 [][][]
  []
 
-) (./lab3_8py.tex [12]) (./lab3_8py_source.tex [13]) (./lab3__analysis_8py.tex)
-(./lab3__analysis_8py_source.tex [14]) (./lab4_8py.tex) (./lab4_8py_source.tex
-[15]) (./lab5_8py.tex) (./lab5_8py_source.tex [16]) (./mainpage_8dox.tex)
-[17] [18
-
-]
+) (./lab3_8py.tex [13]) (./lab3_8py_source.tex [14]) (./lab3__analysis_8py.tex)
+(./lab3__analysis_8py_source.tex [15]) (./lab4_8py.tex) (./lab4_8py_source.tex
+[16]) (./lab5_8py.tex) (./lab5_8py_source.tex [17]) (./mainpage_8dox.tex)
+[18]
 No file refman.ind.
-
-Package longtable Warning: Table widths have changed. Rerun LaTeX.
-
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 203.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 203.
 (./refman.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 203.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 203.
+Package rerunfilecheck Info: File `refman.out' has not changed.
+(rerunfilecheck)             Checksum: 5404FE7B8970FC987EF21A1F6156C615;6820.
 
-
-Package rerunfilecheck Warning: File `refman.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `refman.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  5404FE7B8970FC987EF21A1F6156C615;6820.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 17978 strings out of 481128
- 259119 string characters out of 5922469
- 543301 words of memory out of 5000000
- 33193 multiletter control sequences out of 15000+600000
+ 18018 strings out of 481128
+ 259773 string characters out of 5922469
+ 548442 words of memory out of 5000000
+ 33228 multiletter control sequences out of 15000+600000
  548757 words of font info for 61 fonts, out of 8000000 for 9000
  891 hyphenation exceptions out of 8191
- 55i,16n,96p,942b,564s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,16n,96p,942b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}{/usr/share/texmf
 /fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/shar
-e/texmf/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/c
-mr6.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/t
-exmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/pu
-blic/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm07
-00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm120
-0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/te
-xmf/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on refman.pdf (19 pages, 782260 bytes).
+mex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
+re/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1
+/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share
+/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/
+texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/pu
+blic/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm10
+00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/t
+exmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/urw
+/helvetic/uhvr8a.pfb>
+Output written on refman.pdf (19 pages, 794143 bytes).
 PDF statistics:
- 497 PDF objects out of 1000 (max. 8388607)
- 446 compressed objects within 5 object streams
- 162 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 650 PDF objects out of 1000 (max. 8388607)
+ 597 compressed objects within 6 object streams
+ 161 named destinations out of 1000 (max. 500000)
+ 306 words of extra memory for PDF output out of 10000 (max. 10000000)
 

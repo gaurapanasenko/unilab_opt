@@ -1,57 +1,57 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
 \babel@toc {ukrainian}{}
 \contentsline {section}{\numberline {1}Звіт з лабораторних робіт №3-\/5}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Постановка задачі}{1}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Лабораторна робота 3}{1}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Лабораторна робота 4}{1}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Лабораторна робота 5}{1}{subsubsection.1.1.3}%
-\contentsline {section}{\numberline {2}Алфавітний покажчик простору імен}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Простір імен}{1}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Покажчик файлв}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Файли}{2}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Опис простору імен}{2}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Простір імен lab3}{2}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Детальний опис}{3}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Опис функцій}{3}{subsubsection.4.1.2}%
-\contentsline {paragraph}{\numberline {4.1.2.1}calc()}{3}{paragraph.4.1.2.1}%
-\contentsline {paragraph}{\numberline {4.1.2.2}print\_trajectories()}{4}{paragraph.4.1.2.2}%
-\contentsline {paragraph}{\numberline {4.1.2.3}print\_vector\_field()}{4}{paragraph.4.1.2.3}%
-\contentsline {subsubsection}{\numberline {4.1.3}Опис змінних}{5}{subsubsection.4.1.3}%
-\contentsline {paragraph}{\numberline {4.1.3.1}starts}{5}{paragraph.4.1.3.1}%
-\contentsline {paragraph}{\numberline {4.1.3.2}x}{5}{paragraph.4.1.3.2}%
-\contentsline {paragraph}{\numberline {4.1.3.3}y}{5}{paragraph.4.1.3.3}%
-\contentsline {subsection}{\numberline {4.2}Простір імен lab3\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}analysis}{5}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Детальний опис}{6}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Опис функцій}{6}{subsubsection.4.2.2}%
-\contentsline {paragraph}{\numberline {4.2.2.1}analyze()}{6}{paragraph.4.2.2.1}%
-\contentsline {paragraph}{\numberline {4.2.2.2}calc()}{7}{paragraph.4.2.2.2}%
-\contentsline {subsection}{\numberline {4.3}Простір імен lab4}{7}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Детальний опис}{8}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Опис функцій}{8}{subsubsection.4.3.2}%
-\contentsline {paragraph}{\numberline {4.3.2.1}draw\_diagram()}{8}{paragraph.4.3.2.1}%
-\contentsline {paragraph}{\numberline {4.3.2.2}f()}{9}{paragraph.4.3.2.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Опис змінних}{9}{subsubsection.4.3.3}%
-\contentsline {paragraph}{\numberline {4.3.3.1}aIters}{9}{paragraph.4.3.3.1}%
-\contentsline {paragraph}{\numberline {4.3.3.2}alphaRange}{9}{paragraph.4.3.3.2}%
-\contentsline {paragraph}{\numberline {4.3.3.3}firstIters}{9}{paragraph.4.3.3.3}%
-\contentsline {paragraph}{\numberline {4.3.3.4}lastIters}{9}{paragraph.4.3.3.4}%
-\contentsline {paragraph}{\numberline {4.3.3.5}xStart}{10}{paragraph.4.3.3.5}%
-\contentsline {subsection}{\numberline {4.4}Простір імен lab5}{10}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Детальний опис}{10}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Опис функцій}{11}{subsubsection.4.4.2}%
-\contentsline {paragraph}{\numberline {4.4.2.1}draw\_attractor()}{11}{paragraph.4.4.2.1}%
-\contentsline {paragraph}{\numberline {4.4.2.2}sys()}{12}{paragraph.4.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Опис змінних}{12}{subsubsection.4.4.3}%
-\contentsline {paragraph}{\numberline {4.4.3.1}startPoint}{12}{paragraph.4.4.3.1}%
-\contentsline {paragraph}{\numberline {4.4.3.2}tEnd}{12}{paragraph.4.4.3.2}%
-\contentsline {paragraph}{\numberline {4.4.3.3}tSize}{13}{paragraph.4.4.3.3}%
-\contentsline {section}{\numberline {5}Файли}{13}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Файл lab3.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{13}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}lab3.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{13}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Файл lab3\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}analysis.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{14}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}lab3\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}analysis.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{14}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Файл lab4.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{15}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}lab4.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{16}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Файл lab5.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{16}{subsection.5.7}%
-\contentsline {subsection}{\numberline {5.8}lab5.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{17}{subsection.5.8}%
-\contentsline {subsection}{\numberline {5.9}Файл mainpage.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dox}{17}{subsection.5.9}%
+\contentsline {subsection}{\numberline {1.1}Постановка задачі}{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Лабораторна робота 3}{2}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Лабораторна робота 4}{2}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Лабораторна робота 5}{2}{subsubsection.1.1.3}%
+\contentsline {section}{\numberline {2}Алфавітний покажчик простору імен}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Простір імен}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Покажчик файлв}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Файли}{3}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Опис простору імен}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Простір імен lab3}{3}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Детальний опис}{4}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Опис функцій}{4}{subsubsection.4.1.2}%
+\contentsline {paragraph}{\numberline {4.1.2.1}calc()}{4}{paragraph.4.1.2.1}%
+\contentsline {paragraph}{\numberline {4.1.2.2}print\_trajectories()}{5}{paragraph.4.1.2.2}%
+\contentsline {paragraph}{\numberline {4.1.2.3}print\_vector\_field()}{5}{paragraph.4.1.2.3}%
+\contentsline {subsubsection}{\numberline {4.1.3}Опис змінних}{6}{subsubsection.4.1.3}%
+\contentsline {paragraph}{\numberline {4.1.3.1}starts}{6}{paragraph.4.1.3.1}%
+\contentsline {paragraph}{\numberline {4.1.3.2}x}{6}{paragraph.4.1.3.2}%
+\contentsline {paragraph}{\numberline {4.1.3.3}y}{6}{paragraph.4.1.3.3}%
+\contentsline {subsection}{\numberline {4.2}Простір імен lab3\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}analysis}{6}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Детальний опис}{7}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Опис функцій}{7}{subsubsection.4.2.2}%
+\contentsline {paragraph}{\numberline {4.2.2.1}analyze()}{7}{paragraph.4.2.2.1}%
+\contentsline {paragraph}{\numberline {4.2.2.2}calc()}{8}{paragraph.4.2.2.2}%
+\contentsline {subsection}{\numberline {4.3}Простір імен lab4}{8}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Детальний опис}{9}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Опис функцій}{9}{subsubsection.4.3.2}%
+\contentsline {paragraph}{\numberline {4.3.2.1}draw\_diagram()}{9}{paragraph.4.3.2.1}%
+\contentsline {paragraph}{\numberline {4.3.2.2}f()}{10}{paragraph.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Опис змінних}{10}{subsubsection.4.3.3}%
+\contentsline {paragraph}{\numberline {4.3.3.1}aIters}{10}{paragraph.4.3.3.1}%
+\contentsline {paragraph}{\numberline {4.3.3.2}alphaRange}{10}{paragraph.4.3.3.2}%
+\contentsline {paragraph}{\numberline {4.3.3.3}firstIters}{10}{paragraph.4.3.3.3}%
+\contentsline {paragraph}{\numberline {4.3.3.4}lastIters}{10}{paragraph.4.3.3.4}%
+\contentsline {paragraph}{\numberline {4.3.3.5}xStart}{11}{paragraph.4.3.3.5}%
+\contentsline {subsection}{\numberline {4.4}Простір імен lab5}{11}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Детальний опис}{11}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Опис функцій}{12}{subsubsection.4.4.2}%
+\contentsline {paragraph}{\numberline {4.4.2.1}draw\_attractor()}{12}{paragraph.4.4.2.1}%
+\contentsline {paragraph}{\numberline {4.4.2.2}sys()}{13}{paragraph.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Опис змінних}{13}{subsubsection.4.4.3}%
+\contentsline {paragraph}{\numberline {4.4.3.1}startPoint}{13}{paragraph.4.4.3.1}%
+\contentsline {paragraph}{\numberline {4.4.3.2}tEnd}{13}{paragraph.4.4.3.2}%
+\contentsline {paragraph}{\numberline {4.4.3.3}tSize}{14}{paragraph.4.4.3.3}%
+\contentsline {section}{\numberline {5}Файли}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Файл lab3.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}lab3.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{14}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Файл lab3\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}analysis.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}lab3\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}analysis.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{15}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Файл lab4.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{16}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}lab4.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{17}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Файл lab5.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{17}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}lab5.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{18}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}Файл mainpage.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dox}{18}{subsection.5.9}%

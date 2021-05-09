@@ -1,0 +1,42 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef MESH\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define MESH\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}osdo.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}model.h\PYGZdq{}}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{Vertex} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vec3} \PYG{n}{position}\PYG{p}{;}
+    \PYG{n}{vec3} \PYG{n}{normal}\PYG{p}{;}
+    \PYG{k+kt}{unsigned} \PYG{k+kt}{char} \PYG{n}{color}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{];}
+    \PYG{n}{vec2} \PYG{n}{uv}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{Vertex}\PYG{p}{;}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{Mesh} \PYG{p}{\PYGZob{}}
+    \PYG{n}{GLsizei} \PYG{n}{vertices\PYGZus{}size}\PYG{p}{,} \PYG{n}{indices\PYGZus{}size}\PYG{p}{;}
+    \PYG{n}{Vertex} \PYG{o}{*}\PYG{n}{vertices}\PYG{p}{;}
+    \PYG{n}{GLuint} \PYG{o}{*}\PYG{n}{indices}\PYG{p}{;}
+    \PYG{n}{GLuint} \PYG{n}{vao}\PYG{p}{,} \PYG{n}{vbo}\PYG{p}{,} \PYG{n}{ebo}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{Mesh}\PYG{p}{;}
+
+\PYG{k+kt}{void} \PYG{n+nf}{mesh\PYGZus{}init}\PYG{p}{(}\PYG{n}{Mesh}\PYG{o}{*} \PYG{n}{mesh}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{mesh\PYGZus{}cube\PYGZus{}update}\PYG{p}{(}\PYG{n}{Mesh}\PYG{o}{*} \PYG{n}{mesh}\PYG{p}{);}
+\PYG{n}{Mesh} \PYG{o}{*}\PYG{n+nf}{mesh\PYGZus{}create}\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{mesh\PYGZus{}del}\PYG{p}{(}\PYG{n}{Mesh}\PYG{o}{*} \PYG{n}{mesh}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{mesh\PYGZus{}free}\PYG{p}{(}\PYG{n}{Mesh}\PYG{o}{*} \PYG{n}{mesh}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{mesh\PYGZus{}update}\PYG{p}{(}
+        \PYG{n}{Mesh}\PYG{o}{*} \PYG{n}{mesh}\PYG{p}{,} \PYG{n}{GLsizei} \PYG{n}{vertices\PYGZus{}size}\PYG{p}{,} \PYG{n}{GLsizei} \PYG{n}{indices\PYGZus{}size}\PYG{p}{,}
+        \PYG{n}{Vertex} \PYG{o}{*}\PYG{n}{vertices}\PYG{p}{,} \PYG{n}{GLuint} \PYG{o}{*}\PYG{n}{indices}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{mesh\PYGZus{}clear}\PYG{p}{(}\PYG{n}{Mesh}\PYG{o}{*} \PYG{n}{mesh}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{mesh\PYGZus{}draw}\PYG{p}{(}\PYG{n}{Mesh} \PYG{o}{*}\PYG{n}{mesh}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{mesh\PYGZus{}draw\PYGZus{}mode}\PYG{p}{(}\PYG{n}{Mesh} \PYG{o}{*}\PYG{n}{mesh}\PYG{p}{,} \PYG{n}{GLenum} \PYG{n}{mode}\PYG{p}{);}
+
+\PYG{k}{static} \PYG{k}{const} \PYG{n}{ModelType} \PYG{n}{mesh\PYGZus{}type} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mesh\PYGZus{}draw}\PYG{p}{,} \PYG{n+nb}{NULL}\PYG{p}{,} \PYG{n}{mesh\PYGZus{}free}\PYG{p}{,}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{Verbatim}

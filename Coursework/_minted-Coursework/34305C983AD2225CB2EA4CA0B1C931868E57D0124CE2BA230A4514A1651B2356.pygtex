@@ -1,0 +1,48 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef NKGLFW\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define NKGLFW\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}osdo.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}shader.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}nuklear.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}window.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}define NK\PYGZus{}GLFW\PYGZus{}TEXT\PYGZus{}MAX 256}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{NkGlfw} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{;}
+    \PYG{n}{Mesh} \PYG{n}{mesh}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}context} \PYG{n}{context}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}font\PYGZus{}atlas} \PYG{n}{atlas}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}buffer} \PYG{n}{cmds}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}draw\PYGZus{}null\PYGZus{}texture} \PYG{n}{null}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}vec2} \PYG{n}{scroll}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}convert\PYGZus{}config} \PYG{n}{config}\PYG{p}{;}
+    \PYG{n}{GLuint} \PYG{n}{font\PYGZus{}tex}\PYG{p}{;}
+    \PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{;}
+    \PYG{n}{mat4} \PYG{n}{ortho}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{NkGlfw}\PYG{p}{;}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}init}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}del}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}font\PYGZus{}stash\PYGZus{}begin}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,}
+                              \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}font\PYGZus{}atlas} \PYG{o}{**}\PYG{n}{atlas}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}font\PYGZus{}stash\PYGZus{}end}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}begin\PYGZus{}input}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}end\PYGZus{}input}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}render}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}gflw\PYGZus{}scroll\PYGZus{}callback}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{xoff}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{yoff}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}mouse\PYGZus{}callback}\PYG{p}{(}\PYG{n}{NkGlfw} \PYG{o}{*}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{pos}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{offset}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}char\PYGZus{}callback}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{k+kt}{int} \PYG{n}{codepoint}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}mouse\PYGZus{}button\PYGZus{}callback}\PYG{p}{(}
+        \PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{BUTTONS} \PYG{n}{button}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}key\PYGZus{}callback}\PYG{p}{(}
+        \PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{KEYS} \PYG{n}{key}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// NKGLFW\PYGZus{}H}
+\end{Verbatim}

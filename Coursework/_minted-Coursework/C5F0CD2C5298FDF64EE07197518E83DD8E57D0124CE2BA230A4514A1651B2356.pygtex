@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef OSDO\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define OSDO\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}cglm/cglm.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}GL/glew.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}GL/gl.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}uthash.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}utarray.h\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}define for\PYGZus{}each\PYGZus{}utarr(type, item, list) \PYGZbs{}}
+\PYG{c+cp}{    for(type *item = (type*)(void*)utarray\PYGZus{}front(list); item != NULL; \PYGZbs{}}
+\PYG{c+cp}{        item = (type*)(void*)utarray\PYGZus{}next(list, item))}
+
+\PYG{k}{enum} \PYG{n}{coord\PYGZus{}enum} \PYG{p}{\PYGZob{}}\PYG{n}{X} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{Y} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{Z} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// OSDO\PYGZus{}H}
+\end{Verbatim}

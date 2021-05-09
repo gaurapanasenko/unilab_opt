@@ -1,0 +1,471 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}float.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}app.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}shader.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}beziator.h\PYGZdq{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{app\PYGZus{}init}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{models} \PYG{o}{=} \PYG{n+nb}{NULL}\PYG{p}{;}
+    \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shaders} \PYG{o}{=} \PYG{n+nb}{NULL}\PYG{p}{;}
+    \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{interactive\PYGZus{}mode} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{n}{window\PYGZus{}init}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{);}
+    \PYG{n}{utarray\PYGZus{}new}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{object\PYGZus{}icd}\PYG{p}{);}
+    \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera} \PYG{o}{=} \PYG{n}{CAMERA}\PYG{p}{;}
+    \PYG{n}{memset}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{));}
+
+    \PYG{n}{window\PYGZus{}set\PYGZus{}user\PYGZus{}pointer}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n}{app}\PYG{p}{);}
+    \PYG{n}{window\PYGZus{}set\PYGZus{}scroll\PYGZus{}cb}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n}{app\PYGZus{}scroll}\PYG{p}{);}
+    \PYG{n}{window\PYGZus{}set\PYGZus{}mouse\PYGZus{}motion\PYGZus{}cb}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n}{app\PYGZus{}mouse}\PYG{p}{);}
+    \PYG{n}{window\PYGZus{}set\PYGZus{}char\PYGZus{}cb}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n}{app\PYGZus{}char\PYGZus{}callback}\PYG{p}{);}
+    \PYG{n}{window\PYGZus{}set\PYGZus{}mouse\PYGZus{}button\PYGZus{}cb}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n}{app\PYGZus{}mouse\PYGZus{}button\PYGZus{}callback}\PYG{p}{);}
+    \PYG{n}{window\PYGZus{}set\PYGZus{}key\PYGZus{}cb}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n}{app\PYGZus{}key}\PYG{p}{);}
+
+    \PYG{c+c1}{// build and compile our shader zprogram}
+    \PYG{c+c1}{// \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{app\PYGZus{}load\PYGZus{}shader}\PYG{p}{(}\PYG{n}{app}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}simple\PYGZdq{}}\PYG{p}{)} \PYG{o}{||}
+            \PYG{o}{!}\PYG{n}{app\PYGZus{}load\PYGZus{}shader}\PYG{p}{(}\PYG{n}{app}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}textured\PYGZdq{}}\PYG{p}{)} \PYG{o}{||}
+            \PYG{o}{!}\PYG{n}{app\PYGZus{}load\PYGZus{}shader}\PYG{p}{(}\PYG{n}{app}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}lighting\PYGZdq{}}\PYG{p}{)} \PYG{o}{||}
+            \PYG{o}{!}\PYG{n}{app\PYGZus{}load\PYGZus{}shader}\PYG{p}{(}\PYG{n}{app}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}nuklear\PYGZdq{}}\PYG{p}{)} \PYG{o}{||}
+            \PYG{o}{!}\PYG{n}{app\PYGZus{}load\PYGZus{}shader}\PYG{p}{(}\PYG{n}{app}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}editmode\PYGZdq{}}\PYG{p}{))}
+        \PYG{k}{return} \PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+
+    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{;}
+    \PYG{n}{HASH\PYGZus{}FIND\PYGZus{}STR}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shaders}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}editmode\PYGZdq{}}\PYG{p}{,} \PYG{n}{shader}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{shader} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)}
+        \PYG{k}{return} \PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{model\PYGZus{}t} \PYG{n}{model\PYGZus{}ch}\PYG{p}{;}
+        \PYG{n}{Model} \PYG{o}{*}\PYG{n}{model}\PYG{p}{;}
+        \PYG{n}{Object} \PYG{n}{object}\PYG{p}{;}
+
+        \PYG{n}{model\PYGZus{}ch}\PYG{p}{.}\PYG{n}{beziator} \PYG{o}{=} \PYG{n}{beziator\PYGZus{}create}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}test\PYGZdq{}}\PYG{p}{,} \PYG{n}{shader}\PYG{p}{);}
+        \PYG{n}{model} \PYG{o}{=} \PYG{n}{model\PYGZus{}create}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}teapot\PYGZdq{}}\PYG{p}{,} \PYG{n}{model\PYGZus{}ch}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{beziator\PYGZus{}type}\PYG{p}{);}
+        \PYG{n}{beziator\PYGZus{}generate}\PYG{p}{(}\PYG{n}{model\PYGZus{}ch}\PYG{p}{.}\PYG{n}{beziator}\PYG{p}{);}
+        \PYG{n}{object\PYGZus{}init}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{object}\PYG{p}{,} \PYG{n}{model}\PYG{p}{,} \PYG{n}{shader}\PYG{p}{);}
+        \PYG{n}{object\PYGZus{}translate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{object}\PYG{p}{,} \PYG{p}{(}\PYG{n}{vec3}\PYG{p}{)\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{\PYGZhy{}5}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{});}
+        \PYG{n}{object\PYGZus{}scale}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{object}\PYG{p}{,} \PYG{p}{(}\PYG{n}{vec3}\PYG{p}{)\PYGZob{}}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{\PYGZcb{});}
+        \PYG{n}{object\PYGZus{}rotate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{object}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{M\PYGZus{}PI\PYGZus{}F} \PYG{o}{/} \PYG{l+m+mf}{3.f}\PYG{p}{,} \PYG{n}{X}\PYG{p}{);}
+        \PYG{n}{HASH\PYGZus{}ADD\PYGZus{}STR}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{models}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{model}\PYG{p}{);}
+        \PYG{n}{utarray\PYGZus{}push\PYGZus{}back}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{object}\PYG{p}{);}
+
+        \PYG{c+cm}{/*model\PYGZus{}ch.mesh = mesh\PYGZus{}create();}
+\PYG{c+cm}{        mesh\PYGZus{}cube\PYGZus{}update(model\PYGZus{}ch.mesh);}
+\PYG{c+cm}{        model = model\PYGZus{}create(\PYGZdq{}cube\PYGZdq{}, model\PYGZus{}ch, \PYGZam{}mesh\PYGZus{}type);}
+\PYG{c+cm}{        object\PYGZus{}init(\PYGZam{}object, model, shader);}
+\PYG{c+cm}{        HASH\PYGZus{}ADD\PYGZus{}STR(app\PYGZhy{}\PYGZgt{}models, name, model);}
+\PYG{c+cm}{        utarray\PYGZus{}push\PYGZus{}back(app\PYGZhy{}\PYGZgt{}objects, \PYGZam{}object);*/}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{scene\PYGZus{}init}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scene}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{);}
+    \PYG{n}{camera\PYGZus{}translate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{BASIS0POS}\PYG{p}{);}
+
+    \PYG{n}{HASH\PYGZus{}FIND\PYGZus{}STR}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shaders}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}nuklear\PYGZdq{}}\PYG{p}{,} \PYG{n}{shader}\PYG{p}{);}
+    \PYG{n}{nk\PYGZus{}glfw\PYGZus{}init}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n}{shader}\PYG{p}{);}
+
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}del}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{nk\PYGZus{}glfw\PYGZus{}del}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{);}
+    \PYG{n}{scene\PYGZus{}del}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scene}\PYG{p}{);}
+    \PYG{n}{utarray\PYGZus{}free}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{);}
+
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{Model} \PYG{o}{*}\PYG{n}{i}\PYG{p}{,} \PYG{o}{*}\PYG{n}{tmp}\PYG{p}{;}
+        \PYG{n}{HASH\PYGZus{}ITER}\PYG{p}{(}\PYG{n}{hh}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{models}\PYG{p}{,} \PYG{n}{i}\PYG{p}{,} \PYG{n}{tmp}\PYG{p}{)}
+            \PYG{n}{model\PYGZus{}free}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{i}\PYG{p}{,} \PYG{o}{*}\PYG{n}{tmp}\PYG{p}{;}
+        \PYG{n}{HASH\PYGZus{}ITER}\PYG{p}{(}\PYG{n}{hh}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shaders}\PYG{p}{,} \PYG{n}{i}\PYG{p}{,} \PYG{n}{tmp}\PYG{p}{)}
+            \PYG{n}{shader\PYGZus{}free}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{app\PYGZus{}loop}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Scene}\PYG{o}{*} \PYG{n}{scene} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scene}\PYG{p}{;}
+    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{sh}\PYG{p}{,} \PYG{o}{*}\PYG{n}{sh2}\PYG{p}{;}
+    \PYG{n}{HASH\PYGZus{}FIND\PYGZus{}STR}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shaders}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}editmode\PYGZdq{}}\PYG{p}{,} \PYG{n}{sh}\PYG{p}{);}
+    \PYG{n}{HASH\PYGZus{}FIND\PYGZus{}STR}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shaders}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}simple\PYGZdq{}}\PYG{p}{,} \PYG{n}{sh2}\PYG{p}{);}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}context} \PYG{o}{*}\PYG{n}{ctx} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{.}\PYG{n}{context}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}colorf} \PYG{n}{bg}\PYG{p}{;}
+    \PYG{n}{bg}\PYG{p}{.}\PYG{n}{r} \PYG{o}{=} \PYG{l+m+mf}{0.8f}\PYG{p}{;} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{g} \PYG{o}{=} \PYG{l+m+mf}{0.9f}\PYG{p}{;} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{0.8f}\PYG{p}{;} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{1.0f}\PYG{p}{;}
+    \PYG{k+kt}{char} \PYG{n}{text}\PYG{p}{[}\PYG{l+m+mi}{128}\PYG{p}{];}
+    \PYG{n}{vec4} \PYG{o}{*}\PYG{n}{position}\PYG{p}{,} \PYG{n}{direction}\PYG{p}{;}
+    \PYG{n}{vec3} \PYG{n}{rotation}\PYG{p}{,} \PYG{o}{*}\PYG{n}{animation}\PYG{p}{;}
+    \PYG{n}{Bijective} \PYG{n}{bijective}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{light} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+
+    \PYG{c+c1}{// render loop}
+    \PYG{c+c1}{// \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+    \PYG{k}{while}\PYG{p}{(}\PYG{n}{window\PYGZus{}alive}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+        \PYG{n}{nk\PYGZus{}glfw\PYGZus{}begin\PYGZus{}input}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{);}
+        \PYG{n}{window\PYGZus{}pre\PYGZus{}loop}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{);}
+        \PYG{n}{nk\PYGZus{}glfw\PYGZus{}end\PYGZus{}input}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{);}
+
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active}\PYG{p}{)}
+            \PYG{n}{snprintf}\PYG{p}{(}\PYG{n}{text}\PYG{p}{,} \PYG{l+m+mi}{128}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Object \PYGZpc{}zu\PYGZdq{}}\PYG{p}{,} \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active}\PYG{p}{);}
+        \PYG{k}{else} \PYG{n}{snprintf}\PYG{p}{(}\PYG{n}{text}\PYG{p}{,} \PYG{l+m+mi}{128}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Camera\PYGZdq{}}\PYG{p}{);}
+
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{n}{bijective}\PYG{p}{.}\PYG{n}{bijective}\PYG{p}{.}\PYG{n}{object} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{void}\PYG{o}{*}\PYG{p}{)}\PYG{n}{utarray\PYGZus{}eltptr}\PYG{p}{(}
+                         \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{);}
+            \PYG{n}{bijective}\PYG{p}{.}\PYG{n}{type} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{object\PYGZus{}bijective}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+            \PYG{n}{bijective}\PYG{p}{.}\PYG{n}{bijective}\PYG{p}{.}\PYG{n}{camera} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera}\PYG{p}{;}
+            \PYG{n}{bijective}\PYG{p}{.}\PYG{n}{type} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{camera\PYGZus{}bijective}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{bijective\PYGZus{}get\PYGZus{}position}\PYG{p}{(}\PYG{n}{bijective}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{position}\PYG{p}{);}
+        \PYG{n}{bijective\PYGZus{}get\PYGZus{}animation}\PYG{p}{(}\PYG{n}{bijective}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{animation}\PYG{p}{);}
+        \PYG{n}{glm\PYGZus{}vec3\PYGZus{}copy}\PYG{p}{(}\PYG{n}{GLM\PYGZus{}VEC3\PYGZus{}ZERO}\PYG{p}{,} \PYG{n}{rotation}\PYG{p}{);}
+
+        \PYG{c+cm}{/* GUI */}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{nk\PYGZus{}begin}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}OSDO\PYGZdq{}}\PYG{p}{,} \PYG{n}{nk\PYGZus{}rect}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{256}\PYG{p}{,} \PYG{l+m+mi}{512}\PYG{p}{),}
+            \PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}BORDER}\PYG{o}{|}\PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}MOVABLE}\PYG{o}{|}\PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}SCALABLE}\PYG{o}{|}
+            \PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}MINIMIZABLE}\PYG{o}{|}\PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}TITLE}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}checkbox\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Wireframe\PYGZdq{}}\PYG{p}{,}
+                              \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scene}\PYG{p}{.}\PYG{n}{wireframe}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}checkbox\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Light\PYGZdq{}}\PYG{p}{,}
+                              \PYG{o}{\PYGZam{}}\PYG{n}{light}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Active element:\PYGZdq{}}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{text}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{)(}\PYG{n}{nk\PYGZus{}propertyi}\PYG{p}{(}
+                                \PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active}\PYG{p}{,}
+                                \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{utarray\PYGZus{}len}\PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{),} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{));}
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Position:\PYGZdq{}}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}X:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{o}{*}\PYG{n}{position}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}Y:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{o}{*}\PYG{n}{position} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}Z:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{o}{*}\PYG{n}{position} \PYG{o}{+} \PYG{l+m+mi}{2}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Rotation:\PYGZdq{}}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}X:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{n}{rotation}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}Y:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{n}{rotation} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}Z:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{n}{rotation} \PYG{o}{+} \PYG{l+m+mi}{2}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Animation:\PYGZdq{}}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}X:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{o}{*}\PYG{n}{animation}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}Y:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{o}{*}\PYG{n}{animation} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}Z:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{o}{*}\PYG{n}{animation} \PYG{o}{+} \PYG{l+m+mi}{2}\PYG{p}{,}
+                              \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{20}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}background:\PYGZdq{}}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{nk\PYGZus{}combo\PYGZus{}begin\PYGZus{}color}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{nk\PYGZus{}rgb\PYGZus{}cf}\PYG{p}{(}\PYG{n}{bg}\PYG{p}{),} \PYG{n}{nk\PYGZus{}vec2}\PYG{p}{(}\PYG{n}{nk\PYGZus{}widget\PYGZus{}width}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{),}\PYG{l+m+mi}{400}\PYG{p}{)))} \PYG{p}{\PYGZob{}}
+                \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{120}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+                \PYG{n}{bg} \PYG{o}{=} \PYG{n}{nk\PYGZus{}color\PYGZus{}picker}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{bg}\PYG{p}{,} \PYG{n}{NK\PYGZus{}RGBA}\PYG{p}{);}
+                \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+                \PYG{n}{bg}\PYG{p}{.}\PYG{n}{r} \PYG{o}{=} \PYG{n}{nk\PYGZus{}propertyf}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}R:\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{r}\PYG{p}{,} \PYG{l+m+mf}{1.0f}\PYG{p}{,} \PYG{l+m+mf}{0.01f}\PYG{p}{,}\PYG{l+m+mf}{0.005f}\PYG{p}{);}
+                \PYG{n}{bg}\PYG{p}{.}\PYG{n}{g} \PYG{o}{=} \PYG{n}{nk\PYGZus{}propertyf}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}G:\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{g}\PYG{p}{,} \PYG{l+m+mf}{1.0f}\PYG{p}{,} \PYG{l+m+mf}{0.01f}\PYG{p}{,}\PYG{l+m+mf}{0.005f}\PYG{p}{);}
+                \PYG{n}{bg}\PYG{p}{.}\PYG{n}{b} \PYG{o}{=} \PYG{n}{nk\PYGZus{}propertyf}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}B:\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{b}\PYG{p}{,} \PYG{l+m+mf}{1.0f}\PYG{p}{,} \PYG{l+m+mf}{0.01f}\PYG{p}{,}\PYG{l+m+mf}{0.005f}\PYG{p}{);}
+                \PYG{n}{bg}\PYG{p}{.}\PYG{n}{a} \PYG{o}{=} \PYG{n}{nk\PYGZus{}propertyf}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}A:\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{a}\PYG{p}{,} \PYG{l+m+mf}{1.0f}\PYG{p}{,} \PYG{l+m+mf}{0.01f}\PYG{p}{,}\PYG{l+m+mf}{0.005f}\PYG{p}{);}
+                \PYG{n}{nk\PYGZus{}combo\PYGZus{}end}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{);}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{nk\PYGZus{}end}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{);}
+
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator} \PYG{o}{=} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{models}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{model}\PYG{p}{.}\PYG{n}{beziator}\PYG{p}{;}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{nk\PYGZus{}begin}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Bezier mesh\PYGZdq{}}\PYG{p}{,} \PYG{n}{nk\PYGZus{}rect}\PYG{p}{(}\PYG{l+m+mi}{267}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{256}\PYG{p}{,} \PYG{l+m+mi}{512}\PYG{p}{),}
+                         \PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}BORDER}\PYG{o}{|}\PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}MOVABLE}\PYG{o}{|}\PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}SCALABLE}\PYG{o}{|}
+                         \PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}MINIMIZABLE}\PYG{o}{|}\PYG{n}{NK\PYGZus{}WINDOW\PYGZus{}TITLE}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+                \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+                \PYG{k}{if} \PYG{p}{(}\PYG{n}{nk\PYGZus{}button\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Regenerate\PYGZdq{}}\PYG{p}{))}
+                    \PYG{n}{beziator\PYGZus{}generate}\PYG{p}{(}\PYG{n}{beziator}\PYG{p}{);}
+                \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+                \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Control points:\PYGZdq{}}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+                \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points\PYGZus{}size}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                    \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{);}
+                    \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}X:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}
+                                      \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+                    \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}Y:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,}
+                                      \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+                    \PYG{n}{nk\PYGZus{}property\PYGZus{}float}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}Z:\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{2}\PYG{p}{,}
+                                      \PYG{n}{FLT\PYGZus{}MAX}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{,} \PYG{l+m+mf}{0.1f}\PYG{p}{);}
+                \PYG{p}{\PYGZcb{}}
+                \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+                \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Surfaces:\PYGZdq{}}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+                \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces\PYGZus{}size}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                        \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{);}
+                        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                            \PYG{n}{nk\PYGZus{}property\PYGZus{}int}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZsh{}\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{o}{*}\PYG{p}{)(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{+} \PYG{n}{k}\PYG{p}{),}
+                                              \PYG{l+m+mi}{100}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+                        \PYG{p}{\PYGZcb{}}
+                    \PYG{p}{\PYGZcb{}}
+                    \PYG{n}{nk\PYGZus{}layout\PYGZus{}row\PYGZus{}dynamic}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+                    \PYG{n}{nk\PYGZus{}label}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{,} \PYG{n}{NK\PYGZus{}TEXT\PYGZus{}LEFT}\PYG{p}{);}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{n}{nk\PYGZus{}end}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{c+c1}{// render}
+        \PYG{c+c1}{// \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+        \PYG{n}{glClearColor}\PYG{p}{(}\PYG{n}{bg}\PYG{p}{.}\PYG{n}{r}\PYG{p}{,} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{g}\PYG{p}{,} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{b}\PYG{p}{,} \PYG{n}{bg}\PYG{p}{.}\PYG{n}{a}\PYG{p}{);}
+        \PYG{n}{glClearDepth}\PYG{p}{(}\PYG{l+m+mf}{1.0}\PYG{p}{);}
+        \PYG{n}{glClear}\PYG{p}{(}\PYG{n}{GL\PYGZus{}COLOR\PYGZus{}BUFFER\PYGZus{}BIT} \PYG{o}{|} \PYG{n}{GL\PYGZus{}DEPTH\PYGZus{}BUFFER\PYGZus{}BIT}\PYG{p}{);}
+
+        \PYG{c+c1}{// input}
+        \PYG{c+c1}{// \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+        \PYG{n}{app\PYGZus{}process\PYGZus{}input}\PYG{p}{(}\PYG{n}{app}\PYG{p}{);}
+
+        \PYG{c+c1}{// configure global opengl state}
+        \PYG{c+c1}{// \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+        \PYG{n}{glEnable}\PYG{p}{(}\PYG{n}{GL\PYGZus{}DEPTH\PYGZus{}TEST}\PYG{p}{);}
+
+        \PYG{n}{shader\PYGZus{}use}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{);}
+
+        \PYG{c+c1}{// pass projection matrix to shader}
+        \PYG{n}{glm\PYGZus{}perspective}\PYG{p}{(}\PYG{l+m+mf}{45.f} \PYG{o}{*} \PYG{p}{(}\PYG{n}{GLfloat}\PYG{p}{)} \PYG{n}{M\PYGZus{}RAD}\PYG{p}{,}
+                        \PYG{n}{window\PYGZus{}get\PYGZus{}resolution}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{),}
+                        \PYG{l+m+mf}{0.01f}\PYG{p}{,} \PYG{l+m+mf}{100.0f}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{projection}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}projection\PYGZdq{}}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{projection}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}float}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}materialShininess\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{32.0f}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}vec3}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}objectColor\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{vec3}\PYG{p}{)\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{});}
+
+        \PYG{c+c1}{// directional light}
+        \PYG{n}{camera\PYGZus{}get\PYGZus{}direction}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{direction}\PYG{p}{);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{light}\PYG{p}{)}
+            \PYG{n}{shader\PYGZus{}set\PYGZus{}vec3}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}dirLight.direction\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{vec3}\PYG{p}{)\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{});}
+        \PYG{k}{else}
+            \PYG{n}{shader\PYGZus{}set\PYGZus{}vec3}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}dirLight.direction\PYGZdq{}}\PYG{p}{,} \PYG{n}{direction}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}vec3f}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}dirLight.ambient\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}vec3f}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}dirLight.diffuse\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{0.6f}\PYG{p}{,} \PYG{l+m+mf}{0.6f}\PYG{p}{,} \PYG{l+m+mf}{0.6f}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}vec3f}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}dirLight.specular\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{0.f}\PYG{p}{,} \PYG{l+m+mf}{0.f}\PYG{p}{,} \PYG{l+m+mf}{0.f}\PYG{p}{);}
+
+        \PYG{c+c1}{// camera/view transformation}
+        \PYG{n}{camera\PYGZus{}get\PYGZus{}mat4}\PYG{p}{((}\PYG{k+kt}{void}\PYG{o}{*}\PYG{p}{)}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{last\PYGZus{}camera}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}vec3}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}viewPos\PYGZdq{}}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera}\PYG{p}{.}\PYG{n}{position}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}vec3f}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}objectColor\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{0.4f}\PYG{p}{,} \PYG{l+m+mf}{0.8f}\PYG{p}{,} \PYG{l+m+mf}{0.4f}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}float}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}materialShininess\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{32.0f}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}camera\PYGZdq{}}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{last\PYGZus{}camera}\PYG{p}{);}
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}vec2}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}vp\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{vec2}\PYG{p}{)\PYGZob{}(}\PYG{k+kt}{float}\PYG{p}{)}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{.}\PYG{n}{size}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{p}{(}\PYG{k+kt}{float}\PYG{p}{)}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{.}\PYG{n}{size}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]\PYGZcb{});}
+
+        \PYG{n}{shader\PYGZus{}set\PYGZus{}float}\PYG{p}{(}\PYG{n}{sh}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}alpha\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{1.0}\PYG{p}{);}
+
+        \PYG{n}{bijective\PYGZus{}rotate\PYGZus{}all}\PYG{p}{(}\PYG{n}{bijective}\PYG{p}{,} \PYG{n}{rotation}\PYG{p}{);}
+
+        \PYG{c+c1}{// Culling unneded back faced}
+        \PYG{c+c1}{//glEnable(GL\PYGZus{}CULL\PYGZus{}FACE);}
+        \PYG{c+c1}{//glCullFace(GL\PYGZus{}BACK);}
+        \PYG{c+c1}{//glFrontFace(GL\PYGZus{}CCW);}
+
+        \PYG{n}{glEnable}\PYG{p}{(}\PYG{n}{GL\PYGZus{}DEPTH\PYGZus{}TEST}\PYG{p}{);}
+
+        \PYG{c+c1}{//glEnable(GL\PYGZus{}BLEND);}
+        \PYG{c+c1}{//glBlendEquation(GL\PYGZus{}FUNC\PYGZus{}ADD);}
+        \PYG{c+c1}{//glBlendFunc(GL\PYGZus{}SRC\PYGZus{}ALPHA, GL\PYGZus{}ONE\PYGZus{}MINUS\PYGZus{}SRC\PYGZus{}ALPHA);}
+
+        \PYG{c+c1}{//glEnable(GL\PYGZus{}ALPHA\PYGZus{}TEST);}
+        \PYG{c+c1}{//glAlphaFunc(GL\PYGZus{}GREATER, 0.0f);}
+
+        \PYG{n}{glPointSize}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{wireframe}\PYG{p}{)}
+            \PYG{n}{glPolygonMode}\PYG{p}{(}\PYG{n}{GL\PYGZus{}FRONT\PYGZus{}AND\PYGZus{}BACK}\PYG{p}{,} \PYG{n}{GL\PYGZus{}LINE}\PYG{p}{);}
+
+        \PYG{c+c1}{// render the loaded models}
+        \PYG{n}{for\PYGZus{}each\PYGZus{}utarr} \PYG{p}{(}\PYG{n}{Object}\PYG{p}{,} \PYG{n}{i}\PYG{p}{,} \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{object\PYGZus{}draw}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mat4buf}\PYG{p}{,}
+                        \PYG{n}{window\PYGZus{}get\PYGZus{}delta\PYGZus{}time}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{));}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{n}{glPolygonMode}\PYG{p}{(}\PYG{n}{GL\PYGZus{}FRONT\PYGZus{}AND\PYGZus{}BACK}\PYG{p}{,} \PYG{n}{GL\PYGZus{}FILL}\PYG{p}{);}
+        \PYG{n}{nk\PYGZus{}glfw\PYGZus{}render}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{);}
+        \PYG{n}{window\PYGZus{}post\PYGZus{}loop}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{app\PYGZus{}load\PYGZus{}shader}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader} \PYG{o}{=} \PYG{n}{shader\PYGZus{}create}\PYG{p}{(}\PYG{n}{name}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{shader} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed to compile shaders.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{HASH\PYGZus{}ADD\PYGZus{}STR}\PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shaders}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{shader}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}scroll}\PYG{p}{(}\PYG{n}{Window}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{xoffset}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{yoffset}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{App} \PYG{o}{*}\PYG{n}{app} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}user\PYGZus{}pointer}\PYG{p}{(}\PYG{n}{window}\PYG{p}{);}
+    \PYG{n}{nk\PYGZus{}gflw\PYGZus{}scroll\PYGZus{}callback}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{xoffset}\PYG{p}{,} \PYG{n}{yoffset}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}mouse}\PYG{p}{(}\PYG{n}{Window}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{pos}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{offset}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{App} \PYG{o}{*}\PYG{n}{app} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}user\PYGZus{}pointer}\PYG{p}{(}\PYG{n}{window}\PYG{p}{);}
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{interactive\PYGZus{}mode}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{vec2} \PYG{n}{offset\PYGZus{}sens} \PYG{o}{=} \PYG{n}{GLM\PYGZus{}VEC2\PYGZus{}ZERO\PYGZus{}INIT}\PYG{p}{;}
+        \PYG{n}{glm\PYGZus{}vec2\PYGZus{}muladds}\PYG{p}{(}\PYG{n}{offset}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{SENSITIVITY}\PYG{p}{,} \PYG{n}{offset\PYGZus{}sens}\PYG{p}{);}
+        \PYG{c+c1}{//offset\PYGZus{}sens[0] *= \PYGZhy{}1;}
+
+        \PYG{n}{camera\PYGZus{}rotate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{offset\PYGZus{}sens}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{Y}\PYG{p}{);}
+        \PYG{n}{camera\PYGZus{}rotate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{offset\PYGZus{}sens}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{X}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{nk\PYGZus{}glfw\PYGZus{}mouse\PYGZus{}callback}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{pos}\PYG{p}{,} \PYG{n}{offset}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}char\PYGZus{}callback}\PYG{p}{(}\PYG{n}{Window}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{k+kt}{int} \PYG{n}{codepoint}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{App} \PYG{o}{*}\PYG{n}{app} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}user\PYGZus{}pointer}\PYG{p}{(}\PYG{n}{window}\PYG{p}{);}
+    \PYG{n}{nk\PYGZus{}glfw\PYGZus{}char\PYGZus{}callback}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{codepoint}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}mouse\PYGZus{}button\PYGZus{}callback}\PYG{p}{(}
+        \PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{UNUSED} \PYG{k}{enum} \PYG{n}{BUTTONS} \PYG{n}{button}\PYG{p}{,}
+        \PYG{n}{UNUSED} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{App} \PYG{o}{*}\PYG{n}{app} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}user\PYGZus{}pointer}\PYG{p}{(}\PYG{n}{window}\PYG{p}{);}
+    \PYG{c+cm}{/*Object *object = (void*)utarray\PYGZus{}eltptr(app\PYGZhy{}\PYGZgt{}objects, 0);}
+\PYG{c+cm}{    Model *model = object\PYGZhy{}\PYGZgt{}model;}
+\PYG{c+cm}{    int *size = window\PYGZus{}get\PYGZus{}size(\PYGZam{}app\PYGZhy{}\PYGZgt{}window);}
+\PYG{c+cm}{    int *cursor = window\PYGZus{}get\PYGZus{}cursor(\PYGZam{}app\PYGZhy{}\PYGZgt{}window);}
+\PYG{c+cm}{    vec4 cp;}
+\PYG{c+cm}{    mat4 m;}
+\PYG{c+cm}{    object\PYGZus{}get\PYGZus{}mat4(object, m);}
+\PYG{c+cm}{    glm\PYGZus{}mat4\PYGZus{}mul(app\PYGZhy{}\PYGZgt{}last\PYGZus{}camera, m, m);}
+\PYG{c+cm}{    glm\PYGZus{}mat4\PYGZus{}mul(app\PYGZhy{}\PYGZgt{}projection, m, m);}
+\PYG{c+cm}{    for (size\PYGZus{}t i = 0; i \PYGZlt{} model\PYGZhy{}\PYGZgt{}points\PYGZus{}size; i++) \PYGZob{}}
+\PYG{c+cm}{        glm\PYGZus{}mat4\PYGZus{}mulv(m, model\PYGZhy{}\PYGZgt{}points[i], cp);}
+\PYG{c+cm}{        printf(\PYGZdq{}\PYGZpc{}f \PYGZpc{}f \PYGZpc{}f\PYGZbs{}n\PYGZdq{}, cp[0] / cp[2], cp[1] / cp[2], cp[2]);}
+\PYG{c+cm}{    \PYGZcb{}}
+\PYG{c+cm}{    printf(\PYGZdq{}Tap: \PYGZpc{}f \PYGZpc{}f\PYGZbs{}n\PYGZdq{}, (float)cursor[0] * 2.0 / (float)size[0] \PYGZhy{} 1.0,}
+\PYG{c+cm}{        (float)cursor[1] * 2.0 / (float)size[1] \PYGZhy{} 1.0);*/}
+    \PYG{n}{nk\PYGZus{}glfw\PYGZus{}mouse\PYGZus{}button\PYGZus{}callback}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{button}\PYG{p}{,} \PYG{n}{pressed}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// glfw: when the keyboard was used, this callback is called}
+\PYG{c+c1}{// \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}key}\PYG{p}{(}\PYG{n}{Window}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{KEYS} \PYG{n}{key}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{App} \PYG{o}{*}\PYG{n}{app} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}user\PYGZus{}pointer}\PYG{p}{(}\PYG{n}{window}\PYG{p}{);}
+    \PYG{n}{Scene} \PYG{o}{*}\PYG{n}{scene} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scene}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{t} \PYG{o}{=} \PYG{n}{pressed} \PYG{o}{?} \PYG{l+m+mi}{1} \PYG{o}{:} \PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{pressed}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{switch} \PYG{p}{(}\PYG{n}{key}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}TAB}\PYG{p}{:}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active}\PYG{o}{++}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}Z}\PYG{p}{:}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{wireframe} \PYG{o}{=} \PYG{o}{!}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{wireframe}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}X}\PYG{p}{:}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{light} \PYG{o}{=} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{light}\PYG{p}{)}\PYG{o}{?} \PYG{l+m+mi}{0} \PYG{o}{:} \PYG{l+m+mi}{1}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}1}\PYG{p}{:}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{dirLightOn} \PYG{o}{=} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{dirLightOn}\PYG{p}{)}\PYG{o}{?} \PYG{l+m+mi}{0} \PYG{o}{:} \PYG{l+m+mi}{1}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}2}\PYG{p}{:}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pointLight1On} \PYG{o}{=} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pointLight1On}\PYG{p}{)}\PYG{o}{?} \PYG{l+m+mi}{0} \PYG{o}{:} \PYG{l+m+mi}{1}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}3}\PYG{p}{:}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pointLight2On} \PYG{o}{=} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pointLight2On}\PYG{p}{)}\PYG{o}{?} \PYG{l+m+mi}{0} \PYG{o}{:} \PYG{l+m+mi}{1}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}4}\PYG{p}{:}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{spotLightOn} \PYG{o}{=} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{spotLightOn}\PYG{p}{)}\PYG{o}{?} \PYG{l+m+mi}{0} \PYG{o}{:} \PYG{l+m+mi}{1}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}0}\PYG{p}{:}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{dirLightOn} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pointLight1On} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pointLight2On} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+            \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{spotLightOn} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}M}\PYG{p}{:}
+            \PYG{n}{scene\PYGZus{}del}\PYG{p}{(}\PYG{n}{scene}\PYG{p}{);}
+            \PYG{n}{scene\PYGZus{}init}\PYG{p}{(}\PYG{n}{scene}\PYG{p}{,} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{);}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}B}\PYG{p}{:}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{interactive\PYGZus{}mode} \PYG{o}{=} \PYG{o}{!}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{interactive\PYGZus{}mode}\PYG{p}{;}
+            \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{interactive\PYGZus{}mode}\PYG{p}{)}
+                \PYG{n}{window\PYGZus{}grab\PYGZus{}mouse}\PYG{p}{(}\PYG{n}{window}\PYG{p}{,} \PYG{n+nb}{false}\PYG{p}{);}
+            \PYG{k}{else}
+                \PYG{n}{window\PYGZus{}grab\PYGZus{}mouse}\PYG{p}{(}\PYG{n}{window}\PYG{p}{,} \PYG{n+nb}{true}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{default}\PYG{o}{:}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n}{key}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}Q}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{TRANSLATE}\PYG{p}{][}\PYG{n}{Y}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}A}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{TRANSLATE}\PYG{p}{][}\PYG{n}{X}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}W}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{TRANSLATE}\PYG{p}{][}\PYG{n}{Z}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}S}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{TRANSLATE}\PYG{p}{][}\PYG{n}{Z}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}E}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{TRANSLATE}\PYG{p}{][}\PYG{n}{Y}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}D}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{TRANSLATE}\PYG{p}{][}\PYG{n}{X}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}U}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ROTATE}   \PYG{p}{][}\PYG{n}{Z}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}J}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ROTATE}   \PYG{p}{][}\PYG{n}{Y}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}I}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ROTATE}   \PYG{p}{][}\PYG{n}{X}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}K}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ROTATE}   \PYG{p}{][}\PYG{n}{X}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}O}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ROTATE}   \PYG{p}{][}\PYG{n}{Z}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}L}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ROTATE}   \PYG{p}{][}\PYG{n}{Y}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}R}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ANIMATE}  \PYG{p}{][}\PYG{n}{Z}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}F}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ANIMATE}  \PYG{p}{][}\PYG{n}{Y}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}T}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ANIMATE}  \PYG{p}{][}\PYG{n}{X}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}G}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ANIMATE}  \PYG{p}{][}\PYG{n}{X}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}Y}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ANIMATE}  \PYG{p}{][}\PYG{n}{Z}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}H}\PYG{p}{:} \PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{ANIMATE}  \PYG{p}{][}\PYG{n}{Y}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{t}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{default}\PYG{o}{:}
+        \PYG{k}{break}\PYG{p}{;}
+
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active} \PYG{o}{\PYGZgt{}} \PYG{n}{utarray\PYGZus{}len}\PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{))} \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{nk\PYGZus{}glfw\PYGZus{}key\PYGZus{}callback}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{key}\PYG{p}{,} \PYG{n}{pressed}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{static} \PYG{n}{mat3} \PYG{n}{m3i} \PYG{o}{=} \PYG{n}{GLM\PYGZus{}MAT3\PYGZus{}IDENTITY\PYGZus{}INIT}\PYG{p}{;}
+
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}process\PYGZus{}input}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Window} \PYG{o}{*}\PYG{n}{window} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{;}
+    \PYG{n}{Scene} \PYG{o}{*}\PYG{n}{scene} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scene}\PYG{p}{;}
+    \PYG{n}{Bijective} \PYG{n}{bijective}\PYG{p}{;}
+    \PYG{k+kt}{float} \PYG{n}{t}\PYG{p}{;}
+    \PYG{n}{GLfloat} \PYG{n}{delta\PYGZus{}time} \PYG{o}{=} \PYG{p}{(}\PYG{n}{GLfloat}\PYG{p}{)}\PYG{n}{window\PYGZus{}get\PYGZus{}delta\PYGZus{}time}\PYG{p}{(}\PYG{n}{window}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{bijective}\PYG{p}{.}\PYG{n}{bijective}\PYG{p}{.}\PYG{n}{object} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{void}\PYG{o}{*}\PYG{p}{)}\PYG{n}{utarray\PYGZus{}eltptr}\PYG{p}{(}
+                     \PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{active} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{);}
+        \PYG{n}{bijective}\PYG{p}{.}\PYG{n}{type} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{object\PYGZus{}bijective}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+        \PYG{n}{bijective}\PYG{p}{.}\PYG{n}{bijective}\PYG{p}{.}\PYG{n}{camera} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{camera}\PYG{p}{;}
+        \PYG{n}{bijective}\PYG{p}{.}\PYG{n}{type} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{camera\PYGZus{}bijective}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{window}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}LEFT\PYGZus{}CONTROL}\PYG{p}{))}
+        \PYG{n}{delta\PYGZus{}time} \PYG{o}{*=} \PYG{l+m+mi}{10}\PYG{p}{;}
+
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+                \PYG{n}{t} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{float}\PYG{p}{)}\PYG{n}{app}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{trans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{*} \PYG{n}{delta\PYGZus{}time}\PYG{p}{;}
+                \PYG{k}{switch} \PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                \PYG{k}{case} \PYG{n+nl}{TRANSLATE}\PYG{p}{:}
+                    \PYG{n}{bijective\PYGZus{}translate}\PYG{p}{(}\PYG{n}{bijective}\PYG{p}{,} \PYG{n}{m3i}\PYG{p}{[}\PYG{n}{j}\PYG{p}{],} \PYG{n}{t}\PYG{p}{);}
+                    \PYG{k}{break}\PYG{p}{;}
+                \PYG{k}{case} \PYG{n+nl}{ROTATE}\PYG{p}{:}
+                    \PYG{n}{bijective\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{bijective}\PYG{p}{,} \PYG{p}{(}\PYG{k}{enum} \PYG{n}{coord\PYGZus{}enum}\PYG{p}{)}\PYG{n}{j}\PYG{p}{,} \PYG{n}{t}\PYG{p}{);}
+                    \PYG{k}{break}\PYG{p}{;}
+                \PYG{k}{case} \PYG{n+nl}{ANIMATE}\PYG{p}{:}
+                    \PYG{n}{bijective\PYGZus{}set\PYGZus{}animation}\PYG{p}{(}\PYG{n}{bijective}\PYG{p}{,} \PYG{n}{m3i}\PYG{p}{[}\PYG{n}{j}\PYG{p}{],} \PYG{n}{t}\PYG{p}{);}
+                    \PYG{k}{break}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,58 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef APP\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define APP\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}osdo.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}shader.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}mesh.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}scene.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}camera.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}nkglfw.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}model.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}window.h\PYGZdq{}}
+
+\PYG{k}{enum} \PYG{n}{TRANSFORMATIONS} \PYG{p}{\PYGZob{}}
+    \PYG{n}{ROTATE}    \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,}
+    \PYG{n}{TRANSLATE} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,}
+    \PYG{n}{ANIMATE}   \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{App} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Model} \PYG{o}{*}\PYG{n}{models}\PYG{p}{;}
+    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shaders}\PYG{p}{;}
+    \PYG{n}{Scene} \PYG{n}{scene}\PYG{p}{;}
+    \PYG{n}{UT\PYGZus{}array} \PYG{o}{*}\PYG{n}{objects}\PYG{p}{;}
+    \PYG{n}{Camera} \PYG{n}{camera}\PYG{p}{;}
+    \PYG{n}{NkGlfw} \PYG{n}{nkglfw}\PYG{p}{;}
+    \PYG{n}{Window} \PYG{n}{window}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{interactive\PYGZus{}mode}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{trans}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{l+m+mi}{3}\PYG{p}{];}
+
+    \PYG{c+c1}{// buffered data for loop}
+    \PYG{n}{mat4} \PYG{n}{mat4buf}\PYG{p}{,} \PYG{n}{projection}\PYG{p}{,} \PYG{n}{last\PYGZus{}camera}\PYG{p}{;}
+    \PYG{n}{vec4} \PYG{n}{vec4buf}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{App}\PYG{p}{;}
+
+\PYG{k+kt}{int} \PYG{n+nf}{app\PYGZus{}init}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}del}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{);}
+
+\PYG{k+kt}{int} \PYG{n+nf}{app\PYGZus{}loop}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{);}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{app\PYGZus{}load\PYGZus{}shader}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}scroll}\PYG{p}{(}\PYG{n}{Window}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{xoffset}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{yoffset}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}mouse}\PYG{p}{(}\PYG{n}{Window}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{pos}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{offset}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}char\PYGZus{}callback}\PYG{p}{(}\PYG{n}{Window}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{k+kt}{int} \PYG{n}{codepoint}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}mouse\PYGZus{}button\PYGZus{}callback}\PYG{p}{(}
+        \PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{BUTTONS} \PYG{n}{button}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}key}\PYG{p}{(}\PYG{n}{Window}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{KEYS} \PYG{n}{key}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{);}
+
+\PYG{c+c1}{// process all input}
+\PYG{c+c1}{// \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{k+kt}{void} \PYG{n+nf}{app\PYGZus{}process\PYGZus{}input}\PYG{p}{(}\PYG{n}{App} \PYG{o}{*}\PYG{n}{app}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// APP\PYGZus{}H}
+\end{Verbatim}

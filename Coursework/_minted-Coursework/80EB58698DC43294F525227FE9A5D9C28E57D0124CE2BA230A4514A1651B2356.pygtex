@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef SCENE\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define SCENE\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}osdo.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}object.h\PYGZdq{}}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{Scene} \PYG{p}{\PYGZob{}}
+    \PYG{n}{UT\PYGZus{}array} \PYG{o}{*}\PYG{n}{objects}\PYG{p}{;}
+
+    \PYG{c+c1}{// active element}
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{active}\PYG{p}{;}
+
+    \PYG{c+c1}{// states}
+    \PYG{k+kt}{int} \PYG{n}{wireframe}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{light}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{dirLightOn}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{pointLight1On}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{pointLight2On}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{spotLightOn}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{Scene}\PYG{p}{;}
+
+\PYG{k+kt}{void} \PYG{n+nf}{scene\PYGZus{}init}\PYG{p}{(}\PYG{n}{Scene} \PYG{o}{*}\PYG{n}{scene}\PYG{p}{,} \PYG{n}{UT\PYGZus{}array} \PYG{o}{*}\PYG{n}{objects}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{scene\PYGZus{}del}\PYG{p}{(}\PYG{n}{Scene} \PYG{o}{*}\PYG{n}{scene}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// SCENE\PYGZus{}H}
+\end{Verbatim}

@@ -1,0 +1,90 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}object.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}app.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}shader.h\PYGZdq{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}init}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{n}{Model} \PYG{o}{*}\PYG{n}{model}\PYG{p}{,} \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{o}{*}\PYG{n}{object} \PYG{o}{=} \PYG{n}{OBJECT}\PYG{p}{(}\PYG{n}{model}\PYG{p}{,} \PYG{n}{shader}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}init\PYGZus{}empty}\PYG{p}{(}\PYG{k+kt}{void} \PYG{o}{*}\PYG{n}{object}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{o}{*}\PYG{p}{((}\PYG{n}{Object}\PYG{o}{*}\PYG{p}{)}\PYG{n}{object}\PYG{p}{)} \PYG{o}{=} \PYG{n}{OBJECT\PYGZus{}EMPTY}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}draw}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{mat4buf}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{delta\PYGZus{}time}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// render the loaded model}
+    \PYG{n}{object\PYGZus{}animate}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{p}{(}\PYG{n}{GLfloat}\PYG{p}{)}\PYG{n}{delta\PYGZus{}time}\PYG{p}{);}
+    \PYG{n}{object\PYGZus{}get\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{n}{mat4buf}\PYG{p}{);}
+    \PYG{n}{shader\PYGZus{}set\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}model\PYGZdq{}}\PYG{p}{,} \PYG{n}{mat4buf}\PYG{p}{);}
+    \PYG{n}{model\PYGZus{}draw}\PYG{p}{(}\PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{model}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}get\PYGZus{}position\PYGZus{}bijective}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{n}{vec4} \PYG{o}{**}\PYG{n}{position}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{o}{*}\PYG{n}{position} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{position}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}get\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{dest}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glm\PYGZus{}translate\PYGZus{}make}\PYG{p}{(}\PYG{n}{dest}\PYG{p}{,} \PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{position}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}mul}\PYG{p}{(}\PYG{n}{dest}\PYG{p}{,} \PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{transform}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}translate}\PYG{p}{(}\PYG{n}{Object}\PYG{o}{*} \PYG{n}{object}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{distances}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}add}\PYG{p}{(}\PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{position}\PYG{p}{,} \PYG{n}{distances}\PYG{p}{,} \PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{position}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}translate\PYGZus{}bijective}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{distances}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{delta\PYGZus{}time}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vec3} \PYG{n}{new\PYGZus{}distances} \PYG{o}{=} \PYG{n}{GLM\PYGZus{}VEC3\PYGZus{}ZERO\PYGZus{}INIT}\PYG{p}{;}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}muladds}\PYG{p}{(}\PYG{n}{distances}\PYG{p}{,} \PYG{n}{OBJECT\PYGZus{}MOVE\PYGZus{}SPEED} \PYG{o}{*} \PYG{n}{delta\PYGZus{}time}\PYG{p}{,}
+                     \PYG{n}{new\PYGZus{}distances}\PYG{p}{);}
+    \PYG{n}{object\PYGZus{}translate}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{n}{new\PYGZus{}distances}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{Object}\PYG{o}{*} \PYG{n}{object}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{angle}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{coord\PYGZus{}enum} \PYG{n}{coord}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mat4} \PYG{n}{matrix} \PYG{o}{=} \PYG{n}{GLM\PYGZus{}MAT4\PYGZus{}IDENTITY\PYGZus{}INIT}\PYG{p}{;}
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n}{coord}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{n+nl}{X}\PYG{p}{:} \PYG{n}{glm\PYGZus{}rotate\PYGZus{}x}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{,} \PYG{n}{angle}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{);} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{Y}\PYG{p}{:} \PYG{n}{glm\PYGZus{}rotate\PYGZus{}y}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{,} \PYG{n}{angle}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{);} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{Z}\PYG{p}{:} \PYG{n}{glm\PYGZus{}rotate\PYGZus{}z}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{,} \PYG{n}{angle}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{);} \PYG{k}{break}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}mul}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{,} \PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{transform}\PYG{p}{,} \PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{transform}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}rotate\PYGZus{}all}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{angles}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{object\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{n}{angles}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{X}\PYG{p}{);}
+    \PYG{n}{object\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{n}{angles}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{Y}\PYG{p}{);}
+    \PYG{n}{object\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{n}{angles}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{n}{Z}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}rotate\PYGZus{}bijective}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{coord\PYGZus{}enum} \PYG{n}{coord}\PYG{p}{,}
+                             \PYG{k+kt}{float} \PYG{n}{delta\PYGZus{}time}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{object\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{n}{delta\PYGZus{}time} \PYG{o}{*} \PYG{n}{OBJECT\PYGZus{}ROTATE\PYGZus{}SPEED}\PYG{p}{,} \PYG{n}{coord}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}rotate\PYGZus{}all\PYGZus{}bijective}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{angles}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{object\PYGZus{}rotate\PYGZus{}all}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{n}{angles}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}animate}\PYG{p}{(}\PYG{n}{Object}\PYG{o}{*} \PYG{n}{object}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{step}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vec3} \PYG{n}{animation} \PYG{o}{=} \PYG{n}{GLM\PYGZus{}VEC3\PYGZus{}ZERO\PYGZus{}INIT}\PYG{p}{;}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}muladds}\PYG{p}{(}\PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{animation}\PYG{p}{,} \PYG{n}{step}\PYG{p}{,} \PYG{n}{animation}\PYG{p}{);}
+    \PYG{n}{object\PYGZus{}rotate\PYGZus{}all}\PYG{p}{(}\PYG{n}{object}\PYG{p}{,} \PYG{n}{animation}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}get\PYGZus{}animation}\PYG{p}{(}\PYG{n}{Object}\PYG{o}{*} \PYG{n}{object}\PYG{p}{,} \PYG{n}{vec3} \PYG{o}{**}\PYG{n}{animation}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{o}{*}\PYG{n}{animation} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{animation}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}set\PYGZus{}animation}\PYG{p}{(}\PYG{n}{Object}\PYG{o}{*} \PYG{n}{object}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{angles}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{delta\PYGZus{}time}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vec3} \PYG{n}{animation} \PYG{o}{=} \PYG{n}{GLM\PYGZus{}VEC3\PYGZus{}ZERO\PYGZus{}INIT}\PYG{p}{;}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}muladds}\PYG{p}{(}\PYG{n}{angles}\PYG{p}{,} \PYG{n}{delta\PYGZus{}time}\PYG{p}{,} \PYG{n}{animation}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}add}\PYG{p}{(}\PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{animation}\PYG{p}{,} \PYG{n}{animation}\PYG{p}{,}
+                 \PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{animation}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{object\PYGZus{}scale}\PYG{p}{(}\PYG{n}{Object} \PYG{o}{*}\PYG{n}{object}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{scale}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glm\PYGZus{}scale}\PYG{p}{(}\PYG{n}{object}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{transform}\PYG{p}{,} \PYG{n}{scale}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

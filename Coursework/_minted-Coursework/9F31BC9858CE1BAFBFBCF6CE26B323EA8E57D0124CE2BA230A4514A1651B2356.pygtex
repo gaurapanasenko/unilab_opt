@@ -1,0 +1,217 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}string.h\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}shader.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}define VERTEX\PYGZus{}PATH RES\PYGZus{}DIR\PYGZdq{}/\PYGZpc{}s.vs\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}define FRAGMENT\PYGZus{}PATH RES\PYGZus{}DIR\PYGZdq{}/\PYGZpc{}s.fs\PYGZdq{}}
+
+\PYG{k+kt}{char} \PYG{o}{*} \PYG{n+nf}{readFromFile}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{path}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{data}\PYG{p}{;}
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{size}\PYG{p}{;}
+    \PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{file} \PYG{o}{=} \PYG{n}{fopen}\PYG{p}{(}\PYG{n}{path}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{file} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}ERROR: failed to open file \PYGZpc{}s}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{path}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{NULL}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{fseek}\PYG{p}{(}\PYG{n}{file}\PYG{p}{,} \PYG{l+m+mf}{0L}\PYG{p}{,} \PYG{n}{SEEK\PYGZus{}END}\PYG{p}{);}
+    \PYG{n}{size} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{)}\PYG{n}{ftell}\PYG{p}{(}\PYG{n}{file}\PYG{p}{);}
+    \PYG{n}{fseek}\PYG{p}{(}\PYG{n}{file}\PYG{p}{,} \PYG{l+m+mf}{0L}\PYG{p}{,} \PYG{n}{SEEK\PYGZus{}SET}\PYG{p}{);}
+    \PYG{n}{data} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{)} \PYG{n}{malloc}\PYG{p}{(}\PYG{n}{size} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{fread}\PYG{p}{(}\PYG{n}{data}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{size}\PYG{p}{,} \PYG{n}{file}\PYG{p}{);}
+    \PYG{n}{data}\PYG{p}{[}\PYG{n}{size}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{fclose}\PYG{p}{(}\PYG{n}{file}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n}{data}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// utility function for checking shader compilation/linking errors.}
+\PYG{k+kt}{bool} \PYG{n+nf}{check\PYGZus{}shader}\PYG{p}{(}\PYG{n}{GLuint} \PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{type}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{GLint} \PYG{n}{status} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{size} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{GLchar} \PYG{o}{*}\PYG{n}{log}\PYG{p}{;}
+    \PYG{n}{GLuint} \PYG{n}{status\PYGZus{}type} \PYG{o}{=} \PYG{n}{GL\PYGZus{}COMPILE\PYGZus{}STATUS}\PYG{p}{;}
+    \PYG{k+kt}{void} \PYG{p}{(}\PYG{o}{*}\PYG{n}{gl\PYGZus{}get}\PYG{p}{)(}\PYG{n}{GLuint}\PYG{p}{,} \PYG{n}{GLuint}\PYG{p}{,} \PYG{n}{GLint}\PYG{o}{*}\PYG{p}{)} \PYG{o}{=} \PYG{n}{glGetShaderiv}\PYG{p}{;}
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{type} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{gl\PYGZus{}get} \PYG{o}{=} \PYG{n}{glGetProgramiv}\PYG{p}{;}
+        \PYG{n}{status\PYGZus{}type} \PYG{o}{=} \PYG{n}{GL\PYGZus{}LINK\PYGZus{}STATUS}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{gl\PYGZus{}get}\PYG{p}{(}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{status\PYGZus{}type}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{status}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{status} \PYG{o}{==} \PYG{n}{GL\PYGZus{}FALSE}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{gl\PYGZus{}get}\PYG{p}{(}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{GL\PYGZus{}INFO\PYGZus{}LOG\PYGZus{}LENGTH}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{size}\PYG{p}{);}
+        \PYG{n}{log} \PYG{o}{=} \PYG{p}{(}\PYG{n}{GLchar}\PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{((}\PYG{k+kt}{unsigned} \PYG{k+kt}{long}\PYG{p}{)}\PYG{n}{size}\PYG{p}{);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{log} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Got some error, but cant allocate memory to read it.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+            \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{glGetShaderInfoLog}\PYG{p}{(}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{size}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{size}\PYG{p}{,} \PYG{n}{log}\PYG{p}{);}
+        \PYG{n}{puts}\PYG{p}{(}\PYG{n}{log}\PYG{p}{);}
+        \PYG{n}{fflush}\PYG{p}{(}\PYG{n}{stdout}\PYG{p}{);}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{log}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{shader\PYGZus{}compile}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{vertexCode}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{fragmentCode}\PYG{p}{,}
+                    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// 2. compile shaders}
+    \PYG{n}{GLuint} \PYG{n}{vertex}\PYG{p}{,} \PYG{n}{fragment}\PYG{p}{;}
+
+    \PYG{c+c1}{// vertex shader}
+    \PYG{n}{vertex} \PYG{o}{=} \PYG{n}{glCreateShader}\PYG{p}{(}\PYG{n}{GL\PYGZus{}VERTEX\PYGZus{}SHADER}\PYG{p}{);}
+    \PYG{n}{glShaderSource}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{vertexCode}\PYG{p}{,} \PYG{n+nb}{NULL}\PYG{p}{);}
+    \PYG{n}{glCompileShader}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{check\PYGZus{}shader}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed to compile vertex shader.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZpc{}s\PYGZdq{}}\PYG{p}{,} \PYG{n}{vertexCode}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// fragment Shader}
+    \PYG{n}{fragment} \PYG{o}{=} \PYG{n}{glCreateShader}\PYG{p}{(}\PYG{n}{GL\PYGZus{}FRAGMENT\PYGZus{}SHADER}\PYG{p}{);}
+    \PYG{n}{glShaderSource}\PYG{p}{(}\PYG{n}{fragment}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{fragmentCode}\PYG{p}{,} \PYG{n+nb}{NULL}\PYG{p}{);}
+    \PYG{n}{glCompileShader}\PYG{p}{(}\PYG{n}{fragment}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{check\PYGZus{}shader}\PYG{p}{(}\PYG{n}{fragment}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed to compile fragment shader.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZpc{}s\PYGZdq{}}\PYG{p}{,} \PYG{n}{fragmentCode}\PYG{p}{);}
+        \PYG{n}{glDeleteShader}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// shader Program}
+    \PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader} \PYG{o}{=} \PYG{n}{glCreateProgram}\PYG{p}{();}
+    \PYG{n}{glAttachShader}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{vertex}\PYG{p}{);}
+    \PYG{n}{glAttachShader}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{fragment}\PYG{p}{);}
+    \PYG{n}{glLinkProgram}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{check\PYGZus{}shader}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed to attach shaders.\PYGZdq{}}\PYG{p}{);}
+        \PYG{n}{glDeleteShader}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{);}
+        \PYG{n}{glDeleteShader}\PYG{p}{(}\PYG{n}{fragment}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// delete the shaders as they\PYGZsq{}re linked into our program now and no longer necessery}
+    \PYG{n}{glDeleteShader}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{);}
+    \PYG{n}{glDeleteShader}\PYG{p}{(}\PYG{n}{fragment}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{shader\PYGZus{}init}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// 1. retrieve the vertex/fragment source code from filePath}
+    \PYG{k}{const} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{path\PYGZus{}len} \PYG{o}{=} \PYG{n}{strlen}\PYG{p}{(}\PYG{n}{VERTEX\PYGZus{}PATH}\PYG{p}{);}
+    \PYG{k}{const} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{len} \PYG{o}{=} \PYG{n}{strlen}\PYG{p}{(}\PYG{n}{name}\PYG{p}{);}
+    \PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{name}\PYG{p}{,} \PYG{n}{name}\PYG{p}{);}
+    \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{vertex\PYGZus{}path} \PYG{o}{=} \PYG{n}{calloc}\PYG{p}{(}\PYG{n}{len} \PYG{o}{+} \PYG{n}{path\PYGZus{}len}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{)),}
+        \PYG{o}{*}\PYG{n}{fragment\PYGZus{}path} \PYG{o}{=} \PYG{n}{calloc}\PYG{p}{(}\PYG{n}{len} \PYG{o}{+} \PYG{n}{path\PYGZus{}len}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{));}
+    \PYG{n}{snprintf}\PYG{p}{(}\PYG{n}{vertex\PYGZus{}path}\PYG{p}{,} \PYG{n}{len} \PYG{o}{+} \PYG{n}{path\PYGZus{}len}\PYG{p}{,} \PYG{n}{VERTEX\PYGZus{}PATH}\PYG{p}{,} \PYG{n}{name}\PYG{p}{);}
+    \PYG{n}{snprintf}\PYG{p}{(}\PYG{n}{fragment\PYGZus{}path}\PYG{p}{,} \PYG{n}{len} \PYG{o}{+} \PYG{n}{path\PYGZus{}len}\PYG{p}{,} \PYG{n}{FRAGMENT\PYGZus{}PATH}\PYG{p}{,} \PYG{n}{name}\PYG{p}{);}
+    \PYG{n}{GLchar}\PYG{o}{*} \PYG{n}{vertex} \PYG{o}{=} \PYG{n}{readFromFile}\PYG{p}{(}\PYG{n}{vertex\PYGZus{}path}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{vertex} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}ERROR: failed to read from vertex shader file \PYGZpc{}s.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+               \PYG{n}{vertex\PYGZus{}path}\PYG{p}{);}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{vertex\PYGZus{}path}\PYG{p}{);}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{fragment\PYGZus{}path}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{GLchar}\PYG{o}{*} \PYG{n}{fragment} \PYG{o}{=} \PYG{n}{readFromFile}\PYG{p}{(}\PYG{n}{fragment\PYGZus{}path}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{fragment} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}ERROR: failed to read from fragment shader file \PYGZpc{}s.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+               \PYG{n}{fragment\PYGZus{}path}\PYG{p}{);}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{vertex\PYGZus{}path}\PYG{p}{);}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{fragment\PYGZus{}path}\PYG{p}{);}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{shader\PYGZus{}compile}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{,} \PYG{n}{fragment}\PYG{p}{,} \PYG{n}{shader}\PYG{p}{))}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{);}
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{fragment}\PYG{p}{);}
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{vertex\PYGZus{}path}\PYG{p}{);}
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{fragment\PYGZus{}path}\PYG{p}{);}
+
+    \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Shader} \PYG{o}{*}\PYG{n+nf}{shader\PYGZus{}create}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader} \PYG{o}{=} \PYG{n}{calloc}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Shader}\PYG{p}{));}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{shader} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{shader\PYGZus{}init}\PYG{p}{(}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{shader}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{NULL}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{shader}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}del}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glDeleteProgram}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}free}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{shader\PYGZus{}del}\PYG{p}{(}\PYG{n}{shader}\PYG{p}{);}
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{shader}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}use}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUseProgram}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}bool}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{value}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform1i}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{value}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}int}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{value}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform1i}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),} \PYG{n}{value}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}float}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{value}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform1f}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),} \PYG{n}{value}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec2}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{value}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform2fv}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),}
+                 \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{value}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec2f}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,}
+                      \PYG{k+kt}{float} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{y}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform2f}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec3}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{value}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform3fv}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),}
+                 \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{value}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec3f}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,}
+                      \PYG{k+kt}{float} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{z}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform3f}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{z}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec4}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{vec4} \PYG{n}{value}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform4fv}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),}
+                 \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{value}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec4f}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,}
+                      \PYG{k+kt}{float} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{z}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{w}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniform4f}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{z}\PYG{p}{,} \PYG{n}{w}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}mat2}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{mat2} \PYG{n}{mat}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniformMatrix2fv}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),}
+                       \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{GL\PYGZus{}FALSE}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{mat}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}mat3}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{mat3} \PYG{n}{mat}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniformMatrix3fv}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),}
+                       \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{GL\PYGZus{}FALSE}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{mat}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{mat}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glUniformMatrix4fv}\PYG{p}{(}\PYG{n}{glGetUniformLocation}\PYG{p}{(}\PYG{n}{shader}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{n}{name}\PYG{p}{),}
+                       \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{GL\PYGZus{}FALSE}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{mat}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

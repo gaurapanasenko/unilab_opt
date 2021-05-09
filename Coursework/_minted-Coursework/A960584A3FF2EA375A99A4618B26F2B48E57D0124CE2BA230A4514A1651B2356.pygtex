@@ -1,0 +1,40 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef BEZIATOR\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define BEZIATOR\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}osdo.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}shader.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}mesh.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}model.h\PYGZdq{}}
+
+\PYG{k}{typedef} \PYG{n}{vec4} \PYG{o}{*}\PYG{n}{surface\PYGZus{}t}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{][}\PYG{l+m+mi}{4}\PYG{p}{];}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{Beziator} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{points\PYGZus{}size}\PYG{p}{,} \PYG{n}{surfaces\PYGZus{}size}\PYG{p}{;}
+    \PYG{n}{vec4} \PYG{o}{*}\PYG{n}{points}\PYG{p}{;}
+    \PYG{n}{surface\PYGZus{}t} \PYG{o}{*}\PYG{n}{surfaces}\PYG{p}{;}
+    \PYG{n}{Mesh} \PYG{n}{mesh}\PYG{p}{,} \PYG{n}{frame}\PYG{p}{,} \PYG{n}{normals}\PYG{p}{;}
+    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{editmode}\PYG{p}{;}
+    \PYG{n}{Model} \PYG{n}{model}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{Beziator}\PYG{p}{;}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{beziator\PYGZus{}init}\PYG{p}{(}
+        \PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{,} \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{editmode}\PYG{p}{);}
+\PYG{n}{Beziator} \PYG{o}{*}\PYG{n+nf}{beziator\PYGZus{}create}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{,} \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{editmode}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{beziator\PYGZus{}del}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{beziator\PYGZus{}free}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{beziator\PYGZus{}draw}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{);}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{beziator\PYGZus{}generate}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{beziator\PYGZus{}save}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{);}
+
+\PYG{k}{static} \PYG{k}{const} \PYG{n}{ModelType} \PYG{n}{beziator\PYGZus{}type} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{n}{beziator\PYGZus{}draw}\PYG{p}{,} \PYG{n}{beziator\PYGZus{}generate}\PYG{p}{,} \PYG{n}{beziator\PYGZus{}free}\PYG{p}{,}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// BEZIATOR\PYGZus{}H}
+\end{Verbatim}

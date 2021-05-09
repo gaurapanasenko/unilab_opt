@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}model.h\PYGZdq{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{model\PYGZus{}init}\PYG{p}{(}\PYG{n}{Model} \PYG{o}{*}\PYG{n}{model}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{,} \PYG{n}{model\PYGZus{}t} \PYG{n}{model\PYGZus{}child}\PYG{p}{,} \PYG{k}{const} \PYG{n}{ModelType} \PYG{o}{*}\PYG{n}{type}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{name}\PYG{p}{,} \PYG{n}{name}\PYG{p}{);}
+    \PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{model} \PYG{o}{=} \PYG{n}{model\PYGZus{}child}\PYG{p}{;}
+    \PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{type} \PYG{o}{=} \PYG{n}{type}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Model} \PYG{o}{*}\PYG{n+nf}{model\PYGZus{}create}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{,} \PYG{n}{model\PYGZus{}t} \PYG{n}{model}\PYG{p}{,} \PYG{k}{const} \PYG{n}{ModelType} \PYG{o}{*}\PYG{n}{type}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Model} \PYG{o}{*}\PYG{n}{m} \PYG{o}{=} \PYG{n}{calloc}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Model}\PYG{p}{));}
+    \PYG{n}{model\PYGZus{}init}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{model}\PYG{p}{,} \PYG{n}{type}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n}{m}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{model\PYGZus{}draw}\PYG{p}{(}\PYG{n}{Model} \PYG{o}{*}\PYG{n}{model}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{type}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{draw}\PYG{p}{(}\PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{model}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{model\PYGZus{}generate}\PYG{p}{(}\PYG{n}{Model} \PYG{o}{*}\PYG{n}{model}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{type}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{generate}\PYG{p}{(}\PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{model}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{model\PYGZus{}free}\PYG{p}{(}\PYG{n}{Model} \PYG{o}{*}\PYG{n}{model}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{type}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{free}\PYG{p}{(}\PYG{n}{model}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{model}\PYG{p}{);}
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{model}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

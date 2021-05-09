@@ -1,0 +1,46 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef MODEL\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define MODEL\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}osdo.h\PYGZdq{}}
+
+\PYG{k}{typedef} \PYG{k}{union} \PYG{n+nc}{\PYGZus{}\PYGZus{}attribute\PYGZus{}\PYGZus{}}\PYG{p}{((}\PYG{n}{transparent\PYGZus{}union}\PYG{p}{))} \PYG{n}{model\PYGZus{}t} \PYG{p}{\PYGZob{}}
+   \PYG{k}{struct} \PYG{n+nc}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{;}
+   \PYG{k}{struct} \PYG{n+nc}{Mesh} \PYG{o}{*}\PYG{n}{mesh}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{model\PYGZus{}t}\PYG{p}{;}
+
+\PYG{k}{typedef} \PYG{n+nf}{void} \PYG{p}{(}\PYG{o}{*}\PYG{n}{draw\PYGZus{}cb}\PYG{p}{)(}\PYG{n}{model\PYGZus{}t} \PYG{n}{model}\PYG{p}{);}
+\PYG{k}{typedef} \PYG{n+nf}{bool} \PYG{p}{(}\PYG{o}{*}\PYG{n}{generate\PYGZus{}cb}\PYG{p}{)(}\PYG{n}{model\PYGZus{}t} \PYG{n}{model}\PYG{p}{);}
+\PYG{k}{typedef} \PYG{n+nf}{void} \PYG{p}{(}\PYG{o}{*}\PYG{n}{free\PYGZus{}cb}\PYG{p}{)(}\PYG{n}{model\PYGZus{}t} \PYG{n}{model}\PYG{p}{);}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{ModelType} \PYG{p}{\PYGZob{}}
+    \PYG{n}{draw\PYGZus{}cb} \PYG{n}{draw}\PYG{p}{;}
+    \PYG{n}{generate\PYGZus{}cb} \PYG{n}{generate}\PYG{p}{;}
+    \PYG{n}{free\PYGZus{}cb} \PYG{n}{free}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{ModelType}\PYG{p}{;}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{Model} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{char} \PYG{n}{name}\PYG{p}{[}\PYG{l+m+mi}{64}\PYG{p}{];}
+    \PYG{n}{model\PYGZus{}t} \PYG{n}{model}\PYG{p}{;}
+    \PYG{k}{const} \PYG{n}{ModelType} \PYG{o}{*}\PYG{n}{type}\PYG{p}{;}
+    \PYG{n}{UT\PYGZus{}hash\PYGZus{}handle} \PYG{n}{hh}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{Model}\PYG{p}{;}
+
+\PYG{k}{static} \PYG{k}{const} \PYG{n}{UT\PYGZus{}icd} \PYG{n}{model\PYGZus{}icd} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Model}\PYG{p}{),} \PYG{n+nb}{NULL}\PYG{p}{,} \PYG{n+nb}{NULL}\PYG{p}{,} \PYG{n+nb}{NULL}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{void} \PYG{n+nf}{model\PYGZus{}init}\PYG{p}{(}\PYG{n}{Model}\PYG{o}{*} \PYG{n}{model}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{,}
+                \PYG{n}{model\PYGZus{}t} \PYG{n}{model\PYGZus{}child}\PYG{p}{,} \PYG{k}{const} \PYG{n}{ModelType} \PYG{o}{*}\PYG{n}{type}\PYG{p}{);}
+
+\PYG{n}{Model} \PYG{o}{*}\PYG{n+nf}{model\PYGZus{}create}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{,} \PYG{n}{model\PYGZus{}t} \PYG{n}{model}\PYG{p}{,}
+                    \PYG{k}{const} \PYG{n}{ModelType} \PYG{o}{*}\PYG{n}{type}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{model\PYGZus{}draw}\PYG{p}{(}\PYG{n}{Model}\PYG{o}{*} \PYG{n}{model}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{model\PYGZus{}generate}\PYG{p}{(}\PYG{n}{Model} \PYG{o}{*}\PYG{n}{model}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{model\PYGZus{}free}\PYG{p}{(}\PYG{n}{Model} \PYG{o}{*}\PYG{n}{model}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// MODEL\PYGZus{}H}
+\end{Verbatim}

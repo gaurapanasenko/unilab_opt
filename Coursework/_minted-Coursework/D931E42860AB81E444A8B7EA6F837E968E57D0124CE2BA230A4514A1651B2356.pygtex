@@ -1,0 +1,44 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef SHADER\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define SHADER\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}osdo.h\PYGZdq{}}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{Shader} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{char} \PYG{n}{name}\PYG{p}{[}\PYG{l+m+mi}{64}\PYG{p}{];}
+    \PYG{n}{GLuint} \PYG{n}{shader}\PYG{p}{;}
+    \PYG{n}{UT\PYGZus{}hash\PYGZus{}handle} \PYG{n}{hh}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{Shader}\PYG{p}{;}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{shader\PYGZus{}compile}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{vertexCode}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{fragmentCode}\PYG{p}{,}
+                    \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{);}
+
+\PYG{c+c1}{// constructor generates the shader on the fly}
+\PYG{k+kt}{bool} \PYG{n+nf}{shader\PYGZus{}init}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{);}
+\PYG{n}{Shader} \PYG{o}{*}\PYG{n+nf}{shader\PYGZus{}create}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}del}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}free}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{);}
+
+\PYG{c+c1}{// activate the shader}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}use}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{);}
+
+\PYG{c+c1}{// utility uniform functions}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}bool} \PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{value}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}int}  \PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{value}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}float}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{value}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec2} \PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{value}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec2f}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,}
+                      \PYG{k+kt}{float} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{y}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec3} \PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{value}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec3f}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,}
+                      \PYG{k+kt}{float} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{z}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec4} \PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{vec4} \PYG{n}{value}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}vec4f}\PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,}
+                      \PYG{k+kt}{float} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{z}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{w}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}mat2} \PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{mat2} \PYG{n}{mat}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}mat3} \PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{mat3} \PYG{n}{mat}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{shader\PYGZus{}set\PYGZus{}mat4} \PYG{p}{(}\PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{name}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{mat}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// SHADER\PYGZus{}H}
+\end{Verbatim}

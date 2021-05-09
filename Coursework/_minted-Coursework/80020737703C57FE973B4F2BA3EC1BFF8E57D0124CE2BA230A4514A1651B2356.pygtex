@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}define NK\PYGZus{}IMPLEMENTATION}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}nuklear.h\PYGZgt{}}
+\end{Verbatim}

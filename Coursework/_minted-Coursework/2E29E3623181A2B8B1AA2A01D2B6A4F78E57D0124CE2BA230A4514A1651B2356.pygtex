@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}scene.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}app.h\PYGZdq{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{scene\PYGZus{}init}\PYG{p}{(}\PYG{n}{Scene} \PYG{o}{*}\PYG{n}{scene}\PYG{p}{,} \PYG{n}{UT\PYGZus{}array} \PYG{o}{*}\PYG{n}{objects}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{o}{*}\PYG{n}{scene} \PYG{o}{=} \PYG{p}{(}\PYG{n}{Scene}\PYG{p}{)\PYGZob{}}
+        \PYG{n+nb}{NULL}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}
+    \PYG{p}{\PYGZcb{};}
+    \PYG{n}{utarray\PYGZus{}new}\PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{object\PYGZus{}icd}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{utarray\PYGZus{}len}\PYG{p}{(}\PYG{n}{objects}\PYG{p}{))}
+        \PYG{n}{utarray\PYGZus{}inserta}\PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{,} \PYG{n}{objects}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{scene\PYGZus{}del}\PYG{p}{(}\PYG{n}{Scene} \PYG{o}{*}\PYG{n}{scene}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{utarray\PYGZus{}free}\PYG{p}{(}\PYG{n}{scene}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{objects}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

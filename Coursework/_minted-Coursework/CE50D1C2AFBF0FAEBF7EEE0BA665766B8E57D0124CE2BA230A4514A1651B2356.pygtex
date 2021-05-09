@@ -1,0 +1,318 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}nkglfw.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}window.h\PYGZdq{}}
+
+\PYG{k}{static} \PYG{k}{const} \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}draw\PYGZus{}vertex\PYGZus{}layout\PYGZus{}element} \PYG{n}{vertex\PYGZus{}layout}\PYG{p}{[]} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{p}{\PYGZob{}}\PYG{n}{NK\PYGZus{}VERTEX\PYGZus{}POSITION}\PYG{p}{,} \PYG{n}{NK\PYGZus{}FORMAT\PYGZus{}FLOAT}\PYG{p}{,} \PYG{n}{NK\PYGZus{}OFFSETOF}\PYG{p}{(}\PYG{n}{Vertex}\PYG{p}{,} \PYG{n}{position}\PYG{p}{)\PYGZcb{},}
+    \PYG{p}{\PYGZob{}}\PYG{n}{NK\PYGZus{}VERTEX\PYGZus{}COLOR}\PYG{p}{,} \PYG{n}{NK\PYGZus{}FORMAT\PYGZus{}R8G8B8A8}\PYG{p}{,} \PYG{n}{NK\PYGZus{}OFFSETOF}\PYG{p}{(}\PYG{n}{Vertex}\PYG{p}{,} \PYG{n}{color}\PYG{p}{)\PYGZcb{},}
+    \PYG{p}{\PYGZob{}}\PYG{n}{NK\PYGZus{}VERTEX\PYGZus{}TEXCOORD}\PYG{p}{,} \PYG{n}{NK\PYGZus{}FORMAT\PYGZus{}FLOAT}\PYG{p}{,} \PYG{n}{NK\PYGZus{}OFFSETOF}\PYG{p}{(}\PYG{n}{Vertex}\PYG{p}{,} \PYG{n}{uv}\PYG{p}{)\PYGZcb{},}
+    \PYG{p}{\PYGZob{}}\PYG{n}{NK\PYGZus{}VERTEX\PYGZus{}LAYOUT\PYGZus{}END}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}clipboard\PYGZus{}paste}\PYG{p}{(}\PYG{n}{nk\PYGZus{}handle} \PYG{n}{usr}\PYG{p}{,} \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}text\PYGZus{}edit} \PYG{o}{*}\PYG{n}{edit}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+    \PYG{n}{Window}\PYG{o}{*} \PYG{n}{window} \PYG{o}{=} \PYG{n}{usr}\PYG{p}{.}\PYG{n}{ptr}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{text} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}clipboard}\PYG{p}{(}\PYG{n}{window}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{text}\PYG{p}{)} \PYG{n}{nk\PYGZus{}textedit\PYGZus{}paste}\PYG{p}{(}\PYG{n}{edit}\PYG{p}{,} \PYG{n}{text}\PYG{p}{,} \PYG{n}{nk\PYGZus{}strlen}\PYG{p}{(}\PYG{n}{text}\PYG{p}{));}
+    \PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)}\PYG{n}{usr}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}clipboard\PYGZus{}copy}\PYG{p}{(}\PYG{n}{nk\PYGZus{}handle} \PYG{n}{usr}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{text}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{len}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{str} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{len}\PYG{p}{)} \PYG{k}{return}\PYG{p}{;}
+    \PYG{n}{str} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{((}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{)}\PYG{n}{len}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{str}\PYG{p}{)} \PYG{k}{return}\PYG{p}{;}
+    \PYG{n}{memcpy}\PYG{p}{(}\PYG{n}{str}\PYG{p}{,} \PYG{n}{text}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{)}\PYG{n}{len}\PYG{p}{);}
+    \PYG{n}{str}\PYG{p}{[}\PYG{n}{len}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}0\PYGZsq{}}\PYG{p}{;}
+    \PYG{n}{Window}\PYG{o}{*} \PYG{n}{window} \PYG{o}{=} \PYG{n}{usr}\PYG{p}{.}\PYG{n}{ptr}\PYG{p}{;}
+    \PYG{n}{window\PYGZus{}set\PYGZus{}clipboard}\PYG{p}{(}\PYG{n}{window}\PYG{p}{,} \PYG{n}{str}\PYG{p}{);}
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{str}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}init}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{shader}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{nk\PYGZus{}init\PYGZus{}default}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{.}\PYG{n}{clip}\PYG{p}{.}\PYG{n}{copy} \PYG{o}{=} \PYG{n}{nk\PYGZus{}glfw\PYGZus{}clipboard\PYGZus{}copy}\PYG{p}{;}
+    \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{.}\PYG{n}{clip}\PYG{p}{.}\PYG{n}{paste} \PYG{o}{=} \PYG{n}{nk\PYGZus{}glfw\PYGZus{}clipboard\PYGZus{}paste}\PYG{p}{;}
+    \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{.}\PYG{n}{clip}\PYG{p}{.}\PYG{n}{userdata} \PYG{o}{=} \PYG{n}{nk\PYGZus{}handle\PYGZus{}ptr}\PYG{p}{(}\PYG{n}{window}\PYG{p}{);}
+
+    \PYG{n}{nk\PYGZus{}buffer\PYGZus{}init\PYGZus{}default}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{cmds}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}init}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{);}
+    \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader} \PYG{o}{=} \PYG{n}{shader}\PYG{p}{;}
+    \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window} \PYG{o}{=} \PYG{n}{window}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}font\PYGZus{}atlas} \PYG{o}{*}\PYG{n}{atlas}\PYG{p}{;}
+    \PYG{n}{nk\PYGZus{}glfw\PYGZus{}font\PYGZus{}stash\PYGZus{}begin}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{atlas}\PYG{p}{);}
+    \PYG{n}{nk\PYGZus{}glfw\PYGZus{}font\PYGZus{}stash\PYGZus{}end}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{p}{);}
+
+    \PYG{c+cm}{/* fill convert configuration */}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}convert\PYGZus{}config} \PYG{o}{*}\PYG{n}{config} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{config}\PYG{p}{;}
+    \PYG{n}{memset}\PYG{p}{(}\PYG{n}{config}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{o}{*}\PYG{n}{config}\PYG{p}{));}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{vertex\PYGZus{}layout} \PYG{o}{=} \PYG{n}{vertex\PYGZus{}layout}\PYG{p}{;}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{vertex\PYGZus{}size} \PYG{o}{=} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Vertex}\PYG{p}{);}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{vertex\PYGZus{}alignment} \PYG{o}{=} \PYG{n}{NK\PYGZus{}ALIGNOF}\PYG{p}{(}\PYG{n}{Vertex}\PYG{p}{);}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{null} \PYG{o}{=} \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{null}\PYG{p}{;}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{circle\PYGZus{}segment\PYGZus{}count} \PYG{o}{=} \PYG{l+m+mi}{22}\PYG{p}{;}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{curve\PYGZus{}segment\PYGZus{}count} \PYG{o}{=} \PYG{l+m+mi}{22}\PYG{p}{;}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{arc\PYGZus{}segment\PYGZus{}count} \PYG{o}{=} \PYG{l+m+mi}{22}\PYG{p}{;}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{global\PYGZus{}alpha} \PYG{o}{=} \PYG{l+m+mf}{.95f}\PYG{p}{;}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shape\PYGZus{}AA} \PYG{o}{=} \PYG{n}{NK\PYGZus{}ANTI\PYGZus{}ALIASING\PYGZus{}ON}\PYG{p}{;}
+    \PYG{n}{config}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{line\PYGZus{}AA} \PYG{o}{=} \PYG{n}{NK\PYGZus{}ANTI\PYGZus{}ALIASING\PYGZus{}ON}\PYG{p}{;}
+
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}copy}\PYG{p}{((}\PYG{n}{mat4}\PYG{p}{)\PYGZob{}}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{2.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{\PYGZcb{},}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{0.0f}\PYG{p}{,}\PYG{l+m+mf}{\PYGZhy{}2.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{\PYGZcb{},}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{0.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{,}\PYG{l+m+mf}{\PYGZhy{}1.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{\PYGZcb{},}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{\PYGZhy{}1.0f}\PYG{p}{,}\PYG{l+m+mf}{1.0f}\PYG{p}{,} \PYG{l+m+mf}{0.0f}\PYG{p}{,} \PYG{l+m+mf}{1.0f}\PYG{p}{\PYGZcb{},}
+    \PYG{p}{\PYGZcb{},} \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ortho}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}del}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glDeleteTextures}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{font\PYGZus{}tex}\PYG{p}{);}
+    \PYG{n}{nk\PYGZus{}buffer\PYGZus{}free}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{cmds}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}del}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}font\PYGZus{}stash\PYGZus{}begin}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,}
+                              \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}font\PYGZus{}atlas} \PYG{o}{**}\PYG{n}{atlas}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{nk\PYGZus{}font\PYGZus{}atlas\PYGZus{}init\PYGZus{}default}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{atlas}\PYG{p}{);}
+    \PYG{n}{nk\PYGZus{}font\PYGZus{}atlas\PYGZus{}begin}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{atlas}\PYG{p}{);}
+    \PYG{o}{*}\PYG{n}{atlas} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{atlas}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw3\PYGZus{}device\PYGZus{}upload\PYGZus{}atlas}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{void} \PYG{o}{*}\PYG{n}{image}\PYG{p}{,}
+                                  \PYG{k+kt}{int} \PYG{n}{width}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{height}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glGenTextures}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{font\PYGZus{}tex}\PYG{p}{);}
+    \PYG{n}{glBindTexture}\PYG{p}{(}\PYG{n}{GL\PYGZus{}TEXTURE\PYGZus{}2D}\PYG{p}{,} \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{font\PYGZus{}tex}\PYG{p}{);}
+    \PYG{n}{glTexParameteri}\PYG{p}{(}\PYG{n}{GL\PYGZus{}TEXTURE\PYGZus{}2D}\PYG{p}{,} \PYG{n}{GL\PYGZus{}TEXTURE\PYGZus{}MIN\PYGZus{}FILTER}\PYG{p}{,} \PYG{n}{GL\PYGZus{}LINEAR}\PYG{p}{);}
+    \PYG{n}{glTexParameteri}\PYG{p}{(}\PYG{n}{GL\PYGZus{}TEXTURE\PYGZus{}2D}\PYG{p}{,} \PYG{n}{GL\PYGZus{}TEXTURE\PYGZus{}MAG\PYGZus{}FILTER}\PYG{p}{,} \PYG{n}{GL\PYGZus{}LINEAR}\PYG{p}{);}
+    \PYG{n}{glTexImage2D}\PYG{p}{(}\PYG{n}{GL\PYGZus{}TEXTURE\PYGZus{}2D}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{GL\PYGZus{}RGBA}\PYG{p}{,}
+                 \PYG{p}{(}\PYG{n}{GLsizei}\PYG{p}{)}\PYG{n}{width}\PYG{p}{,} \PYG{p}{(}\PYG{n}{GLsizei}\PYG{p}{)}\PYG{n}{height}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,}
+                 \PYG{n}{GL\PYGZus{}RGBA}\PYG{p}{,} \PYG{n}{GL\PYGZus{}UNSIGNED\PYGZus{}BYTE}\PYG{p}{,} \PYG{n}{image}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}font\PYGZus{}stash\PYGZus{}end}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{const} \PYG{k+kt}{void} \PYG{o}{*}\PYG{n}{image}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{w}\PYG{p}{,} \PYG{n}{h}\PYG{p}{;}
+    \PYG{n}{image} \PYG{o}{=} \PYG{n}{nk\PYGZus{}font\PYGZus{}atlas\PYGZus{}bake}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{atlas}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{w}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{h}\PYG{p}{,} \PYG{n}{NK\PYGZus{}FONT\PYGZus{}ATLAS\PYGZus{}RGBA32}\PYG{p}{);}
+    \PYG{n}{nk\PYGZus{}glfw3\PYGZus{}device\PYGZus{}upload\PYGZus{}atlas}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{image}\PYG{p}{,} \PYG{n}{w}\PYG{p}{,} \PYG{n}{h}\PYG{p}{);}
+    \PYG{n}{nk\PYGZus{}font\PYGZus{}atlas\PYGZus{}end}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{atlas}\PYG{p}{,} \PYG{n}{nk\PYGZus{}handle\PYGZus{}id}\PYG{p}{((}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{font\PYGZus{}tex}\PYG{p}{),}
+                      \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{null}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{atlas}\PYG{p}{.}\PYG{n}{default\PYGZus{}font}\PYG{p}{)}
+        \PYG{n}{nk\PYGZus{}style\PYGZus{}set\PYGZus{}font}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{,}
+                          \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{atlas}\PYG{p}{.}\PYG{n}{default\PYGZus{}font}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{handle}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}begin\PYGZus{}input}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{nk\PYGZus{}input\PYGZus{}begin}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}end\PYGZus{}input}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{nk\PYGZus{}input\PYGZus{}end}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}render}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{size} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}size}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{),}
+            \PYG{o}{*}\PYG{n}{display} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}display}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{);}
+    \PYG{k+kt}{float} \PYG{o}{*}\PYG{n}{scale} \PYG{o}{=} \PYG{n}{window\PYGZus{}get\PYGZus{}scale}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{);}
+    \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ortho}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mf}{2.0f}\PYG{o}{/}\PYG{p}{(}\PYG{n}{GLfloat}\PYG{p}{)}\PYG{n}{size}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+    \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ortho}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mf}{\PYGZhy{}2.0f}\PYG{o}{/}\PYG{p}{(}\PYG{n}{GLfloat}\PYG{p}{)}\PYG{n}{size}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{];}
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{.}\PYG{n}{input}\PYG{p}{.}\PYG{n}{mouse}\PYG{p}{.}\PYG{n}{grab}\PYG{p}{)}
+        \PYG{n}{window\PYGZus{}grab\PYGZus{}mouse}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n+nb}{true}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{.}\PYG{n}{input}\PYG{p}{.}\PYG{n}{mouse}\PYG{p}{.}\PYG{n}{ungrab}\PYG{p}{)}
+        \PYG{n}{window\PYGZus{}grab\PYGZus{}mouse}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n+nb}{false}\PYG{p}{);}
+
+    \PYG{c+cm}{/* setup global state */}
+    \PYG{n}{glEnable}\PYG{p}{(}\PYG{n}{GL\PYGZus{}BLEND}\PYG{p}{);}
+    \PYG{n}{glBlendEquation}\PYG{p}{(}\PYG{n}{GL\PYGZus{}FUNC\PYGZus{}ADD}\PYG{p}{);}
+    \PYG{n}{glBlendFunc}\PYG{p}{(}\PYG{n}{GL\PYGZus{}SRC\PYGZus{}ALPHA}\PYG{p}{,} \PYG{n}{GL\PYGZus{}ONE\PYGZus{}MINUS\PYGZus{}SRC\PYGZus{}ALPHA}\PYG{p}{);}
+    \PYG{n}{glDisable}\PYG{p}{(}\PYG{n}{GL\PYGZus{}CULL\PYGZus{}FACE}\PYG{p}{);}
+    \PYG{n}{glDisable}\PYG{p}{(}\PYG{n}{GL\PYGZus{}DEPTH\PYGZus{}TEST}\PYG{p}{);}
+    \PYG{n}{glEnable}\PYG{p}{(}\PYG{n}{GL\PYGZus{}SCISSOR\PYGZus{}TEST}\PYG{p}{);}
+    \PYG{n}{glActiveTexture}\PYG{p}{(}\PYG{n}{GL\PYGZus{}TEXTURE0}\PYG{p}{);}
+
+    \PYG{c+cm}{/* setup program */}
+    \PYG{n}{shader\PYGZus{}use}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{);}
+    \PYG{n}{shader\PYGZus{}set\PYGZus{}int}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}frag\PYGZus{}texture\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{shader\PYGZus{}set\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{shader}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}projection\PYGZdq{}}\PYG{p}{,} \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ortho}\PYG{p}{);}
+    \PYG{n}{glViewport}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{display}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{display}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]);}
+    \PYG{p}{\PYGZob{}}
+        \PYG{c+cm}{/* convert from command queue into draw list}
+\PYG{c+cm}{         * and draw to screen */}
+        \PYG{k}{const} \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}draw\PYGZus{}command} \PYG{o}{*}\PYG{n}{cmd}\PYG{p}{;}
+        \PYG{k}{const} \PYG{n}{nk\PYGZus{}draw\PYGZus{}index} \PYG{o}{*}\PYG{n}{offset} \PYG{o}{=} \PYG{n+nb}{NULL}\PYG{p}{;}
+
+        \PYG{c+cm}{/* allocate vertex and element buffer */}
+        \PYG{n}{glBindVertexArray}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{.}\PYG{n}{vao}\PYG{p}{);}
+        \PYG{n}{glBindBuffer}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{,} \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{.}\PYG{n}{vbo}\PYG{p}{);}
+        \PYG{n}{glBindBuffer}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ELEMENT\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{,} \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{.}\PYG{n}{ebo}\PYG{p}{);}
+
+        \PYG{n}{glBufferData}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{,} \PYG{n}{MAX\PYGZus{}VERTEX\PYGZus{}BUFFER}\PYG{p}{,} \PYG{n+nb}{NULL}\PYG{p}{,}
+                     \PYG{n}{GL\PYGZus{}STREAM\PYGZus{}DRAW}\PYG{p}{);}
+        \PYG{n}{glBufferData}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ELEMENT\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{,} \PYG{n}{MAX\PYGZus{}ELEMENT\PYGZus{}BUFFER}\PYG{p}{,} \PYG{n+nb}{NULL}\PYG{p}{,}
+                     \PYG{n}{GL\PYGZus{}STREAM\PYGZus{}DRAW}\PYG{p}{);}
+        \PYG{p}{\PYGZob{}}
+            \PYG{c+cm}{/* load draw vertices \PYGZam{} elements directly into vertex}
+\PYG{c+cm}{             * + element buffer */}
+            \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}buffer} \PYG{n}{vbuf}\PYG{p}{,} \PYG{n}{ebuf}\PYG{p}{;}
+            \PYG{k+kt}{void} \PYG{o}{*}\PYG{n}{vertices}\PYG{p}{,} \PYG{o}{*}\PYG{n}{elements}\PYG{p}{;}
+            \PYG{n}{vertices} \PYG{o}{=} \PYG{n}{glMapBuffer}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{,} \PYG{n}{GL\PYGZus{}WRITE\PYGZus{}ONLY}\PYG{p}{);}
+            \PYG{n}{elements} \PYG{o}{=} \PYG{n}{glMapBuffer}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ELEMENT\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{,} \PYG{n}{GL\PYGZus{}WRITE\PYGZus{}ONLY}\PYG{p}{);}
+            \PYG{c+cm}{/* setup buffers to load vertices and elements */}
+            \PYG{n}{nk\PYGZus{}buffer\PYGZus{}init\PYGZus{}fixed}\PYG{p}{(}
+                        \PYG{o}{\PYGZam{}}\PYG{n}{vbuf}\PYG{p}{,} \PYG{n}{vertices}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{)}\PYG{n}{MAX\PYGZus{}VERTEX\PYGZus{}BUFFER}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}buffer\PYGZus{}init\PYGZus{}fixed}\PYG{p}{(}
+                        \PYG{o}{\PYGZam{}}\PYG{n}{ebuf}\PYG{p}{,} \PYG{n}{elements}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{)}\PYG{n}{MAX\PYGZus{}ELEMENT\PYGZus{}BUFFER}\PYG{p}{);}
+            \PYG{n}{nk\PYGZus{}convert}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{cmds}\PYG{p}{,}
+                       \PYG{o}{\PYGZam{}}\PYG{n}{vbuf}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{ebuf}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{config}\PYG{p}{);}
+            \PYG{n}{glUnmapBuffer}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{);}
+            \PYG{n}{glUnmapBuffer}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ELEMENT\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{c+cm}{/* iterate over and execute each draw command */}
+        \PYG{n}{nk\PYGZus{}draw\PYGZus{}foreach}\PYG{p}{(}\PYG{n}{cmd}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{cmds}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{elem\PYGZus{}count}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+            \PYG{n}{glBindTexture}\PYG{p}{(}\PYG{n}{GL\PYGZus{}TEXTURE\PYGZus{}2D}\PYG{p}{,} \PYG{p}{(}\PYG{n}{GLuint}\PYG{p}{)}\PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{texture}\PYG{p}{.}\PYG{n}{id}\PYG{p}{);}
+            \PYG{n}{glScissor}\PYG{p}{(}
+                \PYG{p}{(}\PYG{n}{GLint}\PYG{p}{)(}\PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{clip\PYGZus{}rect}\PYG{p}{.}\PYG{n}{x} \PYG{o}{*} \PYG{n}{scale}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]),}
+                \PYG{p}{((}\PYG{n}{size}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{GLint}\PYG{p}{)(}\PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{clip\PYGZus{}rect}\PYG{p}{.}\PYG{n}{y} \PYG{o}{+}
+                                    \PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{clip\PYGZus{}rect}\PYG{p}{.}\PYG{n}{h}\PYG{p}{))} \PYG{o}{*} \PYG{p}{(}\PYG{n}{GLint}\PYG{p}{)}\PYG{n}{scale}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]),}
+                \PYG{p}{(}\PYG{n}{GLint}\PYG{p}{)(}\PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{clip\PYGZus{}rect}\PYG{p}{.}\PYG{n}{w} \PYG{o}{*} \PYG{n}{scale}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]),}
+                \PYG{p}{(}\PYG{n}{GLint}\PYG{p}{)(}\PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{clip\PYGZus{}rect}\PYG{p}{.}\PYG{n}{h} \PYG{o}{*} \PYG{n}{scale}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]));}
+            \PYG{n}{glDrawElements}\PYG{p}{(}\PYG{n}{GL\PYGZus{}TRIANGLES}\PYG{p}{,} \PYG{p}{(}\PYG{n}{GLsizei}\PYG{p}{)}\PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{elem\PYGZus{}count}\PYG{p}{,}
+                           \PYG{n}{GL\PYGZus{}UNSIGNED\PYGZus{}SHORT}\PYG{p}{,} \PYG{n}{offset}\PYG{p}{);}
+            \PYG{n}{offset} \PYG{o}{+=} \PYG{n}{cmd}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{elem\PYGZus{}count}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{nk\PYGZus{}clear}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{);}
+        \PYG{n}{nk\PYGZus{}buffer\PYGZus{}clear}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{cmds}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+cm}{/* default OpenGL state */}
+    \PYG{n}{glUseProgram}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{glBindBuffer}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{glBindBuffer}\PYG{p}{(}\PYG{n}{GL\PYGZus{}ELEMENT\PYGZus{}ARRAY\PYGZus{}BUFFER}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{glBindVertexArray}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{glDisable}\PYG{p}{(}\PYG{n}{GL\PYGZus{}BLEND}\PYG{p}{);}
+    \PYG{n}{glDisable}\PYG{p}{(}\PYG{n}{GL\PYGZus{}SCISSOR\PYGZus{}TEST}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}gflw\PYGZus{}scroll\PYGZus{}callback}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{xoff}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{yoff}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{nk\PYGZus{}input\PYGZus{}scroll}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{,} \PYG{n}{nk\PYGZus{}vec2}\PYG{p}{((}\PYG{k+kt}{float}\PYG{p}{)}\PYG{n}{xoff}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{float}\PYG{p}{)}\PYG{n}{yoff}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}mouse\PYGZus{}callback}\PYG{p}{(}
+        \PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{pos}\PYG{p}{,} \PYG{n}{UNUSED} \PYG{n}{vec2} \PYG{n}{offset}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}context} \PYG{o}{*}\PYG{n}{ctx} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{;}
+    \PYG{n}{nk\PYGZus{}input\PYGZus{}motion}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{pos}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{pos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}char\PYGZus{}callback}\PYG{p}{(}\PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{k+kt}{int} \PYG{n}{codepoint}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{nk\PYGZus{}input\PYGZus{}unicode}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{,} \PYG{n}{codepoint}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}mouse\PYGZus{}button\PYGZus{}callback}\PYG{p}{(}
+        \PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{BUTTONS} \PYG{n}{button}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vec2} \PYG{n}{cursor}\PYG{p}{;}
+    \PYG{n}{window\PYGZus{}get\PYGZus{}cursor}\PYG{p}{(}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{,} \PYG{n}{cursor}\PYG{p}{);}
+    \PYG{k+kt}{int} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{cursor}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{cursor}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]\PYGZcb{};}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}context} \PYG{o}{*}\PYG{n}{ctx} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{;}
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n}{button}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{n+nl}{MOUSE\PYGZus{}BUTTON\PYGZus{}LEFT}\PYG{p}{:}
+        \PYG{n}{nk\PYGZus{}input\PYGZus{}button}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{NK\PYGZus{}BUTTON\PYGZus{}LEFT}\PYG{p}{,} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+                \PYG{n}{pressed}\PYG{p}{);}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{MOUSE\PYGZus{}BUTTON\PYGZus{}MIDDLE}\PYG{p}{:}
+        \PYG{n}{nk\PYGZus{}input\PYGZus{}button}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{NK\PYGZus{}BUTTON\PYGZus{}MIDDLE}\PYG{p}{,} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+                \PYG{n}{pressed}\PYG{p}{);}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{MOUSE\PYGZus{}BUTTON\PYGZus{}RIGHT}\PYG{p}{:}
+        \PYG{n}{nk\PYGZus{}input\PYGZus{}button}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{NK\PYGZus{}BUTTON\PYGZus{}RIGHT}\PYG{p}{,} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+                \PYG{n}{pressed}\PYG{p}{);}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{MOUSE\PYGZus{}BUTTON\PYGZus{}DOUBLE}\PYG{p}{:}
+        \PYG{n}{nk\PYGZus{}input\PYGZus{}button}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{NK\PYGZus{}BUTTON\PYGZus{}DOUBLE}\PYG{p}{,} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+                \PYG{n}{pressed}\PYG{p}{);}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{nk\PYGZus{}glfw\PYGZus{}key\PYGZus{}callback}\PYG{p}{(}
+        \PYG{n}{NkGlfw}\PYG{o}{*} \PYG{n}{nkglfw}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{KEYS} \PYG{n}{key}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{struct} \PYG{n+nc}{nk\PYGZus{}context} \PYG{o}{*}\PYG{n}{ctx} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{context}\PYG{p}{;}
+    \PYG{k}{enum} \PYG{n}{nk\PYGZus{}keys} \PYG{n}{k}\PYG{p}{[}\PYG{l+m+mi}{16}\PYG{p}{],} \PYG{n}{inv}\PYG{p}{[}\PYG{l+m+mi}{16}\PYG{p}{];}
+    \PYG{n}{Window} \PYG{o}{*}\PYG{n}{win} \PYG{o}{=} \PYG{n}{nkglfw}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{window}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{m} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{bool} \PYG{n}{ctrl} \PYG{o}{=}
+            \PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}LEFT\PYGZus{}CONTROL}\PYG{p}{)} \PYG{o}{||}
+            \PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}RIGHT\PYGZus{}CONTROL}\PYG{p}{);}
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n}{key}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}DELETE}\PYG{p}{:}      \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}DEL}\PYG{p}{;}             \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}ENTER}\PYG{p}{:}       \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}ENTER}\PYG{p}{;}           \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}TAB}\PYG{p}{:}         \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TAB}\PYG{p}{;}             \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}BACKSPACE}\PYG{p}{:}   \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}BACKSPACE}\PYG{p}{;}       \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}UP}\PYG{p}{:}          \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}UP}\PYG{p}{;}              \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}DOWN}\PYG{p}{:}        \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}DOWN}\PYG{p}{;}            \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}PAGE\PYGZus{}DOWN}\PYG{p}{:}   \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}SCROLL\PYGZus{}DOWN}\PYG{p}{;}     \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}PAGE\PYGZus{}UP}\PYG{p}{:}     \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}SCROLL\PYGZus{}UP}\PYG{p}{;}       \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}C}\PYG{p}{:}           \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}COPY}\PYG{p}{;}            \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}V}\PYG{p}{:} \PYG{k}{if} \PYG{p}{(}\PYG{n}{ctrl}\PYG{p}{)} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}PASTE}\PYG{p}{;}           \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}X}\PYG{p}{:} \PYG{k}{if} \PYG{p}{(}\PYG{n}{ctrl}\PYG{p}{)} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}CUT}\PYG{p}{;}             \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}Z}\PYG{p}{:} \PYG{k}{if} \PYG{p}{(}\PYG{n}{ctrl}\PYG{p}{)} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}UNDO}\PYG{p}{;}       \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}R}\PYG{p}{:} \PYG{k}{if} \PYG{p}{(}\PYG{n}{ctrl}\PYG{p}{)} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}REDO}\PYG{p}{;}       \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}B}\PYG{p}{:} \PYG{k}{if} \PYG{p}{(}\PYG{n}{ctrl}\PYG{p}{)} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}LINE\PYGZus{}START}\PYG{p}{;} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}E}\PYG{p}{:} \PYG{k}{if} \PYG{p}{(}\PYG{n}{ctrl}\PYG{p}{)} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}LINE\PYGZus{}END}\PYG{p}{;}   \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}LEFT}\PYG{p}{:}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{ctrl}\PYG{p}{)} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}WORD\PYGZus{}LEFT}\PYG{p}{;}
+        \PYG{k}{else} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}LEFT}\PYG{p}{;}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}RIGHT}\PYG{p}{:}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{ctrl}\PYG{p}{)} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}WORD\PYGZus{}RIGHT}\PYG{p}{;}
+        \PYG{k}{else} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}RIGHT}\PYG{p}{;}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}HOME}\PYG{p}{:}
+        \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}START}\PYG{p}{;} \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}SCROLL\PYGZus{}START}\PYG{p}{;}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}END}\PYG{p}{:}
+        \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}END}\PYG{p}{;}   \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}SCROLL\PYGZus{}END}\PYG{p}{;}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}LEFT\PYGZus{}CONTROL}\PYG{p}{:}
+    \PYG{k}{case} \PYG{n+nl}{KEY\PYGZus{}RIGHT\PYGZus{}CONTROL}\PYG{p}{:}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}V}\PYG{p}{))}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}PASTE}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}X}\PYG{p}{))}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}CUT}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}Z}\PYG{p}{))}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}UNDO}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}R}\PYG{p}{))}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}REDO}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}B}\PYG{p}{))}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}LINE\PYGZus{}START}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}E}\PYG{p}{))}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}LINE\PYGZus{}END}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}LEFT}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}WORD\PYGZus{}LEFT}\PYG{p}{;}
+            \PYG{n}{inv}\PYG{p}{[}\PYG{n}{m}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}LEFT}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+            \PYG{n}{inv}\PYG{p}{[}\PYG{n}{m}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}WORD\PYGZus{}LEFT}\PYG{p}{;}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}LEFT}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{win}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}RIGHT}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}WORD\PYGZus{}RIGHT}\PYG{p}{;}
+            \PYG{n}{inv}\PYG{p}{[}\PYG{n}{m}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}RIGHT}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+            \PYG{n}{inv}\PYG{p}{[}\PYG{n}{m}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}TEXT\PYGZus{}WORD\PYGZus{}RIGHT}\PYG{p}{;}
+            \PYG{n}{k}\PYG{p}{[}\PYG{n}{n}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}RIGHT}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{default}\PYG{o}{:}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{k}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}NONE}\PYG{p}{)}
+            \PYG{n}{nk\PYGZus{}input\PYGZus{}key}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{k}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{pressed}\PYG{p}{);}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{m}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{inv}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{NK\PYGZus{}KEY\PYGZus{}NONE}\PYG{p}{)}
+            \PYG{n}{nk\PYGZus{}input\PYGZus{}key}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{inv}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{o}{!}\PYG{n}{pressed}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

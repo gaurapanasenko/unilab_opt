@@ -1,0 +1,120 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef WINDOW\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define WINDOW\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}osdo.h\PYGZdq{}}
+
+\PYG{k}{struct} \PYG{n+nc}{GLFWwindow}\PYG{p}{;}
+
+\PYG{k}{enum} \PYG{n}{KEYS} \PYG{p}{\PYGZob{}}
+    \PYG{n}{KEY\PYGZus{}DELETE}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}ENTER}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}TAB}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}BACKSPACE}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}UP}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}DOWN}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}LEFT}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}RIGHT}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}HOME}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}END}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}PAGE\PYGZus{}UP}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}PAGE\PYGZus{}DOWN}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}LEFT\PYGZus{}SHIFT}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}RIGHT\PYGZus{}SHIFT}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}LEFT\PYGZus{}CONTROL}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}RIGHT\PYGZus{}CONTROL}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}1}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}2}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}3}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}4}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}5}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}6}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}7}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}8}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}9}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}0}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}Q}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}W}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}E}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}R}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}T}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}Y}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}U}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}I}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}O}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}P}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}A}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}S}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}D}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}F}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}G}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}H}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}J}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}K}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}L}\PYG{p}{,}
+    \PYG{n}{KEY\PYGZus{}Z}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}X}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}C}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}V}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}B}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}N}\PYG{p}{,} \PYG{n}{KEY\PYGZus{}M}\PYG{p}{,}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{enum} \PYG{n}{BUTTONS} \PYG{p}{\PYGZob{}}
+    \PYG{n}{MOUSE\PYGZus{}BUTTON\PYGZus{}LEFT}\PYG{p}{,}
+    \PYG{n}{MOUSE\PYGZus{}BUTTON\PYGZus{}MIDDLE}\PYG{p}{,}
+    \PYG{n}{MOUSE\PYGZus{}BUTTON\PYGZus{}RIGHT}\PYG{p}{,}
+    \PYG{n}{MOUSE\PYGZus{}BUTTON\PYGZus{}DOUBLE}\PYG{p}{,}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{struct} \PYG{n+nc}{Window}\PYG{p}{;}
+
+\PYG{k}{typedef} \PYG{n+nf}{void} \PYG{p}{(}\PYG{o}{*}\PYG{n}{scroll\PYGZus{}cb\PYGZus{}t}\PYG{p}{)(}
+        \PYG{k}{struct} \PYG{n+nc}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{xoffset}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{yoffset}\PYG{p}{);}
+\PYG{k}{typedef} \PYG{n+nf}{void} \PYG{p}{(}\PYG{o}{*}\PYG{n}{mouse\PYGZus{}motion\PYGZus{}cb\PYGZus{}t}\PYG{p}{)(}
+        \PYG{k}{struct} \PYG{n+nc}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{pos}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{offset}\PYG{p}{);}
+\PYG{k}{typedef} \PYG{n+nf}{void} \PYG{p}{(}\PYG{o}{*}\PYG{n}{char\PYGZus{}cb\PYGZus{}t}\PYG{p}{)(}
+        \PYG{k}{struct} \PYG{n+nc}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{k+kt}{int} \PYG{n}{codepoint}\PYG{p}{);}
+\PYG{k}{typedef} \PYG{n+nf}{void} \PYG{p}{(}\PYG{o}{*}\PYG{n}{mouse\PYGZus{}button\PYGZus{}cb\PYGZus{}t}\PYG{p}{)(}
+        \PYG{k}{struct} \PYG{n+nc}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{BUTTONS} \PYG{n}{button}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{);}
+\PYG{k}{typedef} \PYG{n+nf}{void} \PYG{p}{(}\PYG{o}{*}\PYG{n}{key\PYGZus{}cb\PYGZus{}t}\PYG{p}{)(}
+        \PYG{k}{struct} \PYG{n+nc}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{KEYS} \PYG{n}{key}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{pressed}\PYG{p}{);}
+
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n+nc}{Window} \PYG{p}{\PYGZob{}}
+    \PYG{k}{struct} \PYG{n+nc}{GLFWwindow} \PYG{o}{*}\PYG{n}{window}\PYG{p}{;}
+    \PYG{k+kt}{void} \PYG{o}{*}\PYG{n}{user\PYGZus{}pointer}\PYG{p}{;}
+
+    \PYG{c+c1}{// screen size}
+    \PYG{k+kt}{int} \PYG{n}{size}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{n}{display}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{];}
+    \PYG{n}{vec2} \PYG{n}{scale}\PYG{p}{,} \PYG{n}{cursor}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{mouse\PYGZus{}capute}\PYG{p}{;}
+    \PYG{k+kt}{double} \PYG{n}{last\PYGZus{}click\PYGZus{}time}\PYG{p}{,} \PYG{n}{current\PYGZus{}time}\PYG{p}{,} \PYG{n}{last\PYGZus{}time}\PYG{p}{,} \PYG{n}{delta\PYGZus{}time}\PYG{p}{;}
+
+    \PYG{n}{scroll\PYGZus{}cb\PYGZus{}t} \PYG{n}{scroll\PYGZus{}cb}\PYG{p}{;}
+    \PYG{n}{mouse\PYGZus{}motion\PYGZus{}cb\PYGZus{}t} \PYG{n}{mouse\PYGZus{}motion\PYGZus{}cb}\PYG{p}{;}
+    \PYG{n}{char\PYGZus{}cb\PYGZus{}t} \PYG{n}{char\PYGZus{}cb}\PYG{p}{;}
+    \PYG{n}{mouse\PYGZus{}button\PYGZus{}cb\PYGZus{}t} \PYG{n}{mouse\PYGZus{}button\PYGZus{}cb}\PYG{p}{;}
+    \PYG{n}{key\PYGZus{}cb\PYGZus{}t} \PYG{n}{key\PYGZus{}cb}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{Window}\PYG{p}{;}
+
+\PYG{k+kt}{int} \PYG{n+nf}{window\PYGZus{}init}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}del}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{window\PYGZus{}alive}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+\PYG{k+kt}{bool} \PYG{n+nf}{window\PYGZus{}pre\PYGZus{}loop}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}post\PYGZus{}loop}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}set\PYGZus{}user\PYGZus{}pointer}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{void} \PYG{o}{*}\PYG{n}{pointer}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{o}{*}\PYG{n+nf}{window\PYGZus{}get\PYGZus{}user\PYGZus{}pointer}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+
+\PYG{k+kt}{float} \PYG{n+nf}{window\PYGZus{}get\PYGZus{}resolution}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+
+\PYG{k+kt}{double} \PYG{n+nf}{window\PYGZus{}get\PYGZus{}delta\PYGZus{}time}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+
+\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*} \PYG{n}{window\PYGZus{}get\PYGZus{}clipboard}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}set\PYGZus{}clipboard}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*} \PYG{n}{str}\PYG{p}{);}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{window\PYGZus{}is\PYGZus{}mouse\PYGZus{}caputed}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}grab\PYGZus{}mouse}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{grab}\PYG{p}{);}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{window\PYGZus{}is\PYGZus{}key\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{KEYS} \PYG{n}{key}\PYG{p}{);}
+\PYG{k+kt}{bool} \PYG{n+nf}{window\PYGZus{}is\PYGZus{}mouse\PYGZus{}pressed}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{BUTTONS} \PYG{n}{key}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}get\PYGZus{}cursor}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{dest}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}set\PYGZus{}cursor}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{vec2} \PYG{n}{coords}\PYG{p}{);}
+
+\PYG{k+kt}{int} \PYG{o}{*}\PYG{n+nf}{window\PYGZus{}get\PYGZus{}size}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+\PYG{k+kt}{int} \PYG{o}{*}\PYG{n+nf}{window\PYGZus{}get\PYGZus{}display}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+\PYG{k+kt}{float} \PYG{o}{*}\PYG{n+nf}{window\PYGZus{}get\PYGZus{}scale}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}set\PYGZus{}scroll\PYGZus{}cb}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{scroll\PYGZus{}cb\PYGZus{}t} \PYG{n}{callback}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}set\PYGZus{}mouse\PYGZus{}motion\PYGZus{}cb}\PYG{p}{(}
+        \PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{mouse\PYGZus{}motion\PYGZus{}cb\PYGZus{}t} \PYG{n}{callback}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}set\PYGZus{}char\PYGZus{}cb}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{char\PYGZus{}cb\PYGZus{}t} \PYG{n}{callback}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}set\PYGZus{}mouse\PYGZus{}button\PYGZus{}cb}\PYG{p}{(}
+        \PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{mouse\PYGZus{}button\PYGZus{}cb\PYGZus{}t} \PYG{n}{callback}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}set\PYGZus{}key\PYGZus{}cb}\PYG{p}{(}\PYG{n}{Window} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{n}{key\PYGZus{}cb\PYGZus{}t} \PYG{n}{callback}\PYG{p}{);}
+
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}resize\PYGZus{}cb}\PYG{p}{(}
+        \PYG{k}{struct} \PYG{n+nc}{GLFWwindow}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{n}{GLint} \PYG{n}{width}\PYG{p}{,} \PYG{n}{GLint} \PYG{n}{height}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}scroll\PYGZus{}cb}\PYG{p}{(}
+        \PYG{k}{struct} \PYG{n+nc}{GLFWwindow}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{xoffset}\PYG{p}{,} \PYG{n}{GLdouble} \PYG{n}{yoffset}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}mouse\PYGZus{}motion\PYGZus{}cb}\PYG{p}{(}
+        \PYG{k}{struct} \PYG{n+nc}{GLFWwindow}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{xpos}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{ypos}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}char\PYGZus{}cb}\PYG{p}{(}\PYG{k}{struct} \PYG{n+nc}{GLFWwindow}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{k+kt}{int} \PYG{n}{codepoint}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}mouse\PYGZus{}button\PYGZus{}cb}\PYG{p}{(}
+        \PYG{k}{struct} \PYG{n+nc}{GLFWwindow} \PYG{o}{*}\PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{button}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{action}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{mods}\PYG{p}{);}
+\PYG{k+kt}{void} \PYG{n+nf}{window\PYGZus{}key\PYGZus{}cb}\PYG{p}{(}\PYG{k}{struct} \PYG{n+nc}{GLFWwindow}\PYG{o}{*} \PYG{n}{window}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{key}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{scancode}\PYG{p}{,}
+                   \PYG{k+kt}{int} \PYG{n}{action}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{mods}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// WINDOW\PYGZus{}H}
+\end{Verbatim}

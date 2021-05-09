@@ -1,0 +1,19 @@
+\selectlanguage *{ukrainian}
+\contentsline {section}{РЕФЕРАТ}{2}{Doc-Start}%
+\contentsline {section}{ВСТУП}{4}{Doc-Start}%
+\contentsline {section}{ПОСТАНОВКА ЗАДАЧІ}{6}{Doc-Start}%
+\contentsline {section}{\numberline {1}Аналітичний огляд літературних джерел}{6}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Математичні моделі поверхонь та об'єктів}{7}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Дослідження математичних моделей динамічних гладких об'єктів}{8}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Сплайнові криві}{8}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Крива Безьє}{9}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Поверхня Безьє}{12}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Бібліотека Visualization Library}{13}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Вимоги до розробленого програмного забезпечення}{14}{section.2}%
+\contentsline {section}{\numberline {3}Опис програмного забезпечення}{16}{section.3}%
+\contentsline {section}{\numberline {4}Опис модулів програми}{18}{section.4}%
+\contentsline {section}{\numberline {5}Огляд роботи програми}{21}{section.5}%
+\contentsline {section}{ВИСНОВКИ}{25}{figure.caption.6}%
+\contentsline {section}{СПИСОК ВИКОРИСТАНОЇ ЛІТЕРАТУРИ}{26}{figure.caption.6}%
+\contentsline {section}{Додаток A. Лістинг програми}{27}{figure.caption.6}%
+\contentsfinish 

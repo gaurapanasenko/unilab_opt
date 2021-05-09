@@ -1,0 +1,85 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}camera.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}get\PYGZus{}direction}\PYG{p}{(}\PYG{n}{Camera}\PYG{o}{*} \PYG{n}{camera}\PYG{p}{,} \PYG{n}{vec4} \PYG{n}{dest}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mat4} \PYG{n}{matrix}\PYG{p}{;}
+    \PYG{n}{camera\PYGZus{}get\PYGZus{}rotation\PYGZus{}inv\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}mulv}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{,} \PYG{n}{CAMERA\PYGZus{}DIRECTION}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}get\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{dest}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{camera\PYGZus{}get\PYGZus{}rotation\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}translate}\PYG{p}{(}\PYG{n}{dest}\PYG{p}{,} \PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{position}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}get\PYGZus{}rotation\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{dest}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}copy}\PYG{p}{(}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rotation}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}inv}\PYG{p}{(}\PYG{n}{dest}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}get\PYGZus{}rotation\PYGZus{}inv\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{dest}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}copy}\PYG{p}{(}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rotation}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}get\PYGZus{}position\PYGZus{}bijective}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{vec4} \PYG{o}{**}\PYG{n}{position}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{o}{*}\PYG{n}{position} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{position}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}translate}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{distances}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}add}\PYG{p}{(}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{position}\PYG{p}{,} \PYG{n}{distances}\PYG{p}{,} \PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{position}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}translate\PYGZus{}bijective}\PYG{p}{(}
+        \PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{distances}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{delta\PYGZus{}time}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vec3} \PYG{n}{new\PYGZus{}distances} \PYG{o}{=} \PYG{n}{GLM\PYGZus{}VEC3\PYGZus{}ZERO\PYGZus{}INIT}\PYG{p}{;}
+    \PYG{n}{mat4} \PYG{n}{rotation}\PYG{p}{;}
+    \PYG{n}{camera\PYGZus{}get\PYGZus{}rotation\PYGZus{}inv\PYGZus{}mat4}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{rotation}\PYG{p}{);}
+
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}muladds}\PYG{p}{(}\PYG{n}{distances}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{OBJECT\PYGZus{}MOVE\PYGZus{}SPEED} \PYG{o}{*} \PYG{n}{delta\PYGZus{}time}\PYG{p}{,}
+                     \PYG{n}{new\PYGZus{}distances}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}rotate\PYGZus{}m4}\PYG{p}{(}\PYG{n}{rotation}\PYG{p}{,} \PYG{n}{new\PYGZus{}distances}\PYG{p}{,} \PYG{n}{new\PYGZus{}distances}\PYG{p}{);}
+    \PYG{n}{camera\PYGZus{}translate}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{new\PYGZus{}distances}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{angle}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{coord\PYGZus{}enum} \PYG{n}{coord}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n}{coord}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{n+nl}{X}\PYG{p}{:} \PYG{n}{glm\PYGZus{}rotate\PYGZus{}x}\PYG{p}{(}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rotation}\PYG{p}{,} \PYG{n}{angle}\PYG{p}{,} \PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rotation}\PYG{p}{);} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{Y}\PYG{p}{:} \PYG{n}{glm\PYGZus{}rotate\PYGZus{}y}\PYG{p}{(}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rotation}\PYG{p}{,} \PYG{n}{angle}\PYG{p}{,} \PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rotation}\PYG{p}{);} \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{n+nl}{Z}\PYG{p}{:} \PYG{n}{glm\PYGZus{}rotate\PYGZus{}z}\PYG{p}{(}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rotation}\PYG{p}{,} \PYG{n}{angle}\PYG{p}{,} \PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rotation}\PYG{p}{);} \PYG{k}{break}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{c+cm}{/*if (glm\PYGZus{}vec3\PYGZus{}dot(camera\PYGZhy{}\PYGZgt{}rotation[2], GLM\PYGZus{}XUP) \PYGZgt{} 0.1f) \PYGZob{}}
+\PYG{c+cm}{        glm\PYGZus{}cross(camera\PYGZhy{}\PYGZgt{}rotation[2], GLM\PYGZus{}XUP, camera\PYGZhy{}\PYGZgt{}rotation[1]);}
+\PYG{c+cm}{        glm\PYGZus{}cross(camera\PYGZhy{}\PYGZgt{}rotation[1], camera\PYGZhy{}\PYGZgt{}rotation[2], camera\PYGZhy{}\PYGZgt{}rotation[0]);}
+\PYG{c+cm}{        glm\PYGZus{}normalize(camera\PYGZhy{}\PYGZgt{}rotation[0]);}
+\PYG{c+cm}{        glm\PYGZus{}normalize(camera\PYGZhy{}\PYGZgt{}rotation[1]);}
+\PYG{c+cm}{    \PYGZcb{}*/}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}rotate\PYGZus{}all}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{angles}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{camera\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{angles}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{X}\PYG{p}{);}
+    \PYG{n}{camera\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{angles}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{Y}\PYG{p}{);}
+    \PYG{n}{camera\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{angles}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{n}{Z}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}rotate\PYGZus{}bijective}\PYG{p}{(}
+        \PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{k}{enum} \PYG{n}{coord\PYGZus{}enum} \PYG{n}{coord}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{delta\PYGZus{}time}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{camera\PYGZus{}rotate}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{OBJECT\PYGZus{}ROTATE\PYGZus{}SPEED} \PYG{o}{*} \PYG{n}{delta\PYGZus{}time}\PYG{p}{,} \PYG{n}{coord}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}get\PYGZus{}animation}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{vec3} \PYG{o}{**}\PYG{n}{animation}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{o}{*}\PYG{n}{animation} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{animation}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}set\PYGZus{}animation}\PYG{p}{(}
+        \PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{angles}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{delta\PYGZus{}time}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vec3} \PYG{n}{animation}\PYG{p}{;}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}muladds}\PYG{p}{(}\PYG{n}{angles}\PYG{p}{,} \PYG{n}{delta\PYGZus{}time}\PYG{p}{,} \PYG{n}{animation}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}add}\PYG{p}{(}\PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{animation}\PYG{p}{,} \PYG{n}{animation}\PYG{p}{,}
+                 \PYG{n}{camera}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{animation}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{camera\PYGZus{}rotate\PYGZus{}all\PYGZus{}bijective}\PYG{p}{(}\PYG{n}{Camera} \PYG{o}{*}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{vec3} \PYG{n}{angles}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{camera\PYGZus{}rotate\PYGZus{}all}\PYG{p}{(}\PYG{n}{camera}\PYG{p}{,} \PYG{n}{angles}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

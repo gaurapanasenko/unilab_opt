@@ -1,0 +1,276 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}beziator.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}conf.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}define BEZIATOR\PYGZus{}PATH RES\PYGZus{}DIR\PYGZdq{}/\PYGZpc{}s.odom\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}define BEZIER\PYGZus{}TANGENT\PYGZus{}INIT \PYGZob{}\PYGZbs{}}
+\PYG{c+cp}{\PYGZob{}  0,  0,  0,  0\PYGZcb{},\PYGZbs{}}
+\PYG{c+cp}{\PYGZob{} \PYGZhy{}3,  9, \PYGZhy{}9,  3\PYGZcb{},\PYGZbs{}}
+\PYG{c+cp}{\PYGZob{}  6,\PYGZhy{}12,  6,  0\PYGZcb{},\PYGZbs{}}
+\PYG{c+cp}{\PYGZob{} \PYGZhy{}3,  3,  0,  0\PYGZcb{},\PYGZcb{}}
+\PYG{c+cp}{\PYGZsh{}define DETALIZATION 32}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{beziator\PYGZus{}init}\PYG{p}{(}
+        \PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{,} \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{editmode}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mesh\PYGZus{}init}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}init}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{frame}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}init}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{normals}\PYG{p}{);}
+    \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{editmode} \PYG{o}{=} \PYG{n}{editmode}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{path\PYGZus{}len} \PYG{o}{=} \PYG{n}{strlen}\PYG{p}{(}\PYG{n}{BEZIATOR\PYGZus{}PATH}\PYG{p}{);}
+    \PYG{k}{const} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{len} \PYG{o}{=} \PYG{n}{strlen}\PYG{p}{(}\PYG{n}{BEZIATOR\PYGZus{}PATH}\PYG{p}{);}
+    \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{path} \PYG{o}{=} \PYG{n}{calloc}\PYG{p}{(}\PYG{n}{len} \PYG{o}{+} \PYG{n}{path\PYGZus{}len}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{));}
+    \PYG{n}{snprintf}\PYG{p}{(}\PYG{n}{path}\PYG{p}{,} \PYG{n}{len} \PYG{o}{+} \PYG{n}{path\PYGZus{}len}\PYG{p}{,} \PYG{n}{BEZIATOR\PYGZus{}PATH}\PYG{p}{,} \PYG{n}{name}\PYG{p}{);}
+    \PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{file} \PYG{o}{=} \PYG{n}{fopen}\PYG{p}{(}\PYG{n}{path}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{file} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}ERROR: failed to open file \PYGZpc{}s}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{path}\PYG{p}{);}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{path}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{path}\PYG{p}{);}
+
+    \PYG{n}{fscanf}\PYG{p}{(}\PYG{n}{file}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZpc{}lu\PYGZpc{}lu\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points\PYGZus{}size}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces\PYGZus{}size}\PYG{p}{);}
+    \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points} \PYG{o}{=} \PYG{p}{(}\PYG{n}{vec4}\PYG{o}{*}\PYG{p}{)}\PYG{n}{calloc}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points\PYGZus{}size}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{vec4}\PYG{p}{));}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{fclose}\PYG{p}{(}\PYG{n}{file}\PYG{p}{);}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed to allocate memory.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces} \PYG{o}{=} \PYG{p}{(}\PYG{n}{surface\PYGZus{}t}\PYG{o}{*}\PYG{p}{)}\PYG{n}{calloc}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces\PYGZus{}size}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{surface\PYGZus{}t}\PYG{p}{));}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{fclose}\PYG{p}{(}\PYG{n}{file}\PYG{p}{);}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{);}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed to allocate memory.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{vec4} \PYG{o}{*}\PYG{n}{point}\PYG{p}{;}
+    \PYG{n}{surface\PYGZus{}t} \PYG{o}{*}\PYG{n}{surface}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points\PYGZus{}size}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{point} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{n}{GLM\PYGZus{}VEC4\PYGZus{}BLACK}\PYG{p}{,} \PYG{o}{*}\PYG{n}{point}\PYG{p}{);}
+        \PYG{n}{fscanf}\PYG{p}{(}\PYG{n}{file}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZpc{}f\PYGZpc{}f\PYGZpc{}f\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{o}{*}\PYG{n}{point}\PYG{p}{),} \PYG{p}{(}\PYG{o}{*}\PYG{n}{point}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{p}{(}\PYG{o}{*}\PYG{n}{point}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k+kt}{int} \PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{;}
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{tmp}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces\PYGZus{}size}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{surface} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+        \PYG{k}{for} \PYG{p}{(}\PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+            \PYG{k}{for} \PYG{p}{(}\PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                \PYG{n}{fscanf}\PYG{p}{(}\PYG{n}{file}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZpc{}lu\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{tmp}\PYG{p}{);}
+                \PYG{p}{(}\PYG{o}{*}\PYG{n}{surface}\PYG{p}{)[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]} \PYG{o}{=} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points} \PYG{o}{+} \PYG{n}{tmp}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{fclose}\PYG{p}{(}\PYG{n}{file}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Beziator} \PYG{o}{*}\PYG{n+nf}{beziator\PYGZus{}create}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{name}\PYG{p}{,} \PYG{n}{Shader} \PYG{o}{*}\PYG{n}{editmode}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator} \PYG{o}{=} \PYG{n}{calloc}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Beziator}\PYG{p}{));}
+    \PYG{n}{beziator\PYGZus{}init}\PYG{p}{(}\PYG{n}{beziator}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{editmode}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n}{beziator}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{beziator\PYGZus{}del}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{);}
+        \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points} \PYG{o}{=} \PYG{n+nb}{NULL}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{free}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces}\PYG{p}{);}
+        \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces} \PYG{o}{=} \PYG{n+nb}{NULL}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{mesh\PYGZus{}del}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}del}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{frame}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}del}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{normals}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{beziator\PYGZus{}free}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{beziator\PYGZus{}del}\PYG{p}{(}\PYG{n}{beziator}\PYG{p}{);}
+    \PYG{n}{free}\PYG{p}{(}\PYG{n}{beziator}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{beziator\PYGZus{}draw}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//shader\PYGZus{}set\PYGZus{}vec3(beziator\PYGZhy{}\PYGZgt{}editmode, \PYGZdq{}min\PYGZus{}coord\PYGZdq{}, beziator\PYGZhy{}\PYGZgt{}min\PYGZus{}coord);}
+    \PYG{c+c1}{//shader\PYGZus{}set\PYGZus{}vec3(beziator\PYGZhy{}\PYGZgt{}editmode, \PYGZdq{}max\PYGZus{}coord\PYGZdq{}, beziator\PYGZhy{}\PYGZgt{}max\PYGZus{}coord);}
+    \PYG{c+c1}{//mesh\PYGZus{}draw\PYGZus{}mode(\PYGZam{}beziator\PYGZhy{}\PYGZgt{}frame, GL\PYGZus{}POINTS);}
+    \PYG{n}{mesh\PYGZus{}draw\PYGZus{}mode}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{frame}\PYG{p}{,} \PYG{n}{GL\PYGZus{}LINES}\PYG{p}{);}
+    \PYG{n}{shader\PYGZus{}set\PYGZus{}float}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{editmode}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}alpha\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{0.5f}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}draw\PYGZus{}mode}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{,} \PYG{n}{GL\PYGZus{}TRIANGLES}\PYG{p}{);}
+    \PYG{c+c1}{//mesh\PYGZus{}draw\PYGZus{}mode(\PYGZam{}beziator\PYGZhy{}\PYGZgt{}normals, GL\PYGZus{}LINES);}
+    \PYG{n}{shader\PYGZus{}set\PYGZus{}float}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{editmode}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}alpha\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{void} \PYG{n+nf}{bezier\PYGZus{}curve}\PYG{p}{(}\PYG{k+kt}{float} \PYG{n}{a}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{points}\PYG{p}{,} \PYG{n}{vec4} \PYG{n}{dest}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mat4} \PYG{n}{matrix}\PYG{p}{;}
+    \PYG{n}{glm\PYGZus{}vec4\PYGZus{}cubic}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}mul}\PYG{p}{(}\PYG{n}{points}\PYG{p}{,} \PYG{n}{GLM\PYGZus{}BEZIER\PYGZus{}MAT}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}mulv}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{bezier\PYGZus{}curve\PYGZus{}tangent}\PYG{p}{(}\PYG{k+kt}{float} \PYG{n}{a}\PYG{p}{,} \PYG{n}{mat4} \PYG{n}{points}\PYG{p}{,} \PYG{n}{vec4} \PYG{n}{dest}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mat4} \PYG{n}{matrix}\PYG{p}{;}
+    \PYG{n}{glm\PYGZus{}vec4\PYGZus{}cubic}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}mul}\PYG{p}{(}\PYG{n}{points}\PYG{p}{,} \PYG{p}{(}\PYG{n}{mat4}\PYG{p}{)}\PYG{n}{BEZIER\PYGZus{}TANGENT\PYGZus{}INIT}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{);}
+    \PYG{n}{glm\PYGZus{}mat4\PYGZus{}mulv}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{bezier\PYGZus{}surface}\PYG{p}{(}
+        \PYG{k+kt}{float} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{v}\PYG{p}{,} \PYG{n}{surface\PYGZus{}t} \PYG{n}{points}\PYG{p}{,} \PYG{n}{vec4} \PYG{n}{dest}\PYG{p}{,} \PYG{n}{vec4} \PYG{n}{normal}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{mat4} \PYG{n}{m}\PYG{p}{,} \PYG{n}{res1}\PYG{p}{,} \PYG{n}{res2}\PYG{p}{,} \PYG{n}{res3}\PYG{p}{;}
+
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{points}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]),} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]);}
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{points}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]),} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]);}
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{points}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]),} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]);}
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{points}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]),} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]);}
+        \PYG{n}{bezier\PYGZus{}curve}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{res1}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]),} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]);}
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]),} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]);}
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]),} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]);}
+        \PYG{n}{glm\PYGZus{}vec4\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{p}{(}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{3}\PYG{p}{]),} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]);}
+        \PYG{n}{bezier\PYGZus{}curve}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{res2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{bezier\PYGZus{}curve}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{res1}\PYG{p}{,} \PYG{n}{dest}\PYG{p}{);}
+    \PYG{n}{bezier\PYGZus{}curve\PYGZus{}tangent}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{res1}\PYG{p}{,} \PYG{n}{res3}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]);}
+    \PYG{n}{bezier\PYGZus{}curve\PYGZus{}tangent}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{res2}\PYG{p}{,} \PYG{n}{res3}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]);}
+
+    \PYG{n}{glm\PYGZus{}cross}\PYG{p}{(}\PYG{n}{res3}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{res3}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{],} \PYG{n}{normal}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{beziator\PYGZus{}generate}\PYG{p}{(}\PYG{n}{Beziator} \PYG{o}{*}\PYG{n}{beziator}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{static} \PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{controls\PYGZus{}lines}\PYG{p}{[][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{},}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{},}
+    \PYG{p}{\PYGZcb{};}
+    \PYG{k}{static} \PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{ctrls\PYGZus{}size} \PYG{o}{=} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{controls\PYGZus{}lines}\PYG{p}{)} \PYG{o}{/} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]);}
+    \PYG{c+cm}{/* // Old variant of config, I leave it for several commits}
+\PYG{c+cm}{    static const uint8\PYGZus{}t ALL\PYGZus{}SQUARE\PYGZus{}LINES[][4] = \PYGZob{}}
+\PYG{c+cm}{        \PYGZob{}1, 0, 0, 0\PYGZcb{}, \PYGZob{}0, 0, 0, 1\PYGZcb{}, \PYGZob{}0, 1, 1, 1\PYGZcb{}, \PYGZob{}1, 1, 1, 0\PYGZcb{},}
+\PYG{c+cm}{        \PYGZob{}1, 1, 0, 0\PYGZcb{}, \PYGZob{}0, 0, 1, 1\PYGZcb{}, \PYGZob{}1, 0, 0, 1\PYGZcb{}, \PYGZob{}0, 1, 1, 0\PYGZcb{}}
+\PYG{c+cm}{    \PYGZcb{};*/}
+    \PYG{k}{static} \PYG{k}{const} \PYG{k+kt}{uint8\PYGZus{}t} \PYG{n}{SQUARE\PYGZus{}TYPES}\PYG{p}{[][}\PYG{l+m+mi}{10}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+        \PYG{p}{\PYGZob{}\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{\PYGZcb{},}
+         \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{9}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{\PYGZcb{}\PYGZcb{},}
+        \PYG{p}{\PYGZob{}\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{9}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{\PYGZcb{}\PYGZcb{},}
+        \PYG{p}{\PYGZob{}\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{\PYGZcb{},}
+         \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{9}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{\PYGZcb{}\PYGZcb{},}
+        \PYG{c+cm}{/* // And again old variant of config}
+\PYG{c+cm}{        \PYGZob{}1, 2, 4, 1, 8, 0, 5, 3, 0, 9\PYGZcb{},}
+\PYG{c+cm}{        \PYGZob{}0, 1, 2, 3, 0, 9\PYGZcb{},}
+\PYG{c+cm}{        \PYGZob{}0, 1, 5, 0, 8, 2, 3, 5, 2, 9\PYGZcb{},*/}
+    \PYG{p}{\PYGZcb{};}
+    \PYG{k}{static} \PYG{k}{const} \PYG{k+kt}{uint8\PYGZus{}t} \PYG{n}{BEZIER\PYGZus{}SQUARE\PYGZus{}TYPES}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{l+m+mi}{3}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+        \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{},} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{};}
+
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{,} \PYG{n}{index}\PYG{p}{;}
+    \PYG{k+kt}{float} \PYG{n}{x}\PYG{p}{,} \PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{;}
+    \PYG{n}{vec4} \PYG{o}{*}\PYG{n}{point}\PYG{p}{,} \PYG{n}{vertex}\PYG{p}{,} \PYG{n}{normal}\PYG{p}{;}
+    \PYG{n}{surface\PYGZus{}t} \PYG{o}{*}\PYG{n}{surface}\PYG{p}{;}
+    \PYG{n}{GLuint} \PYG{n}{verts} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{verts2} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{verts3} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{c}\PYG{p}{;}
+    \PYG{n}{mat4} \PYG{n}{m4b}\PYG{p}{;}
+    \PYG{k+kt}{uint8\PYGZus{}t} \PYG{n}{si}\PYG{p}{,} \PYG{n}{sj}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{uint8\PYGZus{}t} \PYG{p}{(}\PYG{o}{*}\PYG{n}{st}\PYG{p}{)[}\PYG{l+m+mi}{2}\PYG{p}{];}
+
+    \PYG{n}{Mesh} \PYG{o}{*}\PYG{n}{mesh} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{mesh}\PYG{p}{,} \PYG{o}{*}\PYG{n}{mesh\PYGZus{}skel} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{frame}\PYG{p}{,}
+            \PYG{o}{*}\PYG{n}{mesh\PYGZus{}normals} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{normals}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{d} \PYG{o}{=} \PYG{n}{DETALIZATION}\PYG{p}{;}
+    \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mf}{1.f} \PYG{o}{/} \PYG{p}{(}\PYG{n}{d} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{);}
+
+    \PYG{k}{const} \PYG{k+kt}{unsigned} \PYG{k+kt}{long} \PYG{n}{size} \PYG{o}{=}
+            \PYG{l+m+mi}{6} \PYG{o}{*} \PYG{l+m+mi}{9} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces\PYGZus{}size}\PYG{p}{;}
+    \PYG{k}{const} \PYG{n}{GLsizei} \PYG{n}{sizei} \PYG{o}{=} \PYG{p}{(}\PYG{n}{GLsizei}\PYG{p}{)}\PYG{n}{size}\PYG{p}{;}
+    \PYG{n}{Vertex} \PYG{o}{*}\PYG{n}{V} \PYG{o}{=} \PYG{p}{(}\PYG{n}{Vertex}\PYG{o}{*}\PYG{p}{)}\PYG{n}{calloc}\PYG{p}{(}\PYG{n}{size}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Vertex}\PYG{p}{));}
+    \PYG{n}{GLuint} \PYG{o}{*}\PYG{n}{E} \PYG{o}{=} \PYG{p}{(}\PYG{n}{GLuint}\PYG{o}{*}\PYG{p}{)}\PYG{n}{calloc}\PYG{p}{(}\PYG{n}{size}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{GLuint}\PYG{p}{));}
+    \PYG{n}{Vertex} \PYG{o}{*}\PYG{n}{V2} \PYG{o}{=} \PYG{p}{(}\PYG{n}{Vertex}\PYG{o}{*}\PYG{p}{)}\PYG{n}{calloc}\PYG{p}{(}\PYG{n}{size}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Vertex}\PYG{p}{));}
+    \PYG{n}{GLuint} \PYG{o}{*}\PYG{n}{E2} \PYG{o}{=} \PYG{p}{(}\PYG{n}{GLuint}\PYG{o}{*}\PYG{p}{)}\PYG{n}{calloc}\PYG{p}{(}\PYG{n}{size}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{GLuint}\PYG{p}{));}
+    \PYG{n}{Vertex} \PYG{o}{*}\PYG{n}{V3} \PYG{o}{=} \PYG{p}{(}\PYG{n}{Vertex}\PYG{o}{*}\PYG{p}{)}\PYG{n}{calloc}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points\PYGZus{}size}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Vertex}\PYG{p}{));}
+    \PYG{n}{GLuint} \PYG{o}{*}\PYG{n}{E3} \PYG{o}{=} \PYG{p}{(}\PYG{n}{GLuint}\PYG{o}{*}\PYG{p}{)}\PYG{n}{calloc}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points\PYGZus{}size} \PYG{o}{*} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{GLuint}\PYG{p}{));}
+
+    \PYG{c+c1}{// Creator frame vertices}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points\PYGZus{}size}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{point} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+        \PYG{n}{glm\PYGZus{}vec3\PYGZus{}copy}\PYG{p}{(}\PYG{o}{*}\PYG{n}{point}\PYG{p}{,} \PYG{n}{V2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{position}\PYG{p}{);}
+        \PYG{n}{V2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{color}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{255}\PYG{p}{;}
+        \PYG{n}{V2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{color}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{255}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces\PYGZus{}size}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{c+c1}{// Creator frame lines}
+        \PYG{k}{for} \PYG{p}{(}\PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{ctrls\PYGZus{}size}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{n}{c} \PYG{o}{=} \PYG{n}{controls\PYGZus{}lines}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];}
+            \PYG{n}{E2}\PYG{p}{[}\PYG{n}{verts2}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=}
+                    \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]][}\PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]]} \PYG{o}{\PYGZhy{}} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{c+c1}{// Create vertices}
+        \PYG{k}{for} \PYG{p}{(}\PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{d}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{for} \PYG{p}{(}\PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{d}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                \PYG{n}{u} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{float}\PYG{p}{)}\PYG{n}{j}\PYG{o}{*}\PYG{n}{x}\PYG{p}{;} \PYG{n}{v} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{float}\PYG{p}{)}\PYG{n}{k}\PYG{o}{*}\PYG{n}{x}\PYG{p}{;}
+                \PYG{n}{index} \PYG{o}{=} \PYG{n}{i} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{j} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{k}\PYG{p}{;}
+                \PYG{n}{bezier\PYGZus{}surface}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{,} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{vertex}\PYG{p}{,} \PYG{n}{normal}\PYG{p}{);}
+                \PYG{n}{glm\PYGZus{}normalize}\PYG{p}{(}\PYG{n}{normal}\PYG{p}{);}
+                \PYG{n}{glm\PYGZus{}vec3\PYGZus{}copy}\PYG{p}{(}\PYG{n}{vertex}\PYG{p}{,} \PYG{n}{V}\PYG{p}{[}\PYG{n}{index}\PYG{p}{].}\PYG{n}{position}\PYG{p}{);}
+                \PYG{n}{glm\PYGZus{}vec3\PYGZus{}copy}\PYG{p}{(}\PYG{n}{normal}\PYG{p}{,} \PYG{n}{V}\PYG{p}{[}\PYG{n}{index}\PYG{p}{].}\PYG{n}{normal}\PYG{p}{);}
+                \PYG{n}{V}\PYG{p}{[}\PYG{n}{verts}\PYG{p}{].}\PYG{n}{color}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{255}\PYG{p}{;}
+                \PYG{c+cm}{/*glm\PYGZus{}vec3\PYGZus{}copy(vertex, V3[verts3].position);}
+\PYG{c+cm}{                E3[verts3] = verts3;}
+\PYG{c+cm}{                verts3++;}
+\PYG{c+cm}{                glm\PYGZus{}vec3\PYGZus{}add(normal, vertex, V3[verts3].position);}
+\PYG{c+cm}{                E3[verts3] = verts3;}
+\PYG{c+cm}{                verts3++;*/}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{c+c1}{// Create triangles}
+        \PYG{k}{for} \PYG{p}{(}\PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{d} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+            \PYG{k}{for} \PYG{p}{(}\PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{d} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                \PYG{n}{E}\PYG{p}{[}\PYG{n}{verts}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{p}{(}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{k}\PYG{p}{);}
+                \PYG{n}{E}\PYG{p}{[}\PYG{n}{verts}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{j} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{k}\PYG{p}{);}
+                \PYG{n}{E}\PYG{p}{[}\PYG{n}{verts}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{j} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{k} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+
+                \PYG{n}{E}\PYG{p}{[}\PYG{n}{verts}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{j} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{k} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+                \PYG{n}{E}\PYG{p}{[}\PYG{n}{verts}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{p}{(}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{k} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+                \PYG{n}{E}\PYG{p}{[}\PYG{n}{verts}\PYG{o}{++}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{)(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{d} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{p}{(}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{d} \PYG{o}{+} \PYG{n}{k}\PYG{p}{);}
+            \PYG{p}{\PYGZcb{}}
+
+        \PYG{n}{surface} \PYG{o}{=} \PYG{o}{\PYGZam{}}\PYG{p}{(}\PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{surfaces}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+        \PYG{k}{for} \PYG{p}{(}\PYG{n}{si} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{si} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{si}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{for} \PYG{p}{(}\PYG{n}{sj} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{sj} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{sj}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                \PYG{n}{st} \PYG{o}{=} \PYG{n}{SQUARE\PYGZus{}TYPES}\PYG{p}{[}\PYG{n}{BEZIER\PYGZus{}SQUARE\PYGZus{}TYPES}\PYG{p}{[}\PYG{n}{si}\PYG{p}{][}\PYG{n}{sj}\PYG{p}{]];}
+                \PYG{k}{while} \PYG{p}{(}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{l+m+mi}{9}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                    \PYG{k}{if} \PYG{p}{(}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{==} \PYG{l+m+mi}{8}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                        \PYG{n}{st} \PYG{o}{+=} \PYG{l+m+mi}{3}\PYG{p}{;}
+                    \PYG{p}{\PYGZcb{}}
+                    \PYG{n}{index} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t}\PYG{p}{)((}\PYG{o}{*}\PYG{n}{surface}\PYG{p}{)[}\PYG{n}{si}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]][}\PYG{n}{sj}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]]} \PYG{o}{\PYGZhy{}} \PYG{n}{beziator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{points}\PYG{p}{);}
+                    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}sub}\PYG{p}{(}\PYG{o}{*}\PYG{p}{((}\PYG{o}{*}\PYG{n}{surface}\PYG{p}{)[}\PYG{n}{si}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]][}\PYG{n}{sj}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]]),}
+                            \PYG{o}{*}\PYG{p}{((}\PYG{o}{*}\PYG{n}{surface}\PYG{p}{)[}\PYG{n}{si}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]][}\PYG{n}{sj}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]]),} \PYG{n}{m4b}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]);}
+                    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}sub}\PYG{p}{(}\PYG{o}{*}\PYG{p}{((}\PYG{o}{*}\PYG{n}{surface}\PYG{p}{)[}\PYG{n}{si}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]][}\PYG{n}{sj}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]]),}
+                            \PYG{o}{*}\PYG{p}{((}\PYG{o}{*}\PYG{n}{surface}\PYG{p}{)[}\PYG{n}{si}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]][}\PYG{n}{sj}\PYG{o}{+}\PYG{n}{st}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]]),} \PYG{n}{m4b}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]);}
+                    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}cross}\PYG{p}{(}\PYG{n}{m4b}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{m4b}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{m4b}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]);}
+                    \PYG{n}{glm\PYGZus{}vec3\PYGZus{}add}\PYG{p}{(}\PYG{n}{V2}\PYG{p}{[}\PYG{n}{index}\PYG{p}{].}\PYG{n}{normal}\PYG{p}{,} \PYG{n}{m4b}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{n}{V2}\PYG{p}{[}\PYG{n}{index}\PYG{p}{].}\PYG{n}{normal}\PYG{p}{);}
+                    \PYG{n}{st}\PYG{o}{++}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{c+cm}{/*}
+\PYG{c+cm}{    // Example drawing of normals for frame}
+\PYG{c+cm}{    for (size\PYGZus{}t i = 0; i \PYGZlt{} beziator\PYGZhy{}\PYGZgt{}points\PYGZus{}size; i++) \PYGZob{}}
+\PYG{c+cm}{        glm\PYGZus{}normalize(V2[i].normal);}
+\PYG{c+cm}{        glm\PYGZus{}vec3\PYGZus{}add(V2[i].position, V2[i].normal,}
+\PYG{c+cm}{                     V2[i+beziator\PYGZhy{}\PYGZgt{}points\PYGZus{}size].position);}
+\PYG{c+cm}{        E2[verts2++] = (unsigned)i;}
+\PYG{c+cm}{        E2[verts2++] = (unsigned)(i+beziator\PYGZhy{}\PYGZgt{}points\PYGZus{}size);}
+\PYG{c+cm}{    \PYGZcb{}*/}
+    \PYG{n}{mesh\PYGZus{}update}\PYG{p}{(}\PYG{n}{mesh}\PYG{p}{,} \PYG{n}{sizei}\PYG{p}{,} \PYG{n}{sizei}\PYG{p}{,} \PYG{n}{V}\PYG{p}{,} \PYG{n}{E}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}update}\PYG{p}{(}\PYG{n}{mesh\PYGZus{}skel}\PYG{p}{,} \PYG{n}{sizei}\PYG{p}{,} \PYG{n}{sizei}\PYG{p}{,} \PYG{n}{V2}\PYG{p}{,} \PYG{n}{E2}\PYG{p}{);}
+    \PYG{n}{mesh\PYGZus{}update}\PYG{p}{(}\PYG{n}{mesh\PYGZus{}normals}\PYG{p}{,} \PYG{n}{sizei}\PYG{p}{,} \PYG{n}{sizei}\PYG{p}{,} \PYG{n}{V3}\PYG{p}{,} \PYG{n}{E3}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

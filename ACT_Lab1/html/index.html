@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лаборатрна робота 1: Звіт з лабораторної роботи 1</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лаборатрна робота 1
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Звіт з лабораторної роботи 1 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>за дисципліною "Прикладні обчислювальні технології" <br />
+студента групи ПА-17-2 <br />
+Панасенка Єгора Сергійовича <br />
+Кафедра комп'ютерних технологій <br />
+ФПМ, ДНУ, 2021-2022 навч.р. <br />
+Варант 3 <br />
+ Звіт доступний за посиланням <br />
+<a href="https://gaurapanasenko.github.io/unilab_opt/ACT_Lab1/html/index.html">https://gaurapanasenko.github.io/unilab_opt/ACT_Lab1/html/index.html</a>. <br />
+Вихідний код доступний за посиланням <br />
+<a href="https://github.com/gaurapanasenko/unilab/tree/master/09/ACT_Lab1">https://github.com/gaurapanasenko/unilab/tree/master/09/ACT_Lab1</a></p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+Постановка задачі</h1>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Лабораторна робота 1</h2>
+<p>Виконайте дії:</p><ul>
+<li>\(A+10\dot B\),</li>
+<li>\(A\dot T\),</li>
+<li>\(A^T\),</li>
+<li>почленно помножити A на B,</li>
+<li>розташувати елементи матриці А по зростанню (по стовпцях),</li>
+<li>визначити максимальний і мінімальний елементи матриці В,</li>
+<li>обчислити визначник матриці В.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Лабораторна робота 1.2</h2>
+<p>Обчислити межу: </p><p class="formulaDsp">
+\[\lim_{x\to 0}(\cos{x})^{\frac{1}{x\sin{x}}}\]
+</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Скрипт MATLAB</h1>
+<div class="fragment"><div class="line">A=rand(3)</div><div class="line">B=rand(3)</div><div class="line">T=rand(3)</div><div class="line"></div><div class="line">one=A+10*B</div><div class="line">two=A*T</div><div class="line">three=B&#39;</div><div class="line">four=A.*B</div><div class="line">sorted=sort(A)</div><div class="line">min_elem=min(reshape(A, 9, 1))</div><div class="line">max_elem=max(reshape(A, 9, 1))</div><div class="line">d=det(A)</div><div class="line"></div><div class="line">syms x</div><div class="line">f = cos(x)^(1/(x*sin(x)))</div><div class="line">l = limit(f, x, 0)</div></div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+Робота скрипту</h1>
+<div class="fragment"><div class="line">lab1</div><div class="line"></div><div class="line">A =</div><div class="line"></div><div class="line">    0.7210    0.2187    0.0636</div><div class="line">    0.5225    0.1058    0.4046</div><div class="line">    0.9937    0.1097    0.4484</div><div class="line"></div><div class="line"></div><div class="line">B =</div><div class="line"></div><div class="line">    0.3658    0.7720    0.1920</div><div class="line">    0.7635    0.9329    0.1389</div><div class="line">    0.6279    0.9727    0.6963</div><div class="line"></div><div class="line"></div><div class="line">T =</div><div class="line"></div><div class="line">    0.0938    0.8611    0.6714</div><div class="line">    0.5254    0.4849    0.7413</div><div class="line">    0.5303    0.3935    0.5201</div><div class="line"></div><div class="line"></div><div class="line">one =</div><div class="line"></div><div class="line">    4.3792    7.9385    1.9839</div><div class="line">    8.1575    9.4343    1.7933</div><div class="line">    7.2727    9.8371    7.4110</div><div class="line"></div><div class="line"></div><div class="line">two =</div><div class="line"></div><div class="line">    0.2163    0.7520    0.6793</div><div class="line">    0.3192    0.6604    0.6396</div><div class="line">    0.3887    1.0853    0.9817</div><div class="line"></div><div class="line"></div><div class="line">three =</div><div class="line"></div><div class="line">    0.3658    0.7635    0.6279</div><div class="line">    0.7720    0.9329    0.9727</div><div class="line">    0.1920    0.1389    0.6963</div><div class="line"></div><div class="line"></div><div class="line">four =</div><div class="line"></div><div class="line">    0.2638    0.1688    0.0122</div><div class="line">    0.3989    0.0987    0.0562</div><div class="line">    0.6239    0.1067    0.3122</div><div class="line"></div><div class="line"></div><div class="line">sorted =</div><div class="line"></div><div class="line">    0.5225    0.1058    0.0636</div><div class="line">    0.7210    0.1097    0.4046</div><div class="line">    0.9937    0.2187    0.4484</div><div class="line"></div><div class="line"></div><div class="line">min_elem =</div><div class="line"></div><div class="line">    0.0636</div><div class="line"></div><div class="line"></div><div class="line">max_elem =</div><div class="line"></div><div class="line">    0.9937</div><div class="line"></div><div class="line"></div><div class="line">d =</div><div class="line"></div><div class="line">    0.0358</div><div class="line"></div><div class="line"></div><div class="line">f =</div><div class="line"></div><div class="line">cos(x)^(1/(x*sin(x)))</div><div class="line"></div><div class="line"></div><div class="line">l =</div><div class="line"></div><div class="line">exp(-1/2)</div></div><!-- fragment --> </div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

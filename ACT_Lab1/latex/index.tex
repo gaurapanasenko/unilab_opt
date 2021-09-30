@@ -1,0 +1,127 @@
+за дисципліною \char`\"{}Прикладні обчислювальні технології\char`\"{} ~\newline
+студента групи ПА-\/17-\/2 ~\newline
+Панасенка Єгора Сергійовича ~\newline
+Кафедра комп\textquotesingle{}ютерних технологій ~\newline
+ФПМ, ДНУ, 2021-\/2022 навч.\+р. ~\newline
+Варант 3 ~\newline
+ Звіт доступний за посиланням ~\newline
+\href{https://gaurapanasenko.github.io/unilab_opt/ACT_Lab1/html/index.html}{\tt https\+://gaurapanasenko.\+github.\+io/unilab\+\_\+opt/\+A\+C\+T\+\_\+\+Lab1/html/index.\+html}. ~\newline
+Вихідний код доступний за посиланням ~\newline
+\href{https://github.com/gaurapanasenko/unilab/tree/master/09/ACT_Lab1}{\tt https\+://github.\+com/gaurapanasenko/unilab/tree/master/09/\+A\+C\+T\+\_\+\+Lab1}\hypertarget{index_autotoc_md0}{}\subsection{Постановка задачі}\label{index_autotoc_md0}
+\hypertarget{index_autotoc_md1}{}\subsubsection{Лабораторна робота 1}\label{index_autotoc_md1}
+Виконайте дії\+:
+\begin{DoxyItemize}
+\item $A+10\dot B$,
+\item $A\dot T$,
+\item $A^T$,
+\item почленно помножити A на B,
+\item розташувати елементи матриці А по зростанню (по стовпцях),
+\item визначити максимальний і мінімальний елементи матриці В,
+\item обчислити визначник матриці В.
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\subsubsection{Лабораторна робота 1.\+2}\label{index_autotoc_md2}
+Обчислити межу\+: \[\lim_{x\to 0}(\cos{x})^{\frac{1}{x\sin{x}}}\]\hypertarget{index_autotoc_md3}{}\subsection{Скрипт M\+A\+T\+L\+AB}\label{index_autotoc_md3}
+
+\begin{DoxyCode}
+A=rand(3)
+B=rand(3)
+T=rand(3)
+
+one=A+10*B
+two=A*T
+three=B'
+four=A.*B
+sorted=sort(A)
+min\_elem=min(reshape(A, 9, 1))
+max\_elem=max(reshape(A, 9, 1))
+d=det(A)
+
+syms x
+f = cos(x)^(1/(x*sin(x)))
+l = limit(f, x, 0)
+\end{DoxyCode}
+\hypertarget{index_autotoc_md4}{}\subsection{Робота скрипту}\label{index_autotoc_md4}
+
+\begin{DoxyCode}
+lab1
+
+A =
+
+    0.7210    0.2187    0.0636
+    0.5225    0.1058    0.4046
+    0.9937    0.1097    0.4484
+
+
+B =
+
+    0.3658    0.7720    0.1920
+    0.7635    0.9329    0.1389
+    0.6279    0.9727    0.6963
+
+
+T =
+
+    0.0938    0.8611    0.6714
+    0.5254    0.4849    0.7413
+    0.5303    0.3935    0.5201
+
+
+one =
+
+    4.3792    7.9385    1.9839
+    8.1575    9.4343    1.7933
+    7.2727    9.8371    7.4110
+
+
+two =
+
+    0.2163    0.7520    0.6793
+    0.3192    0.6604    0.6396
+    0.3887    1.0853    0.9817
+
+
+three =
+
+    0.3658    0.7635    0.6279
+    0.7720    0.9329    0.9727
+    0.1920    0.1389    0.6963
+
+
+four =
+
+    0.2638    0.1688    0.0122
+    0.3989    0.0987    0.0562
+    0.6239    0.1067    0.3122
+
+
+sorted =
+
+    0.5225    0.1058    0.0636
+    0.7210    0.1097    0.4046
+    0.9937    0.2187    0.4484
+
+
+min\_elem =
+
+    0.0636
+
+
+max\_elem =
+
+    0.9937
+
+
+d =
+
+    0.0358
+
+
+f =
+
+cos(x)^(1/(x*sin(x)))
+
+
+l =
+
+exp(-1/2)
+\end{DoxyCode}
+ 

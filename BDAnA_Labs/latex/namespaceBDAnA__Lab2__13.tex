@@ -1,0 +1,207 @@
+\hypertarget{namespaceBDAnA__Lab2__13}{}\doxysubsection{Простір імен BDAn\+A\+\_\+\+Lab2\+\_\+13}
+\label{namespaceBDAnA__Lab2__13}\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{namespaceBDAnA__Lab2__13_aff5c5296e7657b23bd5e928d64252b66}{f}} (float x, float a)
+\begin{DoxyCompactList}\small\item\em Відображення з постановки задачі. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespaceBDAnA__Lab2__13_afc7dc3b1b772b080054b647164193e87}{draw\+\_\+diagram}} ()
+\begin{DoxyCompactList}\small\item\em Друкує діаграму. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespaceBDAnA__Lab2__13_a2eb13299afd3bcaa8a77b7695abaa881}{draw\+\_\+diagram2}} (a, epsillon)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceBDAnA__Lab2__13_a30c99efef55424e07eef3092b43f527c}{first\+Iters}} = 1024
+\begin{DoxyCompactList}\small\item\em Скільки перших ітерацій пропустити \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceBDAnA__Lab2__13_ae379f0f477c5d4f4bef9c85d0696b236}{last\+Iters}} = 50
+\begin{DoxyCompactList}\small\item\em Скільки останніх ітерацій відобразити на діаграмі \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceBDAnA__Lab2__13_aa4f4b7a74bb71dddafd99670d555abe5}{a\+Iters}} = 2000
+\begin{DoxyCompactList}\small\item\em Скільки значень $\alpha$ побудувати для діаграми. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{namespaceBDAnA__Lab2__13_aced9a4e2abfead2ac75b8af603cf43ab}{alpha\+Range}} = \mbox{[}-\/2.\+25, 0.\+25\mbox{]}
+\begin{DoxyCompactList}\small\item\em Діапазон значень $\alpha$ \mbox{[}2.\+8, 3.\+8\mbox{]}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespaceBDAnA__Lab2__13_ad42312a2b87ab802ebf2485432fbebdb}{x\+Start}} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Стартове значення $x_0$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespaceBDAnA__Lab2__13_afc7dc3b1b772b080054b647164193e87}\label{namespaceBDAnA__Lab2__13_afc7dc3b1b772b080054b647164193e87}} 
+\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}!draw\_diagram@{draw\_diagram}}
+\index{draw\_diagram@{draw\_diagram}!BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxyparagraph{\texorpdfstring{draw\_diagram()}{draw\_diagram()}}
+{\footnotesize\ttfamily  None BDAn\+A\+\_\+\+Lab2\+\_\+13.\+draw\+\_\+diagram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Друкує діаграму. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab2__13_8py_source}{BDAn\+A\+\_\+\+Lab2\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab2__13_8py_source_l00027}{27}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00027}00027 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab2__13_afc7dc3b1b772b080054b647164193e87}{draw\_diagram}}() -\/> None:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00028}00028     \textcolor{comment}{\# Знаходимо усі можливі \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00029}00029     As = np.linspace(alphaRange[0], alphaRange[1], aIters)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00030}00030     \textcolor{comment}{\# Для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$ зберегти останні ітерації}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00031}00031     grid = np.zeros((lastIters, aIters))}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00033}00033     \textcolor{comment}{\# Робимо ітерації для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00034}00034     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(aIters):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00035}00035         x = xStart}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00036}00036         a = As[i]}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00037}00037         \textcolor{comment}{\# Пропускаємо перші `firstIters` ітерації.}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00038}00038         \textcolor{keywordflow}{for} \_ \textcolor{keywordflow}{in} range(firstIters):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00039}00039             x = \mbox{\hyperlink{namespaceBDAnA__Lab2__13_aff5c5296e7657b23bd5e928d64252b66}{f}}(x, a)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00040}00040         }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00041}00041         \textcolor{comment}{\# Зберінаємо останні `lastIters` ітерацій.}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00042}00042         \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(lastIters):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00043}00043             x = \mbox{\hyperlink{namespaceBDAnA__Lab2__13_aff5c5296e7657b23bd5e928d64252b66}{f}}(x, a)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00044}00044             grid[j, i] = x}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00046}00046     \textcolor{comment}{\# Друкуємо графік.}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00047}00047     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} grid:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00048}00048         plt.scatter(As, i, 1, alpha=0.25)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00049}00049     plt.show(block=\textcolor{keyword}{False})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00051}00051 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceBDAnA__Lab2__13_a2eb13299afd3bcaa8a77b7695abaa881}\label{namespaceBDAnA__Lab2__13_a2eb13299afd3bcaa8a77b7695abaa881}} 
+\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}!draw\_diagram2@{draw\_diagram2}}
+\index{draw\_diagram2@{draw\_diagram2}!BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxyparagraph{\texorpdfstring{draw\_diagram2()}{draw\_diagram2()}}
+{\footnotesize\ttfamily  None BDAn\+A\+\_\+\+Lab2\+\_\+13.\+draw\+\_\+diagram2 (\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{epsillon }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab2__13_8py_source}{BDAn\+A\+\_\+\+Lab2\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab2__13_8py_source_l00052}{52}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00052}00052 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab2__13_a2eb13299afd3bcaa8a77b7695abaa881}{draw\_diagram2}}(a, epsillon) -\/> None:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00053}00053     x = np.zeros(lastIters)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00054}00054     x[0] = xStart}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00055}00055     }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00056}00056     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(1, lastIters):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00057}00057         x[i] = \mbox{\hyperlink{namespaceBDAnA__Lab2__13_aff5c5296e7657b23bd5e928d64252b66}{f}}(x[i-\/1], a)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00058}00058         }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00059}00059     xx, yy = np.meshgrid(x, x)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00060}00060     I = (abs(xx -\/ yy) -\/ epsillon) > 0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00061}00061     }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00062}00062     fig, axs = plt.subplots(1,2)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00063}00063     fig.suptitle(f\textcolor{stringliteral}{"{}x*=ax(1-\/x), a=\{a\}, e=\{epsillon\}"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00064}00064     axs[0].plot(range(lastIters), x)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00065}00065     axs[1].imshow(I, cmap=plt.cm.gray, origin=\textcolor{stringliteral}{'lower'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00066}00066     plt.show(block=\textcolor{keyword}{False})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00069}00069 \mbox{\hyperlink{namespaceBDAnA__Lab2__13_afc7dc3b1b772b080054b647164193e87}{draw\_diagram}}()}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00070}00070 \mbox{\hyperlink{namespaceBDAnA__Lab2__13_a2eb13299afd3bcaa8a77b7695abaa881}{draw\_diagram2}}(-\/1, 0.01)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00071}00071 \mbox{\hyperlink{namespaceBDAnA__Lab2__13_a2eb13299afd3bcaa8a77b7695abaa881}{draw\_diagram2}}(-\/1.75, 0.01)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00072}00072 \mbox{\hyperlink{namespaceBDAnA__Lab2__13_a2eb13299afd3bcaa8a77b7695abaa881}{draw\_diagram2}}(-\/2.25, 0.01)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00073}00073 plt.show()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceBDAnA__Lab2__13_aff5c5296e7657b23bd5e928d64252b66}\label{namespaceBDAnA__Lab2__13_aff5c5296e7657b23bd5e928d64252b66}} 
+\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}!f@{f}}
+\index{f@{f}!BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxyparagraph{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily  None BDAn\+A\+\_\+\+Lab2\+\_\+13.\+f (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{a }\end{DoxyParamCaption})}
+
+
+
+Відображення з постановки задачі. 
+
+\[x_{n+1}=\alpha + x_n^2 + x_n,\ n=0,1,2,\dots\] 
+\begin{DoxyParams}{Аргументи}
+{\em x} & значення $x_n$ \\
+\hline
+{\em a} & значення $\alpha$ \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab2__13_8py_source}{BDAn\+A\+\_\+\+Lab2\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab2__13_8py_source_l00023}{23}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00023}00023 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab2__13_aff5c5296e7657b23bd5e928d64252b66}{f}}(x: float, a: float) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00024}00024     \textcolor{keywordflow}{return} a+x**2+x}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab2__13_l00025}00025 }
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{namespaceBDAnA__Lab2__13_aa4f4b7a74bb71dddafd99670d555abe5}\label{namespaceBDAnA__Lab2__13_aa4f4b7a74bb71dddafd99670d555abe5}} 
+\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}!aIters@{aIters}}
+\index{aIters@{aIters}!BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxyparagraph{\texorpdfstring{aIters}{aIters}}
+{\footnotesize\ttfamily int BDAn\+A\+\_\+\+Lab2\+\_\+13.\+a\+Iters = 2000}
+
+
+
+Скільки значень $\alpha$ побудувати для діаграми. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab2__13_8py_source}{BDAn\+A\+\_\+\+Lab2\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab2__13_8py_source_l00010}{10}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab2__13_aced9a4e2abfead2ac75b8af603cf43ab}\label{namespaceBDAnA__Lab2__13_aced9a4e2abfead2ac75b8af603cf43ab}} 
+\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}!alphaRange@{alphaRange}}
+\index{alphaRange@{alphaRange}!BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxyparagraph{\texorpdfstring{alphaRange}{alphaRange}}
+{\footnotesize\ttfamily list BDAn\+A\+\_\+\+Lab2\+\_\+13.\+alpha\+Range = \mbox{[}-\/2.\+25, 0.\+25\mbox{]}}
+
+
+
+Діапазон значень $\alpha$ \mbox{[}2.\+8, 3.\+8\mbox{]}. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab2__13_8py_source}{BDAn\+A\+\_\+\+Lab2\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab2__13_8py_source_l00012}{12}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab2__13_a30c99efef55424e07eef3092b43f527c}\label{namespaceBDAnA__Lab2__13_a30c99efef55424e07eef3092b43f527c}} 
+\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}!firstIters@{firstIters}}
+\index{firstIters@{firstIters}!BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxyparagraph{\texorpdfstring{firstIters}{firstIters}}
+{\footnotesize\ttfamily int BDAn\+A\+\_\+\+Lab2\+\_\+13.\+first\+Iters = 1024}
+
+
+
+Скільки перших ітерацій пропустити 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab2__13_8py_source}{BDAn\+A\+\_\+\+Lab2\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab2__13_8py_source_l00006}{6}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab2__13_ae379f0f477c5d4f4bef9c85d0696b236}\label{namespaceBDAnA__Lab2__13_ae379f0f477c5d4f4bef9c85d0696b236}} 
+\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}!lastIters@{lastIters}}
+\index{lastIters@{lastIters}!BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxyparagraph{\texorpdfstring{lastIters}{lastIters}}
+{\footnotesize\ttfamily int BDAn\+A\+\_\+\+Lab2\+\_\+13.\+last\+Iters = 50}
+
+
+
+Скільки останніх ітерацій відобразити на діаграмі 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab2__13_8py_source}{BDAn\+A\+\_\+\+Lab2\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab2__13_8py_source_l00008}{8}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab2__13_ad42312a2b87ab802ebf2485432fbebdb}\label{namespaceBDAnA__Lab2__13_ad42312a2b87ab802ebf2485432fbebdb}} 
+\index{BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}!xStart@{xStart}}
+\index{xStart@{xStart}!BDAnA\_Lab2\_13@{BDAnA\_Lab2\_13}}
+\doxyparagraph{\texorpdfstring{xStart}{xStart}}
+{\footnotesize\ttfamily float BDAn\+A\+\_\+\+Lab2\+\_\+13.\+x\+Start = 0.\+5}
+
+
+
+Стартове значення $x_0$. 
+
+Яке обчислено за допомогою рівняння\+: \[f\textnormal{\textquotesingle}(x_0,\alpha)=0\] 
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab2__13_8py_source}{BDAn\+A\+\_\+\+Lab2\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab2__13_8py_source_l00016}{16}}
+

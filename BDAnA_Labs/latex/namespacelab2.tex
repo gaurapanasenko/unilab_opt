@@ -1,0 +1,207 @@
+\hypertarget{namespacelab2}{}\doxysubsection{Простір імен lab2}
+\label{namespacelab2}\index{lab2@{lab2}}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}} (float x, float a)
+\begin{DoxyCompactList}\small\item\em Відображення з постановки задачі. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacelab2_ae9e08439eff0513e105fa6a80d8b3855}{draw\+\_\+diagram}} ()
+\begin{DoxyCompactList}\small\item\em Друкує діаграму. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\+\_\+diagram2}} (a, epsillon)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacelab2_a7c656711f4f13dcb5ec3446ab424ada0}{first\+Iters}} = 1024
+\begin{DoxyCompactList}\small\item\em Скільки перших ітерацій пропустити \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacelab2_ab73b4fc397714cfdd14edc17ddf88fbf}{last\+Iters}} = 50
+\begin{DoxyCompactList}\small\item\em Скільки останніх ітерацій відобразити на діаграмі \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacelab2_a0cd9d58e92b5e534da99f80bc63d14de}{a\+Iters}} = 2000
+\begin{DoxyCompactList}\small\item\em Скільки значень $\alpha$ побудувати для діаграми. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{namespacelab2_ad8d54af91c83466b3aff6baedb0855f0}{alpha\+Range}} = \mbox{[}-\/3, 3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Діапазон значень $\alpha$ \mbox{[}2.\+8, 3.\+8\mbox{]}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespacelab2_ac4f907460d5c37c8e107a0ca678557e3}{x\+Start}} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Стартове значення $x_0$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespacelab2_ae9e08439eff0513e105fa6a80d8b3855}\label{namespacelab2_ae9e08439eff0513e105fa6a80d8b3855}} 
+\index{lab2@{lab2}!draw\_diagram@{draw\_diagram}}
+\index{draw\_diagram@{draw\_diagram}!lab2@{lab2}}
+\doxyparagraph{\texorpdfstring{draw\_diagram()}{draw\_diagram()}}
+{\footnotesize\ttfamily  None lab2.\+draw\+\_\+diagram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Друкує діаграму. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab2_8py_source}{lab2.\+py}}, рядок \mbox{\hyperlink{lab2_8py_source_l00028}{28}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00028}00028 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab2_ae9e08439eff0513e105fa6a80d8b3855}{draw\_diagram}}() -\/> None:}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00029}00029     \textcolor{comment}{\# Знаходимо усі можливі \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00030}00030     As = np.linspace(alphaRange[0], alphaRange[1], aIters)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00031}00031     \textcolor{comment}{\# Для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$ зберегти останні ітерації}}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00032}00032     grid = np.zeros((lastIters, aIters))}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00034}00034     \textcolor{comment}{\# Робимо ітерації для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00035}00035     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(aIters):}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00036}00036         x = xStart}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00037}00037         a = As[i]}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00038}00038         \textcolor{comment}{\# Пропускаємо перші `firstIters` ітерації.}}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00039}00039         \textcolor{keywordflow}{for} \_ \textcolor{keywordflow}{in} range(firstIters):}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00040}00040             x = \mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}}(x, a)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00041}00041         }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00042}00042         \textcolor{comment}{\# Зберінаємо останні `lastIters` ітерацій.}}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00043}00043         \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(lastIters):}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00044}00044             x = \mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}}(x, a)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00045}00045             grid[j, i] = x}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00047}00047     \textcolor{comment}{\# Друкуємо графік.}}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00048}00048     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} grid:}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00049}00049         plt.scatter(As, i, 1, alpha=0.25)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00050}00050     plt.show()}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00051}00051     }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00052}00052     }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}\label{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}} 
+\index{lab2@{lab2}!draw\_diagram2@{draw\_diagram2}}
+\index{draw\_diagram2@{draw\_diagram2}!lab2@{lab2}}
+\doxyparagraph{\texorpdfstring{draw\_diagram2()}{draw\_diagram2()}}
+{\footnotesize\ttfamily  None lab2.\+draw\+\_\+diagram2 (\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{epsillon }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab2_8py_source}{lab2.\+py}}, рядок \mbox{\hyperlink{lab2_8py_source_l00053}{53}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00053}00053 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\_diagram2}}(a, epsillon) -\/> None:}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00054}00054     x = np.zeros(lastIters)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00055}00055     x[0] = xStart}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00056}00056     }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00057}00057     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(1, lastIters):}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00058}00058         x[i] = \mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}}(x[i-\/1], a)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00059}00059         }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00060}00060     xx, yy = np.meshgrid(x, x)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00061}00061     I = (abs(xx -\/ yy) -\/ epsillon) > 0}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00062}00062     }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00063}00063     fig, axs = plt.subplots(1,2)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00064}00064     fig.suptitle(f\textcolor{stringliteral}{"{}x*=ax(1-\/x), a=\{a\}, e=\{epsillon\}"{}})}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00065}00065     axs[0].plot(range(lastIters), x)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00066}00066     axs[1].imshow(I, cmap=plt.cm.gray, origin=\textcolor{stringliteral}{'lower'})}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00067}00067     plt.show()}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00070}00070 \mbox{\hyperlink{namespacelab2_ae9e08439eff0513e105fa6a80d8b3855}{draw\_diagram}}()}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00071}00071 \mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\_diagram2}}(2.8, 0.001)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00072}00072 \mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\_diagram2}}(3, 0.001)}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00073}00073 \mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\_diagram2}}(3.8, 0.001)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}\label{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}} 
+\index{lab2@{lab2}!f@{f}}
+\index{f@{f}!lab2@{lab2}}
+\doxyparagraph{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily  None lab2.\+f (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{a }\end{DoxyParamCaption})}
+
+
+
+Відображення з постановки задачі. 
+
+\[x_{n+1}=\alpha x_n^2(1-x^2_n),\ n=0,1,2,\dots\] 
+\begin{DoxyParams}{Аргументи}
+{\em x} & значення $x_n$ \\
+\hline
+{\em a} & значення $\alpha$ \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab2_8py_source}{lab2.\+py}}, рядок \mbox{\hyperlink{lab2_8py_source_l00023}{23}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00023}00023 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}}(x: float, a: float) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00024}00024     \textcolor{keywordflow}{return} 1+a*x**2-\/3*a*x}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00025}00025     \textcolor{comment}{\# \string~ return a*x*(1-\/x)}}
+\DoxyCodeLine{\Hypertarget{namespacelab2_l00026}00026 }
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{namespacelab2_a0cd9d58e92b5e534da99f80bc63d14de}\label{namespacelab2_a0cd9d58e92b5e534da99f80bc63d14de}} 
+\index{lab2@{lab2}!aIters@{aIters}}
+\index{aIters@{aIters}!lab2@{lab2}}
+\doxyparagraph{\texorpdfstring{aIters}{aIters}}
+{\footnotesize\ttfamily int lab2.\+a\+Iters = 2000}
+
+
+
+Скільки значень $\alpha$ побудувати для діаграми. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab2_8py_source}{lab2.\+py}}, рядок \mbox{\hyperlink{lab2_8py_source_l00010}{10}}
+
+\mbox{\Hypertarget{namespacelab2_ad8d54af91c83466b3aff6baedb0855f0}\label{namespacelab2_ad8d54af91c83466b3aff6baedb0855f0}} 
+\index{lab2@{lab2}!alphaRange@{alphaRange}}
+\index{alphaRange@{alphaRange}!lab2@{lab2}}
+\doxyparagraph{\texorpdfstring{alphaRange}{alphaRange}}
+{\footnotesize\ttfamily list lab2.\+alpha\+Range = \mbox{[}-\/3, 3\mbox{]}}
+
+
+
+Діапазон значень $\alpha$ \mbox{[}2.\+8, 3.\+8\mbox{]}. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab2_8py_source}{lab2.\+py}}, рядок \mbox{\hyperlink{lab2_8py_source_l00012}{12}}
+
+\mbox{\Hypertarget{namespacelab2_a7c656711f4f13dcb5ec3446ab424ada0}\label{namespacelab2_a7c656711f4f13dcb5ec3446ab424ada0}} 
+\index{lab2@{lab2}!firstIters@{firstIters}}
+\index{firstIters@{firstIters}!lab2@{lab2}}
+\doxyparagraph{\texorpdfstring{firstIters}{firstIters}}
+{\footnotesize\ttfamily int lab2.\+first\+Iters = 1024}
+
+
+
+Скільки перших ітерацій пропустити 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab2_8py_source}{lab2.\+py}}, рядок \mbox{\hyperlink{lab2_8py_source_l00006}{6}}
+
+\mbox{\Hypertarget{namespacelab2_ab73b4fc397714cfdd14edc17ddf88fbf}\label{namespacelab2_ab73b4fc397714cfdd14edc17ddf88fbf}} 
+\index{lab2@{lab2}!lastIters@{lastIters}}
+\index{lastIters@{lastIters}!lab2@{lab2}}
+\doxyparagraph{\texorpdfstring{lastIters}{lastIters}}
+{\footnotesize\ttfamily int lab2.\+last\+Iters = 50}
+
+
+
+Скільки останніх ітерацій відобразити на діаграмі 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab2_8py_source}{lab2.\+py}}, рядок \mbox{\hyperlink{lab2_8py_source_l00008}{8}}
+
+\mbox{\Hypertarget{namespacelab2_ac4f907460d5c37c8e107a0ca678557e3}\label{namespacelab2_ac4f907460d5c37c8e107a0ca678557e3}} 
+\index{lab2@{lab2}!xStart@{xStart}}
+\index{xStart@{xStart}!lab2@{lab2}}
+\doxyparagraph{\texorpdfstring{xStart}{xStart}}
+{\footnotesize\ttfamily float lab2.\+x\+Start = 0.\+5}
+
+
+
+Стартове значення $x_0$. 
+
+Яке обчислено за допомогою рівняння\+: \[f\textnormal{\textquotesingle}(x_0,\alpha)=0\] 
+
+Див. визначення в файлі \mbox{\hyperlink{lab2_8py_source}{lab2.\+py}}, рядок \mbox{\hyperlink{lab2_8py_source_l00016}{16}}
+

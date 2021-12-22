@@ -1,0 +1,211 @@
+\hypertarget{namespacelab3}{}\doxysubsection{Простір імен lab3}
+\label{namespacelab3}\index{lab3@{lab3}}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelab3_a43e3fd0524e40a889cbce5b7d958abba}{localmin}} (x)
+\item 
+np.\+ndarray \mbox{\hyperlink{namespacelab3_ac6fc7c48672a7fb71887cdcf8f8d9211}{sys}} (X, t=0)
+\item 
+None \mbox{\hyperlink{namespacelab3_adc541b060806e49f0545d83fe96591fd}{draw\+\_\+attractor}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacelab3_ae1c8db09fe8486ad89b3f2c8d6f4d7bf}{t\+End}} = 10
+\item 
+int \mbox{\hyperlink{namespacelab3_a2ecd0c43bce4de6b287580349afc1a36}{t\+Size}} = 100000
+\item 
+int \mbox{\hyperlink{namespacelab3_a406a1d63a2452192840578f1537ceb05}{d\+Size}} = 1000
+\item 
+list \mbox{\hyperlink{namespacelab3_a6f90606c57491bc26c9a94a6e4b289f5}{start\+Point}} = \mbox{[}0.\+1, 0.\+1, 0.\+1\mbox{]}
+\item 
+float \mbox{\hyperlink{namespacelab3_a5705d3d8e656ca5162992c8525e15f9f}{epsillon}} = 0.\+1
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespacelab3_adc541b060806e49f0545d83fe96591fd}\label{namespacelab3_adc541b060806e49f0545d83fe96591fd}} 
+\index{lab3@{lab3}!draw\_attractor@{draw\_attractor}}
+\index{draw\_attractor@{draw\_attractor}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{draw\_attractor()}{draw\_attractor()}}
+{\footnotesize\ttfamily  None lab3.\+draw\+\_\+attractor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00036}{36}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00036}00036 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_adc541b060806e49f0545d83fe96591fd}{draw\_attractor}}() -\/> None:}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00037}00037     tspan = np.linspace(0, tEnd, dSize)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00038}00038     ys = odeint(sys, startPoint, tspan, rtol=0.0000000001, atol=0.0000000001)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00039}00039     xx, yy = np.meshgrid(ys[:,0], ys[:,0])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00040}00040     I = (abs(xx -\/ yy) -\/ epsillon) > 0}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00041}00041     }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00042}00042     tspan = np.linspace(0, tEnd, tSize)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00043}00043     yso = ys}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00044}00044     ys = odeint(sys, startPoint, tspan)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00045}00045     }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00046}00046     lag = np.arange(250)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00047}00047     x = ys[:,0]}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00048}00048     r = delay.acorr(x, maxtau=250)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00049}00049     i = delay.dmi(x, maxtau=250)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00051}00051     i\_delay = \mbox{\hyperlink{namespacelab3_a43e3fd0524e40a889cbce5b7d958abba}{localmin}}(noise.sma(i, hwin=1)) + 1}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00052}00052     r\_delay = np.argmax(r < 1.0 / np.e)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00053}00053     }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00054}00054     print(\textcolor{stringliteral}{r'Minima of delayed mutual information = \%s'} \% i\_delay)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00055}00055     print(\textcolor{stringliteral}{r'Autocorrelation time = \%d'} \% r\_delay)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00056}00056     }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00057}00057     dim = np.arange(1, 15 + 1)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00058}00058     tau\_here = (\mbox{\hyperlink{namespacelab3_a43e3fd0524e40a889cbce5b7d958abba}{localmin}}(noise.sma(delay.dmi(x, maxtau=250), hwin=1)) + 1)[0]}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00059}00059     tau\_here = np.argmax(delay.acorr(yso[:,0], maxtau=250) < 1.0 / np.e)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00060}00060     f = dimension.fnn(yso[:,0], tau=tau\_here, dim=dim, window=0, metric=\textcolor{stringliteral}{'euclidean'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00062}00062     fig = plt.figure(1)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00063}00063     ax = plt.axes(projection=\textcolor{stringliteral}{'3d'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00064}00064     ax.plot3D(ys[:,0], ys[:,1], ys[:,2], alpha=0.75)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00065}00065     plt.figure(2)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00066}00066     plt.imshow(I, cmap=plt.cm.gray, origin=\textcolor{stringliteral}{'lower'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00067}00067     plt.figure(3)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00068}00068     plt.subplot(211)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00069}00069     plt.plot(tspan, ys[:,0])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00070}00070     plt.subplot(212)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00071}00071     plt.plot(tspan, ys[:,1])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00072}00072     plt.figure(4)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00073}00073     plt.subplot(121)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00074}00074     plt.plot(ys[:,0], ys[:,1])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00075}00075     plt.subplot(122)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00076}00076     plt.plot(ys[:,0], ys[:,2])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00077}00077     plt.figure(5)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00078}00078     \textcolor{comment}{\# \string~ plt.subplot(121)}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00079}00079     \textcolor{comment}{\# \string~ plt.title(r'Time delay = \%d' \% r\_delay)}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00080}00080     \textcolor{comment}{\# \string~ plt.xlabel(r'\$x(t)\$')}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00081}00081     \textcolor{comment}{\# \string~ plt.ylabel(r'\$x(t + \(\backslash\)tau)\$')}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00082}00082     \textcolor{comment}{\# \string~ plt.plot(ys[:-\/r\_delay,0], ys[r\_delay:,0])}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00083}00083     \textcolor{comment}{\# \string~ plt.subplot(122)}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00084}00084     plt.title(\textcolor{stringliteral}{r'Time delay = \%d'} \% i\_delay[0])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00085}00085     plt.xlabel(\textcolor{stringliteral}{r'\$x(t)\$'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00086}00086     plt.ylabel(\textcolor{stringliteral}{r'\$x(t + \(\backslash\)tau)\$'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00087}00087     plt.plot(ys[:-\/i\_delay[0],0], ys[i\_delay[0]:,0])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00088}00088     plt.figure(6)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00089}00089     plt.ylabel(\textcolor{stringliteral}{r'Delayed mutual information'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00090}00090     plt.plot(lag, i, i\_delay, i[i\_delay], \textcolor{stringliteral}{'o'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00091}00091     plt.figure(7)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00092}00092     plt.plot(dim, f[0], dim, f[1], dim, f[2])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00093}00093     plt.xlabel(\textcolor{stringliteral}{r'Embedding dimension \$d\$'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00094}00094     plt.ylabel(\textcolor{stringliteral}{r'FNN (\%)'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00095}00095     plt.figure(8)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00096}00096     ax = plt.axes(projection=\textcolor{stringliteral}{'3d'})}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00097}00097     ax.plot3D(ys[:-\/2*i\_delay[0],0], ys[i\_delay[0]:-\/i\_delay[0],0], ys[2*i\_delay[0]:,0], alpha=0.75)}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00098}00098     print(ys[-\/1])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00099}00099     plt.show()}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00102}00102 \mbox{\hyperlink{namespacelab3_adc541b060806e49f0545d83fe96591fd}{draw\_attractor}}()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelab3_a43e3fd0524e40a889cbce5b7d958abba}\label{namespacelab3_a43e3fd0524e40a889cbce5b7d958abba}} 
+\index{lab3@{lab3}!localmin@{localmin}}
+\index{localmin@{localmin}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{localmin()}{localmin()}}
+{\footnotesize\ttfamily def lab3.\+localmin (\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00014}{14}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00014}00014 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_a43e3fd0524e40a889cbce5b7d958abba}{localmin}}(x):}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00015}00015     \textcolor{keywordflow}{return} (np.diff(np.sign(np.diff(x))) > 0).nonzero()[0] + 1}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00017}00017 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelab3_ac6fc7c48672a7fb71887cdcf8f8d9211}\label{namespacelab3_ac6fc7c48672a7fb71887cdcf8f8d9211}} 
+\index{lab3@{lab3}!sys@{sys}}
+\index{sys@{sys}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{sys()}{sys()}}
+{\footnotesize\ttfamily  np.\+ndarray lab3.\+sys (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{t = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00018}{18}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00018}00018 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab3_ac6fc7c48672a7fb71887cdcf8f8d9211}{sys}}(X, t=0) -\/> np.ndarray:}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00019}00019     y1, y2, y3 = X}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00020}00020     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00021}00021         \textcolor{comment}{\# \string~ 1000-\/3*x-\/1000*y**2+10*z**2,}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00022}00022         \textcolor{comment}{\# \string~ y+2*z+x*(y+z*4/3),}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00023}00023         \textcolor{comment}{\# \string~ -\/2*y+z+x*(-\/y*4/3+z)}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00024}00024         \textcolor{comment}{\# \string~ 3*x+x*(x-\/3)*(5*y**2-\/z**2)/(1+y**2+z**2),}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00025}00025         \textcolor{comment}{\# \string~ 2*y-\/14*z-\/5*(x-\/3)*y,}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00026}00026         \textcolor{comment}{\# \string~ 14*y+2*z+5*(x-\/3)*z}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00027}00027         \textcolor{comment}{\# \string~ -\/3*x+140*y**2-\/z**2,}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00028}00028         \textcolor{comment}{\# \string~ y-\/200*z-\/140*x*y,}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00029}00029         \textcolor{comment}{\# \string~ 200*y+z+x*z}}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00030}00030         2*y1-\/20*y3+3*y1**2-\/2*y2**2-\/y3**2-\/2*y2*y3-\/2*y1*y3,}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00031}00031         -\/0.5*y2+4*y2**2+8*y1*y2+4*y2*y3+4*y1*y3,}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00032}00032         20*y1+2*y3+4*y1*y3+2*y2*y3+y3**2}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00033}00033     ])}
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{namespacelab3_l00035}00035 }
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{namespacelab3_a406a1d63a2452192840578f1537ceb05}\label{namespacelab3_a406a1d63a2452192840578f1537ceb05}} 
+\index{lab3@{lab3}!dSize@{dSize}}
+\index{dSize@{dSize}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{dSize}{dSize}}
+{\footnotesize\ttfamily int lab3.\+d\+Size = 1000}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00009}{9}}
+
+\mbox{\Hypertarget{namespacelab3_a5705d3d8e656ca5162992c8525e15f9f}\label{namespacelab3_a5705d3d8e656ca5162992c8525e15f9f}} 
+\index{lab3@{lab3}!epsillon@{epsillon}}
+\index{epsillon@{epsillon}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{epsillon}{epsillon}}
+{\footnotesize\ttfamily float lab3.\+epsillon = 0.\+1}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00011}{11}}
+
+\mbox{\Hypertarget{namespacelab3_a6f90606c57491bc26c9a94a6e4b289f5}\label{namespacelab3_a6f90606c57491bc26c9a94a6e4b289f5}} 
+\index{lab3@{lab3}!startPoint@{startPoint}}
+\index{startPoint@{startPoint}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{startPoint}{startPoint}}
+{\footnotesize\ttfamily list lab3.\+start\+Point = \mbox{[}0.\+1, 0.\+1, 0.\+1\mbox{]}}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00010}{10}}
+
+\mbox{\Hypertarget{namespacelab3_ae1c8db09fe8486ad89b3f2c8d6f4d7bf}\label{namespacelab3_ae1c8db09fe8486ad89b3f2c8d6f4d7bf}} 
+\index{lab3@{lab3}!tEnd@{tEnd}}
+\index{tEnd@{tEnd}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{tEnd}{tEnd}}
+{\footnotesize\ttfamily int lab3.\+t\+End = 10}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00007}{7}}
+
+\mbox{\Hypertarget{namespacelab3_a2ecd0c43bce4de6b287580349afc1a36}\label{namespacelab3_a2ecd0c43bce4de6b287580349afc1a36}} 
+\index{lab3@{lab3}!tSize@{tSize}}
+\index{tSize@{tSize}!lab3@{lab3}}
+\doxyparagraph{\texorpdfstring{tSize}{tSize}}
+{\footnotesize\ttfamily int lab3.\+t\+Size = 100000}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{lab3_8py_source}{lab3.\+py}}, рядок \mbox{\hyperlink{lab3_8py_source_l00008}{8}}
+

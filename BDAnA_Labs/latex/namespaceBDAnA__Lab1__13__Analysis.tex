@@ -1,0 +1,118 @@
+\hypertarget{namespaceBDAnA__Lab1__13__Analysis}{}\doxysubsection{Простір імен BDAn\+A\+\_\+\+Lab1\+\_\+13\+\_\+\+Analysis}
+\label{namespaceBDAnA__Lab1__13__Analysis}\index{BDAnA\_Lab1\_13\_Analysis@{BDAnA\_Lab1\_13\_Analysis}}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+np.\+ndarray \mbox{\hyperlink{namespaceBDAnA__Lab1__13__Analysis_a20aacb127a6698fbd33d5154ffe65250}{calc}} (X, int t=0)
+\item 
+None \mbox{\hyperlink{namespaceBDAnA__Lab1__13__Analysis_a1e39034fdd2b5e2404f4e6a7e6fe7654}{analyze}} ()
+\begin{DoxyCompactList}\small\item\em Аналіз системи. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceBDAnA__Lab1__13__Analysis_aa8cbec3af47fdef66369493bad4dd553}{use\+\_\+unicode}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_a1e39034fdd2b5e2404f4e6a7e6fe7654}\label{namespaceBDAnA__Lab1__13__Analysis_a1e39034fdd2b5e2404f4e6a7e6fe7654}} 
+\index{BDAnA\_Lab1\_13\_Analysis@{BDAnA\_Lab1\_13\_Analysis}!analyze@{analyze}}
+\index{analyze@{analyze}!BDAnA\_Lab1\_13\_Analysis@{BDAnA\_Lab1\_13\_Analysis}}
+\doxyparagraph{\texorpdfstring{analyze()}{analyze()}}
+{\footnotesize\ttfamily  None BDAn\+A\+\_\+\+Lab1\+\_\+13\+\_\+\+Analysis.\+analyze (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Аналіз системи. 
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13__Analysis_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13\+\_\+\+Analysis.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13__Analysis_8py_source_l00014}{14}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00014}00014 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab1__13__Analysis_a1e39034fdd2b5e2404f4e6a7e6fe7654}{analyze}}() -\/> None:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00015}00015     t = symbols(\textcolor{stringliteral}{"{}t"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00016}00016     x = symbols(\textcolor{stringliteral}{"{}x1 x2 x3"{}}, cls=Function)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00017}00017     x = [i(t) \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} x]}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00018}00018     f = \mbox{\hyperlink{namespaceBDAnA__Lab1__13__Analysis_a20aacb127a6698fbd33d5154ffe65250}{calc}}(x, t)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00019}00019     }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00020}00020     \textcolor{comment}{\# \string~ I = Matrix([[i.diff(j) for j in x] for i in f])}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00021}00021     pprint(Matrix(f))}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00022}00022     I = Matrix(f).jacobian(x)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00023}00023     pprint(\textcolor{stringliteral}{"{}Якобіан:"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00024}00024     pprint(I)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00025}00025     }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00026}00026     solutions = [list(i.values()) \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} solve(f)]}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00027}00027     pprint(\textcolor{stringliteral}{"{}Особливі точки:"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00028}00028     pprint(solutions)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00030}00030     \textcolor{keywordflow}{for} X, Y, Z \textcolor{keywordflow}{in} solutions:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00031}00031         print()}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00032}00032         print(\textcolor{stringliteral}{"{}Точка:"{}}, X, Y, Z)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00033}00033         pprint(lambdify(x, I, modules=\textcolor{stringliteral}{"{}sympy"{}})(X, Y, Z).eigenvals())}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00034}00034         eigenvals = list(lambdify(x, I, modules=\textcolor{stringliteral}{"{}sympy"{}})(X, Y, Z).eigenvals().keys())}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00035}00035         eigenvals = [complex(i) \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00036}00036         print(\textcolor{stringliteral}{"{}Власні числа:"{}}, eigenvals)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00037}00037         \textcolor{keywordflow}{if} all([i.imag != 0 \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00038}00038             \textcolor{keywordflow}{if} all([i.real == 0 \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00039}00039                 print(\textcolor{stringliteral}{"{}Центр"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00040}00040                 print(\textcolor{stringliteral}{"{}Мабуть я у планетарії..."{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00041}00041             \textcolor{keywordflow}{elif} all([i.real < 0 \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00042}00042                 print(\textcolor{stringliteral}{"{}Стійкий фокус"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00043}00043                 print(\textcolor{stringliteral}{"{}Голова паморочиться... Але рівновагу не втрачаю і голова на місці."{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00044}00044             \textcolor{keywordflow}{elif} all([i.real > 0 \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00045}00045                 print(\textcolor{stringliteral}{"{}Нестійкий фокус"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00046}00046                 print(\textcolor{stringliteral}{"{}Голова паморочиться... Зовсім рівновагу втрачаю! Ловіть мене!"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00047}00047             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00048}00048                 print(\textcolor{stringliteral}{"{}Щось якось обертається, але не знаю як. Розповіси як зустрінимося."{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00049}00049         \textcolor{keywordflow}{elif} all([i.imag == 0 \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00050}00050             \textcolor{keywordflow}{if} all([i.real < 0 \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00051}00051                 print(\textcolor{stringliteral}{"{}Стійкий вузол"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00052}00052                 print(\textcolor{stringliteral}{"{}Очі розлазяться, але десь на одній лінії зустрічаються."{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00053}00053             \textcolor{keywordflow}{elif} all([i.real > 0 \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} eigenvals]):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00054}00054                 print(\textcolor{stringliteral}{"{}Нестійкий вузол"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00055}00055                 print(\textcolor{stringliteral}{"{}Очі розлазяться у різні боки."{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00056}00056             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00057}00057                 print(\textcolor{stringliteral}{"{}Сідло"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00058}00058                 print(\textcolor{stringliteral}{"{}Звичайне кінське сідло. Наскільки комфортне не пробував."{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00059}00059         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00060}00060             print(\textcolor{stringliteral}{"{}А що, так можна було? Комплексні числа у парі зазвичай."{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00061}00061             print(\textcolor{stringliteral}{"{}Негайно передзвони та розповіси про такий випадок!"{}})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00063}00063 \mbox{\hyperlink{namespaceBDAnA__Lab1__13__Analysis_a1e39034fdd2b5e2404f4e6a7e6fe7654}{analyze}}()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_a20aacb127a6698fbd33d5154ffe65250}\label{namespaceBDAnA__Lab1__13__Analysis_a20aacb127a6698fbd33d5154ffe65250}} 
+\index{BDAnA\_Lab1\_13\_Analysis@{BDAnA\_Lab1\_13\_Analysis}!calc@{calc}}
+\index{calc@{calc}!BDAnA\_Lab1\_13\_Analysis@{BDAnA\_Lab1\_13\_Analysis}}
+\doxyparagraph{\texorpdfstring{calc()}{calc()}}
+{\footnotesize\ttfamily  np.\+ndarray BDAn\+A\+\_\+\+Lab1\+\_\+13\+\_\+\+Analysis.\+calc (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{int }]{t = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13__Analysis_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13\+\_\+\+Analysis.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13__Analysis_8py_source_l00007}{7}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00007}00007 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab1__13__Analysis_a20aacb127a6698fbd33d5154ffe65250}{calc}}(X, t: int = 0) -\/> np.ndarray:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00008}00008     x1, x2, x3 = X[0], X[1], X[2]}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00009}00009     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00010}00010         -\/x1+2*x2, -\/2*x2, -\/2*x1-\/2*x2-\/x3}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00011}00011     ])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_l00012}00012 }
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13__Analysis_aa8cbec3af47fdef66369493bad4dd553}\label{namespaceBDAnA__Lab1__13__Analysis_aa8cbec3af47fdef66369493bad4dd553}} 
+\index{BDAnA\_Lab1\_13\_Analysis@{BDAnA\_Lab1\_13\_Analysis}!use\_unicode@{use\_unicode}}
+\index{use\_unicode@{use\_unicode}!BDAnA\_Lab1\_13\_Analysis@{BDAnA\_Lab1\_13\_Analysis}}
+\doxyparagraph{\texorpdfstring{use\_unicode}{use\_unicode}}
+{\footnotesize\ttfamily BDAn\+A\+\_\+\+Lab1\+\_\+13\+\_\+\+Analysis.\+use\+\_\+unicode}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13__Analysis_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13\+\_\+\+Analysis.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13__Analysis_8py_source_l00005}{5}}
+

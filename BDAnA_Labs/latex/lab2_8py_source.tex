@@ -1,0 +1,73 @@
+\hypertarget{lab2_8py_source}{}\doxysubsection{lab2.\+py}
+\mbox{\hyperlink{lab2_8py}{Див. документацію.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00001}\mbox{\hyperlink{namespacelab2}{00001}} \textcolor{comment}{\#!/usr/bin/env python3}}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00002}00002 \textcolor{keyword}{import} matplotlib.pyplot \textcolor{keyword}{as} plt}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00003}00003 \textcolor{keyword}{import} numpy \textcolor{keyword}{as} np}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00006}\mbox{\hyperlink{namespacelab2_a7c656711f4f13dcb5ec3446ab424ada0}{00006}} firstIters = 1024}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00008}\mbox{\hyperlink{namespacelab2_ab73b4fc397714cfdd14edc17ddf88fbf}{00008}} lastIters = 50}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00010}\mbox{\hyperlink{namespacelab2_a0cd9d58e92b5e534da99f80bc63d14de}{00010}} aIters = 2000}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00012}\mbox{\hyperlink{namespacelab2_ad8d54af91c83466b3aff6baedb0855f0}{00012}} alphaRange = [-\/3, 3]}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00016}\mbox{\hyperlink{namespacelab2_ac4f907460d5c37c8e107a0ca678557e3}{00016}} xStart = 0.5}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00023}\mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{00023}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}}(x: float, a: float) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00024}00024     \textcolor{keywordflow}{return} 1+a*x**2-\/3*a*x}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00025}00025     \textcolor{comment}{\# \string~ return a*x*(1-\/x)}}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00028}\mbox{\hyperlink{namespacelab2_ae9e08439eff0513e105fa6a80d8b3855}{00028}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab2_ae9e08439eff0513e105fa6a80d8b3855}{draw\_diagram}}() -\/> None:}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00029}00029     \textcolor{comment}{\# Знаходимо усі можливі \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00030}00030     As = np.linspace(alphaRange[0], alphaRange[1], aIters)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00031}00031     \textcolor{comment}{\# Для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$ зберегти останні ітерації}}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00032}00032     grid = np.zeros((lastIters, aIters))}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00034}00034     \textcolor{comment}{\# Робимо ітерації для кожної \(\backslash\)f\$\(\backslash\)alpha\(\backslash\)f\$}}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00035}00035     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(aIters):}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00036}00036         x = xStart}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00037}00037         a = As[i]}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00038}00038         \textcolor{comment}{\# Пропускаємо перші `firstIters` ітерації.}}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00039}00039         \textcolor{keywordflow}{for} \_ \textcolor{keywordflow}{in} range(firstIters):}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00040}00040             x = \mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}}(x, a)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00041}00041         }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00042}00042         \textcolor{comment}{\# Зберінаємо останні `lastIters` ітерацій.}}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00043}00043         \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(lastIters):}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00044}00044             x = \mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}}(x, a)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00045}00045             grid[j, i] = x}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00047}00047     \textcolor{comment}{\# Друкуємо графік.}}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00048}00048     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} grid:}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00049}00049         plt.scatter(As, i, 1, alpha=0.25)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00050}00050     plt.show()}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00051}00051     }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00052}00052     }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00053}\mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{00053}} \textcolor{keyword}{def }\mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\_diagram2}}(a, epsillon) -\/> None:}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00054}00054     x = np.zeros(lastIters)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00055}00055     x[0] = xStart}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00056}00056     }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00057}00057     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(1, lastIters):}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00058}00058         x[i] = \mbox{\hyperlink{namespacelab2_a579cf5c3c0fe99117e4f2dc8cdbacedb}{f}}(x[i-\/1], a)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00059}00059         }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00060}00060     xx, yy = np.meshgrid(x, x)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00061}00061     I = (abs(xx -\/ yy) -\/ epsillon) > 0}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00062}00062     }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00063}00063     fig, axs = plt.subplots(1,2)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00064}00064     fig.suptitle(f\textcolor{stringliteral}{"{}x*=ax(1-\/x), a=\{a\}, e=\{epsillon\}"{}})}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00065}00065     axs[0].plot(range(lastIters), x)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00066}00066     axs[1].imshow(I, cmap=plt.cm.gray, origin=\textcolor{stringliteral}{'lower'})}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00067}00067     plt.show()}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00070}00070 \mbox{\hyperlink{namespacelab2_ae9e08439eff0513e105fa6a80d8b3855}{draw\_diagram}}()}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00071}00071 \mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\_diagram2}}(2.8, 0.001)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00072}00072 \mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\_diagram2}}(3, 0.001)}
+\DoxyCodeLine{\Hypertarget{lab2_8py_source_l00073}00073 \mbox{\hyperlink{namespacelab2_af8ebc3f99f8461a809cb686102c16f32}{draw\_diagram2}}(3.8, 0.001)}
+
+\end{DoxyCode}

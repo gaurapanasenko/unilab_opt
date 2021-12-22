@@ -1,0 +1,211 @@
+\hypertarget{namespaceBDAnA__Lab3__13}{}\doxysubsection{Простір імен BDAn\+A\+\_\+\+Lab3\+\_\+13}
+\label{namespaceBDAnA__Lab3__13}\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceBDAnA__Lab3__13_a24414c07fef975d974ba75492d149dc7}{localmin}} (x)
+\item 
+np.\+ndarray \mbox{\hyperlink{namespaceBDAnA__Lab3__13_a85f441e920d2af2f097a46e9481bc287}{sys}} (X, t=0)
+\item 
+None \mbox{\hyperlink{namespaceBDAnA__Lab3__13_ae3a67d24b9c877190bbc352e611f3b09}{draw\+\_\+attractor}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceBDAnA__Lab3__13_ac056f5a52ab1770c3d257a6a2212af6f}{t\+End}} = 10
+\item 
+int \mbox{\hyperlink{namespaceBDAnA__Lab3__13_a9edda853ed9fb5d83676d5eeeebd2d6d}{t\+Size}} = 100000
+\item 
+int \mbox{\hyperlink{namespaceBDAnA__Lab3__13_a466c58d14b9ff4fad136df4e4daca514}{d\+Size}} = 1000
+\item 
+list \mbox{\hyperlink{namespaceBDAnA__Lab3__13_af887f8e8692270994cbcdc5af58eb3c0}{start\+Point}} = \mbox{[}0.\+1, 0.\+1, 0.\+1\mbox{]}
+\item 
+float \mbox{\hyperlink{namespaceBDAnA__Lab3__13_abf4165215b4da2a8fd859880d27b22b2}{epsillon}} = 0.\+1
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespaceBDAnA__Lab3__13_ae3a67d24b9c877190bbc352e611f3b09}\label{namespaceBDAnA__Lab3__13_ae3a67d24b9c877190bbc352e611f3b09}} 
+\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}!draw\_attractor@{draw\_attractor}}
+\index{draw\_attractor@{draw\_attractor}!BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxyparagraph{\texorpdfstring{draw\_attractor()}{draw\_attractor()}}
+{\footnotesize\ttfamily  None BDAn\+A\+\_\+\+Lab3\+\_\+13.\+draw\+\_\+attractor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab3__13_8py_source}{BDAn\+A\+\_\+\+Lab3\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab3__13_8py_source_l00036}{36}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00036}00036 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab3__13_ae3a67d24b9c877190bbc352e611f3b09}{draw\_attractor}}() -\/> None:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00037}00037     tspan = np.linspace(0, tEnd, dSize)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00038}00038     ys = odeint(sys, startPoint, tspan, rtol=0.0000000001, atol=0.0000000001)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00039}00039     xx, yy = np.meshgrid(ys[:,0], ys[:,0])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00040}00040     I = (abs(xx -\/ yy) -\/ epsillon) > 0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00041}00041     }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00042}00042     tspan = np.linspace(0, tEnd, tSize)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00043}00043     yso = ys}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00044}00044     ys = odeint(sys, startPoint, tspan)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00045}00045     }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00046}00046     lag = np.arange(250)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00047}00047     x = ys[:,0]}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00048}00048     r = delay.acorr(x, maxtau=250)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00049}00049     i = delay.dmi(x, maxtau=250)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00051}00051     i\_delay = \mbox{\hyperlink{namespaceBDAnA__Lab3__13_a24414c07fef975d974ba75492d149dc7}{localmin}}(noise.sma(i, hwin=1)) + 1}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00052}00052     r\_delay = np.argmax(r < 1.0 / np.e)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00053}00053     }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00054}00054     print(\textcolor{stringliteral}{r'Minima of delayed mutual information = \%s'} \% i\_delay)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00055}00055     print(\textcolor{stringliteral}{r'Autocorrelation time = \%d'} \% r\_delay)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00056}00056     }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00057}00057     dim = np.arange(1, 15 + 1)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00058}00058     tau\_here = (\mbox{\hyperlink{namespaceBDAnA__Lab3__13_a24414c07fef975d974ba75492d149dc7}{localmin}}(noise.sma(delay.dmi(x, maxtau=250), hwin=1)) + 1)[0]}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00059}00059     tau\_here = np.argmax(delay.acorr(yso[:,0], maxtau=250) < 1.0 / np.e)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00060}00060     f = dimension.fnn(yso[:,0], tau=tau\_here, dim=dim, window=0, metric=\textcolor{stringliteral}{'euclidean'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00062}00062     fig = plt.figure(1)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00063}00063     ax = plt.axes(projection=\textcolor{stringliteral}{'3d'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00064}00064     ax.plot3D(ys[:,0], ys[:,1], ys[:,2], alpha=0.75)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00065}00065     plt.figure(2)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00066}00066     plt.imshow(I, cmap=plt.cm.gray, origin=\textcolor{stringliteral}{'lower'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00067}00067     plt.figure(3)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00068}00068     plt.subplot(211)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00069}00069     plt.plot(tspan, ys[:,0])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00070}00070     plt.subplot(212)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00071}00071     plt.plot(tspan, ys[:,1])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00072}00072     plt.figure(4)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00073}00073     plt.subplot(121)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00074}00074     plt.plot(ys[:,0], ys[:,1])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00075}00075     plt.subplot(122)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00076}00076     plt.plot(ys[:,0], ys[:,2])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00077}00077     plt.figure(5)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00078}00078     \textcolor{comment}{\# \string~ plt.subplot(121)}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00079}00079     \textcolor{comment}{\# \string~ plt.title(r'Time delay = \%d' \% r\_delay)}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00080}00080     \textcolor{comment}{\# \string~ plt.xlabel(r'\$x(t)\$')}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00081}00081     \textcolor{comment}{\# \string~ plt.ylabel(r'\$x(t + \(\backslash\)tau)\$')}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00082}00082     \textcolor{comment}{\# \string~ plt.plot(ys[:-\/r\_delay,0], ys[r\_delay:,0])}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00083}00083     \textcolor{comment}{\# \string~ plt.subplot(122)}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00084}00084     plt.title(\textcolor{stringliteral}{r'Time delay = \%d'} \% i\_delay[0])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00085}00085     plt.xlabel(\textcolor{stringliteral}{r'\$x(t)\$'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00086}00086     plt.ylabel(\textcolor{stringliteral}{r'\$x(t + \(\backslash\)tau)\$'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00087}00087     plt.plot(ys[:-\/i\_delay[0],0], ys[i\_delay[0]:,0])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00088}00088     plt.figure(6)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00089}00089     plt.ylabel(\textcolor{stringliteral}{r'Delayed mutual information'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00090}00090     plt.plot(lag, i, i\_delay, i[i\_delay], \textcolor{stringliteral}{'o'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00091}00091     plt.figure(7)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00092}00092     plt.plot(dim, f[0], dim, f[1], dim, f[2])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00093}00093     plt.xlabel(\textcolor{stringliteral}{r'Embedding dimension \$d\$'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00094}00094     plt.ylabel(\textcolor{stringliteral}{r'FNN (\%)'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00095}00095     plt.figure(8)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00096}00096     ax = plt.axes(projection=\textcolor{stringliteral}{'3d'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00097}00097     ax.plot3D(ys[:-\/2*i\_delay[0],0], ys[i\_delay[0]:-\/i\_delay[0],0], ys[2*i\_delay[0]:,0], alpha=0.75)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00098}00098     print(ys[-\/1])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00099}00099     plt.show()}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00102}00102 \mbox{\hyperlink{namespaceBDAnA__Lab3__13_ae3a67d24b9c877190bbc352e611f3b09}{draw\_attractor}}()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceBDAnA__Lab3__13_a24414c07fef975d974ba75492d149dc7}\label{namespaceBDAnA__Lab3__13_a24414c07fef975d974ba75492d149dc7}} 
+\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}!localmin@{localmin}}
+\index{localmin@{localmin}!BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxyparagraph{\texorpdfstring{localmin()}{localmin()}}
+{\footnotesize\ttfamily def BDAn\+A\+\_\+\+Lab3\+\_\+13.\+localmin (\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab3__13_8py_source}{BDAn\+A\+\_\+\+Lab3\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab3__13_8py_source_l00014}{14}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00014}00014 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab3__13_a24414c07fef975d974ba75492d149dc7}{localmin}}(x):}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00015}00015     \textcolor{keywordflow}{return} (np.diff(np.sign(np.diff(x))) > 0).nonzero()[0] + 1}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00017}00017 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceBDAnA__Lab3__13_a85f441e920d2af2f097a46e9481bc287}\label{namespaceBDAnA__Lab3__13_a85f441e920d2af2f097a46e9481bc287}} 
+\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}!sys@{sys}}
+\index{sys@{sys}!BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxyparagraph{\texorpdfstring{sys()}{sys()}}
+{\footnotesize\ttfamily  np.\+ndarray BDAn\+A\+\_\+\+Lab3\+\_\+13.\+sys (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{t = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab3__13_8py_source}{BDAn\+A\+\_\+\+Lab3\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab3__13_8py_source_l00018}{18}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00018}00018 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab3__13_a85f441e920d2af2f097a46e9481bc287}{sys}}(X, t=0) -\/> np.ndarray:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00019}00019     y1, y2, y3 = X}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00020}00020     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00021}00021         \textcolor{comment}{\# \string~ 1000-\/3*x-\/1000*y**2+10*z**2,}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00022}00022         \textcolor{comment}{\# \string~ y+2*z+x*(y+z*4/3),}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00023}00023         \textcolor{comment}{\# \string~ -\/2*y+z+x*(-\/y*4/3+z)}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00024}00024         \textcolor{comment}{\# \string~ 3*x+x*(x-\/3)*(5*y**2-\/z**2)/(1+y**2+z**2),}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00025}00025         \textcolor{comment}{\# \string~ 2*y-\/14*z-\/5*(x-\/3)*y,}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00026}00026         \textcolor{comment}{\# \string~ 14*y+2*z+5*(x-\/3)*z}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00027}00027         \textcolor{comment}{\# \string~ -\/3*x+140*y**2-\/z**2,}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00028}00028         \textcolor{comment}{\# \string~ y-\/200*z-\/140*x*y,}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00029}00029         \textcolor{comment}{\# \string~ 200*y+z+x*z}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00030}00030         2*y1-\/20*y3+3*y1**2-\/2*y2**2-\/y3**2-\/2*y2*y3-\/2*y1*y3,}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00031}00031         -\/0.5*y2+4*y2**2+8*y1*y2+4*y2*y3+4*y1*y3,}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00032}00032         20*y1+2*y3+4*y1*y3+2*y2*y3+y3**2}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00033}00033     ])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab3__13_l00035}00035 }
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{namespaceBDAnA__Lab3__13_a466c58d14b9ff4fad136df4e4daca514}\label{namespaceBDAnA__Lab3__13_a466c58d14b9ff4fad136df4e4daca514}} 
+\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}!dSize@{dSize}}
+\index{dSize@{dSize}!BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxyparagraph{\texorpdfstring{dSize}{dSize}}
+{\footnotesize\ttfamily int BDAn\+A\+\_\+\+Lab3\+\_\+13.\+d\+Size = 1000}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab3__13_8py_source}{BDAn\+A\+\_\+\+Lab3\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab3__13_8py_source_l00009}{9}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab3__13_abf4165215b4da2a8fd859880d27b22b2}\label{namespaceBDAnA__Lab3__13_abf4165215b4da2a8fd859880d27b22b2}} 
+\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}!epsillon@{epsillon}}
+\index{epsillon@{epsillon}!BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxyparagraph{\texorpdfstring{epsillon}{epsillon}}
+{\footnotesize\ttfamily float BDAn\+A\+\_\+\+Lab3\+\_\+13.\+epsillon = 0.\+1}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab3__13_8py_source}{BDAn\+A\+\_\+\+Lab3\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab3__13_8py_source_l00011}{11}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab3__13_af887f8e8692270994cbcdc5af58eb3c0}\label{namespaceBDAnA__Lab3__13_af887f8e8692270994cbcdc5af58eb3c0}} 
+\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}!startPoint@{startPoint}}
+\index{startPoint@{startPoint}!BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxyparagraph{\texorpdfstring{startPoint}{startPoint}}
+{\footnotesize\ttfamily list BDAn\+A\+\_\+\+Lab3\+\_\+13.\+start\+Point = \mbox{[}0.\+1, 0.\+1, 0.\+1\mbox{]}}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab3__13_8py_source}{BDAn\+A\+\_\+\+Lab3\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab3__13_8py_source_l00010}{10}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab3__13_ac056f5a52ab1770c3d257a6a2212af6f}\label{namespaceBDAnA__Lab3__13_ac056f5a52ab1770c3d257a6a2212af6f}} 
+\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}!tEnd@{tEnd}}
+\index{tEnd@{tEnd}!BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxyparagraph{\texorpdfstring{tEnd}{tEnd}}
+{\footnotesize\ttfamily int BDAn\+A\+\_\+\+Lab3\+\_\+13.\+t\+End = 10}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab3__13_8py_source}{BDAn\+A\+\_\+\+Lab3\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab3__13_8py_source_l00007}{7}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab3__13_a9edda853ed9fb5d83676d5eeeebd2d6d}\label{namespaceBDAnA__Lab3__13_a9edda853ed9fb5d83676d5eeeebd2d6d}} 
+\index{BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}!tSize@{tSize}}
+\index{tSize@{tSize}!BDAnA\_Lab3\_13@{BDAnA\_Lab3\_13}}
+\doxyparagraph{\texorpdfstring{tSize}{tSize}}
+{\footnotesize\ttfamily int BDAn\+A\+\_\+\+Lab3\+\_\+13.\+t\+Size = 100000}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab3__13_8py_source}{BDAn\+A\+\_\+\+Lab3\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab3__13_8py_source_l00008}{8}}
+

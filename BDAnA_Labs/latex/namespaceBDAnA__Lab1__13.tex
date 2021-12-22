@@ -1,0 +1,187 @@
+\hypertarget{namespaceBDAnA__Lab1__13}{}\doxysubsection{Простір імен BDAn\+A\+\_\+\+Lab1\+\_\+13}
+\label{namespaceBDAnA__Lab1__13}\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxysubsubsection*{Функції}
+\begin{DoxyCompactItemize}
+\item 
+np.\+ndarray \mbox{\hyperlink{namespaceBDAnA__Lab1__13_aff4cc32af674d7fcf20304e2d563480e}{calc}} (X, int t=0)
+\item 
+None \mbox{\hyperlink{namespaceBDAnA__Lab1__13_a76df9592a365b983b9e0330118ae4ac6}{print\+\_\+vector\+\_\+field}} (\mbox{\hyperlink{namespaceBDAnA__Lab1__13_aba30c39b375fef99c91db8a0bd415a89}{ax}}, \mbox{\hyperlink{namespaceBDAnA__Lab1__13_afd236fd850ece9ef65745d5e481c7d68}{x}}, \mbox{\hyperlink{namespaceBDAnA__Lab1__13_a77852aae67153b8bbf23bb8764611ef5}{y}}, \mbox{\hyperlink{namespaceBDAnA__Lab1__13_ae113aa99690aa98225544086a79de5d6}{z}})
+\item 
+None \mbox{\hyperlink{namespaceBDAnA__Lab1__13_a278832e8032ad2f2b05d0bbea4ecec74}{print\+\_\+trajectories}} (\mbox{\hyperlink{namespaceBDAnA__Lab1__13_aba30c39b375fef99c91db8a0bd415a89}{ax}}, list \mbox{\hyperlink{namespaceBDAnA__Lab1__13_a7705d435ba30b0a43503d7a9778a1ef7}{starts}})
+\begin{DoxyCompactList}\small\item\em Будуємо траекторії. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Змінні}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceBDAnA__Lab1__13_afd236fd850ece9ef65745d5e481c7d68}{x}} = np.\+linspace(-\/1.\+0, 1.\+0, 5)
+\item 
+\mbox{\hyperlink{namespaceBDAnA__Lab1__13_a77852aae67153b8bbf23bb8764611ef5}{y}} = np.\+linspace(-\/1.\+0, 1.\+0, 5)
+\item 
+\mbox{\hyperlink{namespaceBDAnA__Lab1__13_ae113aa99690aa98225544086a79de5d6}{z}} = np.\+linspace(-\/1.\+0, 1.\+0, 5)
+\item 
+list \mbox{\hyperlink{namespaceBDAnA__Lab1__13_a7705d435ba30b0a43503d7a9778a1ef7}{starts}}
+\item 
+\mbox{\hyperlink{namespaceBDAnA__Lab1__13_ac2f3ca35fe0d89b5168b01336f8a0572}{fig}} = plt.\+figure()
+\item 
+\mbox{\hyperlink{namespaceBDAnA__Lab1__13_aba30c39b375fef99c91db8a0bd415a89}{ax}} = fig.\+gca(projection=\textquotesingle{}3d\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Опис функцій}
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_aff4cc32af674d7fcf20304e2d563480e}\label{namespaceBDAnA__Lab1__13_aff4cc32af674d7fcf20304e2d563480e}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!calc@{calc}}
+\index{calc@{calc}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{calc()}{calc()}}
+{\footnotesize\ttfamily  np.\+ndarray BDAn\+A\+\_\+\+Lab1\+\_\+13.\+calc (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{int }]{t = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00024}{24}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00024}00024 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab1__13_aff4cc32af674d7fcf20304e2d563480e}{calc}}(X, t: int = 0) -\/> np.ndarray:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00025}00025     x1, x2, x3 = X[0], X[1], X[2]}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00026}00026     \textcolor{keywordflow}{return} np.array([}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00027}00027         -\/x1+2*x2, -\/2*x2, -\/2*x1-\/2*x2-\/x3}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00028}00028     ])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00030}00030 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_a278832e8032ad2f2b05d0bbea4ecec74}\label{namespaceBDAnA__Lab1__13_a278832e8032ad2f2b05d0bbea4ecec74}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!print\_trajectories@{print\_trajectories}}
+\index{print\_trajectories@{print\_trajectories}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{print\_trajectories()}{print\_trajectories()}}
+{\footnotesize\ttfamily  None BDAn\+A\+\_\+\+Lab1\+\_\+13.\+print\+\_\+trajectories (\begin{DoxyParamCaption}\item[{}]{ax,  }\item[{list}]{starts }\end{DoxyParamCaption})}
+
+
+
+Будуємо траекторії. 
+
+
+\begin{DoxyParams}{Аргументи}
+{\em starts} & змінна {\ttfamily starts}, яка задає усі траекторії \\
+\hline
+\end{DoxyParams}
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00041}{41}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00041}00041 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab1__13_a278832e8032ad2f2b05d0bbea4ecec74}{print\_trajectories}}(ax, starts: list) -\/> \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00042}00042     \textcolor{comment}{\# Обчислюємо траєкторії задані у змінній `starts`}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00043}00043     \textcolor{keywordflow}{for} s, t \textcolor{keywordflow}{in} starts:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00044}00044         \textcolor{comment}{\# Задаємо діапазон часу [0, t] та ділить відрізок на 2000 частин.}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00045}00045         tspan = np.linspace(0, t, 2000)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00046}00046         \textcolor{comment}{\# Інтегрує систему до заданого часу `t` та початкових значень `s`}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00047}00047         tr = odeint(calc, s, tspan)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00048}00048         \textcolor{comment}{\# Друкуєму саму траєкторію}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00049}00049         ax.plot3D(tr[:, 0], tr[:, 1], tr[:, 2])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00050}00050         \textcolor{comment}{\# Друкуємо початок траєкторії у вигляді кружечка}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00051}00051         ax.plot3D([tr[0, 0]], [tr[0, 1]], [tr[0, 2]], \textcolor{stringliteral}{'o'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00052}00052         \textcolor{comment}{\# Друкуємо кінець траєкторії у вигляді квадратика}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00053}00053         ax.plot3D([tr[-\/1, 0]], [tr[-\/1, 1]], [tr[-\/1, 2]], \textcolor{stringliteral}{'s'})}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00055}00055 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_a76df9592a365b983b9e0330118ae4ac6}\label{namespaceBDAnA__Lab1__13_a76df9592a365b983b9e0330118ae4ac6}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!print\_vector\_field@{print\_vector\_field}}
+\index{print\_vector\_field@{print\_vector\_field}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{print\_vector\_field()}{print\_vector\_field()}}
+{\footnotesize\ttfamily  None BDAn\+A\+\_\+\+Lab1\+\_\+13.\+print\+\_\+vector\+\_\+field (\begin{DoxyParamCaption}\item[{}]{ax,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z }\end{DoxyParamCaption})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00031}{31}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00031}00031 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceBDAnA__Lab1__13_a76df9592a365b983b9e0330118ae4ac6}{print\_vector\_field}}(ax, x, y, z) -\/> None:}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00032}00032     X, Y, Z = np.meshgrid(x, y, z)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00033}00033     u, v, w = np.zeros(X.shape), np.zeros(Y.shape), np.zeros(Z.shape)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00034}00034     u, v, w = \mbox{\hyperlink{namespaceBDAnA__Lab1__13_aff4cc32af674d7fcf20304e2d563480e}{calc}}([X, Y, Z])}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00035}00035     \textcolor{comment}{\# Друкує на графік векторне поле.}}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00036}00036     ax.quiver(X, Y, Z, u, v, w, color=\textcolor{stringliteral}{'r'}, length=0.1)}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00038}00038 }
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Опис змінних}
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_aba30c39b375fef99c91db8a0bd415a89}\label{namespaceBDAnA__Lab1__13_aba30c39b375fef99c91db8a0bd415a89}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!ax@{ax}}
+\index{ax@{ax}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{ax}{ax}}
+{\footnotesize\ttfamily BDAn\+A\+\_\+\+Lab1\+\_\+13.\+ax = fig.\+gca(projection=\textquotesingle{}3d\textquotesingle{})}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00057}{57}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_ac2f3ca35fe0d89b5168b01336f8a0572}\label{namespaceBDAnA__Lab1__13_ac2f3ca35fe0d89b5168b01336f8a0572}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!fig@{fig}}
+\index{fig@{fig}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{fig}{fig}}
+{\footnotesize\ttfamily BDAn\+A\+\_\+\+Lab1\+\_\+13.\+fig = plt.\+figure()}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00056}{56}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_a7705d435ba30b0a43503d7a9778a1ef7}\label{namespaceBDAnA__Lab1__13_a7705d435ba30b0a43503d7a9778a1ef7}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!starts@{starts}}
+\index{starts@{starts}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{starts}{starts}}
+{\footnotesize\ttfamily list BDAn\+A\+\_\+\+Lab1\+\_\+13.\+starts}
+
+{\bfseries Початкові значення}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00001}00001 =  [}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00002}00002     ([0.8, 0.8, 0.8], 10),}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00003}00003     ([0.8, 0.8, -\/0.8], 10),}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00004}00004     ([0.8, -\/0.8, 0.8], 10),}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00005}00005     ([0.8, -\/0.8, -\/0.8], 10),}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00006}00006     ([-\/0.8, 0.8, 0.8], 10),}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00007}00007     ([-\/0.8, 0.8, -\/0.8], 10),}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00008}00008     ([-\/0.8, -\/0.8, 0.8], 10),}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00009}00009     ([-\/0.8, -\/0.8, -\/0.8], 10),}
+\DoxyCodeLine{\Hypertarget{namespaceBDAnA__Lab1__13_l00010}00010 ]}
+
+\end{DoxyCode}
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00012}{12}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_afd236fd850ece9ef65745d5e481c7d68}\label{namespaceBDAnA__Lab1__13_afd236fd850ece9ef65745d5e481c7d68}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!x@{x}}
+\index{x@{x}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily BDAn\+A\+\_\+\+Lab1\+\_\+13.\+x = np.\+linspace(-\/1.\+0, 1.\+0, 5)}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00008}{8}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_a77852aae67153b8bbf23bb8764611ef5}\label{namespaceBDAnA__Lab1__13_a77852aae67153b8bbf23bb8764611ef5}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!y@{y}}
+\index{y@{y}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily BDAn\+A\+\_\+\+Lab1\+\_\+13.\+y = np.\+linspace(-\/1.\+0, 1.\+0, 5)}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00009}{9}}
+
+\mbox{\Hypertarget{namespaceBDAnA__Lab1__13_ae113aa99690aa98225544086a79de5d6}\label{namespaceBDAnA__Lab1__13_ae113aa99690aa98225544086a79de5d6}} 
+\index{BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}!z@{z}}
+\index{z@{z}!BDAnA\_Lab1\_13@{BDAnA\_Lab1\_13}}
+\doxyparagraph{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily BDAn\+A\+\_\+\+Lab1\+\_\+13.\+z = np.\+linspace(-\/1.\+0, 1.\+0, 5)}
+
+
+
+Див. визначення в файлі \mbox{\hyperlink{BDAnA__Lab1__13_8py_source}{BDAn\+A\+\_\+\+Lab1\+\_\+13.\+py}}, рядок \mbox{\hyperlink{BDAnA__Lab1__13_8py_source_l00010}{10}}
+

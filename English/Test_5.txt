@@ -1,0 +1,59 @@
+1. B xxx A
+2. D
+3. A xxx D
+4. B
+5. C
+6. A
+7. C
+8. A
+
+9. as
+10. at xxx by
+11. xxx most
+12. at xxx in
+13. xxx the
+14. some xxx became
+15. until
+16. so
+
+0. meeting
+17. introduction
+18. considered xx considerable
+19. behavior
+20. unable
+21. performance
+22. breathing
+23. situations
+24. successfully
+
+25. only was the food excellent
+26. dispied the fact
+27. is being looked into
+28. waiting for a call
+29. hard work did Pete
+30. had trouble settling
+
+31. D xxx A
+32. B
+33. C
+34. D xxx B
+35. D xxx C
+36. D xxx A
+
+37. G xxx F
+38. B
+39. C xxx G
+40. A
+41. E
+42. F xxx D
+
+43. D
+44. A xxx C
+45. B
+46. A xxx D
+47. A
+48. B xxx A
+49. C
+50. D
+51. B
+52. D

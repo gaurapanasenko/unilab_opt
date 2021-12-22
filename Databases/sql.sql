@@ -1,0 +1,2 @@
+SELECT `name`, `last_name`, `first_name`, `middle_name` FROM `book_author` LEFT JOIN `books` ON `book_id` = `books`.`id` LEFT JOIN `authors` ON `author_id` = `authors`.`id` LEFT JOIN `persons` ON `authors`.`person_id` = `persons`.`id`
+SELECT * FROM `book_author` LEFT JOIN `books` ON `book_id` = `books`.`id` LEFT JOIN `authors` ON `author_id` = `authors`.`id` LEFT JOIN `persons` ON `authors`.`person_id` = `persons`.`id`

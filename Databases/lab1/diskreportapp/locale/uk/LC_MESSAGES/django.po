@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-27 10:44+0200\n"
+"PO-Revision-Date: 2019-11-27 10:52+0200\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: admin.py:61 models.py:39
+msgid "brand"
+msgstr "марка"
+
+#: admin.py:66
+msgid "disk type"
+msgstr "тип диску"
+
+#: admin.py:71 models.py:48
+msgid "capacity"
+msgstr "ємність"
+
+#: admin.py:76 models.py:52
+msgid "size"
+msgstr "розмір"
+
+#: admin.py:81 models.py:56
+msgid "interface type"
+msgstr "тип інтерфейсу"
+
+#: models.py:8
+msgid "name"
+msgstr "ім'я"
+
+#: models.py:17
+msgid "Brand object"
+msgstr "об'єкт Марка"
+
+#: models.py:18
+msgid "brands"
+msgstr "марки"
+
+#: models.py:24
+msgid "SSD"
+msgstr "SSD"
+
+#: models.py:25
+msgid "HDD"
+msgstr "HDD"
+
+#: models.py:29
+msgid "Other"
+msgstr "інше"
+
+#: models.py:30
+msgid "USB"
+msgstr "USB"
+
+#: models.py:31
+msgid "SCSI"
+msgstr "SCSI"
+
+#: models.py:32
+msgid "SAS"
+msgstr "SAS"
+
+#: models.py:33
+msgid "IDE"
+msgstr "IDE"
+
+#: models.py:43
+msgid "type"
+msgstr "тип"
+
+#: models.py:71
+msgid "Drive object"
+msgstr "об'єкт \"Диск\""
+
+#: models.py:72
+msgid "drives"
+msgstr "диски"
+
+#: models.py:79
+msgid "drive"
+msgstr "дикс"
+
+#: models.py:83
+msgid "sale date"
+msgstr "дата продажу"
+
+#: models.py:91
+msgid "Drive sale object"
+msgstr "об'єкт \"Продаж диску\""
+
+#: models.py:92
+msgid "drive sales"
+msgstr "продаж диску"

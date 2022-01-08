@@ -1,0 +1,13 @@
+\selectlanguage *{ukrainian}
+\contentsline {section}{\numberline {1}Постановка задачі}{2}{section.1}%
+\contentsline {section}{\numberline {2}Принцип роботи гідроэлектростанції}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Водна енергія у природі}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Енергія та міць водяного потоку. Гідроенергетичні ресурси}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Принцип роботи гідроелектростанції}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Сучасна ситуація гідроенергетики в Україні}{7}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Побудова математичної моделі гідроэлектростанції}{10}{section.3}%
+\contentsline {section}{\numberline {4}Опис програмного забезпечення}{13}{section.4}%
+\contentsline {section}{\numberline {5}Аналіз отриманих результатів}{15}{section.5}%
+\contentsline {section}{\numberline {6}Висновки}{20}{section.6}%
+\contentsline {section}{\numberline {7}Перелік використаних джерел}{21}{section.7}%
+\contentsline {section}{\numberline {8}Лістинг програми}{21}{section.8}%

@@ -1,0 +1,121 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/usr/bin/env python3}
+
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+\PYG{k+kn}{from} \PYG{n+nn}{datetime} \PYG{k+kn}{import} \PYG{n}{tzinfo}\PYG{p}{,} \PYG{n}{timedelta}\PYG{p}{,} \PYG{n}{date}
+
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{96}
+\PYG{n}{h} \PYG{o}{=} \PYG{l+m+mi}{60}\PYG{o}{*}\PYG{l+m+mi}{60}\PYG{o}{*}\PYG{l+m+mi}{24}\PYG{o}{*}\PYG{l+m+mi}{7}
+\PYG{n}{g} \PYG{o}{=} \PYG{l+m+mf}{9.81}
+\PYG{n}{H} \PYG{o}{=} \PYG{l+m+mi}{50}
+
+\PYG{n}{weeks} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{N}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mi}{793}\PYG{p}{,} \PYG{l+m+mi}{678}\PYG{p}{,} \PYG{l+m+mi}{517}\PYG{p}{,} \PYG{l+m+mi}{947}\PYG{p}{,} \PYG{l+m+mi}{882}\PYG{p}{,} \PYG{l+m+mi}{948}\PYG{p}{,} \PYG{l+m+mi}{877}\PYG{p}{,} \PYG{l+m+mi}{939}\PYG{p}{,} \PYG{l+m+mi}{916}\PYG{p}{,} \PYG{l+m+mi}{965}\PYG{p}{,} \PYG{l+m+mi}{772}\PYG{p}{,} \PYG{l+m+mi}{614}\PYG{p}{,} \PYG{l+m+mi}{652}\PYG{p}{,} \PYG{l+m+mi}{555}\PYG{p}{,} \PYG{l+m+mi}{849}\PYG{p}{,} \PYG{l+m+mi}{866}\PYG{p}{,} \PYG{l+m+mi}{914}\PYG{p}{,} \PYG{l+m+mi}{967}\PYG{p}{,} \PYG{l+m+mi}{758}\PYG{p}{,} \PYG{l+m+mi}{579}\PYG{p}{,} \PYG{l+m+mi}{769}\PYG{p}{,} \PYG{l+m+mi}{606}\PYG{p}{,} \PYG{l+m+mi}{678}\PYG{p}{,} \PYG{l+m+mi}{518}\PYG{p}{,} \PYG{l+m+mi}{946}\PYG{p}{,} \PYG{l+m+mi}{885}\PYG{p}{,} \PYG{l+m+mi}{953}\PYG{p}{,} \PYG{l+m+mi}{853}\PYG{p}{,} \PYG{l+m+mi}{878}\PYG{p}{,} \PYG{l+m+mi}{940}\PYG{p}{,} \PYG{l+m+mi}{910}\PYG{p}{,} \PYG{l+m+mi}{969}\PYG{p}{,} \PYG{l+m+mi}{742}\PYG{p}{,} \PYG{l+m+mi}{547}\PYG{p}{,} \PYG{l+m+mi}{875}\PYG{p}{,} \PYG{l+m+mi}{934}\PYG{p}{,} \PYG{l+m+mi}{929}\PYG{p}{,} \PYG{l+m+mi}{943}\PYG{p}{,} \PYG{l+m+mi}{899}\PYG{p}{,} \PYG{l+m+mi}{967}\PYG{p}{,} \PYG{l+m+mi}{755}\PYG{p}{,} \PYG{l+m+mi}{572}\PYG{p}{,} \PYG{l+m+mi}{793}\PYG{p}{,} \PYG{l+m+mi}{676}\PYG{p}{,} \PYG{l+m+mi}{519}\PYG{p}{,} \PYG{l+m+mi}{943}\PYG{p}{,} \PYG{l+m+mi}{897}\PYG{p}{,} \PYG{l+m+mi}{966}\PYG{p}{,} \PYG{l+m+mi}{763}\PYG{p}{,} \PYG{l+m+mi}{591}\PYG{p}{,} \PYG{l+m+mi}{727}\PYG{p}{,} \PYG{l+m+mi}{524}\PYG{p}{,} \PYG{l+m+mi}{933}\PYG{p}{,} \PYG{l+m+mi}{933}\PYG{p}{,} \PYG{l+m+mi}{935}\PYG{p}{,} \PYG{l+m+mi}{928}\PYG{p}{,} \PYG{l+m+mi}{946}\PYG{p}{,} \PYG{l+m+mi}{885}\PYG{p}{,} \PYG{l+m+mi}{952}\PYG{p}{,} \PYG{l+m+mi}{858}\PYG{p}{,} \PYG{l+m+mi}{891}\PYG{p}{,} \PYG{l+m+mi}{960}\PYG{p}{,} \PYG{l+m+mi}{808}\PYG{p}{,} \PYG{l+m+mi}{727}\PYG{p}{,} \PYG{l+m+mi}{524}\PYG{p}{,} \PYG{l+m+mi}{935}\PYG{p}{,} \PYG{l+m+mi}{929}\PYG{p}{,} \PYG{l+m+mi}{945}\PYG{p}{,} \PYG{l+m+mi}{892}\PYG{p}{,} \PYG{l+m+mi}{962}\PYG{p}{,} \PYG{l+m+mi}{795}\PYG{p}{,} \PYG{l+m+mi}{684}\PYG{p}{,} \PYG{l+m+mi}{513}\PYG{p}{,} \PYG{l+m+mi}{954}\PYG{p}{,} \PYG{l+m+mi}{844}\PYG{p}{,} \PYG{l+m+mi}{849}\PYG{p}{,} \PYG{l+m+mi}{865}\PYG{p}{,} \PYG{l+m+mi}{910}\PYG{p}{,} \PYG{l+m+mi}{969}\PYG{p}{,} \PYG{l+m+mi}{743}\PYG{p}{,} \PYG{l+m+mi}{548}\PYG{p}{,} \PYG{l+m+mi}{872}\PYG{p}{,} \PYG{l+m+mi}{928}\PYG{p}{,} \PYG{l+m+mi}{946}\PYG{p}{,} \PYG{l+m+mi}{887}\PYG{p}{,} \PYG{l+m+mi}{955}\PYG{p}{,} \PYG{l+m+mi}{838}\PYG{p}{,} \PYG{l+m+mi}{830}\PYG{p}{,} \PYG{l+m+mi}{804}\PYG{p}{,} \PYG{l+m+mi}{716}\PYG{p}{,} \PYG{l+m+mi}{513}\PYG{p}{,} \PYG{l+m+mi}{953}\PYG{p}{,} \PYG{l+m+mi}{850}\PYG{p}{,} \PYG{l+m+mi}{867}\PYG{p}{,} \PYG{l+m+mi}{915}\PYG{p}{,} \PYG{l+m+mi}{966}\PYG{p}{])}
+
+\PYG{n}{start\PYGZus{}date} \PYG{o}{=} \PYG{n}{date}\PYG{p}{(}\PYG{l+m+mi}{2019}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{dweek} \PYG{o}{=} \PYG{n}{timedelta}\PYG{p}{(}\PYG{n}{weeks}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{32}\PYG{p}{):}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s2}{ \PYGZam{} }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s2}{ \PYGZam{} }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s2}{ \PYGZam{} }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s2}{ \PYGZam{} }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s2}{ \PYGZam{} }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s2}{ }\PYG{l+s+se}{\PYGZbs{}\PYGZbs{}\PYGZbs{}\PYGZbs{}\PYGZbs{}\PYGZbs{}}\PYG{l+s+s2}{hline\PYGZdq{}}
+        \PYG{o}{\PYGZpc{}} \PYG{p}{((}\PYG{n}{start\PYGZus{}date}\PYG{o}{+}\PYG{n}{dweek}\PYG{o}{*}\PYG{n}{i}\PYG{p}{)}\PYG{o}{.}\PYG{n}{isoformat}\PYG{p}{(),} \PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{p}{(}\PYG{n}{start\PYGZus{}date}\PYG{o}{+}\PYG{n}{dweek}\PYG{o}{*}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{32}\PYG{p}{))}\PYG{o}{.}\PYG{n}{isoformat}\PYG{p}{(),} \PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}
+           \PYG{p}{(}\PYG{n}{start\PYGZus{}date}\PYG{o}{+}\PYG{n}{dweek}\PYG{o}{*}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{64}\PYG{p}{))}\PYG{o}{.}\PYG{n}{isoformat}\PYG{p}{(),} \PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]))}
+
+
+\PYG{n}{volume\PYGZus{}per\PYGZus{}week} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{H}\PYG{p}{:} \PYG{n}{y}\PYG{o}{*}\PYG{n}{h}
+\PYG{n}{volume} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{H}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{add}\PYG{o}{.}\PYG{n}{accumulate}\PYG{p}{(}\PYG{n}{volume\PYGZus{}per\PYGZus{}week}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+
+\PYG{k}{def} \PYG{n+nf}{e}\PYG{p}{(}\PYG{n}{H}\PYG{p}{):}
+    \PYG{n}{e} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n}{h} \PYG{o}{*} \PYG{n}{g} \PYG{o}{*} \PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{*} \PYG{n}{H}
+    \PYG{k}{return} \PYG{n}{e}\PYG{o}{/}\PYG{l+m+mi}{1000}\PYG{o}{/}\PYG{l+m+mi}{3600}
+
+\PYG{k}{def} \PYG{n+nf}{de}\PYG{p}{(}\PYG{n}{H}\PYG{p}{):}
+    \PYG{n}{de} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+    \PYG{n}{de}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{g} \PYG{o}{*} \PYG{n}{y}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{n}{H}
+
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{de}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{g} \PYG{o}{*} \PYG{n}{y}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{*} \PYG{n}{H}
+
+    \PYG{k}{return} \PYG{n}{de}\PYG{o}{/}\PYG{l+m+mi}{1000}\PYG{o}{/}\PYG{l+m+mi}{3600}
+
+\PYG{k}{def} \PYG{n+nf}{dem}\PYG{p}{(}\PYG{n}{H}\PYG{p}{):}
+    \PYG{n}{dev} \PYG{o}{=} \PYG{n}{de}\PYG{p}{(}\PYG{n}{H}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{dev}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{n}{i}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{4}\PYG{p}{])} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{o}{//}\PYG{l+m+mi}{4}\PYG{p}{)])}
+
+\PYG{n}{fig1} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{ax1} \PYG{o}{=} \PYG{n}{fig1}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{p1}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{weeks}\PYG{p}{,} \PYG{n}{volume}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Об}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{єм води витраченої за період 2019\PYGZhy{}2020 роки\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}номер неділі від 2019 року\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZdl{}м\PYGZca{}3\PYGZdl{}\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{fig6} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)}
+\PYG{n}{ax6} \PYG{o}{=} \PYG{n}{fig6}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{p6}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax6}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{weeks}\PYG{p}{,} \PYG{n}{volume\PYGZus{}per\PYGZus{}week}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Сток води\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}номер неділі від 2019 року\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZdl{}м\PYGZca{}3\PYGZdl{}\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{fig2} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{ax2} \PYG{o}{=} \PYG{n}{fig2}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{p2}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax2}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{weeks}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Витрати води\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}номер неділі від 2019 року\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZdl{}м\PYGZca{}3/c\PYGZdl{}\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots\PYGZus{}adjust}\PYG{p}{(}\PYG{n}{bottom}\PYG{o}{=}\PYG{l+m+mf}{0.25}\PYG{p}{)}
+
+\PYG{n}{axfreq} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{axes}\PYG{p}{([}\PYG{l+m+mf}{0.25}\PYG{p}{,} \PYG{l+m+mf}{0.1}\PYG{p}{,} \PYG{l+m+mf}{0.65}\PYG{p}{,} \PYG{l+m+mf}{0.03}\PYG{p}{])}
+\PYG{n}{height\PYGZus{}slider} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{Slider}\PYG{p}{(}
+    \PYG{n}{ax}\PYG{o}{=}\PYG{n}{axfreq}\PYG{p}{,}
+    \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Висота греблі (м)\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{valmin}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,}
+    \PYG{n}{valmax}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,}
+    \PYG{n}{valstep}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,}
+    \PYG{n}{valinit}\PYG{o}{=}\PYG{n}{H}\PYG{p}{,}
+\PYG{p}{)}
+
+\PYG{n}{fig3} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}
+\PYG{n}{ax3} \PYG{o}{=} \PYG{n}{fig3}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{p3}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{weeks}\PYG{p}{,} \PYG{n}{e}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Кількість виробленої энергії від 2019 року\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}номер неділі від 2019 року\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}(кВт/час)\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{fig4} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}
+\PYG{n}{ax4} \PYG{o}{=} \PYG{n}{fig4}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{p4}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{weeks}\PYG{p}{,} \PYG{n}{de}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Кількість виробленої энергії у неділю\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}номер неділі від 2019 року\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}(кВт/час)\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{fig5} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}
+\PYG{n}{ax5} \PYG{o}{=} \PYG{n}{fig5}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{p5}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax5}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{o}{//}\PYG{l+m+mi}{4}\PYG{p}{),} \PYG{n}{dem}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Кількість виробленої энергії у місяць\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}номер місяця від 2019 року\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}(кВт/час)\PYGZsq{}}\PYG{p}{)}
+
+
+\PYG{k}{def} \PYG{n+nf}{update}\PYG{p}{(}\PYG{n}{val}\PYG{p}{):}
+    \PYG{n}{H} \PYG{o}{=} \PYG{n}{height\PYGZus{}slider}\PYG{o}{.}\PYG{n}{val}
+    \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{clear}\PYG{p}{()}
+    \PYG{n}{p1}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{weeks}\PYG{p}{,} \PYG{n}{volume}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+    \PYG{n}{fig1}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{draw\PYGZus{}idle}\PYG{p}{()}
+    \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{clear}\PYG{p}{()}
+    \PYG{n}{p3}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{weeks}\PYG{p}{,} \PYG{n}{e}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+    \PYG{n}{fig3}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{draw\PYGZus{}idle}\PYG{p}{()}
+    \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{clear}\PYG{p}{()}
+    \PYG{n}{p4}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{weeks}\PYG{p}{,} \PYG{n}{de}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+    \PYG{n}{fig4}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{draw\PYGZus{}idle}\PYG{p}{()}
+    \PYG{n}{ax5}\PYG{o}{.}\PYG{n}{clear}\PYG{p}{()}
+    \PYG{n}{p5}\PYG{p}{,} \PYG{o}{=} \PYG{n}{ax5}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{o}{//}\PYG{l+m+mi}{4}\PYG{p}{),} \PYG{n}{dem}\PYG{p}{(}\PYG{n}{H}\PYG{p}{))}
+    \PYG{n}{fig5}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{draw\PYGZus{}idle}\PYG{p}{()}
+
+
+\PYG{n}{height\PYGZus{}slider}\PYG{o}{.}\PYG{n}{on\PYGZus{}changed}\PYG{p}{(}\PYG{n}{update}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+\end{Verbatim}
